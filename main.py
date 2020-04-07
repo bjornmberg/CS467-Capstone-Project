@@ -1,10 +1,12 @@
-from TestRoom import TestRoom
+from Room import Parlor, Library
 
 
-myRoom = TestRoom()
+parlor = Parlor()
+library = Library()
 
-print(myRoom.getDescription())
-myRoom.setVisited()
-print(myRoom.getDescription())
-
-print(myRoom.longDes)
+print(parlor.getDescription())
+print("VISITING THE ROOM")
+parlor.setVisited()
+print(parlor.getDescription())
+print("OVERRIDING VISITED TO GET LONG DESCRIPTION")
+print(parlor.longDes)
