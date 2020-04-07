@@ -1,4 +1,4 @@
-from Room import Parlor, Library, Solarium, GameRoom
+from Room import Parlor, Library, Solarium, GameRoom, DSBathroom, DiningRoom, Foyer, Kitchen
 
 
 parlor = Parlor()

@@ -11,9 +11,6 @@ class Room:
         else:
             return self.shortDes
 
-    def getLongDesc(self):
-        return self.longDes
-
     def setVisited(self):
         if not self.visited:
             self.visited = True
