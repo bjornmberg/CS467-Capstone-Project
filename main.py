@@ -29,9 +29,15 @@ roseGarden = RoseGarden()
 porch = Porch()
 frontLawns = FrontLawns()
 
-print(parlor.getDescription())
-print("VISITING THE ROOM")
-parlor.setVisited()
-print(parlor.getDescription())
-print("OVERRIDING VISITED TO GET LONG DESCRIPTION")
-print(parlor.longDes)
+rooms = [parlor, library, solarium, gameRoom, dsBathroom, diningRoom, foyer, kitchen, linenCloset, redRoom, pinkRoom, secFloorLanding,
+         secFloorBathroom, greenRoom, attic, cellar, servQuarters, servBathroom, crypt, gazebo, roseGarden, porch, frontLawns]
+
+
+for x in rooms:
+    print('Prior to being visited description: {}'.format(x.getDescription()))
+    print("Visiting Room")
+    x.setVisited()
+    print('After being visited description: {}'.format(x.getDescription()))
+    print('Manually getting long description: {}'.format(x.longDes))
+    print('\n')
+
