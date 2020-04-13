@@ -2,7 +2,10 @@ from Room.Room import Room
 
 class Foyer(Room):
 
-    def __init__(self):
-        self.longDes = 'Foyer LONG description'
-        self.shortDes = 'Foyer SHORT description'
-        self.visited = False
+    # Member variables for the child class
+    longDes = 'Foyer LONG description'
+    shortDes = 'Foyer SHORT description'
+
+    # In order to initialize from a file the 'visited' and 'droppedItems' will need to be initialized
+    def __init__(self, visited, droppedItems):
+        super().__init__(self.longDes, self.shortDes, visited, droppedItems)
