@@ -29,7 +29,7 @@ class Room:
     def setVisited(self):
         self.visited = True
 
-
+    # this function will link the rooms together
     def linkRooms(self, north, south, east, west, up, down):
         self.north = north
         self.south = south
