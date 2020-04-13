@@ -1,10 +1,17 @@
 class Room:
 
+    north = None
+    south = None
+    east = None
+    west = None
+    up = None
+    down = None
+
     # Initializer for the Room class
-    def __init__(self, longDes, shortDes, visted, droppedItems):
+    def __init__(self, longDes, shortDes, visited, droppedItems):
         self.longDes = longDes
         self.shortDes = shortDes
-        self.visited = visted
+        self.visited = visited
         self.droppedItems = droppedItems
 
     # This function prints the description of the Room based on whether it has been visited or not
@@ -22,3 +29,11 @@ class Room:
     def setVisited(self):
         self.visited = True
 
+
+    def linkRooms(self, north, south, east, west, up, down):
+        self.north = north
+        self.south = south
+        self.east = east
+        self.west = west
+        self.up = up
+        self.down = down
