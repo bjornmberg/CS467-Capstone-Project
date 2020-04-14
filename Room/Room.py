@@ -6,13 +6,16 @@ class Room:
     west = None
     up = None
     down = None
+    droppedItems = list()
+    linkedRooms = list()
 
     # Initializer for the Room class
-    def __init__(self, longDes, shortDes, visited, droppedItems):
+    def __init__(self, name, longDes, shortDes, visited, roomId):
+        self.name = name
         self.longDes = longDes
         self.shortDes = shortDes
         self.visited = visited
-        self.droppedItems = droppedItems
+        self.roomId = roomId
 
     # This function prints the description of the Room based on whether it has been visited or not
     def getDescription(self):
