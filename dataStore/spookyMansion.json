@@ -1,0 +1,26 @@
+{
+    "name": "Spooky Mansion Mystery",
+    "rooms": [
+        {
+            "name": "Parlor",
+            "longDes": "This is the placeholder long description of the parlor.",
+            "shortDes": "Short parlor descirption",
+            "permItems": ["fireplace", "south window"],
+            "tempItems": ["pocket watch"]
+        },
+        {
+            "name": "Foyer",
+            "longDes": "This is the placeholder long description of the foyer.",
+            "shortDes": "Short foyer descirption",
+            "permItems": ["suit of armor"],
+            "tempItems": []
+        },
+        {
+            "name": "Library",
+            "longDes": "This is the placeholder long description of the library.",
+            "shortDes": "Short library descirption",
+            "permItems": ["bookcases", "south window", "west window"],
+            "tempItems": ["oddly bound book"]
+        }
+    ]
+}
