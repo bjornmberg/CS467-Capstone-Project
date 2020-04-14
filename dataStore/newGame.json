@@ -1,0 +1,203 @@
+{
+  "name": "newGame",
+  "rooms": [
+    {
+      "name": "Parlor",
+      "longDes": "This is the placeholder long description of the parlor.",
+      "shortDes": "Short parlor descirption",
+      "visited": false,
+      "droppedItems": ["test item"],
+      "roomId": 0,
+      "linkedRooms": [6, null, null, 1, null, null]
+    },
+    {
+      "name": "Foyer",
+      "longDes": "This is the placeholder long description of the foyer.",
+      "shortDes": "Short foyer descirption",
+      "visited": false,
+      "droppedItems": [],
+      "roomId": 1,
+      "linkedRooms": [5, 20, 0, 2, 11, null]
+    },
+    {
+      "name": "Library",
+      "longDes": "This is the placeholder long description of the library.",
+      "shortDes": "Short library descirption",
+      "visited": false,
+      "droppedItems": [],
+      "roomId": 2,
+      "linkedRooms": [4, null, 1, null, null, null]
+    },
+    {
+      "name": "Solarium",
+      "longDes": "This is the placeholder long description of the solarium.",
+      "shortDes": "Short solarium descirption",
+      "visited": false,
+      "droppedItems": [],
+      "roomId": 3,
+      "linkedRooms": [null, 4, null, null, null, null]
+    },
+    {
+      "name": "Game Room",
+      "longDes": "This is the placeholder long description of the game room.",
+      "shortDes": "Short game room descirption",
+      "visited": false,
+      "droppedItems": [],
+      "roomId": 4,
+      "linkedRooms": [3, 2, 5, null, null, null]
+    },
+    {
+      "name": "Downstairs Bathroom",
+      "longDes": "This is the placeholder long description of the downstairs bathroom.",
+      "shortDes": "Short downstairs bathroom descirption",
+      "visited": false,
+      "droppedItems": [],
+      "roomId": 5,
+      "linkedRooms": [null, 1, null, 4, null, null]
+    },
+    {
+      "name": "Dining Room",
+      "longDes": "This is the placeholder long description of the dining room.",
+      "shortDes": "Short dining room descirption",
+      "visited": false,
+      "droppedItems": [],
+      "roomId": 6,
+      "linkedRooms": [null, 0, null, 7, null, null]
+    },
+    {
+      "name": "Kitchen",
+      "longDes": "This is the placeholder long description of the kitchen.",
+      "shortDes": "Short kitchen descirption",
+      "visited": false,
+      "droppedItems": [],
+      "roomId": 7,
+      "linkedRooms": [19, null, 6, null, null, 14]
+    },
+    {
+      "name": "Linen Closet",
+      "longDes": "This is the placeholder long description of the linen closet.",
+      "shortDes": "Short linenCloset descirption",
+      "visited": false,
+      "droppedItems": [],
+      "roomId": 8,
+      "linkedRooms": [null, null, null, null, null, null]
+    },
+    {
+      "name": "Red Room",
+      "longDes": "This is the placeholder long description of the Red Room.",
+      "shortDes": "Short Red Room descirption",
+      "visited": false,
+      "droppedItems": [],
+      "roomId": 9,
+      "linkedRooms": [null, null, null, null, null, null]
+    },
+    {
+      "name": "Pink Room",
+      "longDes": "This is the placeholder long description of the pink room.",
+      "shortDes": "Short pink room descirption",
+      "visited": false,
+      "droppedItems": [],
+      "roomId": 10,
+      "linkedRooms": [null, null, null, null, null, null]
+    },
+    {
+      "name": "Landing",
+      "longDes": "This is the placeholder long description of the landing.",
+      "shortDes": "Short Landing descirption",
+      "visited": false,
+      "droppedItems": [],
+      "roomId": 11,
+      "linkedRooms": [null, null, null, null, null, null]
+    },
+    {
+      "name": "Green Room",
+      "longDes": "This is the placeholder long description of the green room.",
+      "shortDes": "Short green room descirption",
+      "visited": false,
+      "droppedItems": [],
+      "roomId": 12,
+      "linkedRooms": [null, null, null, null, null, null]
+    },
+    {
+      "name": "Attic",
+      "longDes": "This is the placeholder long description of the attic.",
+      "shortDes": "Short attic descirption",
+      "visited": false,
+      "droppedItems": [],
+      "roomId": 13,
+      "linkedRooms": [null, null, null, null, null, null]
+    },
+    {
+      "name": "Cellar",
+      "longDes": "This is the placeholder long description of the cellar.",
+      "shortDes": "Short cellar descirption",
+      "visited": false,
+      "droppedItems": [],
+      "roomId": 14,
+      "linkedRooms": [null, null, null, null, null, null]
+    },
+    {
+      "name": "Servant Quarters",
+      "longDes": "This is the placeholder long description of the servant quarters.",
+      "shortDes": "Short servant quarters descirption",
+      "visited": false,
+      "droppedItems": [],
+      "roomId": 15,
+      "linkedRooms": [null, null, null, null, null, null]
+    },
+    {
+      "name": "Servant Bathroom",
+      "longDes": "This is the placeholder long description of the servant bathroom.",
+      "shortDes": "Short servant bathroom descirption",
+      "visited": false,
+      "droppedItems": [],
+      "roomId": 16,
+      "linkedRooms": [null, null, null, null, null, null]
+    },
+    {
+      "name": "Crypt",
+      "longDes": "This is the placeholder long description of the crypt.",
+      "shortDes": "Short crypt descirption",
+      "visited": false,
+      "droppedItems": [],
+      "roomId": 17,
+      "linkedRooms": [null, null, null, null, null, null]
+    },
+    {
+      "name": "Gazebo",
+      "longDes": "This is the placeholder long description of the gazebo.",
+      "shortDes": "Short gazebo descirption",
+      "visited": false,
+      "droppedItems": [],
+      "roomId": 18,
+      "linkedRooms": [null, null, null, 19, null, 17]
+    },
+    {
+      "name": "Rose Garden",
+      "longDes": "This is the placeholder long description of the rose garden.",
+      "shortDes": "Short rose garden descirption",
+      "visited": false,
+      "droppedItems": [],
+      "roomId": 19,
+      "linkedRooms": [null, 7, 18, null, null, null]
+    },
+    {
+      "name": "Porch",
+      "longDes": "This is the placeholder long description of the porch.",
+      "shortDes": "Short porch descirption",
+      "visited": false,
+      "droppedItems": [],
+      "roomId": 20,
+      "linkedRooms": [0, 21, null, null, null, null]
+    },
+    {
+      "name": "Front Lawns",
+      "longDes": "This is the placeholder long description of the front lawns.",
+      "shortDes": "Short front lawns descirption",
+      "visited": false,
+      "droppedItems": [],
+      "roomId": 21,
+      "linkedRooms": [20, null, null, null, null, null]
+    }
+  ]
+}
