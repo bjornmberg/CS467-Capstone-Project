@@ -2,6 +2,8 @@ from Room import Room
 import json
 
 # this is a list that will hold all of the Room objects
+# the index of each item is the roomId that can be seen in the json
+# and the Room class implementation
 roomsList = list()
 
 # open the game file
