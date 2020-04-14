@@ -1,13 +1,13 @@
 class Room:
 
-    north = None
-    south = None
-    east = None
-    west = None
-    up = None
-    down = None
-    droppedItems = list()
-    linkedRooms = list()
+    north = None            # Room to the North
+    south = None            # Room to the South
+    east = None             # Room to the East
+    west = None             # Room to the West
+    up = None               # Room upstairs
+    down = None             # Room downstairs
+    droppedItems = list()   # list of items dropped in this room
+    linkedRooms = list()    # list of the indexes of linkedRooms
 
     # Initializer for the Room class
     def __init__(self, name, longDes, shortDes, visited, roomId):
@@ -32,7 +32,8 @@ class Room:
     def setVisited(self):
         self.visited = True
 
-    # this function will link the rooms together
+    # this function will link the rooms together, it takes room objects in the various
+    # directions and links them
     def linkRooms(self, north, south, east, west, up, down):
         self.north = north
         self.south = south
