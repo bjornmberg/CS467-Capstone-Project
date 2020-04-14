@@ -1,6 +1,10 @@
 from Room import Room
 import json
 
+# NOTE - If you take a look at the JSON file you can see that I have only linked the
+# first floor rooms so far. I am a little confused on how we will link rooms in non-cardinal
+# directions. Let me know what you think about that.
+
 # this is a list that will hold all of the Room objects
 # the index of each item is the roomId that can be seen in the json
 # and the Room class implementation
