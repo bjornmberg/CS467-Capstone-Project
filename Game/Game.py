@@ -90,7 +90,6 @@ class Game:
         roomData = fileData['rooms']
 
         self.initializeRooms(roomData)
-        # self.testHarness(self.roomsList[0])
 
         heroData = fileData['hero']
         hero = Hero(heroData['name'], heroData['location'])
