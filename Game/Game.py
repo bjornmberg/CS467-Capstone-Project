@@ -82,31 +82,6 @@ class Game:
             # call to link the rooms
             y.linkRooms(n, s, e, w, u, d)
 
-    # This function is just a test harness to use w/o having a hero
-    # all this does is walk through the Rooms making sure that the
-    # state is changed when entered
-    def testHarness(self, startingRoom):
-
-        currentRoom = startingRoom
-        i = 0
-
-        while i <= 10:
-            print("Current Room: {}".format(currentRoom.name))
-            print(currentRoom.getDescription())
-            currentRoom.setVisited()
-            if currentRoom.north:
-                currentRoom = currentRoom.north
-            elif currentRoom.east:
-                currentRoom = currentRoom.east
-            elif currentRoom.west:
-                currentRoom = currentRoom.west
-            elif currentRoom.south:
-                currentRoom = currentRoom.south
-            else:
-                break
-            i += 1
-
-
     # This function is the main game driver function
     def playGame(self, inputFile):
 
