@@ -1,6 +1,7 @@
 import json
 import os
 from Room import Room
+from Hero import Hero
 
 class Game:
 
@@ -114,4 +115,55 @@ class Game:
         roomData = fileData['rooms']
 
         self.initializeRooms(roomData)
-        self.testHarness(self.roomsList[0])
+        # self.testHarness(self.roomsList[0])
+
+        heroData = fileData['hero']
+        hero = Hero(heroData['name'], heroData['location'])
+
+        while 1:
+            print('--------------------------------------')
+            currentRoom = self.roomsList[hero.location]
+            print('{}\'s Current Location: {}'.format(hero.name, currentRoom.name))
+            print('Description: {}'.format(currentRoom.getDescription()))
+            print('Linked Room Indices: {}'.format(currentRoom.linkedRooms))
+            direction = input('Enter n, s, e, w, u, d: ')
+
+            if direction == 'n':
+                if currentRoom.north is not None:
+                    hero.location = currentRoom.north.roomId
+                else:
+                    print('No Room in that direction')
+                    continue
+            elif direction == 's':
+                if currentRoom.south is not None:
+                    hero.location = currentRoom.south.roomId
+                else:
+                    print('No Room in that direction')
+                    continue
+            elif direction == 'e':
+                if currentRoom.east is not None:
+                    hero.location = currentRoom.east.roomId
+                else:
+                    print('No Room in that direction')
+                    continue
+            elif direction == 'w':
+                if currentRoom.west is not None:
+                    hero.location = currentRoom.west.roomId
+                else:
+                    print('No Room in that direction')
+                    continue
+            elif direction == 'u':
+                if currentRoom.up is not None:
+                    hero.location = currentRoom.up.roomId
+                else:
+                    print('No Room in that direction')
+                    continue
+            elif direction == 'd':
+                if currentRoom.down is not None:
+                    hero.location = currentRoom.down.roomId
+                else:
+                    print('No Room in that direction')
+                    continue
+
+            currentRoom.setVisited()
+

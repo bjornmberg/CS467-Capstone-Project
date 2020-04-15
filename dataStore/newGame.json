@@ -199,5 +199,9 @@
       "roomId": 21,
       "linkedRooms": [20, null, null, null, null, null]
     }
-  ]
+  ],
+  "hero" : {
+      "name": "Hero's Name",
+      "location": 0
+  }
 }
