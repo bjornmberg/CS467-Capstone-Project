@@ -1,5 +1,4 @@
 import json
-import shutil
 import os
 from Room import Room
 
@@ -7,39 +6,37 @@ class Game:
 
     roomsList = list()
 
-    # FUNCTION COMMENT PLACEHOLDER
+    # This function will display the credits for the Game
+    # Needs formatting
     def displayCredits(self):
-        os.system('cls')
+        # os.system('cls')
         print('THIS IS WHERE THE CREDITS WILL BE!')
-        input('PRESS ANY KEY TO RETURN')
+        input('PRESS ANY KEY AND ENTER TO RETURN')
         return
 
-    # FUNCTION COMMENT PLACEHOLDER
+    # This function displays the menu and asks the user for input
+    # The input (string) is returned to the calling function
+    # Needs formatting
     def displayMenu(self):
-        # Initialize some variables for use in menu display
-        cols, rows = shutil.get_terminal_size()
-        lastLine = rows // 2
-        centerLeftRight = cols // 1
-        centerTopBottom = (lastLine) // 3
-        os.system('cls')
 
-        print('\n' * centerTopBottom)
-        print('The Spook Mansion Mystery'.center(centerLeftRight, ' '))
+        # os.system('cls')
+
+        print('The Spook Mansion Mystery')
         print('\n')
-        print('Do you dare enter the Mansion?'.center(centerLeftRight, ' '))
+        print('Do you dare enter the Mansion?')
         print('\n')
-        print('Please Make a Selection:'.center(centerLeftRight, ' '))
+        print('Please Make a Selection:')
         print('\n')
-        print('\'newgame\' - to start a new game'.center(centerLeftRight, ' '))
-        print('\'loadgame\' - to load a saved game'.center(centerLeftRight, ' '))
-        print('\'credits\' - to view the game credits'.center(centerLeftRight, ' '))
-        print('\'exit\' - to exit the game'.center(centerLeftRight, ' '))
-        print('\n' * lastLine)
+        print('\'newgame\' - to start a new game')
+        print('\'loadgame\' - to load a saved game')
+        print('\'credits\' - to view the game credits')
+        print('\'exit\' - to exit the game')
+
         selection = input("Enter Selection: ")
         # Return the user's selection
         return selection
 
-    # FUNCTION COMMENT PLACEHOLDER
+    # This function handles loop control for the menu and game
     def start(self):
 
         while 1:
@@ -53,7 +50,8 @@ class Game:
             elif selection == 'exit':
                 break
 
-    # FUNCTION COMMENT PLACEHOLDER
+    # This function is used to initialize the Room objects to a state from either
+    # a save file or a start file.
     def initializeRooms(self, data):
 
         # iterate through the roomData and initialize Room objects for each item
@@ -68,6 +66,7 @@ class Game:
             # so the parlor room is at roomsList[0]
             self.roomsList.insert(newRoom.roomId, newRoom)
 
+        # go through the rooms and link them
         for y in self.roomsList:
             # the linkedRooms list of each item will contain the index of the other rooms
             # it is linked to in the following order north, south, east, west, up, down
@@ -82,7 +81,9 @@ class Game:
             # call to link the rooms
             y.linkRooms(n, s, e, w, u, d)
 
-    # FUNCTION COMMENT PLACEHOLDER
+    # This function is just a test harness to use w/o having a hero
+    # all this does is walk through the Rooms making sure that the
+    # state is changed when entered
     def testHarness(self, startingRoom):
 
         currentRoom = startingRoom
@@ -105,7 +106,7 @@ class Game:
             i += 1
 
 
-    # FUNCTION COMMENT PLACEHOLDER
+    # This function is the main game driver function
     def playGame(self, inputFile):
 
         gameFile = open(inputFile, 'r')
