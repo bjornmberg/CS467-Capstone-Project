@@ -22,12 +22,8 @@ class Game:
 
         # os.system('cls')
 
-        print('The Spook Mansion Mystery')
-        print('\n')
-        print('Do you dare enter the Mansion?')
-        print('\n')
+        print('--------- The Spook Mansion Mystery ---------')
         print('Please Make a Selection:')
-        print('\n')
         print('\'newgame\' - to start a new game')
         print('\'loadgame\' - to load a saved game')
         print('\'credits\' - to view the game credits')

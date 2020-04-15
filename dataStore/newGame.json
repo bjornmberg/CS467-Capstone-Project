@@ -201,7 +201,7 @@
     }
   ],
   "hero" : {
-      "name": "Hero's Name",
+      "name": "Hero Name",
       "location": 0
   }
 }
