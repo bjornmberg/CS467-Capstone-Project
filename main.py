@@ -1,4 +1,5 @@
 import menu
+import credits
 
 # Call to menu.display.
 # Intended is to be called from a primary "game" driver
@@ -11,6 +12,7 @@ if choice == 'startgame':
 elif choice == 'loadgame':
     print('You\'ve chosen to load an existing game')
 elif choice == 'credits':
-    print('You\'ve chosen to display the credits')
+    credits.display()
+    choice = menu.display()
 else:
     exit()
