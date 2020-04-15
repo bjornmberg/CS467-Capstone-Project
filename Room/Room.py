@@ -17,6 +17,7 @@ class Room:
         self.visited = visited
         self.roomId = roomId
 
+
     # This function prints the description of the Room based on whether it has been visited or not
     def getDescription(self):
         if not self.visited:
