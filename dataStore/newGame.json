@@ -212,7 +212,7 @@
     }
   ],
   "hero" : {
-      "name": "Hero Name",
+      "name": "Player",
       "location": 0
   }
 }
