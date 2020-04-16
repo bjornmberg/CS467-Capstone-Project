@@ -2,7 +2,6 @@ class Room:
 
     directions = {}
     dropped_items = list()   # list of items dropped in this room
-    linked_rooms = list()    # list of the indexes of linkedRooms
 
     # Initializer for the Room class
     def __init__(self, name, long_des, short_des, visited, room_id):

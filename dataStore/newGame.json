@@ -6,7 +6,7 @@
       "longDes": "This is the placeholder long description of the parlor.",
       "shortDes": "Short parlor descirption",
       "visited": false,
-      "droppedItems": ["test item"],
+      "droppedItems": [],
       "roomId": 0,
       "directions": {"north":  6, "west":  1}
     },
