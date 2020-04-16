@@ -75,7 +75,7 @@ class Game:
         print('-----------------------------------------')
         current_room = self.rooms_list[self.hero.location]
         print('{}\'s Current Location: {}'.format(self.hero.name, current_room.name))
-        print('Description: {}'.format(current_room.get_description()))
+        print('{}'.format(current_room.get_description()))
         print('You can move in the following directions: ')
 
         for key in current_room.directions:
@@ -93,7 +93,7 @@ class Game:
     # This function is the main game driver function
     def play_game(self, inputFile):
 
-        game_file = open(inputFile, 'r')
+        game_file = open(inputFile, 'r', encoding='utf-8')
         file_data = json.loads(game_file.read())
         room_data = file_data['rooms']
 
@@ -103,6 +103,7 @@ class Game:
         # hero = Hero(hero_data['name'], hero_data['location'])
         self.initialize_hero(hero_data['name'], hero_data['location'])
 
+        print('{}'.format(file_data['intro']))
 
         while 1:
             self.move()
