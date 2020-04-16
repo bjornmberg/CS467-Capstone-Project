@@ -8,7 +8,7 @@
       "visited": false,
       "droppedItems": ["test item"],
       "roomId": 0,
-      "linkedRooms": [6, null, null, 1, null, null]
+      "directions": {"north":  6, "west":  1}
     },
     {
       "name": "Foyer",
@@ -17,7 +17,7 @@
       "visited": false,
       "droppedItems": [],
       "roomId": 1,
-      "linkedRooms": [5, 20, 0, 2, 11, null]
+      "directions": {"north":  5, "south": 20, "east": 0, "west": 2, "up": 11}
     },
     {
       "name": "Library",
@@ -26,7 +26,7 @@
       "visited": false,
       "droppedItems": [],
       "roomId": 2,
-      "linkedRooms": [4, null, 1, null, null, null]
+      "directions": {"north": 4, "east": 1}
     },
     {
       "name": "Solarium",
@@ -35,7 +35,7 @@
       "visited": false,
       "droppedItems": [],
       "roomId": 3,
-      "linkedRooms": [null, 4, null, null, null, null]
+      "directions": {"south":  4}
     },
     {
       "name": "Game Room",
@@ -44,7 +44,8 @@
       "visited": false,
       "droppedItems": [],
       "roomId": 4,
-      "linkedRooms": [3, 2, 5, null, null, null]
+      "directions": {"north": 3, "south": 2, "east": 5}
+
     },
     {
       "name": "Downstairs Bathroom",
@@ -53,7 +54,7 @@
       "visited": false,
       "droppedItems": [],
       "roomId": 5,
-      "linkedRooms": [null, 1, null, 4, null, null]
+      "directions": {"south": 1, "west": 4}
     },
     {
       "name": "Dining Room",
@@ -62,7 +63,7 @@
       "visited": false,
       "droppedItems": [],
       "roomId": 6,
-      "linkedRooms": [null, 0, null, 7, null, null]
+      "directions": {"south": 0, "west": 7}
     },
     {
       "name": "Kitchen",
@@ -71,7 +72,7 @@
       "visited": false,
       "droppedItems": [],
       "roomId": 7,
-      "linkedRooms": [19, null, 6, null, null, 14]
+      "directions": {"north": 19, "east": 6, "down": 14}
     },
     {
       "name": "Linen Closet",
@@ -80,7 +81,7 @@
       "visited": false,
       "droppedItems": [],
       "roomId": 8,
-      "linkedRooms": [null, null, null, null, null, null]
+      "directions": {"east": 11}
     },
     {
       "name": "Red Room",
@@ -89,7 +90,7 @@
       "visited": false,
       "droppedItems": [],
       "roomId": 9,
-      "linkedRooms": [null, null, null, null, null, null]
+      "directions": {"east":  11, "northeast":  10}
     },
     {
       "name": "Pink Room",
@@ -98,7 +99,7 @@
       "visited": false,
       "droppedItems": [],
       "roomId": 10,
-      "linkedRooms": [null, null, null, null, null, null]
+      "directions": {"east":  12, "west":  9, "up": 13}
     },
     {
       "name": "Landing",
@@ -107,7 +108,7 @@
       "visited": false,
       "droppedItems": [],
       "roomId": 11,
-      "linkedRooms": [null, null, null, null, null, null]
+      "directions": {"closet door":  8, "bathroom door": 22, "east": 12, "west":  9, "down": 1}
     },
     {
       "name": "Green Room",
@@ -116,7 +117,7 @@
       "visited": false,
       "droppedItems": [],
       "roomId": 12,
-      "linkedRooms": [null, null, null, null, null, null]
+      "directions": {"north west": 10, "west": 11}
     },
     {
       "name": "Attic",
@@ -125,7 +126,7 @@
       "visited": false,
       "droppedItems": [],
       "roomId": 13,
-      "linkedRooms": [null, null, null, null, null, null]
+      "directions": {"down": 10}
     },
     {
       "name": "Cellar",
@@ -134,7 +135,7 @@
       "visited": false,
       "droppedItems": [],
       "roomId": 14,
-      "linkedRooms": [null, null, null, null, null, null]
+      "directions": {"up": 7, "south": 15}
     },
     {
       "name": "Servant Quarters",
@@ -143,7 +144,7 @@
       "visited": false,
       "droppedItems": [],
       "roomId": 15,
-      "linkedRooms": [null, null, null, null, null, null]
+      "directions": {"north": 14, "east": 16}
     },
     {
       "name": "Servant Bathroom",
@@ -152,7 +153,7 @@
       "visited": false,
       "droppedItems": [],
       "roomId": 16,
-      "linkedRooms": [null, null, null, null, null, null]
+      "directions": {"west": 15}
     },
     {
       "name": "Crypt",
@@ -161,7 +162,7 @@
       "visited": false,
       "droppedItems": [],
       "roomId": 17,
-      "linkedRooms": [null, null, null, null, null, null]
+      "directions": {"tunnel": 18}
     },
     {
       "name": "Gazebo",
@@ -170,7 +171,7 @@
       "visited": false,
       "droppedItems": [],
       "roomId": 18,
-      "linkedRooms": [null, null, null, 19, null, 17]
+      "directions": {"west": 19, "down hole":  17}
     },
     {
       "name": "Rose Garden",
@@ -179,7 +180,7 @@
       "visited": false,
       "droppedItems": [],
       "roomId": 19,
-      "linkedRooms": [null, 7, 18, null, null, null]
+      "directions": {"south":  7, "east": 18}
     },
     {
       "name": "Porch",
@@ -188,7 +189,7 @@
       "visited": false,
       "droppedItems": [],
       "roomId": 20,
-      "linkedRooms": [0, 21, null, null, null, null]
+      "directions": {"north":  0, "south": 21}
     },
     {
       "name": "Front Lawns",
@@ -197,7 +198,16 @@
       "visited": false,
       "droppedItems": [],
       "roomId": 21,
-      "linkedRooms": [20, null, null, null, null, null]
+      "directions": {"north": 20}
+    },
+    {
+      "name": "Upstairs Bathroom",
+      "longDes": "This is the placeholder long description of the upstairs bathroom.",
+      "shortDes": "Short upstairs bathroom descirption",
+      "visited": false,
+      "droppedItems": [],
+      "roomId": 22,
+      "directions": {"west": 11}
     }
   ],
   "hero" : {
