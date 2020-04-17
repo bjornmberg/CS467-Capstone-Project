@@ -1,5 +1,6 @@
 import json
 import os
+import platform
 from Room import Room
 from Hero import Hero
 
@@ -35,6 +36,8 @@ class Game:
 
     # This function handles loop control for the menu and game
     def start(self):
+
+        plat = platform.system()
 
         while 1:
             selection =  self.display_menu()
