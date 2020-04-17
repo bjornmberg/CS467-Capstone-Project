@@ -42,13 +42,15 @@ class Game:
         while 1:
             selection =  self.display_menu()
             if selection == 'newgame':
-                self.play_game('datastore\\newGame.json')
-                # Unix-like path format follows:
-                # self.play_game('dataStore/newGame.json')
+                if plat == 'Windows':
+                    self.play_game('datastore\\newGame.json')
+                else:
+                    self.play_game('dataStore/newGame.json')
             elif selection == 'loadgame':
-                self.play_game('datastore\\saveGame.json')
-                # Unix-like path format follows:
-                # self.play_game('dataStore/saveGame.json')
+                if plat == 'Windows':
+                    self.play_game('datastore\\saveGame.json')
+                else:
+                    self.play_game('dataStore/saveGame.json')
             elif selection == 'credits':
                 self.display_credits()
             elif selection == 'exit':
