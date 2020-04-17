@@ -1,6 +1,5 @@
 import os
 import shutil
-import time
 
 # Initialize some variables for use in displaying the credits screen
 cols, rows = shutil.get_terminal_size()
@@ -8,29 +7,43 @@ lastLine = rows//2
 centerLeftRight = cols//1
 centerTopBottom = (lastLine) // 3 
 
+halfWidth = cols // 2
+halfWidthLessBorder = halfWidth - 2
 
+# Function calculates the border buffer on each side for lines with text
+def borderCalculator(strToCalc):
+    # If not even value, division will result in botched borders. Add a space to end of string as workaround
+    if len(strToCalc) % 2 != 0:
+        strToCalc = strToCalc + ' '
+    return (halfWidthLessBorder - len(strToCalc)) // 2, strToCalc
 
 def display():
     selection = -1
     while selection != 'e':
         os.system('clear')
-
         print ('█' * cols)
         print('\n' * centerTopBottom)
-        # 60 is, unfortunately, a "magic number". Then take that width and subtract str length and 2 addl for borders subsequent
-        print(('▒' * 60).center(centerLeftRight))
-        print(('▒' + (' ' * (60 - 2)) + '▒').center(centerLeftRight))
-        # Here 60 - 26 for str len - 2 for borders / 2 = 16 spaces on each side
-        print(('▒' + (' ' * 16) + 'The Spooky Mansion Mystery' + (' ' * 16) + '▒').center(centerLeftRight))
-        print(('▒' + (' ' * 10) + 'a cs467 capstone project - spring 2020' + (' ' * 10) + '▒').center(centerLeftRight))
-        print(('▒' + (' ' * (60 - 2)) + '▒').center(centerLeftRight))
-        print(('▒' + (' ' * 22) + 'developed by: ' + (' ' * 22) + '▒').center(centerLeftRight))
-        print(('▒' + (' ' * (60 - 2)) + '▒').center(centerLeftRight))
-        print(('▒' + (' ' * 22) + 'Steven Blasiol' + (' ' * 22) + '▒').center(centerLeftRight))
-        print(('▒' + (' ' * 22) + 'Kevin Ohrlund ' + (' ' * 22) + '▒').center(centerLeftRight))
-        print(('▒' + (' ' * 24) + 'Bjorn Berg' + (' ' * 24) + '▒').center(centerLeftRight))
-        print(('▒' + (' ' * (60 - 2)) + '▒').center(centerLeftRight))
-        print(('▒' * 60).center(centerLeftRight))
+        # Print a top border to the box
+        print(('▒' * halfWidth).center(centerLeftRight))
+        # Side borders with no center text
+        print(('▒' + (' ' * halfWidthLessBorder) + '▒').center(centerLeftRight))
+        # Set up buffers for borders and the string to print
+        buffer, header = borderCalculator('The Spooky Mansion Mystery')
+        # Print line of text with borders
+        print(('▒' + (' ' * buffer) + header + (' ' * buffer) + '▒').center(centerLeftRight))
+        buffer, subheading = borderCalculator('a cs467 capstone project - spring 2020')
+        print(('▒' + (' ' * buffer) + subheading + (' ' * buffer) + '▒').center(centerLeftRight))
+        print(('▒' + (' ' * halfWidthLessBorder) + '▒').center(centerLeftRight))
+        buffer, sectionHead = borderCalculator('developed by:')
+        print(('▒' + (' ' * buffer) + sectionHead + (' ' * buffer) + '▒').center(centerLeftRight))
+        print(('▒' + (' ' * halfWidthLessBorder) + '▒').center(centerLeftRight))
+        buffer, firstName = borderCalculator('Steven Blasiol')
+        print(('▒' + (' ' * buffer) + firstName + (' ' * buffer) + '▒').center(centerLeftRight))
+        buffer, secondName = borderCalculator('Kevin Ohrlund')
+        print(('▒' + (' ' * buffer) + secondName + (' ' * buffer) + '▒').center(centerLeftRight))
+        buffer, thirdName = borderCalculator('Bjorn Berg')
+        print(('▒' + (' ' * buffer) + thirdName + (' ' * buffer) + '▒').center(centerLeftRight))
+        print(('▒' + (' ' * halfWidthLessBorder) + '▒').center(centerLeftRight))
+        print(('▒' * halfWidth).center(centerLeftRight))
         print('\n' * (lastLine - 2))
         selection = input('press \'e\' to return to main menu  ')
-    
