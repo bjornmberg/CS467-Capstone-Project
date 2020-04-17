@@ -4,215 +4,224 @@
   "rooms": [
     {
       "name": "Parlor",
-      "longDes": "You awaken… your head swims and you hear laughter. As your vision clears, you find yourself sitting in a grand looking parlor. The walls are a rich dark wood. There is a couch opposite and a fireplace crackles along a wall to the east. Through a leaded glass window to the south you can see large trees swaying in the breeze. You are seated in a large leather armchair. You feel very heavy and your head throbs. As you sit for what feels like a long time you regain your senses. You’re about to stand when you hear laughter again. It seems to be moving rapidly in circles above and then behind you.\nSuddenly the fire blows outward and extinguishes with a gust of cold air.  The air above the couch opposite seems to get hazy, a glow green-yellow, and then before you a figure sits. It’s hard to make out his features but he looks like he was once handsome. Now gaunt, he is clothed in a tattered suit and tails. You hear a voice, it seems to fade in and out, coming from within your own head. \n'...sorry about that, I felt you were near and I could not miss this chance.' \n'...too long. I hear them, all the time. My torment must stop.' \n'...took my loves away. He must be stopped.' \n'...you have four days. If you fail...' \n'...you will be here in my stead. Forever.' \nThe figure looks at you for a moment, then seems to fade. When the figure is gone, you notice a small table near the couch, a pocket watch lying on it. To the North a doorway leads to a formal dining room. A door to the West leads to what appears to be a large foyer\n",
+      "longDes": "Parlor Long Description",
       "shortDes": "Short parlor descirption",
       "visited": false,
-      "droppedItems": [],
+      "items":
+      {
+        "testItem0": {"description":  "testItem0 description", "dropped": false},
+        "testItem1": {"description":  "testItem1 description", "dropped":  false}
+      },
       "roomId": 0,
       "directions": {"north":  6, "west":  1}
     },
     {
       "name": "Foyer",
-      "longDes": "You enter the main foyer. You are instantly awestruck and saddened by the beauty that this old mansion used to have. The marble floors are cracked and haven’t been cared for in years. There is an old, rusty suit of armor along the Western wall that is full of cobwebs and in desperate need of restoration.  The armor’s hand is out-stretched and should be holding something, but it’s missing. There is also an old grandfather clock on the Eastern wall that, surprisingly, is still telling time, though you’re not sure of the actual time. There is a small door to the North. There are two larger doors to the East and West that lead to larger adjoining rooms. To the South is the front door to the house. As you finish your survey of this room, you notice a grand, spiral staircase towards the Northern wall. This leads both upstairs and downstairs.\n",
+      "longDes": "Foyer Long Description",
       "shortDes": "Short foyer descirption",
       "visited": false,
-      "droppedItems": [],
+      "items": {},
       "roomId": 1,
       "directions": {"north":  5, "south": 20, "east": 0, "west": 2, "up": 11}
     },
     {
       "name": "Library",
-      "longDes": "You have entered a library. Some chairs and small tables face windows on the South and West walls. Bookcases line the walls. The books appear mostly unremarkable, but there is one that looks odd - it has no markings but appears to be handbound. To the North is a door to a game room. The East door leads back to the foyer",
+      "longDes": "Library Long Description",
       "shortDes": "Short library descirption",
       "visited": false,
-      "droppedItems": [],
+      "items": {},
       "roomId": 2,
       "directions": {"north": 4, "east": 1}
     },
     {
       "name": "Solarium",
-      "longDes": "You have entered the Solarium. The air is warm and amazingly humid, almost to the point of oppressiveness. Plants of all varieties crowd the space. You recognize a few, but most appear exotic and unknown to you. There is an overgrown vine growing against the West wall. The large glass windows look out on the rose garden. The only exit is back to the South.",
+      "longDes": "Solarium Long Description",
       "shortDes": "Short solarium descirption",
       "visited": false,
-      "droppedItems": [],
+      "items": {},
       "roomId": 3,
       "directions": {"south":  4}
     },
     {
       "name": "Game Room",
-      "longDes": "You have entered the Game Room, this looks like fun. In the center of the room is a dusty pool table. To the West is a large picture window. Is that a picture of dogs playing poker on the wall? A fireplace stands on the east wall, and looks as if it hasn’t been used in ages. There is a door with fogged glass to the North; You wonder where it leads. To the South is a door leading back to the library. To the southeast is a blue door that appears to lead to a small bathroom.",
-      "shortDes": "Short game room descirption",
+      "longDes": "Game Room Long Description",
+      "shortDes": "Short game room description",
       "visited": false,
-      "droppedItems": [],
+      "items": {},
       "roomId": 4,
       "directions": {"north": 3, "south": 2, "east": 5}
 
     },
     {
       "name": "Downstairs Bathroom",
-      "longDes": "You have entered the Downstairs Bathroom. There are no windows (this is a bathroom, after all). As you glance around the room, you notice there is a painting of a young girl. The painting seems to be moving. Above the sink, there is a silver mirror that is just starting to tarnish around the edges. This bathroom is strikingly ordinary for this house. To the North is a blue door leading to the game room. To the South is a door leading to the foyer.",
+      "longDes": "Downstairs Bathroom Long Description",
       "shortDes": "Short downstairs bathroom descirption",
       "visited": false,
-      "droppedItems": [],
+      "items": {},
       "roomId": 5,
       "directions": {"south": 1, "west": 4}
     },
     {
       "name": "Dining Room",
-      "longDes": "This is the placeholder long description of the dining room.",
+      "longDes": "Dining Room Long Description",
       "shortDes": "Short dining room descirption",
       "visited": false,
-      "droppedItems": [],
+      "items": {},
       "roomId": 6,
       "directions": {"south": 0, "west": 7}
     },
     {
       "name": "Kitchen",
-      "longDes": "You enter what seems to be a kitchen. You can faintly smell the aroma of freshly-baked bread. There are large doors to the North and East leading to adjoining rooms. Along the North wall, there is a large sink with a window above it. There is also a row of drawers along the Northern wall next to the Range. Just as you finish a quick survey of the room, you notice something (or someone) move in the corner of your eye. It’s rapidly moving towards you!",
+      "longDes": "Kitchen Long Description",
       "shortDes": "Short kitchen descirption",
       "visited": false,
-      "droppedItems": [],
+      "items": {},
       "roomId": 7,
       "directions": {"north": 19, "east": 6, "down": 14}
     },
     {
       "name": "Linen Closet",
-      "longDes": "You enter a small linen closet. It is quite dark, making it difficult for you to see everything in this room. You notice that there is only one door in this room to the East (where you entered). Luckily, you left it open a crack to let some light through.. After fumbling around the dark linen room for a few moments, you find a lumpy sack directly in the center of the room.",
+      "longDes": "Linen Closet Long Description",
       "shortDes": "Short linenCloset descirption",
       "visited": false,
-      "droppedItems": [],
+      "items": {},
       "roomId": 8,
       "directions": {"east": 11}
     },
     {
       "name": "Red Room",
-      "longDes": "You find yourself in what seems to be a little girl’s room. There is a canopied bed along the far wall. There are dolls and toys scattered about the rug. A rocking horse stands near the window to the north. Did it move, or was it your imagination? You see a small table along the near wall upon which are some brushes and a music box. The walls here are deep blood red. To the Northeast is a door to the pink room. Through a door to the Southeast you can see the second floor landing.",
+      "longDes": "Red Room Long Description",
       "shortDes": "Short Red Room descirption",
       "visited": false,
-      "droppedItems": [],
+      "items": {},
       "roomId": 9,
       "directions": {"southeast":  11, "northeast":  10}
     },
     {
       "name": "Pink Room",
-      "longDes": "You are in the pink room. The walls appear faded, almost dusty pink. There is a window to the North through which you can see the rose gardens, a fountain, and the gazebo. The floor is spattered a bit with paint. An easel and small table stand beside the window. There is a loom and some bins filled with cloth along the wall opposite the window. You feel a ringing in your ears as you stand here. A small and steep staircase leads up into the attic. A door to the West leads to the red room. Another door to the East leads to the green room.",
+      "longDes": "Pink Room Long Description",
       "shortDes": "Short pink room descirption",
       "visited": false,
-      "droppedItems": [],
+      "items": {},
       "roomId": 10,
       "directions": {"east":  12, "west":  9, "up": 13}
     },
     {
       "name": "Landing",
-      "longDes": "You are at the top of the grand staircase, at a landing on the second floor. A grand piano stands in front of a large picture window to the South. Through the window you can see the expansive front lawns beyond. To the Northeast is a door to the green room. To the Southeast is a bathroom. There is a door to the Southwest, through which you can see linens. A door to the Northwest leads to the red room.",
+      "longDes": "Landing Long Description",
       "shortDes": "Short Landing descirption",
       "visited": false,
-      "droppedItems": [],
+      "items": {},
       "roomId": 11,
       "directions": {"southwest":  8, "southeast": 22, "northeast": 12, "northwest":  9, "down": 1}
     },
     {
       "name": "Green Room",
-      "longDes": "You find yourself in the master’s bedroom. The walls are a deep green, and there are windows to the North and to the East. As you walk into the room your vision blurs and sound washes over you. You see the Chef, yelling something, waving an axe and chasing a woman and a man about the room. The Chef is swinging an axe. The woman and man are running, screaming. Your head swims, and the scene fades. You hear a crashing sound to the South. As you regain your senses you see a glint of light on the ceiling above the bed. There is a door to the Southwest that leads back to the second floor landing. A door to the Northwest leads to the pink room.",
+      "longDes": "Green Room Long Description",
       "shortDes": "Short green room descirption",
       "visited": false,
-      "droppedItems": [],
+      "items": {},
       "roomId": 12,
       "directions": {"northwest": 10, "southwest": 11}
     },
     {
       "name": "Attic",
-      "longDes": "You are standing in the attic. It is warm up here, and surprisingly bright. There are windows to the North, East, South, and West, overlooking the mansion grounds and woods beyond. A flash of light catches your eye to the North. You see some toys scattered about the floor. The room is not as big as you would have thought. Instead of being perfectly square, a corner of the attic to the southwest seems to be walled off. The only exit is back down the stairs to the pink room on the second floor.",
+      "longDes": "Attic Long Description",
       "shortDes": "Short attic descirption",
       "visited": false,
-      "droppedItems": [],
+      "items": {},
       "roomId": 13,
       "directions": {"down": 10}
     },
     {
       "name": "Cellar",
-      "longDes": "You find yourself in the cellar of the mansion. The air is cool and dry down here. Light filters in through a small window to the West, and to the East, and motes of dust hang in the air. There is a workbench along the West wall, under one of the windows. You see tools scattered upon it. To the East are some shelves, appearing to be filled with jars, cans, and boxes. There is a door to the South leading to what appear to be servant’s quarters. A staircase leads up to the kitchen.",
+      "longDes": "Cellar Long Description",
       "shortDes": "Short cellar descirption",
       "visited": false,
-      "droppedItems": [],
+      "items": {},
       "roomId": 14,
       "directions": {"up": 7, "south": 15}
     },
     {
       "name": "Servant Quarters",
-      "longDes": "You have entered what appears to be the servant’s dwelling. It is rather dark, with light filtering in from the cellar. The furnishings are rather utilitarian. There is a small bed along the far wall, covered in threadbare sheets. There is a small table and chairs in a nearby corner. A stack of books sits on top of the table. To the North is the cellar. To the East is a bathroom door.",
+      "longDes": "Servant Quarters Long Description",
       "shortDes": "Short servant quarters descirption",
       "visited": false,
-      "droppedItems": [],
+      "items": {},
       "roomId": 15,
       "directions": {"north": 14, "east": 16}
     },
     {
       "name": "Servant Bathroom",
-      "longDes": "You are standing in a tiny, spartan bathroom. There isn’t much here besides a toilet, sink, and faded mirror. There is a smell in the air here, not of the bathroom but something else that you can’t quite place. There is a small shelf below the bathroom mirror that holds a few of the servant’s things. To the West is the door back to the servant’s quarters.",
+      "longDes": "Servant Bathroom Long Description",
       "shortDes": "Short servant bathroom descirption",
       "visited": false,
-      "droppedItems": [],
+      "items": {},
       "roomId": 16,
       "directions": {"west": 15}
     },
     {
       "name": "Crypt",
-      "longDes": "You find yourself in a crypt. The light is very faint here - some comes from the rock in your hand. There is some light seeming to come from the walls and floor also though, some dots of phosphorescence in tiny drops of water. The walls appear to be old wood. The air is thick with a stench of decay here. It’s a little hard to breathe. In the center of the room is a large rectangular crate, made of dark wood plans. A chain wraps around it and a heavy padlock lies utop the box. The crate looks a bit like a coffin.",
+      "longDes": "Crypt Long Description",
       "shortDes": "Short crypt descirption",
       "visited": false,
-      "droppedItems": [],
+      "items": {},
       "roomId": 17,
       "directions": {"tunnel": 18}
     },
     {
       "name": "Gazebo",
-      "longDes": "You are in a gazebo on the rear grounds of the mansion. There is a peculiar scent here - the aroma of roses hangs on the breeze here, but there is another smell, earthy and somewhat rotten. The gazebo is a pristine white, but there is a middle section of floor where the finish seems worn. To the West are the rose gardens. To the South is the rear entrance to the mansion.",
+      "longDes": "Gazebo Long Description",
       "shortDes": "Short gazebo descirption",
       "visited": false,
-      "droppedItems": [],
+      "items": {},
       "roomId": 18,
       "directions": {"west": 19, "down hole":  17}
     },
     {
       "name": "Rose Garden",
-      "longDes": "You are in the flower gardens of the mansion grounds. The air seems heavy with the fragrance of roses. At a glance, the roses appear to all be red. A small fountain can be seen near the roses. Some birds are wheeling about in the air above the water. To the East is a gazebo standing over the gardens. To the South is the rear entrance of the mansion.",
+      "longDes": "Rose Garden Long Description",
       "shortDes": "Short rose garden descirption",
       "visited": false,
-      "droppedItems": [],
+      "items": {},
       "roomId": 19,
       "directions": {"south":  7, "east": 18}
     },
     {
       "name": "Porch",
-      "longDes": "You are on the front porch of the mansion. Two imposing gargoyles flank the top of the stairs leading up to the double-doors of the house proper. They appear to be monstrous birds of some sort. The gargoyle on the left appears to be looking at you out of the corner of its eyes. To the North is the main entry to the house. To the South are the front lawns of the mansion grounds.",
+      "longDes": "Porch Long Description",
       "shortDes": "Short porch descirption",
       "visited": false,
-      "droppedItems": [],
+      "items": {},
       "roomId": 20,
       "directions": {"north":  0, "south": 21}
     },
     {
       "name": "Front Lawns",
-      "longDes": "You are on the front lawns of the mansion. There is a large expanse of greenery before you. There are flower gardens near the front of the house, full of vibrant purple flowers. The borders of the flower gardens are of curious-looking stone. There are two rows of tall trees here. Under one tree you think that you can see a glow. To the North is the front porch of the house. To the South are the locked gates of the grounds.",
+      "longDes": "Front Lawns Long Description",
       "shortDes": "Short front lawns descirption",
       "visited": false,
-      "droppedItems": [],
+      "items": {},
       "roomId": 21,
       "directions": {"north": 20}
     },
     {
       "name": "Upstairs Bathroom",
-      "longDes": "You are standing in a bathroom. White and black tile shines around you, and a clawfoot tub stands against the wall opposite the door.",
+      "longDes": "Upstairs Bathroom Long Description.",
       "shortDes": "Short upstairs bathroom descirption",
       "visited": false,
-      "droppedItems": [],
+      "items": {},
       "roomId": 22,
       "directions": {"west": 11}
     }
   ],
-  "hero" : {
+  "hero":
+  {
       "name": "Player",
       "location": 0
+  },
+  "inventory": {
+      "usedSlots": 0,
+      "items": {}
   }
 }
