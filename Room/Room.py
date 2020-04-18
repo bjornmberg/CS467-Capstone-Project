@@ -22,6 +22,10 @@ class Room:
         else:
             print('DESCRIPTION: {}'.format(self.short_des))
 
+        print('YOU CAN \'move\': ')
+        for key in self.directions:
+            print(key)
+
         if self.items:
             print('Items that can be taken: ')
             for key, value in self.items.items():

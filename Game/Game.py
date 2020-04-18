@@ -91,8 +91,11 @@ class Game:
     def take(self, item):
 
         current_room = self.rooms_list[self.hero.location]
-        self.inventory.add_item(item ,current_room.items[item])
-        del current_room.items[item]
+        if item in current_room.items:
+            self.inventory.add_item(item ,current_room.items[item])
+            del current_room.items[item]
+        else:
+            print('That is not an item you can take.')
 
 
     # FUNCTION COMMENT PLACEHOLDER
