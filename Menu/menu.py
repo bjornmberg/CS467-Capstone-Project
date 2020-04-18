@@ -20,7 +20,7 @@ def borderCalculator(strToCalc):
 def display():
     # Set up and enter primary menu loop
     selection = -1
-    while selection != 'startgame' and selection != 'loadgame' and selection != 'credits' and selection != 'exit':
+    while selection != 'newgame' and selection != 'loadgame' and selection != 'credits' and selection != 'exit':
         os.system('clear')
 
         print('\n' * centerTopBottom)
@@ -38,8 +38,8 @@ def display():
         buffer, instruction = borderCalculator('Please Make a Selection:')
         print(('▒' + (' ' * buffer) + instruction + (' ' * buffer) + '▒').center(centerLeftRight))
         print(('▒' + (' ' * halfWidthLessBorder) + '▒').center(centerLeftRight))
-        buffer, start = borderCalculator('\'startgame\' - to start a new game')
-        print(('▒' + (' ' * buffer) + start + (' ' * buffer) + '▒').center(centerLeftRight))
+        buffer, new = borderCalculator('\'newgame\' - to start a new game')
+        print(('▒' + (' ' * buffer) + new + (' ' * buffer) + '▒').center(centerLeftRight))
         buffer, load = borderCalculator('\'loadgame\' - to load a saved game')
         print(('▒' + (' ' * buffer) + load + (' ' * buffer) + '▒').center(centerLeftRight))
         buffer, creds = borderCalculator('\'credits\' - to view the game credits')

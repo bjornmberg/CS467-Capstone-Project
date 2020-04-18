@@ -1,22 +1,16 @@
 import json
 import platform
-from Room import Room
+from Credits import credits
 from Hero import Hero
 from Inventory import Inventory
+from Menu import menu
+from Room import Room
 
 class Game:
 
     rooms_list = list()
     inventory = Inventory()
     hero = Hero()
-
-    # This function will display the credits for the Game
-    # Needs formatting
-    def display_credits(self):
-
-        print('THIS IS WHERE THE CREDITS WILL BE!')
-        input('PRESS ANY KEY AND ENTER TO RETURN')
-        return
 
     # This function displays the menu and asks the user for input
     # The input (string) is returned to the calling function
@@ -40,8 +34,9 @@ class Game:
         plat = platform.system()
 
         while 1:
-            selection =  self.display_menu()
+            selection =  menu.display()
             if selection == 'newgame':
+                print('in newgame part of Game.py')
                 if plat == 'Windows':
                     # self.play_game('datastore\\newGame.json')
                     self.play_game('dataStore\\newGame\\load_file.json', 'dataStore\\newGame\\RoomState\\')
@@ -53,7 +48,7 @@ class Game:
                 else:
                     self.play_game('dataStore/saveGame/load_file.json', 'dataStore/newGame/RoomState/')
             elif selection == 'credits':
-                self.display_credits()
+                credits.display()
             elif selection == 'exit':
                 break
 
