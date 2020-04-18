@@ -30,7 +30,7 @@ def display():
         print(('▒' + (' ' * halfWidthLessBorder) + '▒').center(centerLeftRight))
         buffer, header = borderCalculator('The Spooky Mansion Mystery')
         # Print line of text with borders
-        print(('▒' + (' ' * buffer) + header + (' ' * buffer) + '▒').center(centerLeftRight))
+        print(('▒' + (' ' * buffer) + '\033[1;31;40m' + header + (' ' * buffer) + '\033[0m' +  '▒').center(centerLeftRight + 13))
         print(('▒' + (' ' * halfWidthLessBorder) + '▒').center(centerLeftRight))
         buffer, subheading = borderCalculator('Do you dare enter the mansion?')
         print(('▒' + (' ' * buffer) + subheading + (' ' * buffer) + '▒').center(centerLeftRight))
