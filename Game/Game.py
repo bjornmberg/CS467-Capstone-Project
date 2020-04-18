@@ -1,4 +1,5 @@
 import json
+import os
 import platform
 from Credits import credits
 from Hero import Hero
@@ -102,11 +103,15 @@ class Game:
 
 
     # FUNCTION COMMENT PLACEHOLDER
-    def get_command(self):
+    def get_command(self, renderCounter):
+        # If the three rooms have been rendered, clear the screen
+        if renderCounter == 3:
+            os.system('clear')
+            renderCounter = 0
 
         current_room = self.rooms_list[self.hero.location]
         current_room.get_description()
-        command = input('> ').split(' ')
+        command = input('            > ').split(' ')
 
         if command[0] == 'move':
             self.move(command[1])
@@ -133,7 +138,12 @@ class Game:
         self.initialize_hero(hero_data)
         self.initialize_inventory(inventory_data)
 
-        print('{}'.format(file_data['intro']))
+        # print('{}'.format(file_data['intro']))
+
+        renderCounter = -1
 
         while 1:
-            self.get_command()
+            renderCounter += 1
+            if renderCounter == 4:
+                renderCounter = 1
+            self.get_command(renderCounter)
