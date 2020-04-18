@@ -1,8 +1,8 @@
 
 class Room:
 
-    directions = {}
-    items = dict()     # list of items a room starts with
+    directions = dict()
+    items = dict()     # dictionary of items a room starts with
 
     # Initializer for the Room class
     def __init__(self, name, long_des, short_des, visited, room_id):
@@ -27,12 +27,12 @@ class Room:
             print(key)
 
         if self.items:
-            print('Items that can be taken: ')
+            print('ITEMS IN THIS ROOM: ')
             for key, value in self.items.items():
                 if value['dropped'] == False:
-                    print('Initialized Here: {}'.format(key))
+                    print('INITIALIZED HERE: {}'.format(key))
                 elif value['dropped'] == True:
-                    print('Dropped Here: {}'.format(key))
+                    print('DROPPED HERE: {}'.format(key))
 
 
 
