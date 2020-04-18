@@ -12,22 +12,6 @@ class Game:
     inventory = Inventory()
     hero = Hero()
 
-    # This function displays the menu and asks the user for input
-    # The input (string) is returned to the calling function
-    # Needs formatting
-    def display_menu(self):
-
-        print('--------- The Spook Mansion Mystery ---------')
-        print('Please Make a Selection:')
-        print('\'newgame\' - to start a new game')
-        print('\'loadgame\' - to load a saved game')
-        print('\'credits\' - to view the game credits')
-        print('\'exit\' - to exit the game')
-
-        selection = input("Enter Selection: ")
-        # Return the user's selection
-        return selection
-
     # This function handles loop control for the menu and game
     def start(self):
 
@@ -36,7 +20,6 @@ class Game:
         while 1:
             selection =  menu.display()
             if selection == 'newgame':
-                print('in newgame part of Game.py')
                 if plat == 'Windows':
                     # self.play_game('datastore\\newGame.json')
                     self.play_game('dataStore\\newGame\\load_file.json', 'dataStore\\newGame\\RoomState\\')
@@ -148,5 +131,3 @@ class Game:
 
         while 1:
             self.get_command()
-
-
