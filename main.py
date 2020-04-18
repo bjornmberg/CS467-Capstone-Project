@@ -1,16 +1,19 @@
-import menu
 import credits
+import loadGame
+import menu
+import newGame
+import sys
 
-# Call to menu.display.
+# Call to menu.display
 # Intended is to be called from a primary "game" driver
 choice = menu.display()
 
 # User option selection handling.
-# Itended to be handled by various function calls from appropriate separate source files
+# Intended to be handled by various function calls from appropriate separate source files
 if choice == 'startgame':
-    print('You\'ve chosen to start the game')
+    newGame.begin()
 elif choice == 'loadgame':
-    print('You\'ve chosen to load an existing game')
+    loadGame.begin()
 elif choice == 'credits':
     credits.display()
     choice = menu.display()
