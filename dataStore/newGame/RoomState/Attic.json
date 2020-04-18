@@ -1,0 +1,9 @@
+{
+  "name": "Attic",
+  "longDes": "Attic Long Description",
+  "shortDes": "Short attic descirption",
+  "visited": false,
+  "items": {},
+  "roomId": 13,
+  "directions": {"down": 10}
+}

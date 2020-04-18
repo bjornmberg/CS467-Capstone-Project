@@ -1,0 +1,9 @@
+{
+  "name": "Landing",
+  "longDes": "Landing Long Description",
+  "shortDes": "Short Landing descirption",
+  "visited": false,
+  "items": {},
+  "roomId": 11,
+  "directions": {"southwest":  8, "southeast": 22, "northeast": 12, "northwest":  9, "down": 1}
+}

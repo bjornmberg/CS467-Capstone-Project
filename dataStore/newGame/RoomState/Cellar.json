@@ -1,0 +1,9 @@
+{
+  "name": "Cellar",
+  "longDes": "Cellar Long Description",
+  "shortDes": "Short cellar descirption",
+  "visited": false,
+  "items": {},
+  "roomId": 14,
+  "directions": {"up": 7, "south": 15}
+}

@@ -1,0 +1,9 @@
+{
+  "name": "Game Room",
+  "longDes": "Game Room Long Description",
+  "shortDes": "Short game room description",
+  "visited": false,
+  "items": {},
+  "roomId": 4,
+  "directions": {"north": 3, "south": 2, "east": 5}
+}

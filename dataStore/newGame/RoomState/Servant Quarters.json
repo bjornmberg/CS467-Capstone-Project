@@ -1,0 +1,9 @@
+{
+  "name": "Servant Quarters",
+  "longDes": "Servant Quarters Long Description",
+  "shortDes": "Short servant quarters descirption",
+  "visited": false,
+  "items": {},
+  "roomId": 15,
+  "directions": {"north": 14, "east": 16}
+}

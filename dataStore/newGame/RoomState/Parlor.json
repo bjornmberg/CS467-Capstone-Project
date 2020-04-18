@@ -1,0 +1,13 @@
+{
+  "name": "Parlor",
+  "longDes": "Parlor Long Description",
+  "shortDes": "Short parlor descirption",
+  "visited": false,
+  "items":
+  {
+    "testItem0": {"description":  "testItem0 description", "dropped": false},
+    "testItem1": {"description":  "testItem1 description", "dropped":  false}
+  },
+  "roomId": 0,
+  "directions": {"north":  6, "west":  1}
+}

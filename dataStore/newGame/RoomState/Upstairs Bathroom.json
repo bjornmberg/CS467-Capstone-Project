@@ -1,0 +1,9 @@
+{
+  "name": "Upstairs Bathroom",
+  "longDes": "Upstairs Bathroom Long Description.",
+  "shortDes": "Short upstairs bathroom descirption",
+  "visited": false,
+  "items": {},
+  "roomId": 22,
+  "directions": {"west": 11}
+}

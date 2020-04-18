@@ -1,0 +1,9 @@
+{
+  "name": "Crypt",
+  "longDes": "Crypt Long Description",
+  "shortDes": "Short crypt descirption",
+  "visited": false,
+  "items": {},
+  "roomId": 17,
+  "directions": {"tunnel": 18}
+}

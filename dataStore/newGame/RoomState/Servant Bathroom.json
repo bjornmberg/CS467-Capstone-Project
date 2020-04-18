@@ -1,0 +1,9 @@
+{
+  "name": "Servant Bathroom",
+  "longDes": "Servant Bathroom Long Description",
+  "shortDes": "Short servant bathroom descirption",
+  "visited": false,
+  "items": {},
+  "roomId": 16,
+  "directions": {"west": 15}
+}

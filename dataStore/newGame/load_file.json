@@ -1,0 +1,38 @@
+{
+  "name": "newGame",
+  "intro": "!!! WE CAN PUT AN INTRO HERE !!!",
+  "rooms": [
+      "Parlor.json",
+      "Foyer.json",
+      "Library.json",
+      "Solarium.json",
+      "Game Room.json",
+      "Downstairs Bathroom.json",
+      "Dining Room.json",
+      "Kitchen.json",
+      "Linen Closet.json",
+      "Red Room.json",
+      "Pink Room.json",
+      "Landing.json",
+      "Green Room.json",
+      "Attic.json",
+      "Cellar.json",
+      "Servant Quarters.json",
+      "Servant Bathroom.json",
+      "Crypt.json",
+      "Gazebo.json",
+      "Rose Garden.json",
+      "Porch.json",
+      "Front Lawns.json",
+      "Upstairs Bathroom.json"
+  ],
+  "hero":
+  {
+      "name": "Player",
+      "location": 0
+  },
+  "inventory": {
+      "usedSlots": 0,
+      "items": {}
+  }
+}

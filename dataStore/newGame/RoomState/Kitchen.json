@@ -1,0 +1,9 @@
+{
+  "name": "Kitchen",
+  "longDes": "Kitchen Long Description",
+  "shortDes": "Short kitchen descirption",
+  "visited": false,
+  "items": {},
+  "roomId": 7,
+  "directions": {"north": 19, "east": 6, "down": 14}
+}

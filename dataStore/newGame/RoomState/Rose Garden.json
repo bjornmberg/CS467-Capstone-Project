@@ -1,0 +1,9 @@
+{
+  "name": "Rose Garden",
+  "longDes": "Rose Garden Long Description",
+  "shortDes": "Short rose garden descirption",
+  "visited": false,
+  "items": {},
+  "roomId": 19,
+  "directions": {"south":  7, "east": 18}
+}

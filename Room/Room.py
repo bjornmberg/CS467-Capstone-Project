@@ -35,13 +35,3 @@ class Room:
     # This function will need to be toggled when a player enters the Room (after calling the getDescription function)
     def set_visited(self):
         self.visited = True
-
-
-      # if current_room.items:
-      #       print('You can take these INITIAL items:')
-      #       print(current_room.items)
-      #
-      #   print('You can move in the following directions: ')
-      #
-      #   for room_key in current_room.directions:
-      #       print(room_key)

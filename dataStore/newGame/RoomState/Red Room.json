@@ -1,0 +1,9 @@
+{
+  "name": "Red Room",
+  "longDes": "Red Room Long Description",
+  "shortDes": "Short Red Room descirption",
+  "visited": false,
+  "items": {},
+  "roomId": 9,
+  "directions": {"southeast":  11, "northeast":  10}
+}

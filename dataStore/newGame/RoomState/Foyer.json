@@ -1,0 +1,9 @@
+{
+      "name": "Foyer",
+      "longDes": "Foyer Long Description",
+      "shortDes": "Short foyer descirption",
+      "visited": false,
+      "items": {},
+      "roomId": 1,
+      "directions": {"north":  5, "south": 20, "east": 0, "west": 2, "up": 11}
+}

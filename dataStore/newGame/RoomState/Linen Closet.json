@@ -1,0 +1,9 @@
+{
+  "name": "Linen Closet",
+  "longDes": "Linen Closet Long Description",
+  "shortDes": "Short linenCloset descirption",
+  "visited": false,
+  "items": {},
+  "roomId": 8,
+  "directions": {"east": 11}
+}

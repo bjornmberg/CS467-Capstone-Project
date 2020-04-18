@@ -1,0 +1,9 @@
+{
+  "name": "Green Room",
+  "longDes": "Green Room Long Description",
+  "shortDes": "Short green room descirption",
+  "visited": false,
+  "items": {},
+  "roomId": 12,
+  "directions": {"northwest": 10, "southwest": 11}
+}

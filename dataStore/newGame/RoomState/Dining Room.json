@@ -1,0 +1,9 @@
+{
+  "name": "Dining Room",
+  "longDes": "Dining Room Long Description",
+  "shortDes": "Short dining room descirption",
+  "visited": false,
+  "items": {},
+  "roomId": 6,
+  "directions": {"south": 0, "west": 7}
+}

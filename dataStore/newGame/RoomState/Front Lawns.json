@@ -1,0 +1,9 @@
+{
+  "name": "Front Lawns",
+  "longDes": "Front Lawns Long Description",
+  "shortDes": "Short front lawns descirption",
+  "visited": false,
+  "items": {},
+  "roomId": 21,
+  "directions": {"north": 20}
+}
