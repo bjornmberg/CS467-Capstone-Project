@@ -1,21 +1,8 @@
-import credits
-import loadGame
-import menu
-import newGame
-import sys
+from Game import Game
 
-# Call to menu.display
-# Intended is to be called from a primary "game" driver
-choice = menu.display()
+def main():
+    game = Game()
+    game.start()
 
-# User option selection handling.
-# Intended to be handled by various function calls from appropriate separate source files
-if choice == 'startgame':
-    newGame.begin()
-elif choice == 'loadgame':
-    loadGame.begin()
-elif choice == 'credits':
-    credits.display()
-    choice = menu.display()
-else:
-    exit()
+if __name__ == '__main__':
+    main()
