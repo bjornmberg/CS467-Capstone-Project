@@ -2,6 +2,7 @@ import json
 import platform
 from Credits import credits
 from Hero import Hero
+from Intro import intro
 from Inventory import Inventory
 from Menu import menu
 from Room import Room
@@ -14,7 +15,7 @@ class Game:
 
     # This function handles loop control for the menu and game
     def start(self):
-
+        # Determine the system type running the game
         plat = platform.system()
 
         while 1:
@@ -22,8 +23,10 @@ class Game:
             if selection == 'newgame':
                 if plat == 'Windows':
                     # self.play_game('datastore\\newGame.json')
+                    intro.display()
                     self.play_game('dataStore\\newGame\\load_file.json', 'dataStore\\newGame\\RoomState\\')
                 else:
+                    intro.display()
                     self.play_game('dataStore/newGame/load_file.json', 'dataStore/newGame/RoomState/')
             elif selection == 'loadgame':
                 if plat == 'Windows':
