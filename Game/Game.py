@@ -7,6 +7,7 @@ from Inventory import Inventory
 from Menu import menu
 from Room import Room
 
+
 class Game:
 
     rooms_list = list()
@@ -76,7 +77,6 @@ class Game:
     # Parameters:
     # direction - a string representing the direction to move
     def move(self, direction):
-
         # set the current room to where the hero is located
         current_room = self.rooms_list[self.hero.location]
 
@@ -106,7 +106,7 @@ class Game:
 
         current_room = self.rooms_list[self.hero.location]
         current_room.get_description()
-        command = input('> ').split(' ')
+        command = self.parseArgs()
 
         if command[0] == 'move':
             self.move(command[1])
@@ -137,3 +137,75 @@ class Game:
 
         while 1:
             self.get_command()
+
+    # Parse the arguments
+    def parseArgs(self):
+        # Dictionaries for each of the possible directions and rooms to move to.
+        moveWords = ["go", "walk", "move", "jaunt", "run", "step", "stroll", "march", "travel", "proceed",
+                     "sprint", "jog"]
+
+        moveDirections = ["north", "south", "east", "west", "up", "down"]
+
+        moveRooms = ["solarium", "game room", "kitchen", "dining room", "bathroom", "library",
+                     "foyer", "parlor", "porch", "cellar", "servant's quarters", "crypt",
+                     "servant's bathroom", "dark tunnel", "red room", "child's room", "pink room",
+                     "art studio", "green room", "master's quarters", "landing", "linen closet",
+                     "upstairs", "downstairs", "attic", "hidden room", "gardens", "gazebo"]
+
+        twoWordRooms = ["game", "room", "dining", "servant's", "quarters", "bathroom", "dark",
+                        "tunnel", "red", "green", "master's", "linen", "closet", "hidden"]
+
+        testWords = ["take", "inventory", "drop"]
+
+        # Get user input.
+        userIn = input('> ')
+
+        # Make the argument lowercase
+        parsedArgs = userIn.lower()
+
+        # Split the arguments into a separate list
+        splitArgs = parsedArgs.split()
+        command = []
+
+        # Pick out only the valid words
+        for i in splitArgs:
+            if i in moveDirections or i in moveRooms or i in twoWordRooms or i in moveWords or i in testWords:
+                command.append(i)
+
+        # Append bad commands for passing the function calls in getCommand().
+        if len(command) == 0:
+            print("Error. Invalid command passed.")
+
+        elif command[0] in moveWords:
+            command[0] = "move"
+            if len(command) <= 1:
+                print("Error. No room name provided.")
+            else:
+                # Check to see if it's a one-word named room
+                if command[1] in moveRooms:
+                    print("TODO: Argument is in moveRooms. Need to parse direction from game class")
+                    # move(command[1])
+                # Check to see if it's a cardinal direction
+                elif command[1] in moveDirections:
+                    # move(command[1])
+                    print("Command is a valid cardinal direction in language parser.")
+                # Check to see if it's a two-word room
+                # and both are in the two-word room dictionary
+                elif len(command) == 3 and command[1] in twoWordRooms and command[2] in twoWordRooms:
+                    twoWords = command[1] + ' ' + command[2]
+                    if twoWords in moveRooms:
+                        print("TODO: Argument is in moveRooms. Need to parse direction from game class")
+                        # move(twoWords)
+                    else:
+                        print("Invalid room name or direction given.")
+                # Display error if a bad room name/direction were given.
+                else:
+                    print("Invalid room name or direction given.")
+        elif command[0] not in testWords:
+            print("Invalid command \'" + splitArgs[0] + "\' passed.")
+
+        # Append bad commands to not crash the game in the function calls above.
+        while len(command) < 2:
+            command.append("badCommand")
+
+        return command
