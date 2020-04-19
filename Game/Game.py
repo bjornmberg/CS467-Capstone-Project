@@ -172,14 +172,17 @@ class Game:
             if i in moveDirections or i in moveRooms or i in twoWordRooms or i in moveWords or i in testWords:
                 command.append(i)
 
-        # Append bad commands for passing the function calls in getCommand().
+        # Print an error if no words were valid.
         if len(command) == 0:
             print("Error. Invalid command passed.")
 
+        # Set the command to 'move' if it's in movewords.
         elif command[0] in moveWords:
             command[0] = "move"
+
+            # Print an error if no room was provided.
             if len(command) <= 1:
-                print("Error. No room name provided.")
+                print("Error. Invalid room name or direction given.")
             else:
                 # Check to see if it's a one-word named room
                 if command[1] in moveRooms:
@@ -188,7 +191,8 @@ class Game:
                 # Check to see if it's a cardinal direction
                 elif command[1] in moveDirections:
                     # move(command[1])
-                    print("Command is a valid cardinal direction in language parser.")
+                    print("moving " + command[1] + " ...")
+
                 # Check to see if it's a two-word room
                 # and both are in the two-word room dictionary
                 elif len(command) == 3 and command[1] in twoWordRooms and command[2] in twoWordRooms:
