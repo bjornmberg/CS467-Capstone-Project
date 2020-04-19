@@ -7,6 +7,7 @@ from Inventory import Inventory
 from Menu import menu
 from Room import Room
 
+
 class Game:
 
     rooms_list = list()
@@ -76,7 +77,6 @@ class Game:
     # Parameters:
     # direction - a string representing the direction to move
     def move(self, direction):
-
         # set the current room to where the hero is located
         current_room = self.rooms_list[self.hero.location]
 
@@ -86,9 +86,6 @@ class Game:
             self.hero.location = current_room.directions[direction]
             # set the room being left to visited
             current_room.set_visited()
-        # if the hero cannot move in that direction print and return
-        else:
-            print('You cannot move in that direction.')
 
     # FUNCTION COMMENT PLACEHOLDER
     def take(self, item):
@@ -106,7 +103,7 @@ class Game:
 
         current_room = self.rooms_list[self.hero.location]
         current_room.get_description()
-        command = input('> ').split(' ')
+        command = self.parseArgs()
 
         if command[0] == 'move':
             self.move(command[1])
@@ -135,3 +132,105 @@ class Game:
 
         while 1:
             self.get_command()
+
+    # Parses the arguments passed
+    def parseArgs(self):
+        # Dictionaries for each of the possible directions and rooms to move to.
+        moveWords = ["go", "walk", "move", "jaunt", "run", "step", "stroll", "march", "travel", "proceed",
+                     "sprint", "jog"]
+
+        moveDirections = ["north", "south", "east", "west", "up", "down", "southwest", "southeast",
+                          "northwest", "northeast", "down hole"]
+
+        moveRooms = ["solarium", "game room", "kitchen", "dining room", "bathroom", "library",
+                     "foyer", "parlor", "porch", "cellar", "servant quarters", "crypt",
+                     "servant's bathroom", "dark tunnel", "red room", "child's room", "pink room",
+                     "art studio", "green room", "master's quarters", "landing", "linen closet",
+                     "upstairs", "downstairs", "attic", "hidden room", "gardens", "gazebo",
+                     "rose garden", "downstairs bathroom", "landing", "front lawns",
+                     "upstairs bathroom"]
+
+        twoWordRooms = ["game", "room", "dining", "servant", "quarters", "bathroom", "dark",
+                        "tunnel", "red", "green", "master's", "linen", "closet", "hidden", "rose",
+                        "garden", "down", "hole", "downstairs", "bathroom", "front", "lawns",
+                        "upstairs", "pink"]
+
+        # Future function calls.
+        testWords = ["take", "inventory", "drop"]
+
+        # Get user input. Make it lowercase and split it.
+        splitArgs = input('> ').lower().split()
+
+        command = [] # holds the parsed commands
+        dir_name = [] # holds valid directions and the corresponding room names
+
+        # Pick out only the valid words
+        for i in splitArgs:
+            if i in moveDirections or i in moveRooms or i in twoWordRooms or i in moveWords or i in testWords:
+                command.append(i)
+
+        # Print an error if no words were valid.
+        if len(command) == 0:
+            print("Error. Invalid command passed.")
+
+        # Set the command to 'move' if it's in movewords.
+        elif command[0] in moveWords:
+            command[0] = "move"
+
+            # Get the room list for matching strings
+            current_room = self.rooms_list[self.hero.location]
+
+            # Add the direction and room name to the direction_name list
+            for i in moveDirections:
+                if i in current_room.directions:
+                    dir_name.append(i)
+                    dir_name.append(self.rooms_list[current_room.directions[i]].name.lower())
+
+            # Print an error if no room was provided.
+            if len(command) <= 1:
+                print("Error. Invalid room name or direction given.")
+
+            else:
+                # Check to see if it's a one-word named room
+                if command[1] in dir_name:
+                    # Get the index of the correct room
+                    idx = dir_name.index(command[1])
+
+                    # If the index is even, it's already a direction
+                    if idx % 2 != 0:
+                        # Otherwise get the index of the direction.
+                        command[1] = dir_name[idx-1]
+
+                # Check to see if it's a two-word room
+                # and both are in the two-word room dictionary
+                elif len(command) == 3 and command[1] in twoWordRooms and command[2] in twoWordRooms:
+
+                    # Concatenate the strings for further parsing
+                    twoWords = command[1] + ' ' + command[2]
+
+                    # Set the command if the concatenated words are valid.
+                    if twoWords in dir_name:
+                        command[1] = twoWords
+
+                        # Get the index of the valid room or direction.
+                        idx = dir_name.index(twoWords)
+
+                        # If it's even, it's already a direction.
+                        if idx % 2 != 0:
+                            # Otherwise grab the index of the correct direction.
+                            command[1] = dir_name[idx-1]
+
+                # Print an error if an invalid room name was passed.
+                else:
+                    print("Invalid room name or direction given.")
+
+        # Throw an error if an invalid command was passed.
+        elif command[0] not in testWords:
+            print("Invalid command \'" + splitArgs[0] + "\' passed.")
+
+        # Append bad commands to not crash the game in the function calls above.
+        while len(command) < 2:
+            command.append("badCommand")
+
+        # Return the parsed command.
+        return command
