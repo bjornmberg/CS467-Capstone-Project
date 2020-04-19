@@ -1,6 +1,8 @@
 import shutil
 import os
 
+os.system('python3 resizeUtility.py')
+
 # Initialize some variables for use in menu display
 cols, rows = shutil.get_terminal_size()
 lastLine = rows//2
