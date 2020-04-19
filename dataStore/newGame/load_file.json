@@ -1,6 +1,5 @@
 {
   "name": "newGame",
-  "intro": "!!! WE CAN PUT AN INTRO HERE !!!",
   "rooms": [
       "Parlor.json",
       "Foyer.json",

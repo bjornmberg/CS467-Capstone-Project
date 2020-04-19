@@ -133,7 +133,5 @@ class Game:
         self.initialize_hero(hero_data)
         self.initialize_inventory(inventory_data)
 
-        print('{}'.format(file_data['intro']))
-
         while 1:
             self.get_command()
