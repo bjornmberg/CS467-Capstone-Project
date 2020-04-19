@@ -39,4 +39,3 @@ class Room:
     # This function will need to be toggled when a player enters the Room (after calling the getDescription function)
     def set_visited(self):
         self.visited = True
-
