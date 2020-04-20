@@ -3,7 +3,8 @@
   "longDes": "Kitchen Long Description",
   "shortDes": "Short kitchen descirption",
   "visited": false,
-  "items": {},
+  "startingItems": {},
+  "droppedItems": {},
   "roomId": 7,
   "directions": {"north": 19, "east": 6, "down": 14}
 }

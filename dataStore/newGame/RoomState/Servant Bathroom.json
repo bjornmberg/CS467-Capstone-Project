@@ -3,7 +3,8 @@
   "longDes": "Servant Bathroom Long Description",
   "shortDes": "Short servant bathroom descirption",
   "visited": false,
-  "items": {},
+  "startingItems": {},
+  "droppedItems": {},
   "roomId": 16,
   "directions": {"west": 15}
 }

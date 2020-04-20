@@ -3,7 +3,8 @@
   "longDes": "Crypt Long Description",
   "shortDes": "Short crypt descirption",
   "visited": false,
-  "items": {},
+  "startingItems": {},
+  "droppedItems": {},
   "roomId": 17,
   "directions": {"tunnel": 18}
 }

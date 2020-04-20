@@ -55,7 +55,8 @@ class Game:
                 room_data['visited'],
                 room_data['roomId'])
             new_room.directions = room_data['directions'].copy()
-            new_room.items = room_data['items'].copy()
+            new_room.starting_items = room_data['startingItems'].copy()
+            new_room.dropped_items = room_data['droppedItems'].copy()
             self.rooms_list.insert(new_room.room_id, new_room)
 
     # This function is used to set the state of the hero
@@ -86,24 +87,32 @@ class Game:
             self.hero.location = current_room.directions[direction]
             # set the room being left to visited
             current_room.set_visited()
+        else:
+            print('There is no door in that direction.')
 
     # FUNCTION COMMENT PLACEHOLDER
     def take(self, item):
 
         current_room = self.rooms_list[self.hero.location]
-        if item in current_room.items:
-            self.inventory.add_item(item ,current_room.items[item])
-            del current_room.items[item]
-        else:
-            print('That is not an item you can take.')
 
+        if current_room.in_starting_items(item):
+            self.inventory.add_item(item, current_room.starting_items[item])
+            del current_room.starting_items[item]
+        elif current_room.in_dropped_items(item):
+            self.inventory.add_item(item, current_room.dropped_items[item])
+            del current_room.dropped_items[item]
+        else:
+            print('Thats not an item you can take.')
 
     # FUNCTION COMMENT PLACEHOLDER
     def get_command(self):
 
         current_room = self.rooms_list[self.hero.location]
         current_room.get_description()
+
+        # COMMENT OUT LINE 113 and UNCOMMENT LINE 115 to OVERRIDE THE PARSER
         command = self.parseArgs()
+        # command = input('> ').split(' ')
 
         if command[0] == 'move':
             self.move(command[1])
@@ -114,7 +123,7 @@ class Game:
         elif command[0] == 'drop':
             status, item = self.inventory.drop_item((command[1]))
             if status == True:
-                current_room.items[command[1]] = item
+                current_room.dropped_items[command[1]] = item
 
     # This function is the main game driver function
     def play_game(self, input_file, file_path):

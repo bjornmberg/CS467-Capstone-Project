@@ -3,7 +3,8 @@
       "longDes": "Solarium Long Description",
       "shortDes": "Short solarium descirption",
       "visited": false,
-      "items": {},
+      "startingItems": {},
+      "droppedItems": {},
       "roomId": 3,
       "directions": {"south":  4}
 }

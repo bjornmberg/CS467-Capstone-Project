@@ -2,7 +2,9 @@
 class Room:
 
     directions = dict()
-    items = dict()     # dictionary of items a room starts with
+    # items = dict()     # dictionary of items a room starts with
+    starting_items = {}
+    dropped_items = {}
 
     # Initializer for the Room class
     def __init__(self, name, long_des, short_des, visited, room_id):
@@ -11,6 +13,18 @@ class Room:
         self.short_des = short_des
         self.visited = visited
         self.room_id = room_id
+
+    def in_starting_items(self, item):
+        if item in self.starting_items:
+            return True
+        else:
+            return False
+
+    def in_dropped_items(self, item):
+        if item in self.dropped_items:
+            return True
+        else:
+            return False
 
     # This function prints the description of the Room based on whether it has been visited or not
     def get_description(self):
@@ -26,13 +40,15 @@ class Room:
         for key in self.directions:
             print(key)
 
-        if self.items:
-            print('ITEMS IN THIS ROOM: ')
-            for key, value in self.items.items():
-                if value['dropped'] == False:
-                    print('INITIALIZED HERE: {}'.format(key))
-                elif value['dropped'] == True:
-                    print('DROPPED HERE: {}'.format(key))
+        if self.starting_items:
+            print('Starting Items:')
+            for key, value in self.starting_items.items():
+                print('{}'.format(key))
+
+        if self.dropped_items:
+            print('You Seem to have left these items on the floor: ')
+            for key, value  in self.dropped_items.items():
+                print('{}'.format(key))
 
 
 

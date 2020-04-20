@@ -3,7 +3,8 @@
   "longDes": "Attic Long Description",
   "shortDes": "Short attic descirption",
   "visited": false,
-  "items": {},
+  "startingItems": {},
+  "droppedItems": {},
   "roomId": 13,
   "directions": {"down": 10}
 }

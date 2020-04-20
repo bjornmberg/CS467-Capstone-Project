@@ -3,7 +3,8 @@
   "longDes": "Red Room Long Description",
   "shortDes": "Short Red Room descirption",
   "visited": false,
-  "items": {},
+  "startingItems": {},
+  "droppedItems": {},
   "roomId": 9,
   "directions": {"southeast":  11, "northeast":  10}
 }

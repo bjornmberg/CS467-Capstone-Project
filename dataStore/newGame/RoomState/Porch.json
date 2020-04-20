@@ -3,7 +3,8 @@
   "longDes": "Porch Long Description",
   "shortDes": "Short porch descirption",
   "visited": false,
-  "items": {},
+  "startingItems": {},
+  "droppedItems": {},
   "roomId": 20,
   "directions": {"north":  0, "south": 21}
 }
