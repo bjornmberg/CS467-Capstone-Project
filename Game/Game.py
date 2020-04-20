@@ -111,8 +111,8 @@ class Game:
         current_room.get_description()
 
         # COMMENT OUT LINE 113 and UNCOMMENT LINE 115 to OVERRIDE THE PARSER
-        command = self.parseArgs()
-        # command = input('> ').split(' ')
+        # command = self.parseArgs()
+        command = input('> ').split(' ')
 
         if command[0] == 'move':
             self.move(command[1])
