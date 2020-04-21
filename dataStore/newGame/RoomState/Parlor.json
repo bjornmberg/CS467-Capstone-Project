@@ -17,7 +17,6 @@
       }
   ],
   "droppedItems": [],
-  "roomId": 0,
   "features":
   [
 
@@ -40,5 +39,6 @@
           "featureId": 1
       }
   ],
+  "roomId": 0,
   "directions": {"north":  6, "west":  1}
 }

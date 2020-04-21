@@ -3,8 +3,9 @@
   "longDes": "Dining Room Long Description",
   "shortDes": "Short dining room descirption",
   "visited": false,
-  "startingItems": {},
-  "droppedItems": {},
+  "startingItems": [],
+  "droppedItems": [],
+  "features": [],
   "roomId": 6,
   "directions": {"south": 0, "west": 7}
 }

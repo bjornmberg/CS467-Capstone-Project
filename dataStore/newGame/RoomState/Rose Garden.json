@@ -3,8 +3,9 @@
   "longDes": "Rose Garden Long Description",
   "shortDes": "Short rose garden descirption",
   "visited": false,
-  "startingItems": {},
-  "droppedItems": {},
+  "startingItems": [],
+  "droppedItems": [],
+  "features": [],
   "roomId": 19,
   "directions": {"south":  7, "east": 18}
 }

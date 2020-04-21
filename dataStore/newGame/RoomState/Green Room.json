@@ -3,8 +3,9 @@
   "longDes": "Green Room Long Description",
   "shortDes": "Short green room descirption",
   "visited": false,
-  "startingItems": {},
-  "droppedItems": {},
+  "startingItems": [],
+  "droppedItems": [],
+  "features": [],
   "roomId": 12,
   "directions": {"northwest": 10, "southwest": 11}
 }

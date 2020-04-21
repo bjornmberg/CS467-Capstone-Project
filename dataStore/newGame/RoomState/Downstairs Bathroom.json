@@ -3,8 +3,9 @@
   "longDes": "Downstairs Bathroom Long Description",
   "shortDes": "Short downstairs bathroom descirption",
   "visited": false,
-  "startingItems": {},
-  "droppedItems": {},
+  "startingItems": [],
+  "droppedItems": [],
+  "features": [],
   "roomId": 5,
   "directions": {"south": 1, "west": 4}
 }

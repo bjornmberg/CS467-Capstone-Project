@@ -29,7 +29,7 @@ class Game:
                     self.play_game('dataStore\\newGame\\load_file.json', 'dataStore\\newGame\\RoomState\\')
                 else:
                     intro.display()
-                    self.play_game('dataStore/newGame/load_file_test.json', 'dataStore/newGame/RoomState/')
+                    self.play_game('dataStore/newGame/load_file.json', 'dataStore/newGame/RoomState/')
             elif selection == 'loadgame':
                 if plat == 'Windows':
                     self.play_game('datastore\\savedGame\\load_file.json', 'dataStore\\savedGame\\RoomState\\')
