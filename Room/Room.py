@@ -34,7 +34,13 @@ class Room:
         print('▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃\n'.center(centerLeftRight))
         print('CURRENT LOCATION: {}\n'.format(self.name).center(centerLeftRight))
         if not self.visited:
-            print(textwrap.fill('DESCRIPTION: {}'.format(self.long_des), 85, initial_indent='            ', subsequent_indent='            '))
+            if '\n' in self.long_des:
+                listLines = self.long_des.splitlines()
+                print('            DESCRIPTION:')
+                for x in listLines:
+                    print(textwrap.fill('{}'.format(x), 85, initial_indent='            ', subsequent_indent='            '))
+            else:
+                print(textwrap.fill('DESCRIPTION: {}'.format(self.long_des), 85, initial_indent='            ', subsequent_indent='            '))
         else:
             print('DESCRIPTION: {}'.format(self.short_des))
         print()
