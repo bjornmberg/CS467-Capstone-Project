@@ -1,4 +1,5 @@
 import json
+import os
 import platform
 from Credits import credits
 from Hero import Hero
@@ -105,10 +106,15 @@ class Game:
             print('Thats not an item you can take.')
 
     # FUNCTION COMMENT PLACEHOLDER
-    def get_command(self):
+    def get_command(self, renderCounter):
+        # If the three rooms have been rendered, clear the screen
+        if renderCounter == 3:
+            os.system('clear')
+            renderCounter = 0
 
         current_room = self.rooms_list[self.hero.location]
         current_room.get_description()
+        command = input('            > ').split(' ')
 
         # COMMENT OUT LINE 113 and UNCOMMENT LINE 115 to OVERRIDE THE PARSER
         command = self.parseArgs()
@@ -139,8 +145,15 @@ class Game:
         self.initialize_hero(hero_data)
         self.initialize_inventory(inventory_data)
 
+        # print('{}'.format(file_data['intro']))
+
+        renderCounter = -1
+
         while 1:
-            self.get_command()
+            renderCounter += 1
+            if renderCounter == 4:
+                renderCounter = 1
+            self.get_command(renderCounter)
 
     # Parses the arguments passed
     def parseArgs(self):
