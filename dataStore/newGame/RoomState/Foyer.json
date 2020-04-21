@@ -3,7 +3,19 @@
       "longDes": "Foyer Long Description",
       "shortDes": "Short foyer descirption",
       "visited": false,
-      "startingItems": [],
+      "startingItems":
+      [
+            {
+          "name":"lantern",
+          "description":  "a rusty old knife",
+          "linkedFeature": 0
+      },
+      {
+          "name": "mask",
+          "description":  "a fancy key, for a fancy door",
+          "linkedFeature": 1
+      }
+      ],
       "droppedItems": [],
       "features": [],
       "roomId": 1,

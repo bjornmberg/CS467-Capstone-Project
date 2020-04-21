@@ -6,5 +6,9 @@ class Item:
         self.description = description
         self.linked_feature = linked_feature
 
-    def get_item(self):
+
+    def __repr__(self):
         return self
+
+    def __str__(self):
+        return self.name

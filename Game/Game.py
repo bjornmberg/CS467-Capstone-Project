@@ -1,21 +1,31 @@
+'''
+    Implementation of the Game class. The Game class is the base class of the game.
+    The Game is responsible for initializing the state of the game and allowing the
+    user to interact with the Rooms, Features, Items, and Inventory. The Game has a
+    list() of Rooms, a Hero, and an Inventory.
+'''
+
 import json
 import platform
 from Credits import credits
 from Hero import Hero
 from Intro import intro
 from Inventory import Inventory
-from Item import Item
 from Menu import menu
 from Room import Room
 
 
+
 class Game:
 
-    rooms_list = list()
-    inventory = Inventory()
-    hero = Hero()
+    # member variables
+    rooms_list = list()         # a list of Rooms
+    inventory = Inventory()     # a Inventory object
+    hero = Hero()               # a Hero object
 
     # This function handles loop control for the menu and game
+    # Parameters:
+    #   NONE
     def start(self):
         # Determine the system type running the game
         plat = platform.system()
@@ -46,17 +56,30 @@ class Game:
     #   file_path - a string that shows the full path to these room files
     def initialize_rooms(self, data, file_path):
 
+        # for each item in data append it to the file path to get a full path
+        # example dataStore/newGame/RoomState/Parlor.json
+        # use the information in the extracted JSON to initialize Room objects
         for x in data:
+
             room_file = open(file_path + x, 'r', encoding='utf-8')
             room_data = json.loads(room_file.read())
+            room_file.close()
+
             new_room = Room(
                 room_data['name'],
                 room_data['longDes'],
                 room_data['shortDes'],
                 room_data['visited'],
-                room_data['roomId'])
-            new_room.set_up(room_data)
+                room_data['roomId'],
+                room_data['directions'],
+                room_data['startingItems'],
+                room_data['droppedItems'],
+                room_data['features']
+            )
+            # Room objects are placed into the rooms list() at specific
+            # locations according the the room_id
             self.rooms_list.insert(new_room.room_id, new_room)
+
 
     # This function is used to set the state of the hero
     # Parameters:
@@ -73,10 +96,12 @@ class Game:
 
         self.inventory.items = data['items'].copy()
 
+
     # This function is used to move the hero through the rooms
     # Parameters:
-    # direction - a string representing the direction to move
+    #   direction - a string representing the direction to move
     def move(self, direction):
+
         # set the current room to where the hero is located
         current_room = self.rooms_list[self.hero.location]
 
@@ -89,26 +114,77 @@ class Game:
         else:
             print('There is no door in that direction.')
 
-    # FUNCTION COMMENT PLACEHOLDER
-    def take(self, item):
 
+    # This function is used to take an item from the Room and
+    # place it in the inventory
+    # Parameters:
+    #   item_name - a string that is passed in from user input
+    def take(self, item_name):
+
+        # set the current room to where the hero is located
         current_room = self.rooms_list[self.hero.location]
 
-        status, taken_item = current_room.take_item(item)
+        # this will return True and the Item object if the
+        # object is in the Room or False and None if it is not
+        # it will also remove that object from the Room
+        status, taken_item = current_room.take_item(item_name)
 
+        # if the Item was there put it in the Inventory
         if status == True:
             self.inventory.add_item(taken_item)
+        else:
+            print('That is not an item you can take.')
 
-        # if current_room.in_starting_items(item):
-        #     self.inventory.add_item(item, current_room.starting_items[item])
-        #     del current_room.starting_items[item]
-        # elif current_room.in_dropped_items(item):
-        #     self.inventory.add_item(item, current_room.dropped_items[item])
-        #     del current_room.dropped_items[item]
-        # else:
-        #     print('Thats not an item you can take.')
+    # This function is used to drop an Item out of Inventory and
+    # leave it on the floor of a Room
+    # Parameters:
+    #   item_name - a string that is passed in from user input
+    def drop(self, item_name):
 
-    # FUNCTION COMMENT PLACEHOLDER
+        # set the current room to where the hero is located
+        current_room = self.rooms_list[self.hero.location]
+
+        # this will return True and the Item if the object is
+        # in the Inventory. If not it will return False and None
+        # it will also remove the Item from the Inventory
+        status, dropped_item = self.inventory.drop_item(item_name)
+
+        # if the Item was in the Inventory, add it to the dropped_items
+        if status:
+            current_room.leave_item(dropped_item)
+        else:
+            print('That item is not in your inventory.')
+
+
+    # This function is used to look at either an Item or a Feature that
+    # is either in the current Room or the Inventory
+    # Parameters:
+    #   thing - a str passed in from the user
+    def look_at_something(self, thing):
+
+        # set the current room to where the hero is located
+        current_room = self.rooms_list[self.hero.location]
+
+        # check to see if the 'thing' is in the Room - this will look in
+        # the starting_items, dropped_items, and features
+        thing_in_room, thing_room_des = current_room.look_in_room(thing)
+        # check to see if the 'thing' is in the Inventory
+        thing_in_inven, thing_inven_des = self.inventory.look_in_inventory(thing)
+
+        # the thing is in the Room so print the description
+        if thing_in_room:
+            print(thing_room_des)
+        # not in the Room, but in the Inventory, print description
+        elif thing_in_inven:
+            'INVENTORY ITEM: '
+            print(thing_inven_des)
+        # not in the Room or the Inventory
+        else:
+            print('You do not see a {}'.format(thing))
+
+
+
+    # This is a function for getting input from the user.
     def get_command(self):
 
         current_room = self.rooms_list[self.hero.location]
@@ -125,16 +201,14 @@ class Game:
         elif command[0] == 'inventory':
             self.inventory.show_inventory()
         elif command[0] == 'drop':
-            status, item = self.inventory.drop_item((command[1]))
-            if status == True:
-                current_room.dropped_items[command[1]] = item
+            self.drop(command[1])
         elif command[0] == 'look':
             if len(command) == 1:
-                current_room.get_description()
+                print(current_room.long_des)
             else:
-                current_room.look_at_feature(command[1])
+                self.look_at_something(command[1])
         elif command[0] == 'action':
-            current_room.action_feature(command[1])
+            print(current_room.action_feature(command[1]))
 
     # This function is the main game driver function
     def play_game(self, input_file, file_path):
@@ -148,7 +222,6 @@ class Game:
 
         self.initialize_rooms(room_data, file_path)
         self.initialize_hero(hero_data)
-        # self.initialize_inventory(inventory_data)
 
         while 1:
             self.get_command()
