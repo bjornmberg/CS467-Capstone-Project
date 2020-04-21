@@ -1,0 +1,14 @@
+{
+  "name": "newGame",
+  "rooms": [
+      "Parlor.json"
+  ],
+  "hero":
+  {
+      "name": "Player",
+      "location": 0
+  },
+  "inventory": {
+      "items": []
+  }
+}

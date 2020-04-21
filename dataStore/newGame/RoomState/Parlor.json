@@ -1,10 +1,44 @@
 {
   "name": "Parlor",
-  "longDes": "Parlor Long Description",
+  "longDes": "Parlor Long Description. Features: couch, drawer",
   "shortDes": "Short parlor descirption",
   "visited": false,
-  "startingItems": { "testItem0": {"description":  "testItem0 description"}, "testItem1": {"description":  "testItem1 description"} },
-  "droppedItems": {},
+  "startingItems":
+  [
+      {
+          "name":"knife",
+          "description":  "a rusty old knife",
+          "linkedFeature": 0
+      },
+      {
+          "name": "key",
+          "description":  "a fancy key, for a fancy door",
+          "linkedFeature": 1
+      }
+  ],
+  "droppedItems": [],
   "roomId": 0,
+  "features":
+  [
+
+      {
+          "name": "couch",
+          "actionable": true,
+          "preActionDes":"you see a glint from under the couch",
+          "inActionDes": "there is a rusty old knife here",
+          "postActionDes": "this is where you found the knife",
+          "state": 0,
+          "featureId": 0
+      },
+      {
+          "name": "drawer",
+          "actionable": true,
+          "preActionDes":"a dusty endtable with a drawer",
+          "inActionDes": "there is a fancy key lying in the drawer",
+          "postActionDes": "this is where you found the fancy key",
+          "state": 0,
+          "featureId": 1
+      }
+  ],
   "directions": {"north":  6, "west":  1}
 }

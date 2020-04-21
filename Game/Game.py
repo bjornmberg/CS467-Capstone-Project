@@ -4,6 +4,7 @@ from Credits import credits
 from Hero import Hero
 from Intro import intro
 from Inventory import Inventory
+from Item import Item
 from Menu import menu
 from Room import Room
 
@@ -28,7 +29,7 @@ class Game:
                     self.play_game('dataStore\\newGame\\load_file.json', 'dataStore\\newGame\\RoomState\\')
                 else:
                     intro.display()
-                    self.play_game('dataStore/newGame/load_file.json', 'dataStore/newGame/RoomState/')
+                    self.play_game('dataStore/newGame/load_file_test.json', 'dataStore/newGame/RoomState/')
             elif selection == 'loadgame':
                 if plat == 'Windows':
                     self.play_game('datastore\\savedGame\\load_file.json', 'dataStore\\savedGame\\RoomState\\')
@@ -54,9 +55,7 @@ class Game:
                 room_data['shortDes'],
                 room_data['visited'],
                 room_data['roomId'])
-            new_room.directions = room_data['directions'].copy()
-            new_room.starting_items = room_data['startingItems'].copy()
-            new_room.dropped_items = room_data['droppedItems'].copy()
+            new_room.set_up(room_data)
             self.rooms_list.insert(new_room.room_id, new_room)
 
     # This function is used to set the state of the hero
@@ -71,7 +70,7 @@ class Game:
     # Parameters:
     #   data - a dictionary representing the inventory
     def initialize_inventory(self, data):
-        self.inventory.used_slots = data['usedSlots']
+
         self.inventory.items = data['items'].copy()
 
     # This function is used to move the hero through the rooms
@@ -95,14 +94,19 @@ class Game:
 
         current_room = self.rooms_list[self.hero.location]
 
-        if current_room.in_starting_items(item):
-            self.inventory.add_item(item, current_room.starting_items[item])
-            del current_room.starting_items[item]
-        elif current_room.in_dropped_items(item):
-            self.inventory.add_item(item, current_room.dropped_items[item])
-            del current_room.dropped_items[item]
-        else:
-            print('Thats not an item you can take.')
+        status, taken_item = current_room.take_item(item)
+
+        if status == True:
+            self.inventory.add_item(taken_item)
+
+        # if current_room.in_starting_items(item):
+        #     self.inventory.add_item(item, current_room.starting_items[item])
+        #     del current_room.starting_items[item]
+        # elif current_room.in_dropped_items(item):
+        #     self.inventory.add_item(item, current_room.dropped_items[item])
+        #     del current_room.dropped_items[item]
+        # else:
+        #     print('Thats not an item you can take.')
 
     # FUNCTION COMMENT PLACEHOLDER
     def get_command(self):
@@ -124,6 +128,13 @@ class Game:
             status, item = self.inventory.drop_item((command[1]))
             if status == True:
                 current_room.dropped_items[command[1]] = item
+        elif command[0] == 'look':
+            if len(command) == 1:
+                current_room.get_description()
+            else:
+                current_room.look_at_feature(command[1])
+        elif command[0] == 'action':
+            current_room.action_feature(command[1])
 
     # This function is the main game driver function
     def play_game(self, input_file, file_path):
@@ -137,7 +148,7 @@ class Game:
 
         self.initialize_rooms(room_data, file_path)
         self.initialize_hero(hero_data)
-        self.initialize_inventory(inventory_data)
+        # self.initialize_inventory(inventory_data)
 
         while 1:
             self.get_command()
