@@ -114,9 +114,8 @@ class Game:
 
         current_room = self.rooms_list[self.hero.location]
         current_room.get_description()
-        command = input('            > ').split(' ')
 
-        # COMMENT OUT LINE 113 and UNCOMMENT LINE 115 to OVERRIDE THE PARSER
+        # COMMENT OUT LINE 119 and UNCOMMENT LINE 120 to OVERRIDE THE PARSER
         command = self.parseArgs()
         # command = input('> ').split(' ')
 
@@ -181,7 +180,7 @@ class Game:
         testWords = ["take", "inventory", "drop"]
 
         # Get user input. Make it lowercase and split it.
-        splitArgs = input('> ').lower().split()
+        splitArgs = input('            > ').lower().split()
 
         command = [] # holds the parsed commands
         dir_name = [] # holds valid directions and the corresponding room names

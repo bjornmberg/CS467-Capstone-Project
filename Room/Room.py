@@ -42,29 +42,16 @@ class Room:
         for key in self.directions:
             print(textwrap.fill(key, initial_indent='                '))
 
-        if self.items:
-            print()
-            print(textwrap.fill('ITEMS IN THIS ROOM: ', initial_indent='            '))
-            for key, value in self.items.items():
-                if value['dropped'] == False:
-                    print(textwrap.fill('INITIALIZED HERE: {}'.format(key), initial_indent='                '))
-                    #print('INITIALIZED HERE: {}'.format(key))
-                elif value['dropped'] == True:
-                    print(textwrap.fill('DROPPED HERE: {}'.format(key), initial_indent='                '))
-                    #print('DROPPED HERE: {}'.format(key))
-        
         print('▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃\n\n'.center(centerLeftRight))
         if self.starting_items:
-            print('Starting Items:')
+            print(textwrap.fill('Starting Items:', initial_indent='            '))
             for key, value in self.starting_items.items():
-                print('{}'.format(key))
+                print(textwrap.fill('{}'.format(key), initial_indent='                '))
 
         if self.dropped_items:
             print('You Seem to have left these items on the floor: ')
             for key, value  in self.dropped_items.items():
-                print('{}'.format(key))
-
-
+                print(textwrap.fill('{}'.format(key), initial_indent='                '))
 
     # This function will need to be toggled when a player enters the Room (after calling the getDescription function)
     def set_visited(self):
