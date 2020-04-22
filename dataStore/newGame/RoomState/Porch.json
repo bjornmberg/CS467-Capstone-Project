@@ -1,7 +1,7 @@
 {
   "name": "Porch",
-  "longDes": "Porch Long Description",
-  "shortDes": "Short porch descirption",
+  "longDes": "You are on the front porch of the mansion. Two imposing gargoyles flank the top of the stairs leading up to the double-doors of the house proper. They appear to be monstrous birds of some sort. The gargoyle on the left appears to be looking at you out of the corner of its eyes. To the North is the main entry to the house. To the South are the front lawns of the mansion grounds.",
+  "shortDes": "You are standing on the front porch of the mansion. Gargoyles flank your path. To the North is the main entry of the house. To the South are the front lawns.",
   "visited": false,
   "startingItems": {},
   "droppedItems": {},

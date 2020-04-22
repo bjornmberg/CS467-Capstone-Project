@@ -1,7 +1,7 @@
 {
       "name": "Library",
-      "longDes": "Library Long Description",
-      "shortDes": "Short library descirption",
+      "longDes": "You have entered a library. Some chairs and small tables face windows on the South and West walls. Bookcases line the walls. The books appear mostly unremarkable, but there is one that looks odd - it has no markings but appears to be handbound. To the North is a door to a game room. The East door leads back to the foyer.",
+      "shortDes": "You are in the mansion library. There are windows to the south and west. A door to the North leads to the game room. There is also a doorway to the East that leads back to the foyer.",
       "visited": false,
       "startingItems": {},
       "droppedItems": {},

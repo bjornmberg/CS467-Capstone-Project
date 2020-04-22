@@ -1,7 +1,7 @@
 {
   "name": "Dining Room",
-  "longDes": "Dining Room Long Description",
-  "shortDes": "Short dining room descirption",
+  "longDes": "You enter a formal dining room. There is a large oak table in the center of the room with many sturdy-looking teak chairs surrounding it. There are also two huge windows along the North and East corner of the room. The walls in this room are surprisingly bare, with the exception of a small painting of some men with a dog on the Western wall. There is a large set of double doors to the South leading to the parlor. To the West is a door leading to the kitchen. ",
+  "shortDes": "You are in the mansion dining room. A large table and chairs dominates the room. There is a painting adorning the east wall with what appears to be a fox hunt. A window to the north looks out upon the gazebo and rose gardens. A window to the east looks upon woods adjacent to the house. To the West is a door to the house kitchen. To the south is a doorway to the parlor.",
   "visited": false,
   "startingItems": {},
   "droppedItems": {},

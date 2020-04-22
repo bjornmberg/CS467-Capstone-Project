@@ -1,7 +1,7 @@
 {
   "name": "Game Room",
-  "longDes": "Game Room Long Description",
-  "shortDes": "Short game room description",
+  "longDes": "You have entered the Game Room, this looks like fun. In the center of the room is a dusty pool table. To the West is a large picture window. Is that a picture of dogs playing poker on the wall? A fireplace stands on the east wall, and looks as if it hasn’t been used in ages. There is a door with fogged glass to the North; You wonder where it leads. To the South is a door leading back to the library. To the southeast is a blue door that appears to lead to a small bathroom.",
+  "shortDes": "You are in the mansion game room. A pool table occupies the center of the room, and a fireplace stands cold and dark. A window to the west looks out to woods adjacent to the house. There is a door to the north that leads to the solarium. A small blue door to the southwest goes to a small bathroom. To the South is a door to the library.",
   "visited": false,
   "startingItems": {},
   "droppedItems": {},
