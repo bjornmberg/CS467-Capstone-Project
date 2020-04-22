@@ -18,8 +18,6 @@ There are three descriptions of the Feature:
     the Room object at a specified location. This is important for interactions as Items can be tied
     to the Feature and they need to know which Feature to modify
 '''
-
-
 class Feature:
 
     # constructor for the Feature class
@@ -32,8 +30,9 @@ class Feature:
         self.state = state
         self.feature_id = feature_id
 
-    def __str__(self):
-        return self.name
+    def __repr__(self):
+        return self
+
 
     # checks the state of the feature and returns the appropriate description
     def get_description(self):

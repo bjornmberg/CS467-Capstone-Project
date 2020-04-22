@@ -6,7 +6,7 @@ class Inventory:
     items = list()
     capacity = 5
 
-
+    # ADD COMMENTS
     def add_item(self, item):
 
         if len(self.items) <= self.capacity:
@@ -15,29 +15,33 @@ class Inventory:
         else:
             print('You cannot hold anymore items in your inventory.')
 
-    def find_item_index(self, item_name):
+    # ADD COMMENTS
+    def in_inventory(self, str_input):
 
         for x in range(0, len(self.items)):
-            if self.items[x].name == item_name:
-                return True, x
+            if self.items[x].name == str_input:
+                # return True, x
+                return True, self.items[x]
 
         return False, None
 
-    def drop_item(self, item_name):
+    # ADD COMMENTS
+    def drop_item(self, str_input):
 
         success = False
-        status, index = self.find_item_index(item_name)
+        status, item = self.in_inventory(str_input)
 
         if status:
-            dropped_item = self.items[index]
-            del self.items[index]
+            self.items.remove(item)
             success = True
-            return success, dropped_item
+            return success, item
         else:
             print('That item is not in your inventory.')
             return success, None
 
+    # ADD COMMENTS
     def show_inventory(self):
+
         if len(self.items) > 0:
             print('These are the items in the inventory: ')
             for x in self.items:
@@ -45,12 +49,13 @@ class Inventory:
         else:
             print('The inventory is empty.')
 
-    def look_in_inventory(self, thing):
+    # ADD COMMENTS
+    def look_in_inventory(self, str_input):
 
-        status, index = self.find_item_index(thing)
+        status, item = self.in_inventory(str_input)
 
         if status:
-            return True, self.items[index].description
+            return True, item.description
         else:
             return False, None
 

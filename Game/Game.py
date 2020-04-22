@@ -119,7 +119,7 @@ class Game:
     # place it in the inventory
     # Parameters:
     #   item_name - a string that is passed in from user input
-    def take(self, item_name):
+    def take(self, str_input):
 
         # set the current room to where the hero is located
         current_room = self.rooms_list[self.hero.location]
@@ -127,7 +127,7 @@ class Game:
         # this will return True and the Item object if the
         # object is in the Room or False and None if it is not
         # it will also remove that object from the Room
-        status, taken_item = current_room.take_item(item_name)
+        status, taken_item = current_room.take_item(str_input)
 
         # if the Item was there put it in the Inventory
         if status == True:

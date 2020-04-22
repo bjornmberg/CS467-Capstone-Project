@@ -60,11 +60,11 @@ class Room:
 
     # This function looks through the names of the Features and returns True
     # if the Feature is in the Room and the index of the Feature in the feature list()
-    def get_feature_id(self, name):
+    def get_feature(self, name):
 
-        for x in self.features:
-            if x.name == name:
-                return True, x.feature_id
+        for feat in self.features:
+            if feat.name == name:
+                return True, feat
 
         return False, None
 
@@ -72,16 +72,16 @@ class Room:
     # If it is an Item in either dropped_items of starting_items a 1 and the
     # Item is returned, if it is in the features list() a 2 and the Feature
     # is returned - this is used for the 'look' functionality
-    def in_room(self, thing):
+    def in_room(self, str_input):
 
         for i in self.starting_items:
-            if thing == i.name:
+            if str_input == i.name:
                 return 1, i
         for j in self.dropped_items:
-            if thing == j.name:
+            if str_input == j.name:
                 return 1, j
         for k in self.features:
-            if thing == k.name:
+            if str_input == k.name:
                 return 2, k
 
         return False, None
@@ -89,46 +89,46 @@ class Room:
     # This function takes a string and calls to see if the string matches the
     # name of a Feature or Item in the Room. If it does the appropriate description
     # is returned
-    def look_in_room(self, name):
+    def look_in_room(self, str_input):
 
-        status, thing = self.in_room(name)
+        status, item_or_feature = self.in_room(str_input)
 
         if status == 1:
-            return True, thing.description
+            return True, item_or_feature.description
         elif status == 2:
-            return True, thing.get_description()
+            return True, item_or_feature.get_description()
         else:
             return False, None
 
 
     # This function takes some action against a Feature in the Room
     # Parameters:
-    #   name - str, the name of the Room
-    def action_feature(self, name):
+    #   name - str, the name of the Room Feature
+    def action_feature(self, str_input):
 
         # make sure the Feature is in the Room and get its index
         # from the Features list
-        status, index = self.get_feature_id(name)
+        status, feat = self.get_feature(str_input)
 
         # if the item is present modify its state to in_action
         # and return the in_action description
         if status:
-            self.features[index].state = 1
-            return self.features[index].get_description()
+            feat.state = 1
+            return feat.get_description()
         else:
             return 'You cannot do that'
 
     # takes a string and returns an index and an integer
     # the integer shows whether the item is in the starting items
     # or dropped items lists (or neither)
-    def get_index_by_name(self, item):
+    def get_item(self, str_input):
 
-        for x in range(0, len(self.starting_items)):
-            if self.starting_items[x].name == item:
+        for x in self.starting_items:
+            if x.name == str_input:
                 return 1, x
 
-        for y in range(0, len(self.dropped_items)):
-            if self.dropped_items[y].name == item:
+        for y in self.dropped_items:
+            if y.name == str_input:
                 return 2, y
 
         return 3, None
@@ -136,22 +136,19 @@ class Room:
     # takes a string, tests that the item is in one of the lists,
     # sets variables on the item, gets the item, removes it from the
     # list and returns the item for adding to the inventory
-    def take_item(self, item):
+    def take_item(self, str_input):
 
-        status, x = self.get_index_by_name(item)
+        status, item = self.get_item(str_input)
 
         # status 1 means this was a starting item
         if status == 1:
-            self.features[self.starting_items[x].linked_feature].state = 3
-            self.starting_items[x].linked_feature = None
-            taken_item = self.starting_items[x]
-            del self.starting_items[x]
-            return True, taken_item
+            self.features[item.linked_feature].state = 3
+            item.linked_feature = None
+            self.starting_items.remove(item)
+            return True, item
         # status 2 means this was a dropped item
         elif status == 2:
-            taken_item = self.dropped_items[x]
-            del self.dropped_items[x]
-            return True, taken_item
+            self.dropped_items.remove(item)
         # anything else means the item is not here
         else:
             return False, None
