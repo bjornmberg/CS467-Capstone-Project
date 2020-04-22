@@ -3,21 +3,41 @@
       "longDes": "Foyer Long Description",
       "shortDes": "Short foyer descirption",
       "visited": false,
-      "startingItems":
-      [
-            {
-          "name":"lantern",
-          "description":  "a rusty old knife",
+  "startingItems":
+  [
+      {
+          "name":"mask",
+          "description":  "a scary mask",
           "linkedFeature": 0
       },
       {
-          "name": "mask",
-          "description":  "a fancy key, for a fancy door",
+          "name": "lantern",
+          "description":  "this could help in the dark",
           "linkedFeature": 1
       }
-      ],
-      "droppedItems": [],
-      "features": [],
+  ],
+  "droppedItems": [],
+  "features":
+  [
+      {
+          "name": "rug",
+          "actionable": true,
+          "preActionDes":"something is under this rug...",
+          "inActionDes": "that is a cool mask...",
+          "postActionDes": "this is where you found the mask",
+          "state": 0,
+          "featureId": 0
+      },
+      {
+          "name": "end table",
+          "actionable": true,
+          "preActionDes":"there is something behind the endtable...",
+          "inActionDes": "there is a rusty lantern here...",
+          "postActionDes": "this is where you found the lantern",
+          "state": 0,
+          "featureId": 1
+      }
+  ],
       "roomId": 1,
       "directions": {"north":  5, "south": 20, "east": 0, "west": 2, "up": 11}
 }
