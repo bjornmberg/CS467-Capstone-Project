@@ -179,30 +179,23 @@ class Room:
         print()
         print(textwrap.fill('YOU CAN \'move\': ', initial_indent='            '))
         for key in self.directions:
-            print(textwrap.fill(key, initial_indent='                '))
-
-        print('FEATURES:')
+            print(textwrap.fill(key, initial_indent='                        '))
+        print()
+        print('            FEATURES:')
         for feature in self.features:
-            print('\t{}'.format(feature.name))
+            print(textwrap.fill('\t{}'.format(feature.name), initial_indent='                '))
         print('▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃\n\n'.center(centerLeftRight))
-        if self.starting_items:
-            print(textwrap.fill('Starting Items:', initial_indent='            '))
-            for key, value in self.starting_items.items():
-                print(textwrap.fill('{}'.format(key), initial_indent='                '))
 
-        if self.dropped_items:
-            print('You Seem to have left these items on the floor: ')
-            for key, value  in self.dropped_items.items():
-                print(textwrap.fill('{}'.format(key), initial_indent='                '))
         if len(self.starting_items) > 0:
-            print('STARTING ITEMS:')
+            print(textwrap.fill('Starting Items:', initial_indent='            '))
             for x in range(0, len(self.starting_items)):
-                print('\t{}'.format(self.starting_items[x].name))
+                print(textwrap.fill('\t{}'.format(self.starting_items[x].name), initial_indent='                '))
 
         if len(self.dropped_items) > 0:
-            print('DROPPED ITEMS:')
+            print(textwrap.fill('You Seem to have left these items on the floor: ', initial_indent='            '))
             for y in range(0, len(self.dropped_items)):
                 print('\t{}'.format(self.dropped_items[y].name))
+                print(textwrap.fill('\t{}'.format(self.dropped_items[y].name), initial_indent='                '))
 
     # This function will need to be toggled when a player enters the Room (after calling the getDescription function)
     def set_visited(self):

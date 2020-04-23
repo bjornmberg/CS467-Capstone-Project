@@ -142,6 +142,31 @@ class Game:
         if renderCounter == 3:
             os.system('clear')
             renderCounter = 0
+
+        current_room = self.rooms_list[self.hero.location]
+        current_room.get_description()
+
+        # COMMENT OUT LINE 113 and UNCOMMENT LINE 115 to OVERRIDE THE PARSER
+        # command = self.parseArgs()
+        command = input('> ').split(' ')
+
+        if command[0] == 'move':
+            self.move(command[1])
+        elif command[0] == 'take':
+            self.take(command[1])
+        elif command[0] == 'inventory':
+            self.inventory.show_inventory()
+        elif command[0] == 'drop':
+            self.drop(command[1])
+        elif command[0] == 'look':
+            if len(command) == 1:
+                print(current_room.long_des)
+            else:
+                self.look_at_something(command[1])
+        elif command[0] == 'action':
+            print(current_room.action_feature(command[1]))
+
+
     # This function is used to drop an Item out of Inventory and
     # leave it on the floor of a Room
     # Parameters:
@@ -188,37 +213,6 @@ class Game:
         # not in the Room or the Inventory
         else:
             print('You do not see a {}'.format(thing))
-
-
-
-    # This is a function for getting input from the user.
-    def get_command(self):
-
-        current_room = self.rooms_list[self.hero.location]
-        current_room.get_description()
-
-        # COMMENT OUT LINE 119 and UNCOMMENT LINE 120 to OVERRIDE THE PARSER
-        command = self.parseArgs()
-        # command = input('> ').split(' ')
-        # COMMENT OUT LINE 113 and UNCOMMENT LINE 115 to OVERRIDE THE PARSER
-        # command = self.parseArgs()
-        command = input('> ').split(' ')
-
-        if command[0] == 'move':
-            self.move(command[1])
-        elif command[0] == 'take':
-            self.take(command[1])
-        elif command[0] == 'inventory':
-            self.inventory.show_inventory()
-        elif command[0] == 'drop':
-            self.drop(command[1])
-        elif command[0] == 'look':
-            if len(command) == 1:
-                print(current_room.long_des)
-            else:
-                self.look_at_something(command[1])
-        elif command[0] == 'action':
-            print(current_room.action_feature(command[1]))
 
     # This function is the main game driver function
     def play_game(self, input_file, file_path):
