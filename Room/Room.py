@@ -163,19 +163,20 @@ class Room:
     # This function prints the description of the Room based on whether it has been visited or not
     def get_description(self):
         centerLeftRight = 100
+        description = "DESCRIPTION: "
         print()
         print('▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃\n'.center(centerLeftRight))
         print('CURRENT LOCATION: {}\n'.format(self.name).center(centerLeftRight))
+
+        # Fixed formatting issue with short description.
         if not self.visited:
-            if '\n' in self.long_des:
-                listLines = self.long_des.splitlines()
-                print('            DESCRIPTION:')
-                for x in listLines:
-                    print(textwrap.fill('{}'.format(x), 85, initial_indent='            ', subsequent_indent='            '))
-            else:
-                print(textwrap.fill('DESCRIPTION: {}'.format(self.long_des), 85, initial_indent='            ', subsequent_indent='            '))
+            description += self.long_des
         else:
-            print('DESCRIPTION: {}'.format(self.short_des))
+            description += self.short_des
+        wrappedText = textwrap.wrap(description, width=74)
+        for i in wrappedText:
+            print('            ' + i)
+
         print()
         print(textwrap.fill('YOU CAN \'move\': ', initial_indent='            '))
         for key in self.directions:

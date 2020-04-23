@@ -1,7 +1,7 @@
 {
   "name": "Servant Quarters",
-  "longDes": "Servant Quarters Long Description",
-  "shortDes": "Short servant quarters descirption",
+  "longDes": "You have entered what appears to be the servant’s dwelling. It is rather dark, with light filtering in from the cellar. The furnishings are rather utilitarian. There is a small bed along the far wall, covered in threadbare sheets. There is a small table and chairs in a nearby corner. A stack of books sits on top of the table. To the North is the cellar. To the East is a bathroom door.",
+  "shortDes": "You are in the servant’s quarters. A table stands nearby with books stacked upon it. A bed occupies the space opposite. A door to the North returns to the cellar proper. There is a door to the East leading to a bathroom.",
   "visited": false,
   "startingItems": [],
   "droppedItems": [],

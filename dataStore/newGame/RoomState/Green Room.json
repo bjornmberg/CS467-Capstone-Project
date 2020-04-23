@@ -1,7 +1,7 @@
 {
   "name": "Green Room",
-  "longDes": "Green Room Long Description",
-  "shortDes": "Short green room descirption",
+  "longDes": "You find yourself in the master’s bedroom. The walls are a deep green, and there are windows to the North and to the East. As you walk into the room your vision blurs and sound washes over you. You see the Chef, yelling something, waving an axe and chasing a woman and a man about the room. The Chef is swinging an axe. The woman and man are running, screaming. Your head swims, and the scene fades. You hear a crashing sound to the South. As you regain your senses you see a glint of light on the ceiling above the bed. There is a door to the Southwest that leads back to the second floor landing. A door to the Northwest leads to the pink room. ",
+  "shortDes": "You are in the green room, which was the master’s quarters. There is a window to the north and another facing east. A door to the Southwest leads to the second floor landing. A door to the Northwest goes to the pink room.",
   "visited": false,
   "startingItems": [],
   "droppedItems": [],

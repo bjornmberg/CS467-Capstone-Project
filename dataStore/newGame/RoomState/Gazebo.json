@@ -1,7 +1,7 @@
 {
   "name": "Gazebo",
-  "longDes": "Gazebo Long Description",
-  "shortDes": "Short gazebo descirption",
+  "longDes": "You are in a gazebo on the rear grounds of the mansion. There is a peculiar scent here - the aroma of roses hangs on the breeze here, but there is another smell, earthy and somewhat rotten. The gazebo is a pristine white, but there is a middle section of floor where the finish seems worn. To the West are the rose gardens. To the South is the rear entrance to the mansion.",
+  "shortDes": "You are standing in the gazebo overlooking the rose gardens. There is a sweet and sour smell on the air here, like something good has turned. A section of the floor appears off-color. To the West are the rose gardens. To the South is the rear entrance of the mansion.",
   "visited": false,
   "startingItems": [],
   "droppedItems": [],

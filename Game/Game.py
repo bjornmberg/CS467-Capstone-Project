@@ -112,8 +112,6 @@ class Game:
             self.hero.location = current_room.directions[direction]
             # set the room being left to visited
             current_room.set_visited()
-        else:
-            print('There is no door in that direction.')
 
 
     # This function is used to take an item from the Room and
@@ -292,7 +290,7 @@ class Game:
 
             # Print an error if no room was provided.
             if len(command) <= 1:
-                print("Error. Invalid room name or direction given.")
+                print("\t\tError. Invalid room name or direction given.")
 
             else:
                 # Check to see if it's a one-word named room
@@ -326,11 +324,11 @@ class Game:
 
                 # Print an error if an invalid room name was passed.
                 else:
-                    print("Invalid room name or direction given.")
+                    print("\t\tInvalid room name or direction given.")
 
         # Throw an error if an invalid command was passed.
         elif command[0] not in testWords:
-            print("Invalid command \'" + splitArgs[0] + "\' passed.")
+            print("\t\tInvalid command \'" + splitArgs[0] + "\' passed.")
 
         # Append bad commands to not crash the game in the function calls above.
         while len(command) < 2:
