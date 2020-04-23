@@ -3,8 +3,9 @@
   "longDes": "Linen Closet Long Description",
   "shortDes": "Short linenCloset descirption",
   "visited": false,
-  "startingItems": {},
-  "droppedItems": {},
+  "startingItems": [],
+  "droppedItems": [],
+  "features": [],
   "roomId": 8,
   "directions": {"east": 11}
 }

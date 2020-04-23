@@ -3,8 +3,9 @@
   "longDes": "Pink Room Long Description",
   "shortDes": "Short pink room descirption",
   "visited": false,
-  "startingItems": {},
-  "droppedItems": {},
+  "startingItems": [],
+  "droppedItems": [],
+  "features": [],
   "roomId": 10,
   "directions": {"east":  12, "west":  9, "up": 13}
 }

@@ -3,8 +3,28 @@
   "longDes": "Dining Room Long Description",
   "shortDes": "Short dining room descirption",
   "visited": false,
-  "startingItems": {},
-  "droppedItems": {},
+  "startingItems": [],
+  "droppedItems": [],
+  "features": [
+      {
+          "name": "painting",
+          "actionable": true,
+          "preActionDes":"just a painting of a woman...",
+          "inActionDes": "just a painting of a woman...",
+          "postActionDes": "just a painting of a woman...",
+          "state": 0,
+          "featureId": 0
+      },
+      {
+          "name": "table",
+          "actionable": true,
+          "preActionDes":"just a dinnning room table...",
+          "inActionDes": "just a dinnning room table...",
+          "postActionDes": "just a dinnning room table...",
+          "state": 0,
+          "featureId": 1
+      }
+  ],
   "roomId": 6,
   "directions": {"south": 0, "west": 7}
 }

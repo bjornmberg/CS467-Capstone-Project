@@ -3,8 +3,9 @@
   "longDes": "Cellar Long Description",
   "shortDes": "Short cellar descirption",
   "visited": false,
-  "startingItems": {},
-  "droppedItems": {},
+  "startingItems": [],
+  "droppedItems": [],
+  "features": [],
   "roomId": 14,
   "directions": {"up": 7, "south": 15}
 }

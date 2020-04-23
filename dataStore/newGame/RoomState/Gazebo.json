@@ -3,8 +3,9 @@
   "longDes": "Gazebo Long Description",
   "shortDes": "Short gazebo descirption",
   "visited": false,
-  "startingItems": {},
-  "droppedItems": {},
+  "startingItems": [],
+  "droppedItems": [],
+  "features": [],
   "roomId": 18,
   "directions": {"west": 19, "down hole":  17}
 }

@@ -3,8 +3,9 @@
       "longDes": "Library Long Description",
       "shortDes": "Short library descirption",
       "visited": false,
-      "startingItems": {},
-      "droppedItems": {},
+      "startingItems": [],
+      "droppedItems": [],
+      "features": [],
       "roomId": 2,
       "directions": {"north": 4, "east": 1}
 }
