@@ -5,7 +5,18 @@
   "visited": false,
   "startingItems": [],
   "droppedItems": [],
-  "features": [],
+  "features": 
+  [
+      {
+          "name": "window",
+          "actionable": true,
+          "preActionDes":"You see something small and lumpy in the window sill.",
+          "inActionDes": "You find a smooth crystal. It feels right in your hands.",
+          "postActionDes": "This is where you discovered the smooth crystal.",
+          "state": 0,
+          "featureId": 2
+      },
+  ],
   "roomId": 13,
   "directions": {"down": 10}
 }
