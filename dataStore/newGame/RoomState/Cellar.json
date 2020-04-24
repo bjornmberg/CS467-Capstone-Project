@@ -13,7 +13,7 @@
       "inActionDes": "You pick up the prybar.",
       "postActionDes": "You have already taken the prybar from this bench. You don’t find anything else remarkable.",
       "state": 0,
-      "featureId": 7,
+      "featureId": 7
     },
 
     {
@@ -24,7 +24,7 @@
       "inActionDes": "",
       "postActionDes": "",
       "state": 0,
-      "featureId": 8,
+      "featureId": 8
     },
 
     {
