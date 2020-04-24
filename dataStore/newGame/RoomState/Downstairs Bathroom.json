@@ -5,7 +5,27 @@
   "visited": false,
   "startingItems": [],
   "droppedItems": [],
-  "features": [],
+  "features": [
+    {
+      "name": "painting",
+      "actionable": false,
+      "preActionDes": "You look closer at the painting. Depicted is a small girl outdoors sitting on a magnificent fountain.",
+      "inActionDes": "",
+      "postActionDes": "",
+      "state": 0,
+      "featureId": 18
+    },
+
+    {
+      "name": "mirror",
+      "actionable": false,
+      "preActionDes": "You look in the mirror. You note that the player has a face that only a mother could love. The character also looks very tired.",
+      "inActionDes": "",
+      "postActionDes": "",
+      "state": 0,
+      "featureId": 19
+    }
+  ],
   "roomId": 5,
   "directions": {"south": 1, "west": 4}
 }
