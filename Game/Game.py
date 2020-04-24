@@ -12,10 +12,9 @@ from Credits import credits
 from Hero import Hero
 from Intro import intro
 from Inventory import Inventory
+from inventoryMapScreen import inventoryMapScreen
 from Menu import menu
 from Room import Room
-
-
 
 class Game:
 
@@ -144,7 +143,7 @@ class Game:
         current_room = self.rooms_list[self.hero.location]
         current_room.get_description()
 
-        # COMMENT OUT LINE 113 and UNCOMMENT LINE 115 to OVERRIDE THE PARSER
+        # COMMENT OUT LINE 149 and UNCOMMENT LINE 148 to OVERRIDE THE PARSER
         # command = self.parseArgs()
         command = input('> ').split(' ')
 
@@ -163,7 +162,9 @@ class Game:
                 self.look_at_something(command[1])
         elif command[0] == 'action':
             print(current_room.action_feature(command[1]))
-
+        elif command[0] == 'map':
+            # inventoryMapScreen.display(self.inventory, self.hero.location)
+            inventoryMapScreen.display(self.inventory, current_room.name, self.hero.location)
 
     # This function is used to drop an Item out of Inventory and
     # leave it on the floor of a Room
