@@ -5,7 +5,38 @@
   "visited": false,
   "startingItems": [],
   "droppedItems": [],
-  "features": [],
+  "features": [
+    {
+      "name": "workbench",
+      "actionable": true,
+      "preActionDes": "The workbench is dusty and cluttered. Amongst the rusty tools, you see a pry bar.",
+      "inActionDes": "You pick up the prybar.",
+      "postActionDes": "You have already taken the prybar from this bench. You don’t find anything else remarkable.",
+      "state": 0,
+      "featureId": 7,
+    },
+
+    {
+
+      "name": "shelves",
+      "actionable": false,
+      "preActionDes": "You look at the shelves. They are half-stocked with (presumably) spoiled preserves. You cannot tell what any of them are.”,",
+      "inActionDes": "",
+      "postActionDes": "",
+      "state": 0,
+      "featureId": 8,
+    },
+
+    {
+      "name": "box",
+      "actionable": true,
+      "preActionDes": "You see a small wooden box amongst the shelves of goods. Someone took great care in the craftsmanship of this box.",
+      "inActionDes": "You open the box and find… Ashes. Amongst the ashes are some small white bits.",
+      "postActionDes": "This box has ashes in it.",
+      "state": 0,
+      "featureId": 9
+    }
+  ],
   "roomId": 14,
   "directions": {"up": 7, "south": 15}
 }

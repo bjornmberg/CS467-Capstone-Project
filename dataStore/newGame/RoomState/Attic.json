@@ -22,7 +22,7 @@
       "name": "hidden door",
       "actionable": true,
       "preActionDes": "You see the outline of a door in the southeast corner of the room.",
-      "inActionDes": "\"You tug and pull as hard as you can. The door must be locked.”",
+      "inActionDes": "You tug and pull as hard as you can. The door must be locked.",
       "postActionDes": "This is still locked.",
       "state": 0,
       "featureId": 1
