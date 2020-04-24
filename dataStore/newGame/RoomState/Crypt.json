@@ -5,7 +5,39 @@
   "visited": false,
   "startingItems": [],
   "droppedItems": [],
-  "features": [],
+  "features": [
+    {
+      "name": "coffin",
+      "actionable": false,
+      "preActionDes": "This coffin is made of thick wooden planks and smells terribly of rotten wood and decayed … organic material. There is a thick chain surrounding it with a large padlock. It is locked.",
+      "inActionDes": "",
+      "postActionDes": "",
+      "state": 0,
+      "featureId": 10
+    },
+
+    {
+      "name": "padlock",
+      "actionable": true,
+      "preActionDes": "The padlock is made of heavy steel. You’re not sure you can pick it. Perhaps you can get some leverage?",
+      "inActionDes": "You pry the padlock open. The steel shatters as you apply all of the force you can muster.",
+      "postActionDes": "You have broken into this lock.",
+      "state": 0,
+      "featureId": 11
+    },
+
+    {
+      "name": "Undead",
+      "Chef\",": null,
+      "actionable": true,
+      "preActionDes": "",
+      "inActionDes": "",
+      "postActionDes": "",
+      "state": 0,
+      "featureId": 12
+
+    }
+  ],
   "roomId": 17,
   "directions": {"tunnel": 18}
 }
