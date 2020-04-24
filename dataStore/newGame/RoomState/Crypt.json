@@ -27,10 +27,9 @@
     },
 
     {
-      "name": "Undead",
-      "Chef\",": null,
-      "actionable": true,
-      "preActionDes": "",
+      "name": "Undead Chef",
+      "actionable": false,
+      "preActionDes": "Insert Description Here",
       "inActionDes": "",
       "postActionDes": "",
       "state": 0,
