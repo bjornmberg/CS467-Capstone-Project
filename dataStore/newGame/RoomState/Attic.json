@@ -7,15 +7,77 @@
   "droppedItems": [],
   "features": 
   [
-      {
-          "name": "window",
-          "actionable": true,
-          "preActionDes":"You see something small and lumpy in the window sill.",
-          "inActionDes": "You find a smooth crystal. It feels right in your hands.",
-          "postActionDes": "This is where you discovered the smooth crystal.",
-          "state": 0,
-          "featureId": 2
-      },
+    {
+      "name": "windowsill",
+      "actionable": true,
+      "preActionDes": "You see a small stone in the window sill.",
+      "inActionDes": "You find a smooth crystal. It feels right in your hands.",
+      "postActionDes": "This is where you discovered the smooth crystal.",
+      "state": 0,
+      "featureId": 0
+
+    },
+
+    {
+      "name": "hidden door",
+      "actionable": true,
+      "preActionDes": "You see the outline of a door in the southeast corner of the room.",
+      "inActionDes": "\"You tug and pull as hard as you can. The door must be locked.”",
+      "postActionDes": "This is still locked.",
+      "state": 0,
+      "featureId": 1
+    },
+
+    {
+      "name": "east window",
+      "actionable": false,
+      "preActionDes": "You look out the window. All you see is the beginning of a large forest.",
+      "inActionDes": "",
+      "postActionDes": "",
+      "state": 0,
+      "featureId": 2
+
+    },
+
+    {
+      "name": "west window",
+      "actionable": false,
+      "preActionDes": "You look out the window. You can see the garden out this window.",
+      "inActionDes": "",
+      "postActionDes": "",
+      "state": 0,
+      "featureId": 3
+    },
+
+    {
+      "name": "south window",
+      "actionable": false,
+      "preActionDes": "You look out the window. You can see the front porch from here.",
+      "inActionDes": "",
+      "postActionDes": "",
+      "state": 0,
+      "featureId": 4
+    },
+
+    {
+      "name": "stairs",
+      "actionable": false,
+      "preActionDes": "There is a small set of stairs going down. They lead to the second floor landing.",
+      "inActionDes": "",
+      "postActionDes": "",
+      "state": 0,
+      "featureId": 5
+    },
+
+    {
+      "name": "toys",
+      "actionable": false,
+      "preActionDes": "There are many toys here. You see dolls, horses, and a pad of paper with some colored pencils. They are dusty with disuse.",
+      "inActionDes": "",
+      "postActionDes": "",
+      "state": 0,
+      "featureId": 6
+    }
   ],
   "roomId": 13,
   "directions": {"down": 10}
