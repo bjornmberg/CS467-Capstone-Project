@@ -37,7 +37,7 @@
     },
 
     {
-      "name": "“stone",
+      "name": "stone",
       "actionable": true,
       "preActionDes": "This stone has a carving of a rose on it.",
       "inActionDes": "",
