@@ -19,7 +19,7 @@
     {
       "name": "dog",
       "actionable": false,
-      "preActionDes": "You look closer at the dog. It’s got three heads and glowing, red eyes!",
+      "preActionDes": "You look closer at the dog. It's got three heads and glowing, red eyes!",
       "inActionDes": "",
       "postActionDes": "",
       "state": 0,
@@ -29,7 +29,7 @@
     {
       "name": "table",
       "actionable": false,
-      "preActionDes": "You look at the table. There isn’t anything remarkable.",
+      "preActionDes": "You look at the table. There isn't anything remarkable.",
       "inActionDes": "",
       "postActionDes": "",
       "state": 0,
