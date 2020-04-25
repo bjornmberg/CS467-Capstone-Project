@@ -190,7 +190,6 @@ class Room:
         if len(self.dropped_items) > 0:
             print(textwrap.fill('You Seem to have left these items on the floor: ', initial_indent='            '))
             for y in range(0, len(self.dropped_items)):
-                # print('\t{}'.format(self.dropped_items[y].name))
                 print(textwrap.fill('\t{}'.format(self.dropped_items[y].name), initial_indent='                '))
         print('▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃\n\n'.center(centerLeftRight))
 
