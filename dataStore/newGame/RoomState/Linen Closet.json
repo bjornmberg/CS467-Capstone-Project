@@ -24,7 +24,7 @@
       "postActionDes": "You took the pistol from this sack of laundry.",
       "state": 0,
       "featureId": 45
-    },
+    }
   ],
   "roomId": 8,
   "directions": {"east": 11}
