@@ -5,7 +5,27 @@
   "visited": false,
   "startingItems": [],
   "droppedItems": [],
-  "features": [],
+  "features": [
+    {
+      "name": "small bed",
+      "actionable": false,
+      "preActionDes": "The bed is covered in threadbare sheets.",
+      "inActionDes": "",
+      "postActionDes": "",
+      "state": 0,
+      "featureId": 56
+    },
+
+    {
+      "name": "table",
+      "actionable": true,
+      "preActionDes": "On the table is a stack of books. At the top of the stack is a personal journal.",
+      "inActionDes": "You take the journal.",
+      "postActionDes": "You took the journal from the stack of books here.",
+      "state": 0,
+      "featureId": 57
+    }
+  ],
   "roomId": 15,
   "directions": {"north": 14, "east": 16}
 }
