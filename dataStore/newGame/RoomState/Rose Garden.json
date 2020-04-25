@@ -1,7 +1,7 @@
 {
   "name": "Rose Garden",
-  "longDes": "You are in the flower gardens of the mansion grounds. The air seems heavy with the fragrance of roses. At a glance, the roses appear to all be red. A small fountain can be seen near the roses. Some birds are wheeling about in the air above the water. To the East is a gazebo standing over the gardens. To the South is the rear entrance of the mansion.",
-  "shortDes": "You are standing in the rose gardens behind the mansion. The scent of the red roses is almost overpowering. To the East is a white gazebo. To the South is the rear entrance of the house. ",
+  "longDes": "Rose Garden Long Description",
+  "shortDes": "Short rose garden descirption",
   "visited": false,
   "startingItems": [],
   "droppedItems": [],

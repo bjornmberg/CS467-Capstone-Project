@@ -19,7 +19,7 @@ def borderCalculator(strToCalc):
 
 def display():
     selection = -1
-    while selection != ' ':
+    while selection != 'e':
         os.system('clear')
         print ('█' * cols)
         print('\n' * centerTopBottom)
@@ -46,5 +46,4 @@ def display():
         print(('▒' + (' ' * halfWidthLessBorder) + '▒').center(centerLeftRight))
         print(('▒' * halfWidth).center(centerLeftRight))
         print('\n' * (lastLine - 2))
-        selection = input('press \'enter\' to return to main menu  ')
-        selection = ' ' + selection
+        selection = input('press \'e\' to return to main menu  ')

@@ -1,7 +1,7 @@
 {
   "name": "Cellar",
-  "longDes": "You find yourself in the cellar of the mansion. The air is cool and dry down here. Light filters in through a small window to the West, and to the East, and motes of dust hang in the air. There is a workbench along the West wall, under one of the windows. You see tools scattered upon it. To the East are some shelves, appearing to be filled with jars, cans, and boxes. There is a door to the South leading to what appear to be servant’s quarters. A staircase leads up to the kitchen. ",
-  "shortDes": "You are in the cellar of the mansion. There is a workbench along the west wall, and goods on shelves to the east. There is a window to the east, and another to the west. A door leads South to the servant’s quarters. A staircase leads up to the house kitchen.",
+  "longDes": "Cellar Long Description",
+  "shortDes": "Short cellar descirption",
   "visited": false,
   "startingItems": [],
   "droppedItems": [],

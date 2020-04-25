@@ -1,7 +1,7 @@
 {
   "name": "Red Room",
-  "longDes": "You find yourself in what seems to be a little girl’s room. There is a canopied bed along the far wall. There are dolls and toys scattered about the rug. A rocking horse stands near the window to the north. Did it move, or was it your imagination? You see a small table along the near wall upon which are some brushes and a music box. The walls here are deep blood red. To the Northeast is a door to the pink room. Through a door to the Southeast you can see the second floor landing.",
-  "shortDes": "You are in the red room, which appears to have been a little girl’s room. There are toys about and a rocking horse. A music box stands upon a small table. There is a window to the north and a window to the west. A door to the Southwest leads to the second floor landing. A door to the Northwest goes to the pink room.",
+  "longDes": "Red Room Long Description",
+  "shortDes": "Short Red Room descirption",
   "visited": false,
   "startingItems": [],
   "droppedItems": [],

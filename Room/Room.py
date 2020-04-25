@@ -1,4 +1,3 @@
-import textwrap
 from Feature import Feature
 from Item import Item
 
@@ -162,41 +161,31 @@ class Room:
 
     # This function prints the description of the Room based on whether it has been visited or not
     def get_description(self):
-        centerLeftRight = 100
-        description = "DESCRIPTION: "
-        print()
-        print('▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃\n'.center(centerLeftRight))
-        print('CURRENT LOCATION: {}\n'.format(self.name).center(centerLeftRight))
 
-        # Fixed formatting issue with short description.
+        print('-------------------------------------------------')
+        print('CURRENT LOCATION: \n\t{}'.format(self.name))
         if not self.visited:
-            description += self.long_des
+            print('DESCRIPTION: \n\t{}'.format(self.long_des))
         else:
-            description += self.short_des
-        wrappedText = textwrap.wrap(description, width=74)
-        for i in wrappedText:
-            print('            ' + i)
+            print('DESCRIPTION: \n\t{}'.format(self.short_des))
 
-        print()
-        print(textwrap.fill('YOU CAN \'move\': ', initial_indent='            '))
+        print('AVAILABLE DIRECTIONS: ')
         for key in self.directions:
-            print(textwrap.fill(key, initial_indent='                        '))
-        print()
-        print('            FEATURES:')
+            print('\t{}'.format(key))
+
+        print('FEATURES:')
         for feature in self.features:
-            print(textwrap.fill('\t{}'.format(feature.name), initial_indent='                '))
-        print('▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃\n\n'.center(centerLeftRight))
+            print('\t{}'.format(feature.name))
 
         if len(self.starting_items) > 0:
-            print(textwrap.fill('Starting Items:', initial_indent='            '))
+            print('STARTING ITEMS:')
             for x in range(0, len(self.starting_items)):
-                print(textwrap.fill('\t{}'.format(self.starting_items[x].name), initial_indent='                '))
+                print('\t{}'.format(self.starting_items[x].name))
 
         if len(self.dropped_items) > 0:
-            print(textwrap.fill('You Seem to have left these items on the floor: ', initial_indent='            '))
+            print('DROPPED ITEMS:')
             for y in range(0, len(self.dropped_items)):
                 print('\t{}'.format(self.dropped_items[y].name))
-                print(textwrap.fill('\t{}'.format(self.dropped_items[y].name), initial_indent='                '))
 
     # This function will need to be toggled when a player enters the Room (after calling the getDescription function)
     def set_visited(self):

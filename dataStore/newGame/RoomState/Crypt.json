@@ -1,7 +1,7 @@
 {
   "name": "Crypt",
-  "longDes": "You find yourself in a crypt. The light is very faint here - some comes from the rock in your hand. There is some light seeming to come from the walls and floor also though, some dots of phosphorescence in tiny drops of water. The walls appear to be old wood. The air is thick with a stench of decay here. It’s a little hard to breathe. In the center of the room is a large rectangular crate, made of dark wood plans. A chain wraps around it and a heavy padlock lies utop the box. The crate looks a bit like a coffin.",
-  "shortDes": "You are standing in the crypt below the mansion. There is a rank, foul odor on the air here. A large rectangular crate, much like a coffin, dominates the center of the room. To the West a passageway leads into blackness.",
+  "longDes": "Crypt Long Description",
+  "shortDes": "Short crypt descirption",
   "visited": false,
   "startingItems": [],
   "droppedItems": [],
