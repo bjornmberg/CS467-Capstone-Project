@@ -5,7 +5,27 @@
   "visited": false,
   "startingItems": [],
   "droppedItems": [],
-  "features": [],
+  "features": [
+    {
+      "name": "apparition",
+      "actionable": true,
+      "preActionDes": "You see an apparition of a servant entering the linen closet.",
+      "inActionDes": "He's put something in the small sack in the closet.",
+      "postActionDes": "You witnessed an apparition placing something in the sack.",
+      "state": 0,
+      "featureId": 44
+    },
+
+    {
+      "name": "sack of laundry",
+      "actionable": true,
+      "preActionDes": "You feel something hard and lumpy amongst the laundry.",
+      "inActionDes": "Upon further inspection, you find a pistol among the laundry.",
+      "postActionDes": "You took the pistol from this sack of laundry.",
+      "state": 0,
+      "featureId": 45
+    },
+  ],
   "roomId": 8,
   "directions": {"east": 11}
 }
