@@ -5,7 +5,27 @@
   "visited": false,
   "startingItems": [],
   "droppedItems": [],
-  "features": [],
+  "features": [
+    {
+      "name": "fountain",
+      "actionable": true,
+      "preActionDes": "You look at the fountain. You can see something in the water.",
+      "inActionDes": "You reach in the water and pull out a rusty, old spade.",
+      "postActionDes": "You found the spade here. You don't see anything else remarkable.",
+      "state": 0,
+      "featureId": 54
+    },
+
+    {
+      "name": "roses",
+      "actionable": true,
+      "preActionDes": "You look at the roses. In a sea of red, you notice one is white with red spattered on it.",
+      "inActionDes": "You take the flower from the rose bed.",
+      "postActionDes": "You see a lot of red roses.",
+      "state": 0,
+      "featureId": 55
+    }
+  ],
   "roomId": 19,
   "directions": {"south":  7, "east": 18}
 }
