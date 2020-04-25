@@ -1,0 +1,11 @@
+{
+  "name": "Kitchen",
+  "longDes": "You enter what seems to be a kitchen. You can faintly smell the aroma of freshly-baked bread. There are large doors to the North and East leading to adjoining rooms. Along the North wall, there is a large sink with a window above it. There is also a row of drawers along the Northern wall next to the Range. Just as you finish a quick survey of the room, you notice something (or someone) move in the corner of your eye. It’s rapidly moving towards you!",
+  "shortDes": "You are in the Mansion's kitchen. The door to the North goes to the Rose Garden. The door to the East is the formal Dining Room.",
+  "visited": false,
+  "startingItems": [],
+  "droppedItems": [],
+  "features": [],
+  "roomId": 7,
+  "directions": {"north": 19, "east": 6, "down": 14}
+}

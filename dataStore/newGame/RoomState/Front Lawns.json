@@ -1,0 +1,11 @@
+{
+  "name": "Front Lawns",
+  "longDes": "You are on the front lawns of the mansion. There is a large expanse of greenery before you. There are flower gardens near the front of the house, full of vibrant purple flowers. The borders of the flower gardens are of curious-looking stone. There are two rows of tall trees here. Under one tree you think that you can see a glow. To the North is the front porch of the house. To the South are the locked gates of the grounds. ",
+  "shortDes": "You are standing on the front lawns. There are purples flower gardens here adjacent to the front of the house. Trees line the drive and you see locked gates beyond. To the North is the front porch leading to the house entry.",
+  "visited": false,
+  "startingItems": [],
+  "droppedItems": [],
+  "features": [],
+  "roomId": 21,
+  "directions": {"north": 20}
+}
