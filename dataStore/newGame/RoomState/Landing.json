@@ -27,17 +27,17 @@
     },
 
     {
-      "name": "“piano lid",
+      "name": "piano lid",
       "actionable": true,
       "preActionDes": "Perhaps I could open this.",
       "inActionDes": "You open the piano lid and discover a key attached to one of the hammers.",
       "postActionDes": "You grabbed the key out of this piano.",
       "state": 0,
-      "featureId": 39,
+      "featureId": 39
     },
 
     {
-      "name": "“south window",
+      "name": "south window",
       "actionable": false,
       "preActionDes": "You can see the front porch from here.",
       "inActionDes": "",
