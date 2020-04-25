@@ -7,7 +7,6 @@
 
 import json
 import os
-import platform
 from Credits import credits
 from Hero import Hero
 from Intro import intro
@@ -28,24 +27,14 @@ class Game:
     # Parameters:
     #   NONE
     def start(self):
-        # Determine the system type running the game
-        plat = platform.system()
 
         while 1:
             selection =  menu.display()
             if selection == 'newgame':
-                if plat == 'Windows':
-                    # self.play_game('datastore\\newGame.json')
-                    intro.display()
-                    self.play_game('dataStore\\newGame\\load_file.json', 'dataStore\\newGame\\RoomState\\')
-                else:
-                    intro.display()
-                    self.play_game('dataStore/newGame/load_file.json', 'dataStore/newGame/RoomState/')
+                intro.display()
+                self.play_game('dataStore/newGame/load_file.json', 'dataStore/newGame/RoomState/')
             elif selection == 'loadgame':
-                if plat == 'Windows':
-                    self.play_game('datastore\\savedGame\\load_file.json', 'dataStore\\savedGame\\RoomState\\')
-                else:
-                    self.play_game('dataStore/saveGame/load_file.json', 'dataStore/newGame/RoomState/')
+                self.play_game('dataStore/saveGame/load_file.json', 'dataStore/newGame/RoomState/')
             elif selection == 'credits':
                 credits.display()
             elif selection == 'exit':
