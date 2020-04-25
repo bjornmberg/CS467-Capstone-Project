@@ -9,7 +9,7 @@
     {
       "name": "easel",
       "actionable": true,
-      "preActionDes": "This easel holds a blank canvas, ready to be painted.",
+      "preActionDes": "This easel holds a blank canvas. There are also oil paints and brushes next to it. It's ready to be painted.",
       "inActionDes": "You begin to paint.",
       "postActionDes": "You finish your painting of the dog. Its eyes look dead.",
       "state": 0,
