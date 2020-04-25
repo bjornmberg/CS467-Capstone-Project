@@ -5,7 +5,17 @@
       "visited": false,
       "startingItems": [],
       "droppedItems": [],
-      "features": [],
+      "features": [
+        {
+          "name": "overgrown vine",
+          "actionable": true,
+          "preActionDes": "The vine attempts to claw at you. You notice something shiny hanging from one of the vine's tendrils.",
+          "inActionDes": "You clip the tendril from the vine to acquire a locket.",
+          "postActionDes": "You retrieved the locket from this vine.",
+          "state": 0,
+          "featureId": 60
+        }
+      ],
       "roomId": 3,
       "directions": {"south":  4}
 }
