@@ -5,7 +5,47 @@
   "visited": false,
   "startingItems": [],
   "droppedItems": [],
-  "features": [],
+  "features": [
+    {
+      "name": "piano",
+      "actionable": true,
+      "preActionDes": "This is an old grand piano. Good thing your mother made you take lessons when you were a kid!",
+      "inActionDes": "The piano begins playing a classical tune. You recognize it, but one of the notes is out of tune.",
+      "postActionDes": "This piano played a tune after you painted. One of the notes was off-key.",
+      "state": 0,
+      "featureId": 37
+    },
+
+    {
+      "name": "piano keys",
+      "actionable": true,
+      "preActionDes": "You look at the keys. It's been a while since you've 'tickled the ivories', but you feel like you could give it a shot.",
+      "inActionDes": "While playing the piano, you discover that the same note is off-key as you heard before.",
+      "postActionDes": "You played the piano. One of the notes is off-key.",
+      "state": 0,
+      "featureId": 38
+    },
+
+    {
+      "name": "“piano lid",
+      "actionable": true,
+      "preActionDes": "Perhaps I could open this.",
+      "inActionDes": "You open the piano lid and discover a key attached to one of the hammers.",
+      "postActionDes": "You grabbed the key out of this piano.",
+      "state": 0,
+      "featureId": 39,
+    },
+
+    {
+      "name": "“south window",
+      "actionable": false,
+      "preActionDes": "You can see the front porch from here.",
+      "inActionDes": "",
+      "postActionDes": "",
+      "state": 0,
+      "featureId": 40
+    }
+  ],
   "roomId": 11,
   "directions": {"southwest":  8, "southeast": 22, "northeast": 12, "northwest":  9, "down": 1}
 }
