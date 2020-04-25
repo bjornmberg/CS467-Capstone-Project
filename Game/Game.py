@@ -6,6 +6,7 @@
 '''
 
 import json
+import os
 import platform
 from Credits import credits
 from Hero import Hero
@@ -111,8 +112,6 @@ class Game:
             self.hero.location = current_room.directions[direction]
             # set the room being left to visited
             current_room.set_visited()
-        else:
-            print('There is no door in that direction.')
 
 
     # This function is used to take an item from the Room and
@@ -134,6 +133,37 @@ class Game:
             self.inventory.add_item(taken_item)
         else:
             print('That is not an item you can take.')
+
+    # FUNCTION COMMENT PLACEHOLDER
+    def get_command(self, renderCounter):
+        # If the three rooms have been rendered, clear the screen
+        if renderCounter == 3:
+            os.system('clear')
+            renderCounter = 0
+
+        current_room = self.rooms_list[self.hero.location]
+        current_room.get_description()
+
+        # COMMENT OUT LINE 113 and UNCOMMENT LINE 115 to OVERRIDE THE PARSER
+        # command = self.parseArgs()
+        command = input('> ').split(' ')
+
+        if command[0] == 'move':
+            self.move(command[1])
+        elif command[0] == 'take':
+            self.take(command[1])
+        elif command[0] == 'inventory':
+            self.inventory.show_inventory()
+        elif command[0] == 'drop':
+            self.drop(command[1])
+        elif command[0] == 'look':
+            if len(command) == 1:
+                print(current_room.long_des)
+            else:
+                self.look_at_something(command[1])
+        elif command[0] == 'action':
+            print(current_room.action_feature(command[1]))
+
 
     # This function is used to drop an Item out of Inventory and
     # leave it on the floor of a Room
@@ -182,34 +212,6 @@ class Game:
         else:
             print('You do not see a {}'.format(thing))
 
-
-
-    # This is a function for getting input from the user.
-    def get_command(self):
-
-        current_room = self.rooms_list[self.hero.location]
-        current_room.get_description()
-
-        # COMMENT OUT LINE 113 and UNCOMMENT LINE 115 to OVERRIDE THE PARSER
-        # command = self.parseArgs()
-        command = input('> ').split(' ')
-
-        if command[0] == 'move':
-            self.move(command[1])
-        elif command[0] == 'take':
-            self.take(command[1])
-        elif command[0] == 'inventory':
-            self.inventory.show_inventory()
-        elif command[0] == 'drop':
-            self.drop(command[1])
-        elif command[0] == 'look':
-            if len(command) == 1:
-                print(current_room.long_des)
-            else:
-                self.look_at_something(command[1])
-        elif command[0] == 'action':
-            print(current_room.action_feature(command[1]))
-
     # This function is the main game driver function
     def play_game(self, input_file, file_path):
 
@@ -223,8 +225,15 @@ class Game:
         self.initialize_rooms(room_data, file_path)
         self.initialize_hero(hero_data)
 
+        # print('{}'.format(file_data['intro']))
+
+        renderCounter = -1
+
         while 1:
-            self.get_command()
+            renderCounter += 1
+            if renderCounter == 4:
+                renderCounter = 1
+            self.get_command(renderCounter)
 
     # Parses the arguments passed
     def parseArgs(self):
@@ -252,7 +261,7 @@ class Game:
         testWords = ["take", "inventory", "drop"]
 
         # Get user input. Make it lowercase and split it.
-        splitArgs = input('> ').lower().split()
+        splitArgs = input('            > ').lower().split()
 
         command = [] # holds the parsed commands
         dir_name = [] # holds valid directions and the corresponding room names
@@ -281,7 +290,7 @@ class Game:
 
             # Print an error if no room was provided.
             if len(command) <= 1:
-                print("Error. Invalid room name or direction given.")
+                print("\t\tError. Invalid room name or direction given.")
 
             else:
                 # Check to see if it's a one-word named room
@@ -315,11 +324,11 @@ class Game:
 
                 # Print an error if an invalid room name was passed.
                 else:
-                    print("Invalid room name or direction given.")
+                    print("\t\tInvalid room name or direction given.")
 
         # Throw an error if an invalid command was passed.
         elif command[0] not in testWords:
-            print("Invalid command \'" + splitArgs[0] + "\' passed.")
+            print("\t\tInvalid command \'" + splitArgs[0] + "\' passed.")
 
         # Append bad commands to not crash the game in the function calls above.
         while len(command) < 2:

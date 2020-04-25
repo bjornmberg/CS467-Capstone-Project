@@ -1,55 +1,103 @@
-import shutil
-import os
+# Adapted from:
+# https://www.youtube.com/watch?v=zwMsmBsC1GM
 
-# Initialize some variables for use in menu display
-cols, rows = shutil.get_terminal_size()
-lastLine = rows//2
-centerLeftRight = cols//1
-centerTopBottom = (lastLine) // 3 
-halfWidth = cols // 2
-halfWidthLessBorder = halfWidth - 2
+import curses
 
-# Function calculates the border buffer on each side for lines with text
-def borderCalculator(strToCalc):
-    # If not even value, division will result in botched borders. Add a space to end of string as workaround
-    if len(strToCalc) % 2 != 0:
-        strToCalc = strToCalc + ' '
-    return (halfWidthLessBorder - len(strToCalc)) // 2, strToCalc
+menu = ['New Game', 'Load Game', 'Credits ', 'Exit    ']
 
-# display function
+def print_menu(stdscr, selected_row_index):
+    stdscr.clear()
+
+    # screen.border(0)
+    box1 = stdscr.subwin(14, 35, 11, 33)
+    box1.border(20)
+    box1.border(curses.ACS_CKBOARD, curses.ACS_CKBOARD, curses.ACS_CKBOARD, curses.ACS_CKBOARD, curses.ACS_CKBOARD, curses.ACS_CKBOARD, curses.ACS_CKBOARD, curses.ACS_CKBOARD)
+
+    stdscr.attron(curses.color_pair(2))
+    stdscr.attron(curses.A_BLINK)
+    stdscr.attron(curses.A_BOLD)
+    stdscr.addstr(13,38, "The Spooky Mansion Mystery")
+    stdscr.attroff(curses.color_pair(2))
+    stdscr.attroff(curses.A_BLINK)
+    stdscr.attroff(curses.A_BOLD)
+
+    # Obtain height and width of the screen
+    h, w = stdscr.getmaxyx()
+
+    # Calculate print location
+    for index, row in enumerate(menu):
+        # x = w // 2 - len(row) // 2
+        x = w // 2 - len(row) // 2
+        y = h // 2 - len(menu) // 2 + index
+        if index == selected_row_index:
+            if index == selected_row_index and selected_row_index == 0:
+                stdscr.attron(curses.color_pair(1))
+                stdscr.addstr(y, x, row)
+                stdscr.attroff(curses.color_pair(1))
+            else:
+                stdscr.attron(curses.color_pair(1))
+                stdscr.addstr(y, x, row)
+                stdscr.attroff(curses.color_pair(1))
+        else:
+            stdscr.addstr(y, x, row)
+    box1.refresh()
+    stdscr.refresh()
+
+def main(stdscr):
+    # Remove blinking cursor
+    curses.curs_set(0)
+    curses.init_pair(1, curses.COLOR_BLACK, curses.COLOR_WHITE)
+    curses.init_pair(2, curses.COLOR_RED, curses.COLOR_BLACK)
+
+
+    current_row_index = 0
+    print_menu(stdscr, current_row_index)
+
+    while 1:
+        key = stdscr.getch()
+        stdscr.clear()
+
+        if key == curses.KEY_UP and current_row_index > 0:
+            current_row_index -= 1
+        elif key == curses.KEY_DOWN and current_row_index < len(menu) - 1:
+            current_row_index += 1
+        elif key == curses.KEY_ENTER or key in [10, 13]:
+            if current_row_index == 0:
+                curses.curs_set(1)
+                curses.echo()
+                curses.nocbreak()
+                stdscr.keypad(False)
+                curses.endwin()
+                return 'newgame'
+            elif current_row_index == 1:
+                curses.curs_set(1)
+                curses.echo()
+                curses.nocbreak()
+                stdscr.keypad(False)
+                curses.endwin()
+                return 'loadgame'
+            elif current_row_index == 2:
+                curses.curs_set(1)
+                curses.echo()
+                curses.nocbreak()
+                stdscr.keypad(False)
+                curses.endwin()
+                return 'credits'
+            else:
+                curses.curs_set(1)
+                curses.echo()
+                curses.nocbreak()
+                stdscr.keypad(False)
+                curses.endwin()
+                return 'exit'
+            #stdscr.refresh()
+            # stdscr.getch()
+            # if current_row_index == len(menu) - 1:
+            #     break
+
+        print_menu(stdscr, current_row_index)
+        stdscr.refresh()
+
 def display():
-    # Set up and enter primary menu loop
-    selection = -1
-    while selection != 'newgame' and selection != 'loadgame' and selection != 'credits' and selection != 'exit':
-        os.system('clear')
-
-        print('\n' * centerTopBottom)
-        # Print a top border to the box
-        print(('▒' * halfWidth).center(centerLeftRight))
-        # Side borders with no center text
-        print(('▒' + (' ' * halfWidthLessBorder) + '▒').center(centerLeftRight))
-        buffer, header = borderCalculator('The Spooky Mansion Mystery')
-        # Print line of text with borders
-        print(('▒' + (' ' * buffer) + '\033[5;31;40m' + header + '\033[0m' + (' ' * buffer) +  '▒').center(centerLeftRight + 13))
-        print(('▒' + (' ' * halfWidthLessBorder) + '▒').center(centerLeftRight))
-        buffer, subheading = borderCalculator('Do you dare enter the mansion?')
-        print(('▒' + (' ' * buffer) + subheading + (' ' * buffer) + '▒').center(centerLeftRight))
-        print(('▒' + (' ' * halfWidthLessBorder) + '▒').center(centerLeftRight))
-        buffer, instruction = borderCalculator('Please Make a Selection:')
-        print(('▒' + (' ' * buffer) + instruction + (' ' * buffer) + '▒').center(centerLeftRight))
-        print(('▒' + (' ' * halfWidthLessBorder) + '▒').center(centerLeftRight))
-        buffer, new = borderCalculator('\'newgame\' - to start a new game')
-        print(('▒' + (' ' * buffer) + new + (' ' * buffer) + '▒').center(centerLeftRight))
-        buffer, load = borderCalculator('\'loadgame\' - to load a saved game')
-        print(('▒' + (' ' * buffer) + load + (' ' * buffer) + '▒').center(centerLeftRight))
-        buffer, creds = borderCalculator('\'credits\' - to view the game credits')
-        print(('▒' + (' ' * buffer) + creds + (' ' * buffer) + '▒').center(centerLeftRight))
-        buffer, depart = borderCalculator('\'exit\' - to exit the game')
-        print(('▒' + (' ' * buffer) + depart + (' ' * buffer) + '▒').center(centerLeftRight))
-        print(('▒' + (' ' * halfWidthLessBorder) + '▒').center(centerLeftRight))
-        print(('▒' * halfWidth).center(centerLeftRight))
-        print('\n' * (lastLine - 3))
-        selection = input('Enter selection:')
-
-    # Having exited the loop, return the user's selection
+    selection = curses.wrapper(main)
     return selection

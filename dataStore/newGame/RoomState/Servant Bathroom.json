@@ -1,7 +1,7 @@
 {
   "name": "Servant Bathroom",
-  "longDes": "Servant Bathroom Long Description",
-  "shortDes": "Short servant bathroom descirption",
+  "longDes": "You are standing in a tiny, spartan bathroom. There isn’t much here besides a toilet, sink, and faded mirror. There is a smell in the air here, not of the bathroom but something else that you can’t quite place. There is a small shelf below the bathroom mirror that holds a few of the servant’s things. To the West is the door back to the servant’s quarters.",
+  "shortDes": "You find yourself in the servant’s bathroom. There is not much here of note besides a small shelf below the mirror. A door to the West leads back to the servant’s quarters.",
   "visited": false,
   "startingItems": [],
   "droppedItems": [],

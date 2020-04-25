@@ -1,7 +1,7 @@
 {
   "name": "Linen Closet",
-  "longDes": "Linen Closet Long Description",
-  "shortDes": "Short linenCloset descirption",
+  "longDes": "You enter a small linen closet. It is quite dark, making it difficult for you to see everything in this room. You notice that there is only one door in this room to the East (where you entered). Luckily, you left it open a crack to let some light through.. After fumbling around the dark linen room for a few moments, you find a lumpy sack directly in the center of the room.",
+  "shortDes": "You enter a small linen closet. It is quite dark, making it difficult for you to see everything in this room. You notice that there is only one door in this room to the East (where you entered). Luckily, you left it open a crack to let some light through.. After fumbling around the dark linen room for a few moments, you find a lumpy sack directly in the center of the room.",
   "visited": false,
   "startingItems": [],
   "droppedItems": [],
