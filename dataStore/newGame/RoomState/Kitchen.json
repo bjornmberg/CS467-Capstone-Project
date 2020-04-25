@@ -5,7 +5,26 @@
   "visited": false,
   "startingItems": [],
   "droppedItems": [],
-  "features": [],
+  "features": [
+    {
+      "name": "chef",
+      "actionable": false,
+      "preActionDes": "The undead chef sneers at you. Clearly he doesn’t want you here.",
+      "inActionDes": "",
+      "postActionDes": "",
+      "state": 0,
+      "featureId": 36,
+    },
+    {
+      "name": "drawer",
+      "actionable": true,
+      "preActionDes": "This drawer is locked. You can't open it, but there is a keyhole.",
+      "inActionDes": "You unlock the drawer and notice, among other utensils, a knife.",
+      "postActionDes": "This is where you found the knife.",
+      "state": 0,
+      "featureId": 35
+    }
+  ],
   "roomId": 7,
   "directions": {"north": 19, "east": 6, "down": 14}
 }
