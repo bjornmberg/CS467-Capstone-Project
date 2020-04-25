@@ -5,7 +5,27 @@
   "visited": false,
   "startingItems": [],
   "droppedItems": [],
-  "features": [],
+  "features": [
+    {
+      "name": "plank",
+      "actionable": true,
+      "preActionDes": "Looking closer, the gazebo has a plank that looks off-color towards the center.",
+      "inActionDes": "You pry up the plank, revealing a dark hole!",
+      "postActionDes": "You took the plank from this spot revealing a dark hole! I wonder what’s down there.",
+      "state": 0,
+      "featureId": 31
+    },
+
+    {
+          "name": "dark hole",
+          "actionable": true,
+          "preActionDes":"You've exposed a dark tunnel. There's no indication of what it may hold.",
+          "inActionDes": "You step into the dark hole. You can’t see anything but a slight glow coming from your inventory.",
+          "postActionDes": "You pull the crystal from your pocket. You can faintly see that there is a corridor leading somewhere.",
+          "state": 0,
+          "featureId": 32
+    }
+  ],
   "roomId": 18,
   "directions": {"west": 19, "down hole":  17}
 }
