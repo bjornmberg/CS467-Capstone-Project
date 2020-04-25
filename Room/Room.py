@@ -150,6 +150,7 @@ class Room:
         # status 2 means this was a dropped item
         elif status == 2:
             self.dropped_items.remove(item)
+            return True, item
         # anything else means the item is not here
         else:
             return False, None
@@ -182,21 +183,15 @@ class Room:
         for key in self.directions:
             print(textwrap.fill(key, initial_indent='                        '))
         print()
-        print('            FEATURES:')
-        for feature in self.features:
-            print(textwrap.fill('\t{}'.format(feature.name), initial_indent='                '))
-        print('▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃\n\n'.center(centerLeftRight))
-
-        if len(self.starting_items) > 0:
-            print(textwrap.fill('Starting Items:', initial_indent='            '))
-            for x in range(0, len(self.starting_items)):
-                print(textwrap.fill('\t{}'.format(self.starting_items[x].name), initial_indent='                '))
 
         if len(self.dropped_items) > 0:
             print(textwrap.fill('You Seem to have left these items on the floor: ', initial_indent='            '))
             for y in range(0, len(self.dropped_items)):
-                print('\t{}'.format(self.dropped_items[y].name))
                 print(textwrap.fill('\t{}'.format(self.dropped_items[y].name), initial_indent='                '))
+        print('▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃\n\n'.center(centerLeftRight))
+
+
+
 
     # This function will need to be toggled when a player enters the Room (after calling the getDescription function)
     def set_visited(self):
