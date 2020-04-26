@@ -19,24 +19,26 @@
   "droppedItems": [],
   "features":
   [
-      {
-          "name": "rug",
-          "actionable": true,
-          "preActionDes":"something is under this rug...",
-          "inActionDes": "that is a cool mask...",
-          "postActionDes": "this is where you found the mask",
-          "state": 0,
-          "featureId": 0
-      },
-      {
-          "name": "end table",
-          "actionable": true,
-          "preActionDes":"there is something behind the endtable...",
-          "inActionDes": "there is a rusty lantern here...",
-          "postActionDes": "this is where you found the lantern",
-          "state": 0,
-          "featureId": 1
-      }
+    {
+      "name": "suit of armor",
+      "actionable": true,
+      "preActionDes": "This suit of armor very rusted. It's holding a sword in one hand and has another hand outstretched.",
+      "inActionDes": "You place the axe back in the hand of the rusted armor and hear something move upstairs.",
+      "postActionDes": "The missing axe has been returned.",
+      "state": 0,
+      "featureId": 20
+    },
+
+    {
+      "name": "grandfather clock",
+      "actionable": false,
+      "preActionDes": "You look at the magnificent old clock. Somehow, it's still working. The time is currently …",
+      "inActionDes": "",
+      "postActionDes": "",
+      "state": 0,
+      "featureId": 21
+
+    }
   ],
       "roomId": 1,
       "directions": {"north":  5, "south": 20, "east": 0, "west": 2, "up": 11}

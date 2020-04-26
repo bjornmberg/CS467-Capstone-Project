@@ -5,7 +5,47 @@
       "visited": false,
       "startingItems": [],
       "droppedItems": [],
-      "features": [],
+      "features": [
+        {
+          "name": "bookcase",
+          "actionable": true,
+          "preActionDes": "You see an oddly bound book on the shelf. It's upside down and has a strange binding.",
+          "inActionDes": "You take the book.",
+          "postActionDes": "This is where you found the oddly bound book.",
+          "state": 0,
+          "featureId": 41
+        },
+
+        {
+          "name": "oddly bound book",
+          "preActionDes": "The book falls open on the floor.",
+          "inActionDes": "You look at the pictures of the page that is open. One shows a white rose splattered in red. The other shows a gravestone.",
+          "postActionDes": "You found images of a rose and gravestone in this book.",
+          "state": 0,
+          "featureId":  64
+        },
+
+        {
+          "name": "south window",
+          "actionable": false,
+          "preActionDes": "You can see the porch from here.",
+          "inActionDes": "",
+          "postActionDes": "",
+          "state": 0,
+          "featureId": 42
+        },
+
+        {
+
+          "name": "west window",
+          "actionable": false,
+          "preActionDes": "You look at the forest West of the house. It goes for miles.",
+          "inActionDes": "",
+          "postActionDes": "",
+          "state": 0,
+          "featureId": 43
+        }
+      ],
       "roomId": 2,
       "directions": {"north": 4, "east": 1}
 }

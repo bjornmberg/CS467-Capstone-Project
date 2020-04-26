@@ -5,7 +5,37 @@
   "visited": false,
   "startingItems": [],
   "droppedItems": [],
-  "features": [],
+  "features": [
+    {
+      "name": "vision",
+      "actionable": false,
+      "preActionDes": "You witness a vision of a mad Chef swinging an axe in a rage while chasing his wife and the servant about the room. The scene washes away, and you hear a crash from the bathroom.",
+      "inActionDes": "",
+      "postActionDes": "",
+      "state": 0,
+      "featureId": 33
+    },
+
+    {
+      "name": "bed",
+      "actionable": true,
+      "preActionDes": "You follow the glint of light to the bed. You see an axe sticking out from beneath the bed.",
+      "inActionDes": "You take the axe from under the bed.",
+      "postActionDes": "You found the axe under this bed.",
+      "state": 0,
+      "featureId": 34
+    },
+
+    {
+      "name": "glint",
+      "actionable": false,
+      "preActionDes": "There is a glint on the ceiling. Tracing it, you notice something coming from the bed.",
+      "inActionDes": "",
+      "postActionDes": "",
+      "state": 0,
+      "featureId": 35
+    }
+  ],
   "roomId": 12,
   "directions": {"northwest": 10, "southwest": 11}
 }
