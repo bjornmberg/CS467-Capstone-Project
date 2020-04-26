@@ -5,7 +5,27 @@
   "visited": false,
   "startingItems": [],
   "droppedItems": [],
-  "features": [],
+  "features": [
+    {
+      "name": "apparition",
+      "actionable": true,
+      "preActionDes": "",
+      "inActionDes": "You see a vision of a girl laughing in this room.",
+      "postActionDes": "You saw the vision of the girl laughing in this room.",
+      "state": 0,
+      "featureId": 52
+    },
+
+    {
+      "name": "music box",
+      "actionable": false,
+      "preActionDes": "You open the music box. It's playing a requiem. There is a ballerina dancing on purple flowers in the middle of the box.",
+      "inActionDes": "",
+      "postActionDes": "",
+      "state": 0,
+      "featureId": 53
+    }
+  ],
   "roomId": 9,
   "directions": {"southeast":  11, "northeast":  10}
 }

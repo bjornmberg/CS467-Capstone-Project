@@ -5,7 +5,27 @@
   "visited": false,
   "startingItems": [],
   "droppedItems": [],
-  "features": [],
+  "features": [
+    {
+      "name": "door lock",
+      "actionable": true,
+      "preActionDes": "This door is locked.",
+      "inActionDes": "You unlock the door.",
+      "postActionDes": "You have unlocked this door.",
+      "state": 0,
+      "featureId": 58
+    },
+
+    {
+      "name": "ledge",
+      "actionable": true,
+      "preActionDes": "You see something on the ledge.",
+      "inActionDes": "Upon further inspection, you notice that there's a lock of hair tied with a red ribbon.",
+      "postActionDes": "You took the lock of hair from this ledge.",
+      "state": 0,
+      "featureId": 59
+    }
+  ],
   "roomId": 16,
   "directions": {"west": 15}
 }

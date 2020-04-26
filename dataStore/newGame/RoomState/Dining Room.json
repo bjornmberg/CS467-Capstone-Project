@@ -6,24 +6,55 @@
   "startingItems": [],
   "droppedItems": [],
   "features": [
-      {
-          "name": "painting",
-          "actionable": true,
-          "preActionDes":"just a painting of a woman...",
-          "inActionDes": "just a painting of a woman...",
-          "postActionDes": "just a painting of a woman...",
-          "state": 0,
-          "featureId": 0
-      },
-      {
-          "name": "table",
-          "actionable": true,
-          "preActionDes":"just a dinnning room table...",
-          "inActionDes": "just a dinnning room table...",
-          "postActionDes": "just a dinnning room table...",
-          "state": 0,
-          "featureId": 1
-      }
+    {
+      "name": "painting",
+      "actionable": false,
+      "preActionDes": "You look at the painting. It is a traditional English fox hunt. There is a horse with a mounted hunter. There is also a large pack of dogs chasing a fox. One of the dogs seems very strange.",
+      "inActionDes": "",
+      "postActionDes": "",
+      "state": 0,
+      "featureId": 13
+    },
+
+    {
+      "name": "dog",
+      "actionable": false,
+      "preActionDes": "You look closer at the dog. It's got three heads and glowing, red eyes!",
+      "inActionDes": "",
+      "postActionDes": "",
+      "state": 0,
+      "featureId": 14
+    },
+
+    {
+      "name": "table",
+      "actionable": false,
+      "preActionDes": "You look at the table. There isn't anything remarkable.",
+      "inActionDes": "",
+      "postActionDes": "",
+      "state": 0,
+      "featureId": 15
+    },
+
+    {
+      "name": "north window",
+      "actionable": false,
+      "preActionDes": "You look out the window. You can see the rose garden.",
+      "inActionDes": "",
+      "postActionDes": "",
+      "state": 0,
+      "featureId": 16
+    },
+
+    {
+      "name": "east window",
+      "actionable": false,
+      "preActionDes": "You look out the window. All you can see is the first row of trees in a forest.",
+      "inActionDes": "",
+      "postActionDes": "",
+      "state": 0,
+      "featureId": 17
+    }
   ],
   "roomId": 6,
   "directions": {"south": 0, "west": 7}

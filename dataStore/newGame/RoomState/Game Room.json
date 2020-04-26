@@ -1,11 +1,61 @@
 {
   "name": "Game Room",
-  "longDes": "You have entered the Game Room, this looks like fun. In the center of the room is a dusty pool table. To the West is a large picture window. Is that a picture of dogs playing poker on the wall? A fireplace stands on the east wall, and looks as if it hasn’t been used in ages. There is a door with fogged glass to the North; You wonder where it leads. To the South is a door leading back to the library. To the southeast is a blue door that appears to lead to a small bathroom.",
+  "longDes": "You have entered the Game Room, this looks like fun. In the center of the room is a dusty pool table. To the West is a large picture window. Is that a picture of dogs playing poker on the wall? A fireplace stands on the east wall, and looks as if it hasn't been used in ages. There is a door with fogged glass to the North; You wonder where it leads. To the South is a door leading back to the library. To the southeast is a blue door that appears to lead to a small bathroom.",
   "shortDes": "You are in the mansion game room. A pool table occupies the center of the room, and a fireplace stands cold and dark. A window to the west looks out to woods adjacent to the house. There is a door to the north that leads to the solarium. A small blue door to the southwest goes to a small bathroom. To the South is a door to the library.",
   "visited": false,
   "startingItems": [],
   "droppedItems": [],
-  "features": [],
+  "features": [
+    {
+      "name": "fireplace",
+      "actionable": true,
+      "preActionDes": "This fireplace looks like it hasn't been used (or cleaned) in years.",
+      "inActionDes": "You throw the ashes into the fire. The ashes instantly set a fire ablaze and a poltergeist appears!",
+      "postActionDes": "The dimly lit fireplace is still glowing. You're not sure how the ashes caused the fireplace to start.",
+      "state": 0,
+      "featureId": 26
+    },
+    
+    {
+      "name": "burning fireplace",
+      "actionable": true,
+      "preActionDes": "This fire is roaring.",
+      "inActionDes": "You add more ashes to the already roaring fire.",
+      "postActionDes": "The fire begins to grow, and escapes the fireplace. The walls around you are quickly engulfed in flames. The smoke stings your lungs as you gasp for precious oxygen. The room is going dark. You feel yourself losing consciousness as you notice a sharp stinging sensation taking over your body.",
+      "state": 0,
+      "featureId": 27
+    },
+
+    {
+      "name": "pool table",
+      "actionable": true,
+      "preActionDes": "This pool table looks fun. Perhaps you could play with the poltergeist?",
+      "inActionDes": "You play a round of pool with the Poltergeist. He beat you after you scratched attempting to pocket the 8-ball.",
+      "postActionDes": "You lost this game. Perhaps it's better to have kept the Poltergeist happy.",
+      "state": 0,
+      "featureId": 28
+    },
+
+    {
+      "name": "painting",
+      "actionable": false,
+      "preActionDes": "You take a closer look at the painting. It's dogs playing poker!",
+      "inActionDes": "",
+      "postActionDes": "",
+      "state": 0,
+      "featureId": 29
+    },
+
+    {
+      "name": "west window",
+      "actionable": false,
+      "preActionDes": "You look out the window. All you can see is the beginning of a forest.",
+      "inActionDes": "",
+      "postActionDes": "",
+      "state": 0,
+      "featureId": 30
+    }
+  ],
   "roomId": 4,
   "directions": {"north": 3, "south": 2, "east": 5}
 }

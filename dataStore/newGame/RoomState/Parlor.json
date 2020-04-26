@@ -21,22 +21,22 @@
   [
 
       {
-          "name": "couch",
-          "actionable": true,
-          "preActionDes":"you see a glint from under the couch",
-          "inActionDes": "there is a rusty old knife here",
-          "postActionDes": "this is where you found the knife",
+          "name": "poltergeist",
+          "actionable": false,
+          "preActionDes":"The poltergeist spoke of a master killing his loved ones in this house. He is gone now.",
+          "inActionDes": "",
+          "postActionDes": "",
           "state": 0,
-          "featureId": 0
+          "featureId": 46
       },
       {
-          "name": "drawer",
-          "actionable": true,
-          "preActionDes":"a dusty endtable with a drawer",
-          "inActionDes": "there is a fancy key lying in the drawer",
-          "postActionDes": "this is where you found the fancy key",
+          "name": "south window",
+          "actionable": false,
+          "preActionDes":"You look out the window. You can see the porch and the front lawn.",
+          "inActionDes": "",
+          "postActionDes": "",
           "state": 0,
-          "featureId": 1
+          "featureId": 47
       }
   ],
   "roomId": 0,
