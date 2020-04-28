@@ -3,19 +3,7 @@
       "longDes": "You enter the main foyer. You are instantly awestruck and saddened by the beauty that this old mansion used to have. The marble floors are cracked and haven’t been cared for in years. There is an old, rusty suit of armor along the Western wall that is full of cobwebs and in desperate need of restoration.  The armor’s hand is out-stretched and should be holding something, but it’s missing. There is also an old grandfather clock on the Eastern wall that, surprisingly, is still telling time, though you’re not sure of the actual time. There is a small door to the North. There are two larger doors to the East and West that lead to larger adjoining rooms. To the South is the front door to the house.  As you finish your survey of this room, you notice a grand, spiral staircase towards the Northern wall. This leads both upstairs and downstairs.",
       "shortDes": "You are standing in the main foyer of the mansion. You see a suit of armor along the west wall. There is a grandfather clock ticking away along the east wall. A large staircase spirals upward to the second floor. A doorway to the East leads to the parlor. To the South are the main front doors for the mansion. To the West is a doorway to the library.  A small doorway to the North leads off to the first floor bathroom.",
       "visited": false,
-  "startingItems":
-  [
-      {
-          "name":"mask",
-          "description":  "a scary mask",
-          "linkedFeature": 0
-      },
-      {
-          "name": "lantern",
-          "description":  "this could help in the dark",
-          "linkedFeature": 1
-      }
-  ],
+  "startingItems":[],
   "droppedItems": [],
   "features":
   [
@@ -26,17 +14,17 @@
       "inActionDes": "You place the axe back in the hand of the rusted armor and hear something move upstairs.",
       "postActionDes": "The missing axe has been returned.",
       "state": 0,
-      "featureId": 20
+      "featureId": 0
     },
 
     {
       "name": "grandfather clock",
       "actionable": false,
       "preActionDes": "You look at the magnificent old clock. Somehow, it's still working. The time is currently …",
-      "inActionDes": "",
-      "postActionDes": "",
+      "inActionDes": "inAction clock",
+      "postActionDes": "postAction clock",
       "state": 0,
-      "featureId": 21
+      "featureId": 1
 
     }
   ],

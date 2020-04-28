@@ -3,7 +3,14 @@
       "longDes": "You have entered a library. Some chairs and small tables face windows on the South and West walls. Bookcases line the walls. The books appear mostly unremarkable, but there is one that looks odd - it has no markings but appears to be handbound. To the North is a door to a game room. The East door leads back to the foyer.",
       "shortDes": "You are in the mansion library. There are windows to the south and west. A door to the North leads to the game room. There is also a doorway to the East that leads back to the foyer.",
       "visited": false,
-      "startingItems": [],
+      "startingItems": [
+        
+        {
+          "name": "book",
+          "description":  "The book falls open on a page that shows a white rose splattered in red. The other shows a gravestone.",
+          "linkedFeature": 0
+        }
+      ],
       "droppedItems": [],
       "features": [
         {
@@ -13,18 +20,8 @@
           "inActionDes": "You take the book.",
           "postActionDes": "This is where you found the oddly bound book.",
           "state": 0,
-          "featureId": 41
+          "featureId": 0
         },
-
-        {
-          "name": "oddly bound book",
-          "preActionDes": "The book falls open on the floor.",
-          "inActionDes": "You look at the pictures of the page that is open. One shows a white rose splattered in red. The other shows a gravestone.",
-          "postActionDes": "You found images of a rose and gravestone in this book.",
-          "state": 0,
-          "featureId":  64
-        },
-
         {
           "name": "south window",
           "actionable": false,
@@ -32,9 +29,8 @@
           "inActionDes": "",
           "postActionDes": "",
           "state": 0,
-          "featureId": 42
+          "featureId": 1
         },
-
         {
 
           "name": "west window",
@@ -43,7 +39,7 @@
           "inActionDes": "",
           "postActionDes": "",
           "state": 0,
-          "featureId": 43
+          "featureId": 2
         }
       ],
       "roomId": 2,

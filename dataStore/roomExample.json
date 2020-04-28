@@ -1,0 +1,45 @@
+  {
+    "name": "Example Room",
+    "longDes": "Example long description",
+    "shortDes": "Example short description",
+    "visited": false,
+    "startingItems":
+    [
+        {
+            "name":"Example Item 1",
+            "description":  "This item is linked to featureId 0",
+            "linkedFeature": 0
+        },
+        {
+            "name": "Example Item 2",
+            "description":  "This item is linked to featureId 1",
+            "linkedFeature": 1
+        }
+    ],
+    "droppedItems": [],
+    "features":
+    [
+  
+        {
+            "name": "Feature 1",
+            "actionable": false,
+            "preActionDes":"Feature 1 pre-action description.",
+            "inActionDes": "Feature 1 in-action description.",
+            "postActionDes": "Feature 1 post-action description.",
+            "state": 0,
+            "featureId": 0
+        },
+        {
+            "name": "Feature 2",
+            "actionable": false,
+            "preActionDes":"Feature 2 pre-action description.",
+            "inActionDes": "Feature 2 in-action description.",
+            "postActionDes": "Feature 2 post-action description.",
+            "state": 0,
+            "featureId": 1
+        },
+    ],
+    "roomId": 0,
+    "directions": {"north":  6, "west":  1}
+  }
+  
