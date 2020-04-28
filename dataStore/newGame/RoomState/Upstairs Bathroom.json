@@ -3,7 +3,13 @@
   "longDes": "You are standing in a bathroom. White and black tile shines around you, and a clawfoot tub stands against the wall opposite the door.",
   "shortDes": "You are in a bathroom on the second floor. Tiles adorn the walls and a clawfoot tub stands opposite. A door to the West returns to the second floor landing.",
   "visited": false,
-  "startingItems": [],
+  "startingItems": [
+    {
+      "name":"key",
+      "description":  "a simple key.",
+      "linkedFeature": 1
+    }
+  ],
   "droppedItems": [],
   "features": [
     {
@@ -13,7 +19,7 @@
       "inActionDes": "The tile has shattered onto the floor, but you notice a space hollowed out where it fell from.",
       "postActionDes": "",
       "state": 0,
-      "featureId": 62
+      "featureId": 0
     },
 
     {
@@ -23,7 +29,7 @@
       "inActionDes": "You reach into the hollow and feel something small and metallic. It's a key!",
       "postActionDes": "You have taken the key from the hollow.",
       "state": 0,
-      "featureId": 63
+      "featureId": 1
     }
   ],
   "roomId": 22,

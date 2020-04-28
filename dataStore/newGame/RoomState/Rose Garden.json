@@ -3,27 +3,38 @@
   "longDes": "You are in the flower gardens of the mansion grounds. The air seems heavy with the fragrance of roses. At a glance, the roses appear to all be red. A small fountain can be seen near the roses. Some birds are wheeling about in the air above the water. To the East is a gazebo standing over the gardens. To the South is the rear entrance of the mansion.",
   "shortDes": "You are standing in the rose gardens behind the mansion. The scent of the red roses is almost overpowering. To the East is a white gazebo. To the South is the rear entrance of the house. ",
   "visited": false,
-  "startingItems": [],
+  "startingItems": [
+    {
+      "name":"rose",
+      "description":  "A red rose.",
+      "linkedFeature": 1
+    },
+    {
+      "name":"spade",
+      "description":  "A dirty spade.",
+      "linkedFeature": 0
+    }
+  ],
   "droppedItems": [],
   "features": [
     {
       "name": "fountain",
       "actionable": true,
       "preActionDes": "You look at the fountain. You can see something in the water.",
-      "inActionDes": "You reach in the water and pull out a rusty, old spade.",
+      "inActionDes": "A spade is lying at the bottom of the fountain.",
       "postActionDes": "You found the spade here. You don't see anything else remarkable.",
       "state": 0,
-      "featureId": 54
+      "featureId": 0
     },
 
     {
       "name": "roses",
       "actionable": true,
       "preActionDes": "You look at the roses. In a sea of red, you notice one is white with red spattered on it.",
-      "inActionDes": "You take the flower from the rose bed.",
+      "inActionDes": "These roses are so lovely, perhaps you should take one.",
       "postActionDes": "You see a lot of red roses.",
       "state": 0,
-      "featureId": 55
+      "featureId": 1
     }
   ],
   "roomId": 19,

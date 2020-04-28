@@ -13,27 +13,16 @@
       "inActionDes": "You throw the ashes into the fire. The ashes instantly set a fire ablaze and a poltergeist appears!",
       "postActionDes": "The dimly lit fireplace is still glowing. You're not sure how the ashes caused the fireplace to start.",
       "state": 0,
-      "featureId": 26
+      "featureId": 0
     },
-    
     {
-      "name": "burning fireplace",
-      "actionable": true,
-      "preActionDes": "This fire is roaring.",
-      "inActionDes": "You add more ashes to the already roaring fire.",
-      "postActionDes": "The fire begins to grow, and escapes the fireplace. The walls around you are quickly engulfed in flames. The smoke stings your lungs as you gasp for precious oxygen. The room is going dark. You feel yourself losing consciousness as you notice a sharp stinging sensation taking over your body.",
-      "state": 0,
-      "featureId": 27
-    },
-
-    {
-      "name": "pool table",
+      "name": "pool",
       "actionable": true,
       "preActionDes": "This pool table looks fun. Perhaps you could play with the poltergeist?",
       "inActionDes": "You play a round of pool with the Poltergeist. He beat you after you scratched attempting to pocket the 8-ball.",
       "postActionDes": "You lost this game. Perhaps it's better to have kept the Poltergeist happy.",
       "state": 0,
-      "featureId": 28
+      "featureId": 1
     },
 
     {
@@ -43,17 +32,17 @@
       "inActionDes": "",
       "postActionDes": "",
       "state": 0,
-      "featureId": 29
+      "featureId": 2
     },
 
     {
-      "name": "west window",
+      "name": "window",
       "actionable": false,
       "preActionDes": "You look out the window. All you can see is the beginning of a forest.",
       "inActionDes": "",
       "postActionDes": "",
       "state": 0,
-      "featureId": 30
+      "featureId": 3
     }
   ],
   "roomId": 4,

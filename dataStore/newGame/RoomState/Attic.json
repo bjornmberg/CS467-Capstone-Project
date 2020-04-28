@@ -3,7 +3,13 @@
   "longDes": "You are standing in the attic. It is warm up here, and surprisingly bright. There are windows to the North, East, South, and West, overlooking the mansion grounds and woods beyond. A flash of light catches your eye to the North. You see some toys scattered about the floor. The room is not as big as you would have thought. Instead of being perfectly square, a corner of the attic to the southwest seems to be walled off. The only exit is back down the stairs to the pink room on the second floor.",
   "shortDes": "You are in the attic of the mansion. Dust hangs lightly in the warm air. Toys are scattered about, and there are windows to the north, east, south, and west. A steep staircase leads back down to the pink room below.",
   "visited": false,
-  "startingItems": [],
+  "startingItems": [
+    {
+      "name":"crystal",
+      "description":  "A smooth crystal.",
+      "linkedFeature": 0
+  }
+  ],
   "droppedItems": [],
   "features": 
   [
@@ -17,7 +23,6 @@
       "featureId": 0
 
     },
-
     {
       "name": "hidden door",
       "actionable": true,
@@ -27,7 +32,6 @@
       "state": 0,
       "featureId": 1
     },
-
     {
       "name": "east window",
       "actionable": false,
@@ -36,9 +40,7 @@
       "postActionDes": "",
       "state": 0,
       "featureId": 2
-
     },
-
     {
       "name": "west window",
       "actionable": false,
@@ -48,7 +50,6 @@
       "state": 0,
       "featureId": 3
     },
-
     {
       "name": "south window",
       "actionable": false,
@@ -58,7 +59,6 @@
       "state": 0,
       "featureId": 4
     },
-
     {
       "name": "stairs",
       "actionable": false,
@@ -68,7 +68,6 @@
       "state": 0,
       "featureId": 5
     },
-
     {
       "name": "toys",
       "actionable": false,

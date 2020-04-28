@@ -13,7 +13,7 @@
       "inActionDes": "You pry up the plank, revealing a dark hole!",
       "postActionDes": "You took the plank from this spot revealing a dark hole! I wonder what's down there.",
       "state": 0,
-      "featureId": 31
+      "featureId": 0
     },
 
     {
@@ -23,7 +23,7 @@
           "inActionDes": "You step into the dark hole. You can't see anything but a slight glow coming from your inventory.",
           "postActionDes": "You pull the crystal from your pocket. You can faintly see that there is a corridor leading somewhere.",
           "state": 0,
-          "featureId": 32
+          "featureId": 1
     }
   ],
   "roomId": 18,

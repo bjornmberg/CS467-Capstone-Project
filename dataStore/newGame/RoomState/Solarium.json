@@ -3,17 +3,32 @@
       "longDes": "You have entered the Solarium. The air is warm and amazingly humid, almost to the point of oppressiveness. Plants of all varieties crowd the space. You recognize a few, but most appear exotic and unknown to you. There is an overgrown vine growing against the West wall. The large glass windows look out on the rose garden. The only exit is back to the South. ",
       "shortDes": "You are in the solarium. The air is warm and humid here. You see the overgrown vine. Glass windows to the north look out onto the rose garden. There is an exit to the South that leads back to the game room.",
       "visited": false,
-      "startingItems": [],
+      "startingItems": [
+        {
+          "name":"locket",
+          "description":  "a beautiful vintage pocketwatch.",
+          "linkedFeature": 0
+      }
+      ],
       "droppedItems": [],
       "features": [
         {
-          "name": "overgrown vine",
+          "name": "vine",
           "actionable": true,
           "preActionDes": "The vine attempts to claw at you. You notice something shiny hanging from one of the vine's tendrils.",
           "inActionDes": "You clip the tendril from the vine to acquire a locket.",
           "postActionDes": "You retrieved the locket from this vine.",
           "state": 0,
-          "featureId": 60
+          "featureId": 0
+        },
+        {
+          "name": "window",
+          "actionable": false,
+          "preActionDes": "You look out the window and see a beautiful, but overgrown, rose garden.",
+          "inActionDes": "",
+          "postActionDes": "",
+          "state": 0,
+          "featureId": 0
         }
       ],
       "roomId": 3,

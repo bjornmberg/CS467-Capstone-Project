@@ -37,7 +37,7 @@
             "postActionDes": "Feature 2 post-action description.",
             "state": 0,
             "featureId": 1
-        },
+        }
     ],
     "roomId": 0,
     "directions": {"north":  6, "west":  1}

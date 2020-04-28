@@ -13,7 +13,7 @@
       "inActionDes": "You begin to paint.",
       "postActionDes": "You finish your painting of the dog. Its eyes look dead.",
       "state": 0,
-      "featureId": 48
+      "featureId": 0
     },
 
     {
@@ -23,7 +23,7 @@
       "inActionDes": "",
       "postActionDes": "",
       "state": 0,
-      "featureId": 49
+      "featureId": 1
     }
   ],
   "roomId": 10,

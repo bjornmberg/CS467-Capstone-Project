@@ -13,7 +13,7 @@
       "inActionDes": "",
       "postActionDes": "",
       "state": 0,
-      "featureId": 18
+      "featureId": 0
     },
 
     {
@@ -23,7 +23,7 @@
       "inActionDes": "",
       "postActionDes": "",
       "state": 0,
-      "featureId": 19
+      "featureId": 1
     }
   ],
   "roomId": 5,

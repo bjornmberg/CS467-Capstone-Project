@@ -3,7 +3,13 @@
   "longDes": "You enter a small linen closet. It is quite dark, making it difficult for you to see everything in this room. You notice that there is only one door in this room to the East (where you entered). Luckily, you left it open a crack to let some light through.. After fumbling around the dark linen room for a few moments, you find a lumpy sack directly in the center of the room.",
   "shortDes": "You enter a small linen closet. It is quite dark, making it difficult for you to see everything in this room. You notice that there is only one door in this room to the East (where you entered). Luckily, you left it open a crack to let some light through.. After fumbling around the dark linen room for a few moments, you find a lumpy sack directly in the center of the room.",
   "visited": false,
-  "startingItems": [],
+  "startingItems": [
+    {
+      "name":"pistol",
+      "description":  "A small caliber pistol.",
+      "linkedFeature": 1
+  }
+  ],
   "droppedItems": [],
   "features": [
     {
@@ -13,7 +19,7 @@
       "inActionDes": "He's put something in the small sack in the closet.",
       "postActionDes": "You witnessed an apparition placing something in the sack.",
       "state": 0,
-      "featureId": 44
+      "featureId": 0
     },
 
     {
@@ -23,7 +29,7 @@
       "inActionDes": "Upon further inspection, you find a pistol among the laundry.",
       "postActionDes": "You took the pistol from this sack of laundry.",
       "state": 0,
-      "featureId": 45
+      "featureId": 1
     }
   ],
   "roomId": 8,

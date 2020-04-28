@@ -3,7 +3,13 @@
   "longDes": "You enter what seems to be a kitchen. You can faintly smell the aroma of freshly-baked bread. There are large doors to the North and East leading to adjoining rooms. Along the North wall, there is a large sink with a window above it. There is also a row of drawers along the Northern wall next to the Range. Just as you finish a quick survey of the room, you notice something (or someone) move in the corner of your eye. It’s rapidly moving towards you!",
   "shortDes": "You are in the Mansion's kitchen. The door to the North goes to the Rose Garden. The door to the East is the formal Dining Room.",
   "visited": false,
-  "startingItems": [],
+  "startingItems": [
+    {
+      "name":"knife",
+      "description":  "A small simple pen knife.",
+      "linkedFeature": 1
+  }
+  ],
   "droppedItems": [],
   "features": [
     {
@@ -13,7 +19,7 @@
       "inActionDes": "",
       "postActionDes": "",
       "state": 0,
-      "featureId": 36
+      "featureId": 0
     },
     {
       "name": "drawer",
@@ -22,7 +28,25 @@
       "inActionDes": "You unlock the drawer and notice, among other utensils, a knife.",
       "postActionDes": "This is where you found the knife.",
       "state": 0,
-      "featureId": 35
+      "featureId": 1
+    },
+    {
+      "name": "sink",
+      "actionable": false,
+      "preActionDes": "The sink is dirty and it stinks.",
+      "inActionDes": "",
+      "postActionDes": "",
+      "state": 0,
+      "featureId": 2
+    },
+    {
+      "name": "window",
+      "actionable": false,
+      "preActionDes": "You can see the garder and gazebo through the window.",
+      "inActionDes": "",
+      "postActionDes": "",
+      "state": 0,
+      "featureId": 3
     }
   ],
   "roomId": 7,

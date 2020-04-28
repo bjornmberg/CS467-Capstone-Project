@@ -8,7 +8,7 @@
   "features":
   [
     {
-      "name": "suit of armor",
+      "name": "armor",
       "actionable": true,
       "preActionDes": "This suit of armor very rusted. It's holding a sword in one hand and has another hand outstretched.",
       "inActionDes": "You place the axe back in the hand of the rusted armor and hear something move upstairs.",
@@ -18,7 +18,7 @@
     },
 
     {
-      "name": "grandfather clock",
+      "name": "clock",
       "actionable": false,
       "preActionDes": "You look at the magnificent old clock. Somehow, it's still working. The time is currently …",
       "inActionDes": "inAction clock",

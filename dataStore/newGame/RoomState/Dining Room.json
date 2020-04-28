@@ -13,9 +13,8 @@
       "inActionDes": "",
       "postActionDes": "",
       "state": 0,
-      "featureId": 13
+      "featureId": 0
     },
-
     {
       "name": "dog",
       "actionable": false,
@@ -23,7 +22,7 @@
       "inActionDes": "",
       "postActionDes": "",
       "state": 0,
-      "featureId": 14
+      "featureId": 1
     },
 
     {
@@ -33,7 +32,7 @@
       "inActionDes": "",
       "postActionDes": "",
       "state": 0,
-      "featureId": 15
+      "featureId": 2
     },
 
     {
@@ -43,7 +42,7 @@
       "inActionDes": "",
       "postActionDes": "",
       "state": 0,
-      "featureId": 16
+      "featureId": 3
     },
 
     {
@@ -53,7 +52,7 @@
       "inActionDes": "",
       "postActionDes": "",
       "state": 0,
-      "featureId": 17
+      "featureId": 4
     }
   ],
   "roomId": 6,

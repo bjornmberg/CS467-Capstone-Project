@@ -3,7 +3,13 @@
   "longDes": "You are at the top of the grand staircase, at a landing on the second floor. A grand piano stands in front of a large picture window to the South. Through the window you can see the expansive front lawns beyond. To the Northeast is a door to the green room. To the Southeast is a bathroom. There is a door to the Southwest, through which you can see linens. A door to the Northwest leads to the red room.",
   "shortDes": "You are on the second floor landing of the house. A grand piano occupies much of the flooor space here. A window faces south, overlooking the lawns. There is a staircase spiraling down to the foyer below. A door to the Northeast leads to the greenroom. A door to the Southeast leads to a bath. There is also a door to the Southwest heading to a linen closet, and a door to the Northwest going to the red room",
   "visited": false,
-  "startingItems": [],
+  "startingItems": [
+    {
+      "name":"key",
+      "description":  "A small ornate key.",
+      "linkedFeature": 4
+    }
+  ],
   "droppedItems": [],
   "features": [
     {
@@ -11,39 +17,18 @@
       "actionable": true,
       "preActionDes": "This is an old grand piano. Good thing your mother made you take lessons when you were a kid!",
       "inActionDes": "The piano begins playing a classical tune. You recognize it, but one of the notes is out of tune.",
-      "postActionDes": "This piano played a tune after you painted. One of the notes was off-key.",
+      "postActionDes": "This is where you found the key.",
       "state": 0,
-      "featureId": 37
+      "featureId": 0
     },
-
     {
-      "name": "piano keys",
-      "actionable": true,
-      "preActionDes": "You look at the keys. It's been a while since you've 'tickled the ivories', but you feel like you could give it a shot.",
-      "inActionDes": "While playing the piano, you discover that the same note is off-key as you heard before.",
-      "postActionDes": "You played the piano. One of the notes is off-key.",
-      "state": 0,
-      "featureId": 38
-    },
-
-    {
-      "name": "piano lid",
-      "actionable": true,
-      "preActionDes": "Perhaps I could open this.",
-      "inActionDes": "You open the piano lid and discover a key attached to one of the hammers.",
-      "postActionDes": "You grabbed the key out of this piano.",
-      "state": 0,
-      "featureId": 39
-    },
-
-    {
-      "name": "south window",
+      "name": "window",
       "actionable": false,
       "preActionDes": "You can see the front porch from here.",
       "inActionDes": "",
       "postActionDes": "",
       "state": 0,
-      "featureId": 40
+      "featureId": 1
     }
   ],
   "roomId": 11,

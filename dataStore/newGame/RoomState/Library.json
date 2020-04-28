@@ -4,7 +4,6 @@
       "shortDes": "You are in the mansion library. There are windows to the south and west. A door to the North leads to the game room. There is also a doorway to the East that leads back to the foyer.",
       "visited": false,
       "startingItems": [
-        
         {
           "name": "book",
           "description":  "The book falls open on a page that shows a white rose splattered in red. The other shows a gravestone.",

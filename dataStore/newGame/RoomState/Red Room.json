@@ -3,7 +3,13 @@
   "longDes": "You find yourself in what seems to be a little girl’s room. There is a canopied bed along the far wall. There are dolls and toys scattered about the rug. A rocking horse stands near the window to the north. Did it move, or was it your imagination? You see a small table along the near wall upon which are some brushes and a music box. The walls here are deep blood red. To the Northeast is a door to the pink room. Through a door to the Southeast you can see the second floor landing.",
   "shortDes": "You are in the red room, which appears to have been a little girl’s room. There are toys about and a rocking horse. A music box stands upon a small table. There is a window to the north and a window to the west. A door to the Southwest leads to the second floor landing. A door to the Northwest goes to the pink room.",
   "visited": false,
-  "startingItems": [],
+  "startingItems": [
+    {
+      "name":"paint",
+      "description":  "a small paint set.",
+      "linkedFeature": 5
+    }
+  ],
   "droppedItems": [],
   "features": [
     {
@@ -13,9 +19,8 @@
       "inActionDes": "You see a vision of a girl laughing in this room.",
       "postActionDes": "You saw the vision of the girl laughing in this room.",
       "state": 0,
-      "featureId": 52
+      "featureId": 0
     },
-
     {
       "name": "music box",
       "actionable": false,
@@ -23,7 +28,43 @@
       "inActionDes": "",
       "postActionDes": "",
       "state": 0,
-      "featureId": 53
+      "featureId": 1
+    },
+    {
+      "name": "toys",
+      "actionable": false,
+      "preActionDes": "These appear to just be chilrens' toys",
+      "inActionDes": "",
+      "postActionDes": "",
+      "state": 0,
+      "featureId": 2
+    },
+    {
+      "name": "bed",
+      "actionable": false,
+      "preActionDes": "This bed looks like it was for a child.",
+      "inActionDes": "",
+      "postActionDes": "",
+      "state": 0,
+      "featureId": 3
+    },
+    {
+      "name": "rocking horse",
+      "actionable": false,
+      "preActionDes": "You could have sworn the rocking horse moved on its own.",
+      "inActionDes": "",
+      "postActionDes": "",
+      "state": 0,
+      "featureId": 4
+    },
+    {
+      "name": "table",
+      "actionable": true,
+      "preActionDes": "The table is strewn with items including a samll paint set.",
+      "inActionDes": "You take the paint set.",
+      "postActionDes": "This is where you found the paint set.",
+      "state": 0,
+      "featureId": 5
     }
   ],
   "roomId": 9,

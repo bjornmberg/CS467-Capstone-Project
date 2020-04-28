@@ -13,7 +13,7 @@
       "inActionDes": "",
       "postActionDes": "",
       "state": 0,
-      "featureId": 10
+      "featureId": 0
     },
 
     {
@@ -23,7 +23,7 @@
       "inActionDes": "You pry the padlock open. The steel shatters as you apply all of the force you can muster.",
       "postActionDes": "You have broken into this lock.",
       "state": 0,
-      "featureId": 11
+      "featureId": 1
     },
 
     {
@@ -33,7 +33,7 @@
       "inActionDes": "",
       "postActionDes": "",
       "state": 0,
-      "featureId": 12
+      "featureId": 2
 
     }
   ],
