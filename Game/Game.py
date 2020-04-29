@@ -202,7 +202,7 @@ class Game:
             print('You do not see a {}'.format(thing))
 
     # This function is the main game driver function
-    def play_game(self, input_file, file_path):
+    def play_game(self, input_file, file_path, roomIdx):
 
         game_file = open(input_file, 'r', encoding='utf-8')
         file_data = json.loads(game_file.read())
@@ -214,7 +214,7 @@ class Game:
         self.initialize_rooms(room_data, file_path)
         self.initialize_hero(hero_data)
 
-        # self.hero.location = roomIdx
+        self.hero.location = roomIdx
 
         # print('{}'.format(file_data['intro']))
 
@@ -231,6 +231,8 @@ class Game:
         # Dictionaries for each of the possible directions and rooms to move to.
         moveWords = ["go", "walk", "move", "jaunt", "run", "step", "stroll", "march", "travel", "proceed",
                      "sprint", "jog"]
+        
+        lookWords = ["look", "glance", "eye", "peak", "view", "stare", "peer", "study"]
 
         moveDirections = ["north", "south", "east", "west", "up", "down", "southwest", "southeast",
                           "northwest", "northeast", "down hole"]
@@ -248,6 +250,11 @@ class Game:
                         "garden", "down", "hole", "downstairs", "bathroom", "front", "lawns",
                         "upstairs", "pink"]
 
+        roomFeatures = ["windowsill", "hidden door", "east window", "south window", "west window",
+                        "window east", "window south", "window west", "door", "stairs"]
+
+        twoWordFeatures = ["window", "sill", "hidden", "door", "east", "west", "south"]
+
         # Future function calls.
         testWords = ["take", "inventory", "drop"]
 
@@ -259,7 +266,7 @@ class Game:
 
         # Pick out only the valid words
         for i in splitArgs:
-            if i in moveDirections or i in moveRooms or i in twoWordRooms or i in moveWords or i in testWords:
+            if i in moveDirections or i in moveRooms or i in twoWordRooms or i in moveWords or i in testWords or i in lookWords or i in twoWordFeatures or i in roomFeatures:
                 command.append(i)
 
         # Print an error if no words were valid.
@@ -316,6 +323,9 @@ class Game:
                 # Print an error if an invalid room name was passed.
                 else:
                     print("\t\tInvalid room name or direction given.")
+
+        elif command[0] in lookWords:
+            print("This word is in lookWords.")
 
         # Throw an error if an invalid command was passed.
         elif command[0] not in testWords:
