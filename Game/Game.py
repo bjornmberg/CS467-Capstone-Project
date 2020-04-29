@@ -32,9 +32,9 @@ class Game:
             selection =  menu.display()
             if selection == 'newgame':
                 intro.display()
-                self.play_game('dataStore/newGame/load_file.json', 'dataStore/newGame/RoomState/')
+                self.play_game('dataStore/newGame/load_file.json', 'dataStore/newGame/RoomState/', 0)
             elif selection == 'loadgame':
-                self.play_game('dataStore/saveGame/load_file.json', 'dataStore/newGame/RoomState/')
+                self.play_game('dataStore/saveGame/load_file.json', 'dataStore/newGame/RoomState/', 0)
             elif selection == 'credits':
                 credits.display()
             elif selection == 'exit':
