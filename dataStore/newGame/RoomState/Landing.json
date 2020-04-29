@@ -7,7 +7,7 @@
     {
       "name":"key",
       "description":  "A small ornate key.",
-      "linkedFeature": 4
+      "linkedFeature": 0
     }
   ],
   "droppedItems": [],

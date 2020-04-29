@@ -202,7 +202,7 @@ class Game:
             print('You do not see a {}'.format(thing))
 
     # This function is the main game driver function
-    def play_game(self, input_file, file_path, roomIdx):
+    def play_game(self, input_file, file_path):
 
         game_file = open(input_file, 'r', encoding='utf-8')
         file_data = json.loads(game_file.read())
@@ -214,7 +214,7 @@ class Game:
         self.initialize_rooms(room_data, file_path)
         self.initialize_hero(hero_data)
 
-        self.hero.location = roomIdx
+        # self.hero.location = roomIdx
 
         # print('{}'.format(file_data['intro']))
 
