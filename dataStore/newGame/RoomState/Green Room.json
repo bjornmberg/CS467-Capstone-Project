@@ -25,8 +25,8 @@
     {
       "name": "bed",
       "actionable": true,
-      "preActionDes": "You follow the glint of light to the bed. You see an axe sticking out from beneath the bed.",
-      "inActionDes": "You take the axe from under the bed.",
+      "preActionDes": "You follow the glint of light to the bed.",
+      "inActionDes": "You see an axe sticking out from beneath the bed.",
       "postActionDes": "You found the axe under this bed.",
       "state": 0,
       "featureId": 1

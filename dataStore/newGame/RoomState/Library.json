@@ -16,7 +16,7 @@
           "name": "bookcase",
           "actionable": true,
           "preActionDes": "You see an oddly bound book on the shelf. It's upside down and has a strange binding.",
-          "inActionDes": "You take the book.",
+          "inActionDes": "You see an oddly bound book on the shelf. It's upside down and has a strange binding.",
           "postActionDes": "This is where you found the oddly bound book.",
           "state": 0,
           "featureId": 0

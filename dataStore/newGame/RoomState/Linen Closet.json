@@ -23,7 +23,7 @@
     },
 
     {
-      "name": "sack of laundry",
+      "name": "sack",
       "actionable": true,
       "preActionDes": "You feel something hard and lumpy amongst the laundry.",
       "inActionDes": "Upon further inspection, you find a pistol among the laundry.",

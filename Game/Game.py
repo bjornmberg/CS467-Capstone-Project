@@ -214,6 +214,7 @@ class Game:
         self.initialize_rooms(room_data, file_path)
         self.initialize_hero(hero_data)
 
+        # LINE 218 was breaking something (also removed roomIdx from func input parameters)
         # self.hero.location = roomIdx
 
         # print('{}'.format(file_data['intro']))
