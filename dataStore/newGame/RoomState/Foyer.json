@@ -9,10 +9,11 @@
   [
     {
       "name": "armor",
-      "actionable": true,
+      "actionable": false,
+      "usable": true,
       "preActionDes": "This suit of armor very rusted. It's holding a sword in one hand and has another hand outstretched.",
       "inActionDes": "You place the axe back in the hand of the rusted armor and hear something move upstairs.",
-      "postActionDes": "The missing axe has been returned.",
+      "postActionDes": "The armor stand proudly with the missing axe has been returned.",
       "state": 0,
       "featureId": 0
     },
@@ -20,9 +21,10 @@
     {
       "name": "clock",
       "actionable": false,
+      "usable": false,
       "preActionDes": "You look at the magnificent old clock. Somehow, it's still working. The time is currently …",
-      "inActionDes": "inAction clock",
-      "postActionDes": "postAction clock",
+      "inActionDes": "",
+      "postActionDes": "",
       "state": 0,
       "featureId": 1
 

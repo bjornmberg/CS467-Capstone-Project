@@ -21,12 +21,14 @@ There are three descriptions of the Feature:
 class Feature:
 
     # constructor for the Feature class
-    def __init__(self, name, pre_action_des, in_action_des, post_action_des, state, feature_id):
+    def __init__(self, name, pre_action_des, in_action_des, post_action_des, actionable, usable, state, feature_id):
 
         self.name = name
         self.pre_action_des = pre_action_des
         self.in_action_des = in_action_des
         self.post_action_des = post_action_des
+        self.actionable = actionable
+        self.usable = usable
         self.state = state
         self.feature_id = feature_id
 

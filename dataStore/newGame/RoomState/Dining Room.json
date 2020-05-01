@@ -9,6 +9,7 @@
     {
       "name": "painting",
       "actionable": false,
+      "usable": false,
       "preActionDes": "You look at the painting. It is a traditional English fox hunt. There is a horse with a mounted hunter. There is also a large pack of dogs chasing a fox. One of the dogs seems very strange.",
       "inActionDes": "",
       "postActionDes": "",
@@ -18,6 +19,7 @@
     {
       "name": "dog",
       "actionable": false,
+      "usable": false,
       "preActionDes": "You look closer at the dog. It's got three heads and glowing, red eyes!",
       "inActionDes": "",
       "postActionDes": "",
@@ -28,6 +30,7 @@
     {
       "name": "table",
       "actionable": false,
+      "usable": false,
       "preActionDes": "You look at the table. There isn't anything remarkable.",
       "inActionDes": "",
       "postActionDes": "",
@@ -38,6 +41,7 @@
     {
       "name": "north window",
       "actionable": false,
+      "usable": false,
       "preActionDes": "You look out the window. You can see the rose garden.",
       "inActionDes": "",
       "postActionDes": "",
@@ -48,6 +52,7 @@
     {
       "name": "east window",
       "actionable": false,
+      "usable": false,
       "preActionDes": "You look out the window. All you can see is the first row of trees in a forest.",
       "inActionDes": "",
       "postActionDes": "",

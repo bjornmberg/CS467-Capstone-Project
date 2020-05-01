@@ -9,6 +9,7 @@
     {
       "name": "fireplace",
       "actionable": true,
+      "usable": false,
       "preActionDes": "This fireplace looks like it hasn't been used (or cleaned) in years.",
       "inActionDes": "You throw the ashes into the fire. The ashes instantly set a fire ablaze and a poltergeist appears!",
       "postActionDes": "The dimly lit fireplace is still glowing. You're not sure how the ashes caused the fireplace to start.",
@@ -18,6 +19,7 @@
     {
       "name": "pool",
       "actionable": true,
+      "usable": false,
       "preActionDes": "This pool table looks fun. Perhaps you could play with the poltergeist?",
       "inActionDes": "You play a round of pool with the Poltergeist. He beat you after you scratched attempting to pocket the 8-ball.",
       "postActionDes": "You lost this game. Perhaps it's better to have kept the Poltergeist happy.",
@@ -28,6 +30,7 @@
     {
       "name": "painting",
       "actionable": false,
+      "usable": false,
       "preActionDes": "You take a closer look at the painting. It's dogs playing poker!",
       "inActionDes": "",
       "postActionDes": "",
@@ -38,6 +41,7 @@
     {
       "name": "window",
       "actionable": false,
+      "usable": false,
       "preActionDes": "You look out the window. All you can see is the beginning of a forest.",
       "inActionDes": "",
       "postActionDes": "",

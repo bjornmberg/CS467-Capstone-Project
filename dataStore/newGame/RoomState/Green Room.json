@@ -15,6 +15,7 @@
     {
       "name": "vision",
       "actionable": false,
+      "usable": false,
       "preActionDes": "You witness a vision of a mad Chef swinging an axe in a rage while chasing his wife and the servant about the room. The scene washes away, and you hear a crash from the bathroom.",
       "inActionDes": "",
       "postActionDes": "",
@@ -25,6 +26,7 @@
     {
       "name": "bed",
       "actionable": true,
+      "usable": false,
       "preActionDes": "You follow the glint of light to the bed.",
       "inActionDes": "You see an axe sticking out from beneath the bed.",
       "postActionDes": "You found the axe under this bed.",
@@ -35,6 +37,7 @@
     {
       "name": "glint",
       "actionable": false,
+      "usable": false,
       "preActionDes": "There is a glint on the ceiling. Tracing it, you notice something coming from the bed.",
       "inActionDes": "",
       "postActionDes": "",

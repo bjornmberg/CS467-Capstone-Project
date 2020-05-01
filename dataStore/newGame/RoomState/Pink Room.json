@@ -9,6 +9,7 @@
     {
       "name": "easel",
       "actionable": true,
+      "usable": false,
       "preActionDes": "This easel holds a blank canvas. There are also oil paints and brushes next to it. It's ready to be painted.",
       "inActionDes": "You begin to paint.",
       "postActionDes": "You finish your painting of the dog. Its eyes look dead.",
@@ -19,6 +20,7 @@
     {
       "name": "loom",
       "actionable": false,
+      "usable": false,
       "preActionDes": "You look at the loom. You're not sure what to do with it.",
       "inActionDes": "",
       "postActionDes": "",

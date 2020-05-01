@@ -1,0 +1,39 @@
+{
+  "name": "Hidden Room",
+  "longDes": "Hidden Room Long Description",
+  "shortDes": "Hidden Room Short Description",
+  "visited": false,
+  "startingItems": [
+    {
+        "name":"crystal",
+        "description":  "A glowing crystal - a good source of light.",
+        "linkedFeature": 0
+    }
+
+  ],
+  "droppedItems": [],
+  "features": [
+    {
+      "name": "table",
+      "actionable": true,
+      "usable": false,
+      "preActionDes": "The table is dusty with age. There is a faint glow coming from below it. Perhaps you should push it...",
+      "inActionDes": ".You push the table over, exposing a glowing crystal.",
+      "postActionDes": "This is where you found the crystal.",
+      "state": 0,
+      "featureId": 0
+    },
+    {
+      "name": "chef",
+      "actionable": true,
+      "usable": false,
+      "preActionDes": "You hear a loud crash coming from the Green Room. One of the tiles has fallen and shattered on the floor.",
+      "inActionDes": "The tile has shattered onto the floor, but you notice a space hollowed out where it fell from.",
+      "postActionDes": "",
+      "state": 0,
+      "featureId": 1
+    }
+  ],
+  "roomId": 23,
+  "directions": {"west": 13}
+}

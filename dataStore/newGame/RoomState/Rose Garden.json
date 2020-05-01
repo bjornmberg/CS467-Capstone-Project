@@ -20,6 +20,7 @@
     {
       "name": "fountain",
       "actionable": true,
+      "usable": false,
       "preActionDes": "You look at the fountain. You can see something in the water.",
       "inActionDes": "A spade is lying at the bottom of the fountain.",
       "postActionDes": "You found the spade here. You don't see anything else remarkable.",
@@ -30,6 +31,7 @@
     {
       "name": "roses",
       "actionable": true,
+      "usable": false,
       "preActionDes": "You look at the roses. In a sea of red, you notice one is white with red spattered on it.",
       "inActionDes": "These roses are so lovely, perhaps you should take one.",
       "postActionDes": "You see a lot of red roses.",
