@@ -41,5 +41,5 @@
     }
   ],
   "roomId": 17,
-  "directions": {"tunnel": 18}
+  "directions": {"door": 24}
 }

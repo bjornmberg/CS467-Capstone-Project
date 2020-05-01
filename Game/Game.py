@@ -129,17 +129,36 @@ class Game:
 
         current_room = self.rooms_list[self.hero.location]
 
+        # check to see if the feature is in the room and get it
         feat_status, feat = current_room.get_feature(str_feature)
 
+        # check that the item is in the inventory and get it
         item_status, item = self.inventory.in_inventory(str_item)
 
+        # if the item is in the inventory and the feature is in the room
         if feat_status and item_status:
+
+            # attempt to perform the taks and get the status
             status = self.tasks.perform_task(item, feat, self.rooms_list)
 
+            # True, means this is a valid Item/Feature combination
             if status:
+                # Remove the item from the inventory
                 self.inventory.remove_item(item)
             else:
+                # Else this is not a valid combination
                 print('You cannot do that!')
+
+        # False Feature status - feature is not in the Room
+        elif not feat_status:
+
+            print('There is no {} in the room.'.format(str_feature))
+
+        # False Item status - item is not in the Inventory
+        elif not item_status:
+
+            print('There is no {} in the inventory.'.format(str_item))
+
 
 
     # This function is used to drop an Item out of Inventory and
