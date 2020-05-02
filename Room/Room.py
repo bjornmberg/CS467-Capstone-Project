@@ -173,20 +173,28 @@ class Room:
         print('▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃\n'.center(centerLeftRight))
         print('CURRENT LOCATION: {}\n'.format(self.name).center(centerLeftRight))
 
-        # Fixed formatting issue with short description.
+        # If not visited, check for newlines and output long description
         if not self.visited:
-            description += self.long_des
+            # description += self.long_des
+            if '\n' in self.long_des:
+                listLines = self.long_des.splitlines()
+                print('            DESCRIPTION:')
+                for x in listLines:
+                    print(textwrap.fill('{}'.format(x), 85, initial_indent='            ', subsequent_indent='            '))
+            # Else player has visited before, output short description
+            else:
+                print(textwrap.fill('DESCRIPTION: {}'.format(self.long_des), 85, initial_indent='            ', subsequent_indent='            '))
         else:
             description += self.short_des
-        wrappedText = textwrap.wrap(description, width=74)
-        for i in wrappedText:
-            print('            ' + i)
+            wrappedText = textwrap.wrap(description, width=74)
+            for i in wrappedText:
+                print('            ' + i)
 
         print()
         print(textwrap.fill('YOU CAN \'move\': ', initial_indent='            '))
         for key in self.directions:
             print(textwrap.fill(key, initial_indent='                        '))
-        # print()
+        print()
         # print('            FEATURES:')
         # for feature in self.features:
         #     print(textwrap.fill('\t{}'.format(feature.name), initial_indent='                '))

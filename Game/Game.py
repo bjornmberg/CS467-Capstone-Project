@@ -121,6 +121,9 @@ class Game:
         # if the Item was there put it in the Inventory
         if status == True:
             self.inventory.add_item(taken_item)
+            # Check to determine if acquisition is part of a task
+            # attempt to perform the task and get the status. Currently nothing done with the status.
+            status = self.tasks.perform_task(taken_item, None, self.rooms_list)
         else:
             print('That is not an item you can take.')
 

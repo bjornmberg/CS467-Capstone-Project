@@ -32,7 +32,7 @@
       "name": "shelves",
       "actionable": false,
       "usable": false,
-      "preActionDes": "You look at the shelves. They are half-stocked with (presumably) spoiled preserves. You cannot tell what any of them are.”,",
+      "preActionDes": "You look at the shelves. They are half-stocked with (presumably) spoiled preserves. You cannot tell what any of them are.",
       "inActionDes": "",
       "postActionDes": "",
       "state": 0,

@@ -34,10 +34,10 @@
       "featureId": 1
     },
     {
-      "name": "tiolet",
+      "name": "toilet",
       "actionable": false,
       "usable": false,
-      "preActionDes": "This toliet is disgusting.",
+      "preActionDes": "This toilet is disgusting.",
       "inActionDes": "",
       "postActionDes": "",
       "state": 0,
