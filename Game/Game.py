@@ -140,7 +140,7 @@ class Game:
         # if the item is in the inventory and the feature is in the room
         if feat_status and item_status:
 
-            # attempt to perform the taks and get the status
+            # attempt to perform the task and get the status
             status = self.tasks.perform_task(item, feat, self.rooms_list)
 
             # True, means this is a valid Item/Feature combination
