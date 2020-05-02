@@ -11,11 +11,10 @@ from Credits import credits
 from Hero import Hero
 from Intro import intro
 from Inventory import Inventory
+from inventoryMapScreen import inventoryMapScreen
 from Menu import menu
 from Room import Room
 from Task import Task
-
-
 
 class Game:
 
@@ -148,7 +147,6 @@ class Game:
             else:
                 # Else this is not a valid combination
                 print('You cannot do that!')
-
         # False Feature status - feature is not in the Room
         elif not feat_status:
 
@@ -240,7 +238,8 @@ class Game:
             print(current_room.action_feature(command[1]))
         elif command[0] == 'use':
             self.use(command[1], command[2])
-
+        elif command[0] == 'map':
+            inventoryMapScreen.display(self.inventory, current_room.name, self.hero.location)
 
 
     # This function is the main game driver function
