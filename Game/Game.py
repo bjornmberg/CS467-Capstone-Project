@@ -218,8 +218,8 @@ class Game:
         current_room.get_description()
 
         # COMMENT OUT LINE 113 and UNCOMMENT LINE 115 to OVERRIDE THE PARSER
-        # command = self.parseArgs()
-        command = input('> ').split(' ')
+        command = self.parseArgs()
+        # command = input('> ').split(' ')
 
         if command[0] == 'move':
             self.move(command[1])
@@ -255,9 +255,7 @@ class Game:
         self.initialize_rooms(room_data, file_path)
 
         self.initialize_hero(hero_data)
-
-        # LINE 218 was breaking something (also removed roomIdx from func input parameters)
-        # self.hero.location = roomIdx
+        self.hero.location = roomIdx
 
         # print('{}'.format(file_data['intro']))
 
@@ -277,6 +275,14 @@ class Game:
         
         lookWords = ["look", "glance", "eye", "peak", "view", "stare", "peer", "study"]
 
+        takeWords = ["grab", "pick up", "seize", "lift"]
+
+        twTakeWords = ["pick", "up"]
+
+        useWords = []
+
+        dropWords = []
+
         moveDirections = ["north", "south", "east", "west", "up", "down", "southwest", "southeast",
                           "northwest", "northeast", "down hole"]
 
@@ -293,13 +299,8 @@ class Game:
                         "garden", "down", "hole", "downstairs", "bathroom", "front", "lawns",
                         "upstairs", "pink"]
 
-        roomFeatures = ["windowsill", "hidden door", "east window", "south window", "west window",
-                        "window east", "window south", "window west", "door", "stairs"]
-
-        twoWordFeatures = ["window", "sill", "hidden", "door", "east", "west", "south"]
-
         # Future function calls.
-        testWords = ["take", "inventory", "drop"]
+        testWords = ["inventory", "drop"]
 
         # Get user input. Make it lowercase and split it.
         splitArgs = input('            > ').lower().split()
@@ -309,7 +310,9 @@ class Game:
 
         # Pick out only the valid words
         for i in splitArgs:
-            if i in moveDirections or i in moveRooms or i in twoWordRooms or i in moveWords or i in testWords or i in lookWords or i in twoWordFeatures or i in roomFeatures:
+            if i in moveDirections or i in moveRooms or i in twoWordRooms or\
+                    i in moveWords or i in testWords or i in lookWords:
+
                 command.append(i)
 
         # Print an error if no words were valid.
@@ -367,16 +370,22 @@ class Game:
                 else:
                     print("\t\tInvalid room name or direction given.")
 
+        elif command[0] in takeWords:
+            print("This word is in takeWords.")
+
         elif command[0] in lookWords:
-            print("This word is in lookWords.")
+            print("This word is in lookWords")
+
+        elif command[0] in useWords:
+            print("This word is in useWords")
+
+        elif command[0] in dropWords:
+            print("This word is in dropWords")
 
         # Throw an error if an invalid command was passed.
-        elif command[0] not in testWords:
+        else:
             print("\t\tInvalid command \'" + splitArgs[0] + "\' passed.")
-
-        # Append bad commands to not crash the game in the function calls above.
-        while len(command) < 2:
-            command.append("badCommand")
+            return None
 
         # Return the parsed command.
         return command
