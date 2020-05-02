@@ -1,0 +1,22 @@
+{
+  "name": "Tunnel",
+  "longDes": "The tunnel is dark. You cannot continue without a source of light. The only way is back up through the hole. You notice a small statue with out stretched hands. It appears this once held a valuable object.",
+  "shortDes": "The tunnel is too dark to continue down. The only way is back up through the hole.",
+  "visited": false,
+  "startingItems": [],
+  "droppedItems": [],
+  "features": [
+    {
+      "name": "statue",
+      "actionable": false,
+      "usable": true,
+      "preActionDes": "The statue with outstretched hands appears to have once held a valuable object.",
+      "inActionDes": "You place the crystal into the hands of the statue.",
+      "postActionDes": "The tunnel is now illuminated by the glowing crystal.",
+      "state": 0,
+      "featureId": 0
+    }
+  ],
+  "roomId": 24,
+  "directions": {"up": 18}
+}

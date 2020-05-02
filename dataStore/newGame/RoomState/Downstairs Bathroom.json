@@ -9,6 +9,7 @@
     {
       "name": "painting",
       "actionable": false,
+      "usable": false,
       "preActionDes": "You look closer at the painting. Depicted is a small girl outdoors sitting on a magnificent fountain.",
       "inActionDes": "",
       "postActionDes": "",
@@ -19,6 +20,7 @@
     {
       "name": "mirror",
       "actionable": false,
+      "usable": false,
       "preActionDes": "You look in the mirror. You note that the player has a face that only a mother could love. The character also looks very tired.",
       "inActionDes": "",
       "postActionDes": "",

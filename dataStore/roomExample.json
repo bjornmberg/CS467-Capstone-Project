@@ -23,6 +23,7 @@
         {
             "name": "Feature 1",
             "actionable": false,
+            "usable": false,
             "preActionDes":"Feature 1 pre-action description.",
             "inActionDes": "Feature 1 in-action description.",
             "postActionDes": "Feature 1 post-action description.",

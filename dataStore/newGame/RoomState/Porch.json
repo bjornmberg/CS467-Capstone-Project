@@ -9,6 +9,7 @@
     {
       "name": "left gargoyle",
       "actionable": false,
+      "usable": false,
       "preActionDes": "This gargoyle appears to be a bird of grotesque proportion. It looks like it's splashing water in a bird bath.",
       "inActionDes": "",
       "postActionDes": "",
@@ -19,6 +20,7 @@
     {
       "name": "right gargoyle",
       "actionable": false,
+      "usable": false,
       "preActionDes": "This gargoyle is a bird of grotesque proportion. It's perched with one claw pointing to the tree in the front lawn.",
       "inActionDes": "",
       "postActionDes": "",

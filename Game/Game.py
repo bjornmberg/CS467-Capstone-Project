@@ -13,6 +13,7 @@ from Intro import intro
 from Inventory import Inventory
 from Menu import menu
 from Room import Room
+from Task import Task
 
 
 
@@ -22,6 +23,7 @@ class Game:
     rooms_list = list()         # a list of Rooms
     inventory = Inventory()     # a Inventory object
     hero = Hero()               # a Hero object
+    tasks = Task()
 
     # This function handles loop control for the menu and game
     # Parameters:
@@ -123,35 +125,40 @@ class Game:
         else:
             print('That is not an item you can take.')
 
-    # FUNCTION COMMENT PLACEHOLDER
-    def get_command(self, renderCounter):
-        # If the three rooms have been rendered, clear the screen
-        if renderCounter == 3:
-            os.system('clear')
-            renderCounter = 0
+    def use(self, str_item, str_feature):
 
         current_room = self.rooms_list[self.hero.location]
-        current_room.get_description()
 
-        # COMMENT OUT LINE 113 and UNCOMMENT LINE 115 to OVERRIDE THE PARSER
-        # command = self.parseArgs()
-        command = input('> ').split(' ')
+        # check to see if the feature is in the room and get it
+        feat_status, feat = current_room.get_feature(str_feature)
 
-        if command[0] == 'move':
-            self.move(command[1])
-        elif command[0] == 'take':
-            self.take(command[1])
-        elif command[0] == 'inventory':
-            self.inventory.show_inventory()
-        elif command[0] == 'drop':
-            self.drop(command[1])
-        elif command[0] == 'look':
-            if len(command) == 1:
-                print(current_room.long_des)
+        # check that the item is in the inventory and get it
+        item_status, item = self.inventory.in_inventory(str_item)
+
+        # if the item is in the inventory and the feature is in the room
+        if feat_status and item_status:
+
+            # attempt to perform the taks and get the status
+            status = self.tasks.perform_task(item, feat, self.rooms_list)
+
+            # True, means this is a valid Item/Feature combination
+            if status:
+                # Remove the item from the inventory
+                self.inventory.remove_item(item)
             else:
-                self.look_at_something(command[1])
-        elif command[0] == 'action':
-            print(current_room.action_feature(command[1]))
+                # Else this is not a valid combination
+                print('You cannot do that!')
+
+        # False Feature status - feature is not in the Room
+        elif not feat_status:
+
+            print('There is no {} in the room.'.format(str_feature))
+
+        # False Item status - item is not in the Inventory
+        elif not item_status:
+
+            print('There is no {} in the inventory.'.format(str_item))
+
 
 
     # This function is used to drop an Item out of Inventory and
@@ -201,6 +208,41 @@ class Game:
         else:
             print('You do not see a {}'.format(thing))
 
+
+    # FUNCTION COMMENT PLACEHOLDER
+    def get_command(self, renderCounter):
+        # If the three rooms have been rendered, clear the screen
+        # if renderCounter == 3:
+        #     os.system('clear')
+        #     renderCounter = 0
+
+        current_room = self.rooms_list[self.hero.location]
+        current_room.get_description()
+
+        # COMMENT OUT LINE 113 and UNCOMMENT LINE 115 to OVERRIDE THE PARSER
+        # command = self.parseArgs()
+        command = input('> ').split(' ')
+
+        if command[0] == 'move':
+            self.move(command[1])
+        elif command[0] == 'take':
+            self.take(command[1])
+        elif command[0] == 'inventory':
+            self.inventory.show_inventory()
+        elif command[0] == 'drop':
+            self.drop(command[1])
+        elif command[0] == 'look':
+            if len(command) == 1:
+                print(current_room.long_des)
+            else:
+                self.look_at_something(command[1])
+        elif command[0] == 'action':
+            print(current_room.action_feature(command[1]))
+        elif command[0] == 'use':
+            self.use(command[1], command[2])
+
+
+
     # This function is the main game driver function
     def play_game(self, input_file, file_path, roomIdx):
 
@@ -212,9 +254,11 @@ class Game:
         inventory_data = file_data['inventory']
 
         self.initialize_rooms(room_data, file_path)
+
         self.initialize_hero(hero_data)
 
-        self.hero.location = roomIdx
+        # LINE 218 was breaking something (also removed roomIdx from func input parameters)
+        # self.hero.location = roomIdx
 
         # print('{}'.format(file_data['intro']))
 

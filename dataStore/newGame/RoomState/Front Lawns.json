@@ -20,6 +20,7 @@
     {
       "name": "garden",
       "actionable": true,
+      "usable": false,
       "preActionDes": "You look at the purple flower garden. There is a stone that seems to be out of place on it.",
       "inActionDes": "You take the stone. Upon closer inspection, it's got a carved image of a rose on it.",
       "postActionDes": "This is where you took the stone with the rose on it.",
@@ -30,6 +31,7 @@
     {
       "name": "tree",
       "actionable": true,
+      "usable": false,
       "preActionDes": "An apparition of a young girl appears by the tree. The young girl points at the tree and vanishes before your eyes!",
       "inActionDes": "Upon further inspection of the tree, you find a pair of shears.",
       "postActionDes": "This is where you found the set of shears.",
@@ -40,6 +42,7 @@
     {
       "name": "grave tree",
       "actionable": true,
+      "usable": false,
       "preActionDes": "This tree looks like a significant part of the family's history. Perhaps it could be used?",
       "inActionDes": "You dig a hole at the bottom of the tree, making a makeshift grave. You place the girl's locket in and fill it with dirt. You use the carved stone as the grave's headstone.",
       "postActionDes": "You made a gravestone at this tree. It's got a carved stone for a headstone and the girl's locket in it.",

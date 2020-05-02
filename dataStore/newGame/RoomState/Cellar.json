@@ -20,6 +20,7 @@
     {
       "name": "workbench",
       "actionable": true,
+      "usable": false,
       "preActionDes": "The workbench is dusty and cluttered. Amongst the rusty tools, you see a pry bar.",
       "inActionDes": "You pick up the prybar.",
       "postActionDes": "You have already taken the prybar from this bench. You don’t find anything else remarkable.",
@@ -30,6 +31,7 @@
 
       "name": "shelves",
       "actionable": false,
+      "usable": false,
       "preActionDes": "You look at the shelves. They are half-stocked with (presumably) spoiled preserves. You cannot tell what any of them are.”,",
       "inActionDes": "",
       "postActionDes": "",
@@ -39,6 +41,7 @@
     {
       "name": "box",
       "actionable": true,
+      "usable": false,
       "preActionDes": "You see a small wooden box amongst the shelves of goods. Someone took great care in the craftsmanship of this box.",
       "inActionDes": "You open the box and find… Ashes. Amongst the ashes are some small white bits.",
       "postActionDes": "This box has ashes in it.",

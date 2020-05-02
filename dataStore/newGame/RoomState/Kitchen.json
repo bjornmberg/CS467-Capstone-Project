@@ -15,6 +15,7 @@
     {
       "name": "chef",
       "actionable": false,
+      "usable": false,
       "preActionDes": "The undead chef sneers at you. Clearly he doesn’t want you here.",
       "inActionDes": "",
       "postActionDes": "",
@@ -24,6 +25,7 @@
     {
       "name": "drawer",
       "actionable": true,
+      "usable": false,
       "preActionDes": "This drawer is locked. You can't open it, but there is a keyhole.",
       "inActionDes": "You unlock the drawer and notice, among other utensils, a knife.",
       "postActionDes": "This is where you found the knife.",
@@ -33,6 +35,7 @@
     {
       "name": "sink",
       "actionable": false,
+      "usable": false,
       "preActionDes": "The sink is dirty and it stinks.",
       "inActionDes": "",
       "postActionDes": "",
@@ -42,6 +45,7 @@
     {
       "name": "window",
       "actionable": false,
+      "usable": false,
       "preActionDes": "You can see the garder and gazebo through the window.",
       "inActionDes": "",
       "postActionDes": "",

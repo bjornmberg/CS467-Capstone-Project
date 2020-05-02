@@ -9,11 +9,15 @@ class Inventory:
     # ADD COMMENTS
     def add_item(self, item):
 
-        if len(self.items) <= self.capacity:
+        if len(self.items) < self.capacity:
             self.items.append(item)
             print('{} - added to your inventory.'.format(item.name))
         else:
             print('You cannot hold anymore items in your inventory.')
+
+    def remove_item(self, item):
+
+        self.items.remove(item)
 
     # ADD COMMENTS
     def in_inventory(self, str_input):

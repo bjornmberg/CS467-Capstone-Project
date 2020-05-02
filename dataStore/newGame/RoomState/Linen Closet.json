@@ -15,6 +15,7 @@
     {
       "name": "apparition",
       "actionable": true,
+      "usable": false,
       "preActionDes": "You see an apparition of a servant entering the linen closet.",
       "inActionDes": "He's put something in the small sack in the closet.",
       "postActionDes": "You witnessed an apparition placing something in the sack.",
@@ -23,8 +24,9 @@
     },
 
     {
-      "name": "sack of laundry",
+      "name": "sack",
       "actionable": true,
+      "usable": false,
       "preActionDes": "You feel something hard and lumpy amongst the laundry.",
       "inActionDes": "Upon further inspection, you find a pistol among the laundry.",
       "postActionDes": "You took the pistol from this sack of laundry.",

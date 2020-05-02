@@ -53,6 +53,8 @@ class Room:
                 f['preActionDes'],
                 f['inActionDes'],
                 f['postActionDes'],
+                f['actionable'],
+                f['usable'],
                 f['state'],
                 f['featureId']
             )
@@ -101,7 +103,6 @@ class Room:
         else:
             return False, None
 
-
     # This function takes some action against a Feature in the Room
     # Parameters:
     #   name - str, the name of the Room Feature
@@ -114,8 +115,11 @@ class Room:
         # if the item is present modify its state to in_action
         # and return the in_action description
         if status:
-            feat.state = 1
-            return feat.get_description()
+            if feat.actionable:
+                feat.state = 1
+                return feat.get_description()
+            else:
+                return 'You cannot do that to the {}.'.format(feat.name)
         else:
             return 'You cannot do that'
 

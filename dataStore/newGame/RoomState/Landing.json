@@ -15,8 +15,9 @@
     {
       "name": "piano",
       "actionable": true,
+      "usable": false,
       "preActionDes": "This is an old grand piano. Good thing your mother made you take lessons when you were a kid!",
-      "inActionDes": "The piano begins playing a classical tune. You recognize it, but one of the notes is out of tune.",
+      "inActionDes": "The piano begins playing a classical tune. You recognize it, but one of the notes is out of tune. You open the lid and see a key tied to one of the hammers.",
       "postActionDes": "This is where you found the key.",
       "state": 0,
       "featureId": 0
@@ -24,6 +25,7 @@
     {
       "name": "window",
       "actionable": false,
+      "usable": false,
       "preActionDes": "You can see the front porch from here.",
       "inActionDes": "",
       "postActionDes": "",

@@ -16,6 +16,7 @@
         {
             "name": "poltergeist",
             "actionable": false,
+            "usable": false,
             "preActionDes":"The poltergeist spoke of a master killing his loved ones in this house. He is gone now.",
             "inActionDes": "",
             "postActionDes": "",
@@ -25,6 +26,7 @@
         {
             "name": "window",
             "actionable": false,
+            "usable": false,
             "preActionDes":"You look out the window. You can see the porch and the front lawn.",
             "inActionDes": "",
             "postActionDes": "",
@@ -34,6 +36,7 @@
         {
             "name": "couch",
             "actionable": false,
+            "usable": false,
             "preActionDes":"couch description.",
             "inActionDes": "",
             "postActionDes": "",
@@ -43,6 +46,7 @@
         {
             "name": "fireplace",
             "actionable": false,
+            "usable": false,
             "preActionDes":"fireplace description.",
             "inActionDes": "",
             "postActionDes": "",
@@ -52,6 +56,7 @@
         {
             "name": "table",
             "actionable": true,
+            "usable": false,
             "preActionDes":"You see a small, delicate looking table. There is a pocketwatch on it.",
             "inActionDes": "You see a small, delicate looking table. There is a pocketwatch on it.",
             "postActionDes": "This is where you found the pocketwatch.",

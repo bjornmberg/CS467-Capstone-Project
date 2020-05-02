@@ -15,6 +15,7 @@
     {
       "name": "apparition",
       "actionable": true,
+      "usable": false,
       "preActionDes": "",
       "inActionDes": "You see a vision of a girl laughing in this room.",
       "postActionDes": "You saw the vision of the girl laughing in this room.",
@@ -24,6 +25,7 @@
     {
       "name": "music box",
       "actionable": false,
+      "usable": false,
       "preActionDes": "You open the music box. It's playing a requiem. There is a ballerina dancing on purple flowers in the middle of the box.",
       "inActionDes": "",
       "postActionDes": "",
@@ -33,6 +35,7 @@
     {
       "name": "toys",
       "actionable": false,
+      "usable": false,
       "preActionDes": "These appear to just be chilrens' toys",
       "inActionDes": "",
       "postActionDes": "",
@@ -42,6 +45,7 @@
     {
       "name": "bed",
       "actionable": false,
+      "usable": false,
       "preActionDes": "This bed looks like it was for a child.",
       "inActionDes": "",
       "postActionDes": "",
@@ -51,6 +55,7 @@
     {
       "name": "rocking horse",
       "actionable": false,
+      "usable": false,
       "preActionDes": "You could have sworn the rocking horse moved on its own.",
       "inActionDes": "",
       "postActionDes": "",
@@ -60,6 +65,7 @@
     {
       "name": "table",
       "actionable": true,
+      "usable": false,
       "preActionDes": "The table is strewn with items including a samll paint set.",
       "inActionDes": "You take the paint set.",
       "postActionDes": "This is where you found the paint set.",

@@ -1,31 +1,22 @@
 {
   "name": "Gazebo",
-  "longDes": "You are in a gazebo on the rear grounds of the mansion. There is a peculiar scent here - the aroma of roses hangs on the breeze here, but there is another smell, earthy and somewhat rotten. The gazebo is a pristine white, but there is a middle section of floor where the finish seems worn. To the West are the rose gardens. To the South is the rear entrance to the mansion.",
-  "shortDes": "You are standing in the gazebo overlooking the rose gardens. There is a sweet and sour smell on the air here, like something good has turned. A section of the floor appears off-color. To the West are the rose gardens. To the South is the rear entrance of the mansion.",
+  "longDes": "You are in a gazebo on the rear grounds of the mansion. There is a peculiar scent here - the aroma of roses hangs on the breeze here, but there is another smell, earthy and somewhat rotten. The gazebo is a pristine white, but there is a middle plank on floor where the finish seems worn. To the West are the rose gardens. To the South is the rear entrance to the mansion.",
+  "shortDes": "You are standing in the gazebo overlooking the rose gardens. There is a sweet and sour smell on the air here, like something good has turned. A floor plank appears off-color. To the West are the rose gardens. To the South is the rear entrance of the mansion.",
   "visited": false,
   "startingItems": [],
   "droppedItems": [],
   "features": [
     {
       "name": "plank",
-      "actionable": true,
+      "actionable": false,
+      "usable": true,
       "preActionDes": "Looking closer, the gazebo has a plank that looks off-color towards the center.",
       "inActionDes": "You pry up the plank, revealing a dark hole!",
       "postActionDes": "You took the plank from this spot revealing a dark hole! I wonder what's down there.",
       "state": 0,
       "featureId": 0
-    },
-
-    {
-          "name": "dark hole",
-          "actionable": true,
-          "preActionDes":"You've exposed a dark tunnel. There's no indication of what it may hold.",
-          "inActionDes": "You step into the dark hole. You can't see anything but a slight glow coming from your inventory.",
-          "postActionDes": "You pull the crystal from your pocket. You can faintly see that there is a corridor leading somewhere.",
-          "state": 0,
-          "featureId": 1
     }
   ],
   "roomId": 18,
-  "directions": {"west": 19, "down hole":  17}
+  "directions": {"west": 19}
 }

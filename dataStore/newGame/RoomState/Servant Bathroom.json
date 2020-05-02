@@ -15,6 +15,7 @@
     {
       "name": "door lock",
       "actionable": true,
+      "usable": false,
       "preActionDes": "This door is locked.",
       "inActionDes": "You unlock the door.",
       "postActionDes": "You have unlocked this door.",
@@ -25,6 +26,7 @@
     {
       "name": "ledge",
       "actionable": true,
+      "usable": false,
       "preActionDes": "You see something on the ledge.",
       "inActionDes": "Upon further inspection, you notice that there's a lock of hair tied with a red ribbon.",
       "postActionDes": "You took the lock of hair from this ledge.",
@@ -34,6 +36,7 @@
     {
       "name": "tiolet",
       "actionable": false,
+      "usable": false,
       "preActionDes": "This toliet is disgusting.",
       "inActionDes": "",
       "postActionDes": "",
@@ -43,6 +46,7 @@
     {
       "name": "sink",
       "actionable": false,
+      "usable": false,
       "preActionDes": "The sink is dry.",
       "inActionDes": "",
       "postActionDes": "",
@@ -52,6 +56,7 @@
     {
       "name": "mirror",
       "actionable": false,
+      "usable": false,
       "preActionDes": "Just a normal mirror.",
       "inActionDes": "",
       "postActionDes": "",

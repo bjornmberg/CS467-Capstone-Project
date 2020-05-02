@@ -15,8 +15,9 @@
         {
           "name": "bookcase",
           "actionable": true,
+          "usable": false,
           "preActionDes": "You see an oddly bound book on the shelf. It's upside down and has a strange binding.",
-          "inActionDes": "You take the book.",
+          "inActionDes": "You see an oddly bound book on the shelf. It's upside down and has a strange binding.",
           "postActionDes": "This is where you found the oddly bound book.",
           "state": 0,
           "featureId": 0
@@ -24,6 +25,7 @@
         {
           "name": "south window",
           "actionable": false,
+          "usable": false,
           "preActionDes": "You can see the porch from here.",
           "inActionDes": "",
           "postActionDes": "",
@@ -34,6 +36,7 @@
 
           "name": "west window",
           "actionable": false,
+          "usable": false,
           "preActionDes": "You look at the forest West of the house. It goes for miles.",
           "inActionDes": "",
           "postActionDes": "",
