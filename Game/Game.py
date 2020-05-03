@@ -16,6 +16,7 @@ from Menu import menu
 from Room import Room
 from Task import Task
 
+
 class Game:
 
     # member variables
@@ -218,8 +219,8 @@ class Game:
         current_room.get_description()
 
         # COMMENT OUT LINE 113 and UNCOMMENT LINE 115 to OVERRIDE THE PARSER
-        # command = self.parseArgs()
-        command = input('> ').split(' ')
+        command = self.parseArgs()
+        # command = input('> ').split(' ')
 
         if command[0] == 'move':
             self.move(command[1])
@@ -255,9 +256,7 @@ class Game:
         self.initialize_rooms(room_data, file_path)
 
         self.initialize_hero(hero_data)
-
-        # LINE 218 was breaking something (also removed roomIdx from func input parameters)
-        # self.hero.location = roomIdx
+        self.hero.location = roomIdx
 
         # print('{}'.format(file_data['intro']))
 
@@ -277,6 +276,27 @@ class Game:
         
         lookWords = ["look", "glance", "eye", "peak", "view", "stare", "peer", "study"]
 
+        lookObjects = ["windowsill", "crystal", "corner", "east window", "south window", "west window", "toys",
+                       "prybar", "pry bar", "ashes", "workbench", "shelves", "box", "padlock", "coffin",
+                       "undead chef", "painting", "dog", "table", "mirror", "armor", "clock", "stone", "shears",
+                       "garden", "tree", "grave tree", "fireplace", "pool", "window", "plank", "axe", "vision",
+                       "bed", "glint", "chef", "knife", "drawer", "sink", "key", "piano", "book", "bookcase",
+                       "north window", "pistol", "apparition", "sack", "pocketwatch", "pocket watch", "poltergeist",
+                       "couch", "fireplace", "table", "easel", "loom", "left gargoyle", "right gargoyle", "paint",
+                       "music box", "bed", "rocking horse", "rose", "spade", "fountain", "roses", "hair",
+                       "door lock", "ledge", "toilet", "sink", "mirror", "journal", "locket", "vine", "window",
+                       "statue", "tile", "hollow"]
+
+        twLookObjects = ["window", "sill", "east", "window", "west", "south", "pry", "bar", "pad", "lock",
+                         "undead", "chef", "grave", "tree", "book", "case", "north", "pocket", "watch", "left",
+                         "right", "gargoyle", "music", "box", "rocking", "horse", "door", "lock", "small", "bed"]
+
+        takeWords = ["grab", "pick up", "seize", "lift", "take", "pick"]
+
+        useWords = ["use", "apply", "put"]
+
+        dropWords = ["drop", "remove", "dump"]
+
         moveDirections = ["north", "south", "east", "west", "up", "down", "southwest", "southeast",
                           "northwest", "northeast", "down hole"]
 
@@ -293,13 +313,7 @@ class Game:
                         "garden", "down", "hole", "downstairs", "bathroom", "front", "lawns",
                         "upstairs", "pink"]
 
-        roomFeatures = ["windowsill", "hidden door", "east window", "south window", "west window",
-                        "window east", "window south", "window west", "door", "stairs"]
-
-        twoWordFeatures = ["window", "sill", "hidden", "door", "east", "west", "south"]
-
-        # Future function calls.
-        testWords = ["take", "inventory", "drop"]
+        otherCommands = ["map", "inventory", "action"]
 
         # Get user input. Make it lowercase and split it.
         splitArgs = input('            > ').lower().split()
@@ -309,12 +323,17 @@ class Game:
 
         # Pick out only the valid words
         for i in splitArgs:
-            if i in moveDirections or i in moveRooms or i in twoWordRooms or i in moveWords or i in testWords or i in lookWords or i in twoWordFeatures or i in roomFeatures:
+            if i in moveDirections or i in moveRooms or i in twoWordRooms or\
+                    i in moveWords or i in lookWords or i in twLookObjects or\
+                    i in takeWords or i in lookObjects or i in dropWords or\
+                    i in otherCommands or i in useWords:
+
                 command.append(i)
 
         # Print an error if no words were valid.
         if len(command) == 0:
             print("Error. Invalid command passed.")
+            return "badcommand"
 
         # Set the command to 'move' if it's in movewords.
         elif command[0] in moveWords:
@@ -332,6 +351,7 @@ class Game:
             # Print an error if no room was provided.
             if len(command) <= 1:
                 print("\t\tError. Invalid room name or direction given.")
+                return "badcommand"
 
             else:
                 # Check to see if it's a one-word named room
@@ -366,17 +386,117 @@ class Game:
                 # Print an error if an invalid room name was passed.
                 else:
                     print("\t\tInvalid room name or direction given.")
+                    return "badcommand"
 
+        # TODO: I Need to find a better solution for bad objects
         elif command[0] in lookWords:
-            print("This word is in lookWords.")
+            if len(command) == 1:
+                command[0] = "look"
 
-        # Throw an error if an invalid command was passed.
-        elif command[0] not in testWords:
-            print("\t\tInvalid command \'" + splitArgs[0] + "\' passed.")
+                if len(splitArgs) > 1:
+                    print("Error. Cannot look at invalid object.")
+                    return "badcommand"
 
-        # Append bad commands to not crash the game in the function calls above.
-        while len(command) < 2:
-            command.append("badCommand")
+            elif len(command) == 2:
+                if command[1] not in lookObjects:
+                    print("Error. Cannot look at invalid object.")
+                    return "badcommand"
+
+            elif len(command) >= 3:
+                tempWord = command[1] + " " + command[2]
+                if tempWord not in lookObjects:
+                    print("Error. Cannot look at invalid object.")
+                else:
+                    command[1] = tempWord
+                    while len(command) > 2:
+                        command.pop()
+
+        elif command[0] in useWords:
+            print("This word is in useWords")
+            command[0] = "use"
+
+            if len(command) < 3:
+                print("Error. Invalid objects passed.")
+                return "badcommand"
+
+            elif len(command) == 3:
+                if command[1] not in lookObjects or command[2] not in lookObjects:
+                    print("Error. Invalid objects passed.")
+                    return "badcommand"
+
+            elif len(command) ==  4:
+                if command[1] + " " + command[2] in lookObjects:
+                    command[1] = command[1] + " " + command[2]
+                elif command[2] + " " + command[3] in lookObjects:
+                    command[2] = command[2] + " " + command[3]
+                else:
+                    print("Invalid object passed with use command")
+                    return "badcommand"
+                while command > 3:
+                    command.pop()
+
+            elif len(command) == 5:
+                if command[1] + " " + command[2] not in lookObjects:
+                    print("Invalid object passed with use command")
+                    return "badcommand"
+                else:
+                    command[1] += " " + command[2]
+
+                if command[3] + " " + command[4] not in lookObjects:
+                    print("Invalid object passed with use command")
+                    return "badcommand"
+                else:
+                    command[2] = command[3] + " " + command[4]
+
+            else:
+                print("Error. Too many arguments with use command.")
+                return "badcommand"
+
+
+        elif command[0] in dropWords:
+            command[0] = "drop"
+
+            if len(command) == 1:
+                print("Error. Invalid or no item to drop.")
+                return "badcommand"
+
+            if len(command) == 2:
+                if command[1] not in lookObjects:
+                    print("Error. Cannot drop " + command[1])
+                    return "badcommand"
+
+            elif len(command) > 2:
+                tempWord = command[1] + " " + command[2]
+                if tempWord not in lookObjects:
+                    print("Error. Invalid item cannot be dropped.")
+                    return "badcommand"
+                else:
+                    command[1] = tempWord
+                    while len(command) > 2:
+                        command.pop()
+
+        elif command[0] in takeWords:
+            command[0] = "take"
+
+            if len(command) == 2:
+                if command[1] not in lookObjects:
+                    print("Invalid object cannot be taken.")
+                    return "badcommand"
+
+            elif len(command) == 3:
+                if command[1] + " " + command[2] not in lookObjects:
+                    print("Invalid object cannot be taken.")
+                    return "badcommand"
+                else:
+                    command[1] += " " + command[2]
+
+            if len(command) > 3:
+                print("Error. Too many arguments passed.")
+
+        elif command[0] not in otherCommands:
+            print("Bad command passed.")
+            return "badcommand"
 
         # Return the parsed command.
+        print(command)
         return command
