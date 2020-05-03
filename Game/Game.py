@@ -31,12 +31,13 @@ class Game:
     def start(self):
 
         while 1:
-            selection =  menu.display()
+            itemList = []
+            selection = menu.display()
             if selection == 'newgame':
                 intro.display()
-                self.play_game('dataStore/newGame/load_file.json', 'dataStore/newGame/RoomState/', 0)
+                self.play_game('dataStore/newGame/load_file.json', 'dataStore/newGame/RoomState/', 0, itemList)
             elif selection == 'loadgame':
-                self.play_game('dataStore/saveGame/load_file.json', 'dataStore/newGame/RoomState/', 0)
+                self.play_game('dataStore/saveGame/load_file.json', 'dataStore/newGame/RoomState/', 0, itemList)
             elif selection == 'credits':
                 credits.display()
             elif selection == 'exit':
@@ -244,7 +245,7 @@ class Game:
 
 
     # This function is the main game driver function
-    def play_game(self, input_file, file_path, roomIdx):
+    def play_game(self, input_file, file_path, roomIdx, itemList):
 
         game_file = open(input_file, 'r', encoding='utf-8')
         file_data = json.loads(game_file.read())
@@ -257,6 +258,17 @@ class Game:
 
         self.initialize_hero(hero_data)
         self.hero.location = roomIdx
+
+        roomIterator = 0
+        current_room = self.rooms_list[0]
+
+        while roomIterator < 22:
+            for i in itemList:
+                status, taken_item = current_room.take_item(i)
+                if status:
+                    self.inventory.add_item(taken_item)
+            roomIterator += 1
+            current_room = self.rooms_list[roomIterator]
 
         # print('{}'.format(file_data['intro']))
 
@@ -412,7 +424,6 @@ class Game:
                         command.pop()
 
         elif command[0] in useWords:
-            print("This word is in useWords")
             command[0] = "use"
 
             if len(command) < 3:
@@ -498,5 +509,4 @@ class Game:
             return "badcommand"
 
         # Return the parsed command.
-        print(command)
         return command
