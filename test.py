@@ -29,6 +29,8 @@ newGame = Game()
 indexCount = 0
 roomIdx = 0
 startRoom = None
+itemList = []
+
 
 def getRoomIndex(inputRoom):
     if(inputRoom == "attic"):
@@ -84,10 +86,10 @@ for i in sys.argv:
 
     "-r switch allows user to specify the starting room"
     if(i == "-r"):
-        while((sys.argv[indexCount] != "-i") and (indexCount + 1 < len(sys.argv))):
+        while (sys.argv[indexCount] != "-i") and (indexCount + 1 < len(sys.argv)):
             indexCount += 1
             stringBuilder += sys.argv[indexCount] + " "
-        if(stringBuilder.strip() in rooms):
+        if stringBuilder.strip() in rooms:
             print("Setting start room to: " + stringBuilder)
             startRoom = stringBuilder.strip()
             roomIdx = getRoomIndex(startRoom)
@@ -96,9 +98,9 @@ for i in sys.argv:
             print("Invalid room selection: " + stringBuilder)
             sys.exit(1)
 
-    if(i == "-i"):
-        print("Inventory selected.")
+    if i == "-i":
+        while (sys.argv[indexCount] != "-r") and (indexCount + 1 < len(sys.argv)):
+            indexCount += 1
+            itemList.append(sys.argv[indexCount])
 
-    indexCount += 1
-
-newGame.play_game('dataStore/newGame/load_file.json', 'dataStore/newGame/RoomState/', roomIdx)
+newGame.play_game('dataStore/newGame/load_file.json', 'dataStore/newGame/RoomState/', roomIdx, itemList)
