@@ -7,12 +7,13 @@
 
 import json
 import os
+import sys
 from Credits import credits
 from Hero import Hero
 from Intro import intro
 from Inventory import Inventory
 from inventoryMapScreen import inventoryMapScreen
-# from Menu import menu
+from Menu import menu
 from Room import Room
 from Task import Task
 import textwrap
@@ -308,7 +309,7 @@ class Game:
 
         useWords = ["use", "apply", "put"]
 
-        dropWords = ["drop", "remove", "dump"]
+        dropWords = ["drop", "remove", "dump", "release"]
 
         moveDirections = ["north", "south", "east", "west", "up", "down", "southwest", "southeast",
                           "northwest", "northeast", "down hole"]
@@ -326,7 +327,7 @@ class Game:
                         "garden", "down", "hole", "downstairs", "bathroom", "front", "lawns",
                         "upstairs", "pink"]
 
-        otherCommands = ["map", "inventory", "action"]
+        otherCommands = ["map", "inventory", "action", "exit"]
 
         # Get user input. Make it lowercase and split it.
         splitArgs = input('            > ').lower().split()
@@ -504,6 +505,9 @@ class Game:
 
             if len(command) > 3:
                 self.print_output("Error. Too many arguments passed.")
+
+        elif command[0] == "exit":
+            sys.exit(0)
 
         elif command[0] not in otherCommands:
             self.print_output("Bad command passed.")
