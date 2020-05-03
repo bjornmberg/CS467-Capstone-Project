@@ -63,3 +63,9 @@ class Inventory:
         else:
             return False, None
 
+    # Simple boolean check. If there, return true. If not, return false.
+    def checkInventory(self, str_input):
+        for x in range(0, len(self.items)):
+            if self.items[x].name == str_input:
+                return True
+        return False

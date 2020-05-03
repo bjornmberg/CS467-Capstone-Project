@@ -7,22 +7,11 @@
     {
       "name":"hair",
       "description":  "A lock of hair.",
-      "linkedFeature": 1
+      "linkedFeature": 0
   }
   ],
   "droppedItems": [],
   "features": [
-    {
-      "name": "door lock",
-      "actionable": true,
-      "usable": false,
-      "preActionDes": "This door is locked.",
-      "inActionDes": "You unlock the door.",
-      "postActionDes": "You have unlocked this door.",
-      "state": 0,
-      "featureId": 0
-    },
-
     {
       "name": "ledge",
       "actionable": true,
@@ -31,7 +20,7 @@
       "inActionDes": "Upon further inspection, you notice that there's a lock of hair tied with a red ribbon.",
       "postActionDes": "You took the lock of hair from this ledge.",
       "state": 0,
-      "featureId": 1
+      "featureId": 0
     },
     {
       "name": "toilet",
@@ -41,7 +30,7 @@
       "inActionDes": "",
       "postActionDes": "",
       "state": 0,
-      "featureId": 2
+      "featureId": 1
     },
     {
       "name": "sink",
@@ -51,7 +40,7 @@
       "inActionDes": "",
       "postActionDes": "",
       "state": 0,
-      "featureId": 3
+      "featureId": 2
     },
     {
       "name": "mirror",
@@ -61,7 +50,7 @@
       "inActionDes": "",
       "postActionDes": "",
       "state": 0,
-      "featureId": 4
+      "featureId": 3
     }
   ],
   "roomId": 16,

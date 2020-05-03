@@ -100,6 +100,8 @@ class Game:
         if direction in current_room.directions:
             # change the hero's location to the new room
             self.hero.location = current_room.directions[direction]
+            # Check if a task is necessary on move into next room and get the status. Currently nothing done with the status.
+            self.tasks.perform_task_on_move(self.inventory, self.rooms_list, self.hero.location)
             # set the room being left to visited
             current_room.set_visited()
 

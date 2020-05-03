@@ -33,12 +33,12 @@ class Task:
 
             # check it there is a valid Feature/Item combination and call that function
             if item.name == 'axe' and feature.name == 'armor':
-                status =  self.axe_amor_task(feature, rooms)
+                status =  self.axe_armor_task(feature, rooms)
             elif item.name == 'prybar' and feature.name == 'plank':
                 status = self.prybar_plank_task(feature, rooms)
             elif item.name == 'crystal' and feature.name == 'statue':
                 status =  self.crystal_statue_task(feature, rooms)
-            # Part of game losing sequence B
+            # Part of game losing sequence A
             elif item.name == 'ashes' and feature.name == 'fireplace':
                 self.ashes_fireplace_task(feature, rooms)
             # Part of game winning sequence B
@@ -56,12 +56,24 @@ class Task:
             # Part of game winning sequence B
             elif item.name == 'rose' and feature.name == 'girl':
                 status = self.rose_task(feature, rooms)
+            # Part of game losing sequence B
+            elif item.name == 'key' and feature.name == 'lock':
+                status = self.key_task(feature, rooms)
+            # Part of game losing sequence B
+            elif item.name == 'hair' and feature.name == 'chef':
+                self.hair_task(feature, rooms)
             else:
                 # No valid combination
                 status = False
         # Feature is not usable
         return status
 
+    # Solves one-off situations where a task needs to be completed on move
+    def perform_task_on_move(self, inventory, rooms_list, next_room_index):
+        if next_room_index == 12 and (inventory.checkInventory('journal') == True):
+            self.journal_greenroom_task(rooms_list, next_room_index)
+            return True
+        return False
 
     # Do whatever you want in here. You can change the description to describe features
     # that were previously hidden, add directions to the directions Dictionary for the Room
@@ -86,17 +98,6 @@ class Task:
         rooms[18].long_des = 'You have uncovered a tunnel under the gazebo....'
         rooms[18].visited = False
         rooms[18].directions['down'] = 24
-
-        return True
-
-    def axe_amor_task(self, feature, rooms):
-        feature.state = 1
-        print(feature.get_description())
-        feature.state = 2
-
-        rooms[13].long_des = 'You are standing in the Attic. Everything remains as it was with one exception: the boards around the walled in area have fallen exposing the entrance to a hidden room to the southseast.'
-        rooms[13].visited = False
-        rooms[13].directions['southeast'] = 23
 
         return True
 
@@ -201,9 +202,52 @@ class Task:
 
         self.endGame(feature)
 
+    # This is part of game losing sequence B - attempt to comfort undead chef staker
+    def journal_greenroom_task(self, rooms, green_room_index):
+        # Change the long description of the green room to output the vision.
+        rooms[green_room_index].long_des = 'As you walk into master\'s bedroom your vision blurs and sound washes over you. You see the Chef, yelling something, waving an axe and chasing a woman and a man about the room. The Chef is swinging an axe. The woman and man are running, screaming. Your head swims, and the scene fades.\n\nAs you regain your senses you see a glint of light reflected on the ceiling above the bed. You hear a crashing sound to the South. There is a door to the Southwest that leads back to the second floor landing. There are windows to the North and to the East. A door to the Northwest leads to the pink room.'
+        rooms[green_room_index].visited = False
+        # Change the long description of the second floor bathroom so floor tile is on the floor now
+        rooms[22].long_des = 'You are standing in a bathroom. One of the tiles has fallen to the floor. You see a hollow in the wall where the tile was previously.  A door to the West exits to the landing.'
+        rooms[22].visited = False
+
+        return True
+
+    # This is part of game losing sequence B - attempt to comfort undead chef staker
+    def key_task(self, feature, rooms):
+        # Unlock the door
+        feature.state = 1
+        print(feature.get_description())
+        feature.state = 2
+        # Change the description of the servant's quarters to reflect the open door and open East as a direction the player can travel
+        rooms[15].long_des = 'You are in the servant’s dwelling. There is a small table and chairs in a nearby corner. A stack of books sits on top of the table. To the North is the cellar. To the East is a bathroom door which now stands open.'
+        rooms[15].visited = False
+        rooms[15].directions['east'] = 16
+
+        return True
+
+    def axe_armor_task(self, feature, rooms):
+        feature.state = 1
+        print(feature.get_description())
+        feature.state = 2
+
+        rooms[13].long_des = 'You are standing in the Attic. Everything remains as it was with one exception: the boards around the walled in area have fallen exposing the entrance to a hidden room to the southeast.'
+        rooms[13].visited = False
+        rooms[13].directions['southeast'] = 23
+
+        return True
+
+    # This is a part of game losing sequence B - attempt to comfort undead chef staker
+    # When the player uses lock of hair on the chef, endGame is triggered:
+    def hair_task(self, feature, rooms):
+        os.system('clear')
+        feature.state = 1
+        print(feature.get_description())
+        self.endGame(feature)
+
     # Method handler for endGame choices and interactions. Could be a different class
     def endGame(self, feature):
-        # endGame sequence for Game Losing Scenario A
+        # endGame sequence for Game Losing Sequence A
         if feature.name == 'fireplace':
             selection = -1
             while selection not in (1, 2):
@@ -226,7 +270,7 @@ class Task:
                 print('\nThank you for playing. You have lost.')
                 exit()
 
-        # endGame sequence for Game Winning Scenario B
+        # endGame sequence for Game Winning Sequence B
         if feature.name == 'girl':
             os.system('clear')
             print('\n\n')
@@ -236,4 +280,16 @@ class Task:
             time.sleep(7)
             os.system('clear')
             print('\nThank you for playing. You have won the game.')
+            exit()
+
+        # endGame sequence for Game Losing Sequence B
+        if feature.name == 'chef':
+            os.system('clear')
+            print('\n\n')
+            print(feature.get_description())
+            time.sleep(7)
+            print('\n\n\nIn the moments before all fades to black you know you\'ve made a grave mistake.\nYou are thrown backward and hit the floor.\n\nThe last thing you see is the chef\'s enraged face, filling all you can see.')
+            time.sleep(7)
+            os.system('clear')
+            print('\nThank you for playing. You have lost.')
             exit()
