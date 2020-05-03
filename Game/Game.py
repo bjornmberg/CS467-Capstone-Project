@@ -6,13 +6,13 @@
 '''
 
 import json
-# import os
+import os
 from Credits import credits
 from Hero import Hero
 from Intro import intro
 from Inventory import Inventory
 from inventoryMapScreen import inventoryMapScreen
-# from Menu import menu
+from Menu import menu
 from Room import Room
 from Task import Task
 
