@@ -491,7 +491,11 @@ class Game:
         elif command[0] in takeWords:
             command[0] = "take"
 
-            if len(command) == 2:
+            if len(command) < 2:
+                print("Invalid item name.")
+                return "badcommand"
+
+            elif len(command) == 2:
                 if command[1] not in lookObjects:
                     self.print_output("Invalid object cannot be taken.")
                     return "badcommand"
