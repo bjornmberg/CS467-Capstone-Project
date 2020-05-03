@@ -15,15 +15,15 @@ class Task:
 
         # Perform check to determine if this is task driven by taking an item alone
         if feature is None:
-            # Part of game losing sequence B
-            if item.name == 'pistol':
-                status =  self.pistol_task(rooms)
             # Part of game winning sequence B
-            elif item.name == 'book':
+            if item.name == 'book':
                 status =  self.book_task(rooms)
             # Part of game winning sequence B
             elif item.name == 'locket':
                 status =  self.locket_task(rooms)
+            # Part of game losing sequence B
+            elif item.name == 'pistol':
+                status =  self.pistol_task(rooms)
             return False
 
         # Perform check to determine if this is task driven by use of a feature alone
@@ -38,18 +38,21 @@ class Task:
         if feature.usable:
 
             # check it there is a valid Feature/Item combination and call that function
-            # Part of game losing sequence B
-            if item.name == 'axe' and feature.name == 'armor':
-                status =  self.axe_armor_task(feature, rooms)
             # Part of game winning sequence A
-            elif item.name == 'prybar' and feature.name == 'plank':
+            if item.name == 'prybar' and feature.name == 'plank':
                 status = self.prybar_plank_task(feature, rooms)
+            # Part of game winning sequence A
+            elif item.name == 'key' and feature.name == 'drawer':
+                status = self.key_drawer_task(feature, rooms)
+            # Part of game winning sequence A
+            elif item.name == 'prybar' and feature.name == 'padlock':
+                status = self.prybar_padlock_task(feature, rooms)
+            # Part of game winning sequence A
+            elif item.name == 'knife' and feature.name == 'eye':
+                self.knife_eye_task(feature, rooms)
             # Part of game winning sequence A
             elif item.name == 'crystal' and feature.name == 'statue':
                 status =  self.crystal_statue_task(feature, rooms)
-            # Part of game losing sequence A
-            elif item.name == 'ashes' and feature.name == 'fireplace':
-                self.ashes_fireplace_task(feature, rooms)
             # Part of game winning sequence B
             elif item.name == 'shears' and feature.name == 'vine':
                 status = self.shears_vine_task(feature, rooms)
@@ -65,21 +68,18 @@ class Task:
             # Part of game winning sequence B
             elif item.name == 'rose' and feature.name == 'girl':
                 status = self.rose_task(feature, rooms)
+            # Part of game losing sequence A
+            elif item.name == 'ashes' and feature.name == 'fireplace':
+                self.ashes_fireplace_task(feature, rooms)
+            # Part of game losing sequence B
+            elif item.name == 'axe' and feature.name == 'armor':
+                status =  self.axe_armor_task(feature, rooms)
             # Part of game losing sequence B
             elif item.name == 'key' and feature.name == 'lock':
                 status = self.key_task(feature, rooms)
             # Part of game losing sequence B
             elif item.name == 'hair' and feature.name == 'chef':
                 self.hair_task(feature, rooms)
-            # Part of game winning sequence A
-            elif item.name == 'key' and feature.name == 'drawer':
-                status = self.key_drawer_task(feature, rooms)
-            # Part of game winning sequence A
-            elif item.name == 'prybar' and feature.name == 'padlock':
-                status = self.prybar_padlock_task(feature, rooms)
-            # Part of game winning sequence A
-            elif item.name == 'knife' and feature.name == 'eye':
-                self.knife_eye_task(feature, rooms)
             else:
                 # No valid combination
                 status = False
@@ -93,6 +93,7 @@ class Task:
             return True
         return False
 
+    # Solves one-off situations where a task needs to be completed on look
     def perform_task_on_look(self, feature_description, rooms):
         if feature_description == 'You look closer at the dog. It\'s got three heads and glowing, red eyes!':
             self.dog_easel_task(rooms)
@@ -104,6 +105,79 @@ class Task:
     # that were previously hidden, add directions to the directions Dictionary for the Room
     # you can do this for the Room you are in or any other Room based on the Room index. Just
     # make sure that you seed those things in the JSON
+
+    # This is part of game winning sequence A - dispatch undead chef staker
+    def dog_easel_task(self, rooms):
+        rooms[10].features[0].actionable = True
+        rooms[10].features[0].pre_action_des = 'This easel holds a blank canvas. There are also oil paints and brushes next to it. You feel compelled to paint.'
+
+    # This is part of game winning sequence A - dispatch undead chef staker
+    def easel_task(self, feature, rooms):
+        feature.state = 1
+        print(feature.get_description())
+        feature.state = 2
+        # "Hear sound elsewhere"
+        print('You hear piano music playing from somewhere to the South.')
+        # Change the landing description to reflect the playing piano
+        rooms[11].long_des = 'You are on the second floor landing of the house. A grand piano is here, playing music on it\'s own. A window faces south, overlooking the lawns. There is a staircase spiraling down to the foyer below. A door to the Northeast leads to the greenroom. A door to the Southeast leads to a bath. There is also a door to the Southwest heading to a linen closet, and a door to the Northwest going to the red room'
+        rooms[11].visited = False
+        # Change the state of the piano to reflect the playing tune
+        rooms[11].features[0].state = 1
+
+        return True
+
+    # This is part of game winning sequence A - dispatch undead chef staker
+    def key_drawer_task(self, feature, rooms):
+        feature.state = 1
+        print(feature.get_description())
+        feature.state = 2
+
+        return True
+
+    # This is part of game winning sequence A - dispatch undead chef staker
+    def prybar_plank_task(self, feature, rooms):
+        feature.state = 1
+        print(feature.get_description())
+        feature.state = 2
+
+        rooms[18].long_des = 'You have uncovered a tunnel under the gazebo....'
+        rooms[18].visited = False
+        rooms[18].directions['down'] = 24
+
+        return True
+
+    # This is part of game winning sequence A - dispatch undead chef staker
+    def crystal_statue_task(self, feature, rooms):
+        feature.state = 1
+        print(feature.get_description())
+        feature.state = 2
+
+        rooms[24].long_des = 'The tunnel is now illuminated by the crystal. You see that the tunnel contines downward.'
+        rooms[24].visited = False
+        rooms[24].directions['down'] = 17
+
+        return True
+
+    # This is part of game winning sequence A - dispatch undead chef staker
+    def prybar_padlock_task(self, feature, rooms):
+        feature.state = 1
+        print(feature.get_description())
+        feature.state = 2
+
+        rooms[17].features[0].state = 1
+
+        rooms[17].long_des = 'You are standing in the crypt below the mansion. Having pried the padlock loose, the coffin now stands open. An eye glows within. There is a door back to the tunnel.'
+        rooms[17].visited = False
+
+        return True
+
+    # This is part of game winning sequence A - dispatch undead chef staker
+    def knife_eye_task(self, feature, rooms):
+        feature.state = 1
+        print(feature.get_description())
+        feature.state = 2
+
+        self.endGame(feature)
 
     # This is part of game winning sequence B - comfort the ghost daughter
     def book_task(self, rooms):
@@ -227,6 +301,7 @@ class Task:
 
         return True
 
+    # This is part of game losing sequence B - attempt to comfort undead chef staker
     def axe_armor_task(self, feature, rooms):
         feature.state = 1
         print(feature.get_description())
@@ -245,77 +320,6 @@ class Task:
         feature.state = 1
         print(feature.get_description())
         self.endGame(feature)
-
-    # This is part of game winning sequence A - dispatch undead chef staker
-    def dog_easel_task(self, rooms):
-        rooms[10].features[0].actionable = True
-        rooms[10].features[0].pre_action_des = 'This easel holds a blank canvas. There are also oil paints and brushes next to it. You feel compelled to paint.'
-
-    # This is part of game winning sequence A - dispatch undead chef staker
-    def easel_task(self, feature, rooms):
-        feature.state = 1
-        print(feature.get_description())
-        feature.state = 2
-        # "Hear sound elsewhere"
-        print('You hear piano music playing from somewhere to the South.')
-        # Change the landing description to reflect the playing piano
-        rooms[11].long_des = 'You are on the second floor landing of the house. A grand piano is here, playing music on it\'s own. A window faces south, overlooking the lawns. There is a staircase spiraling down to the foyer below. A door to the Northeast leads to the greenroom. A door to the Southeast leads to a bath. There is also a door to the Southwest heading to a linen closet, and a door to the Northwest going to the red room'
-        rooms[11].visited = False
-        # Change the state of the piano to reflect the playing tune
-        rooms[11].features[0].state = 1
-
-        return True
-
-    # This is part of game winning sequence A - dispatch undead chef staker
-    def key_drawer_task(self, feature, rooms):
-        feature.state = 1
-        print(feature.get_description())
-        feature.state = 2
-
-        return True
-
-    # This is part of game winning sequence A - dispatch undead chef staker
-    def prybar_plank_task(self, feature, rooms):
-        feature.state = 1
-        print(feature.get_description())
-        feature.state = 2
-
-        rooms[18].long_des = 'You have uncovered a tunnel under the gazebo....'
-        rooms[18].visited = False
-        rooms[18].directions['down'] = 24
-
-        return True
-
-    def crystal_statue_task(self, feature, rooms):
-        feature.state = 1
-        print(feature.get_description())
-        feature.state = 2
-
-        rooms[24].long_des = 'The tunnel is now illuminated by the crystal. You see that the tunnel contines downward.'
-        rooms[24].visited = False
-        rooms[24].directions['down'] = 17
-
-        return True
-
-    def prybar_padlock_task(self, feature, rooms):
-        feature.state = 1
-        print(feature.get_description())
-        feature.state = 2
-
-        rooms[17].features[0].state = 1
-
-        rooms[17].long_des = 'You are standing in the crypt below the mansion. Having pried the padlock loose, the coffin now stands open. An eye glows within. There is a door back to the tunnel.'
-        rooms[17].visited = False
-
-        return True
-
-    def knife_eye_task(self, feature, rooms):
-        feature.state = 1
-        print(feature.get_description())
-        feature.state = 2
-
-        self.endGame(feature)
-
 
     # Method handler for endGame choices and interactions. Could be a different class
     def endGame(self, feature):

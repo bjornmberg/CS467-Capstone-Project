@@ -206,6 +206,7 @@ class Game:
         # the thing is in the Room so print the description
         if thing_in_room:
             print(thing_room_des)
+            # Check if a task is required based on the look operation
             self.tasks.perform_task_on_look(thing_room_des, self.rooms_list)
         # not in the Room, but in the Inventory, print description
         elif thing_in_inven:
@@ -245,8 +246,10 @@ class Game:
         elif command[0] == 'action':
             print(current_room.action_feature(command[1]))
         elif command[0] == 'use':
+            # If using an item on a feature
             if len(command) > 2:
                 self.use(command[1], command[2])
+            # Else if using just a feature
             else:
                 self.use(None, command[1])
         elif command[0] == 'map':
