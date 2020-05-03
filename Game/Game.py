@@ -293,7 +293,7 @@ class Game:
 
         takeWords = ["grab", "pick up", "seize", "lift", "take", "pick"]
 
-        useWords = ["use", "apply"]
+        useWords = ["use", "apply", "put"]
 
         dropWords = ["drop", "remove", "dump"]
 
@@ -313,10 +313,7 @@ class Game:
                         "garden", "down", "hole", "downstairs", "bathroom", "front", "lawns",
                         "upstairs", "pink"]
 
-
-        conjunctions = ["with", "and"]
-
-        otherCommands = ["map", "inventory"]
+        otherCommands = ["map", "inventory", "action"]
 
         # Get user input. Make it lowercase and split it.
         splitArgs = input('            > ').lower().split()
@@ -390,9 +387,6 @@ class Game:
                 else:
                     print("\t\tInvalid room name or direction given.")
                     return "badcommand"
-
-        elif command[0] in takeWords:
-            print("This word is in takeWords.")
 
         # TODO: I Need to find a better solution for bad objects
         elif command[0] in lookWords:
