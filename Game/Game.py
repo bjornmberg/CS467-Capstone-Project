@@ -12,9 +12,10 @@ from Hero import Hero
 from Intro import intro
 from Inventory import Inventory
 from inventoryMapScreen import inventoryMapScreen
-from Menu import menu
+# from Menu import menu
 from Room import Room
 from Task import Task
+import textwrap
 
 
 class Game:
@@ -124,7 +125,7 @@ class Game:
         if status == True:
             self.inventory.add_item(taken_item)
         else:
-            print('That is not an item you can take.')
+            self.print_output("That is not an item you can take.")
 
     def use(self, str_item, str_feature):
 
@@ -148,7 +149,7 @@ class Game:
                 self.inventory.remove_item(item)
             else:
                 # Else this is not a valid combination
-                print('You cannot do that!')
+                self.print_output("You cannot do that!")
         # False Feature status - feature is not in the Room
         elif not feat_status:
 
@@ -179,7 +180,7 @@ class Game:
         if status:
             current_room.leave_item(dropped_item)
         else:
-            print('That item is not in your inventory.')
+            self.print_output("That item is not in your inventory.")
 
 
     # This function is used to look at either an Item or a Feature that
@@ -199,11 +200,11 @@ class Game:
 
         # the thing is in the Room so print the description
         if thing_in_room:
-            print(thing_room_des)
+            self.print_output(thing_room_des)
         # not in the Room, but in the Inventory, print description
         elif thing_in_inven:
             'INVENTORY ITEM: '
-            print(thing_inven_des)
+            self.print_output(thing_inven_des)
         # not in the Room or the Inventory
         else:
             print('You do not see a {}'.format(thing))
@@ -233,11 +234,11 @@ class Game:
             self.drop(command[1])
         elif command[0] == 'look':
             if len(command) == 1:
-                print(current_room.long_des)
+                self.print_output(current_room.long_des)
             else:
                 self.look_at_something(command[1])
         elif command[0] == 'action':
-            print(current_room.action_feature(command[1]))
+            self.print_output(current_room.action_feature(command[1]))
         elif command[0] == 'use':
             self.use(command[1], command[2])
         elif command[0] == 'map':
@@ -344,7 +345,7 @@ class Game:
 
         # Print an error if no words were valid.
         if len(command) == 0:
-            print("Error. Invalid command passed.")
+            self.print_output("Error. Invalid command passed.")
             return "badcommand"
 
         # Set the command to 'move' if it's in movewords.
@@ -362,7 +363,7 @@ class Game:
 
             # Print an error if no room was provided.
             if len(command) <= 1:
-                print("\t\tError. Invalid room name or direction given.")
+                self.print_output("Error. Invalid room name or direction given.")
                 return "badcommand"
 
             else:
@@ -397,7 +398,7 @@ class Game:
 
                 # Print an error if an invalid room name was passed.
                 else:
-                    print("\t\tInvalid room name or direction given.")
+                    self.print_output("Invalid room name or direction given.")
                     return "badcommand"
 
         # TODO: I Need to find a better solution for bad objects
@@ -406,18 +407,18 @@ class Game:
                 command[0] = "look"
 
                 if len(splitArgs) > 1:
-                    print("Error. Cannot look at invalid object.")
+                    self.print_output("Error. Cannot look at invalid object.")
                     return "badcommand"
 
             elif len(command) == 2:
                 if command[1] not in lookObjects:
-                    print("Error. Cannot look at invalid object.")
+                    self.print_output("Error. Cannot look at invalid object.")
                     return "badcommand"
 
             elif len(command) >= 3:
                 tempWord = command[1] + " " + command[2]
                 if tempWord not in lookObjects:
-                    print("Error. Cannot look at invalid object.")
+                    self.print_output("Error. Cannot look at invalid object.")
                 else:
                     command[1] = tempWord
                     while len(command) > 2:
@@ -427,12 +428,12 @@ class Game:
             command[0] = "use"
 
             if len(command) < 3:
-                print("Error. Invalid objects passed.")
+                self.print_output("Error. Invalid objects passed.")
                 return "badcommand"
 
             elif len(command) == 3:
                 if command[1] not in lookObjects or command[2] not in lookObjects:
-                    print("Error. Invalid objects passed.")
+                    self.print_output("Error. Invalid objects passed.")
                     return "badcommand"
 
             elif len(command) ==  4:
@@ -441,26 +442,26 @@ class Game:
                 elif command[2] + " " + command[3] in lookObjects:
                     command[2] = command[2] + " " + command[3]
                 else:
-                    print("Invalid object passed with use command")
+                    self.print_output("Invalid object passed with use command")
                     return "badcommand"
                 while command > 3:
                     command.pop()
 
             elif len(command) == 5:
                 if command[1] + " " + command[2] not in lookObjects:
-                    print("Invalid object passed with use command")
+                    self.print_output("Invalid object passed with use command")
                     return "badcommand"
                 else:
                     command[1] += " " + command[2]
 
                 if command[3] + " " + command[4] not in lookObjects:
-                    print("Invalid object passed with use command")
+                    self.print_output("Invalid object passed with use command")
                     return "badcommand"
                 else:
                     command[2] = command[3] + " " + command[4]
 
             else:
-                print("Error. Too many arguments with use command.")
+                self.print_output("Error. Too many arguments with use command.")
                 return "badcommand"
 
 
@@ -468,18 +469,18 @@ class Game:
             command[0] = "drop"
 
             if len(command) == 1:
-                print("Error. Invalid or no item to drop.")
+                self.print_output("Error. Invalid or no item to drop.")
                 return "badcommand"
 
             if len(command) == 2:
                 if command[1] not in lookObjects:
-                    print("Error. Cannot drop " + command[1])
+                    self.print_output("Error. Cannot drop " + command[1])
                     return "badcommand"
 
             elif len(command) > 2:
                 tempWord = command[1] + " " + command[2]
                 if tempWord not in lookObjects:
-                    print("Error. Invalid item cannot be dropped.")
+                    self.print_output("Error. Invalid item cannot be dropped.")
                     return "badcommand"
                 else:
                     command[1] = tempWord
@@ -491,22 +492,27 @@ class Game:
 
             if len(command) == 2:
                 if command[1] not in lookObjects:
-                    print("Invalid object cannot be taken.")
+                    self.print_output("Invalid object cannot be taken.")
                     return "badcommand"
 
             elif len(command) == 3:
                 if command[1] + " " + command[2] not in lookObjects:
-                    print("Invalid object cannot be taken.")
+                    self.print_output("Invalid object cannot be taken.")
                     return "badcommand"
                 else:
                     command[1] += " " + command[2]
 
             if len(command) > 3:
-                print("Error. Too many arguments passed.")
+                self.print_output("Error. Too many arguments passed.")
 
         elif command[0] not in otherCommands:
-            print("Bad command passed.")
+            self.print_output("Bad command passed.")
             return "badcommand"
 
         # Return the parsed command.
         return command
+
+    def print_output(self, string):
+        wrappedText = textwrap.wrap(string, width=74)
+        for i in wrappedText:
+            print('            ' + i)
