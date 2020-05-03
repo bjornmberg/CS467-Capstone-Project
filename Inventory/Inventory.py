@@ -16,8 +16,8 @@ class Inventory:
             print('You cannot hold anymore items in your inventory.')
 
     def remove_item(self, item):
-
-        self.items.remove(item)
+        if item.name != 'prybar':
+            self.items.remove(item)
 
     # ADD COMMENTS
     def in_inventory(self, str_input):
