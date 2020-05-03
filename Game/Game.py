@@ -12,7 +12,7 @@ from Hero import Hero
 from Intro import intro
 from Inventory import Inventory
 from inventoryMapScreen import inventoryMapScreen
-# from Menu import menu
+from Menu import menu
 from Room import Room
 from Task import Task
 
@@ -424,7 +424,6 @@ class Game:
                         command.pop()
 
         elif command[0] in useWords:
-            print("This word is in useWords")
             command[0] = "use"
 
             if len(command) < 3:
