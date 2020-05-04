@@ -8,11 +8,11 @@
   "features": [
     {
       "name": "easel",
-      "actionable": true,
+      "actionable": false,
       "usable": false,
-      "preActionDes": "This easel holds a blank canvas. There are also oil paints and brushes next to it. It's ready to be painted.",
-      "inActionDes": "You begin to paint.",
-      "postActionDes": "You finish your painting of the dog. Its eyes look dead.",
+      "preActionDes": "This easel holds a blank canvas. There is a small table next to it, splattered with long-dry paint.",
+      "inActionDes": "You begin to paint. Your hand moves as if independant of you.\n\nYou finish the painting. It's a dog. It's eyes look dead.\n\nYou begin to hear music playing from somewhere to the south, the area of the landing you think.",
+      "postActionDes": "Your painting of the dog stands on the easel. Its eyes look hollow and dead.",
       "state": 0,
       "featureId": 0
     },

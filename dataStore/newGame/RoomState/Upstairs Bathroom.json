@@ -1,37 +1,26 @@
 {
   "name": "Upstairs Bathroom",
-  "longDes": "You are standing in a bathroom. White and black tile shines around you, and a clawfoot tub stands against the wall opposite the door.",
+  "longDes": "You are standing in a bathroom. White and black tile shines around you, and a clawfoot tub stands against the wall opposite the door. A door to the West exits to the landing.",
   "shortDes": "You are in a bathroom on the second floor. Tiles adorn the walls and a clawfoot tub stands opposite. A door to the West returns to the second floor landing.",
   "visited": false,
   "startingItems": [
     {
       "name":"key",
       "description":  "a simple key.",
-      "linkedFeature": 1
+      "linkedFeature": 0
     }
   ],
   "droppedItems": [],
   "features": [
     {
-      "name": "tile",
-      "actionable": true,
-      "usable": false,
-      "preActionDes": "You hear a loud crash coming from the Green Room. One of the tiles has fallen and shattered on the floor.",
-      "inActionDes": "The tile has shattered onto the floor, but you notice a space hollowed out where it fell from.",
-      "postActionDes": "",
-      "state": 0,
-      "featureId": 0
-    },
-
-    {
       "name": "hollow",
       "actionable": true,
       "usable": false,
-      "preActionDes": "You notice something barely sticking out of the hollow.",
+      "preActionDes": "You notice something barely sticking out of the hollow. Is that a key?",
       "inActionDes": "You reach into the hollow and feel something small and metallic. It's a key!",
       "postActionDes": "You have taken the key from the hollow.",
       "state": 0,
-      "featureId": 1
+      "featureId": 0
     }
   ],
   "roomId": 22,

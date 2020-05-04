@@ -1,12 +1,12 @@
 {
   "name": "Servant Quarters",
-  "longDes": "You have entered what appears to be the servant’s dwelling. It is rather dark, with light filtering in from the cellar. The furnishings are rather utilitarian. There is a small bed along the far wall, covered in threadbare sheets. There is a small table and chairs in a nearby corner. A stack of books sits on top of the table. To the North is the cellar. To the East is a bathroom door.",
-  "shortDes": "You are in the servant’s quarters. A table stands nearby with books stacked upon it. A bed occupies the space opposite. A door to the North returns to the cellar proper. There is a door to the East leading to a bathroom.",
+  "longDes": "You have entered what appears to be the servant’s dwelling. It is rather dark, with light filtering in from the cellar. The furnishings are rather utilitarian. There is a small bed along the far wall, covered in threadbare sheets. There is a small table and chairs in a nearby corner. A stack of books sits on top of the table. To the North is the cellar. To the East is a door with a lock.",
+  "shortDes": "You are in the servant’s quarters. A table stands nearby with books stacked upon it. A bed occupies the space opposite. A door to the North returns to the cellar proper. There is a door to the East with a lock.",
   "visited": false,
   "startingItems": [
     {
       "name":"journal",
-      "description":  "A journal of the life of a servant.",
+      "description":  "The journal opens to a page marked by a ribbon. Described on the page is a love affair between the servant and the wife of the head of the house, Chef Staker. Apparently the chef has found out and has threatened the woman, and... the servant's daughter.",
       "linkedFeature": 1
   }
   ],
@@ -32,8 +32,19 @@
       "postActionDes": "You took the journal from the stack of books here.",
       "state": 0,
       "featureId": 1
+    },
+
+    {
+      "name": "lock",
+      "actionable": true,
+      "usable": true,
+      "preActionDes": "This door is locked.",
+      "inActionDes": "You unlock the door. It appears there is a small bathroom to the East.",
+      "postActionDes": "You have unlocked this door.",
+      "state": 0,
+      "featureId": 2
     }
   ],
   "roomId": 15,
-  "directions": {"north": 14, "east": 16}
+  "directions": {"north": 14}
 }

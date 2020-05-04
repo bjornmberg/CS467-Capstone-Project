@@ -1,37 +1,20 @@
 {
   "name": "Hidden Room",
-  "longDes": "Hidden Room Long Description",
+  "longDes": "You enter what appears to have been a hidden bedroom.\n\nThe scene is a horror. You see Chef Staker standing with his back to you, holding a bloody cleaver.\n\nBeyond is a bed, and red, everywhere red. You are thankful you can't make out the details.\n\nThe lock of hair seems to vibrate in your hand.",
   "shortDes": "Hidden Room Short Description",
   "visited": false,
-  "startingItems": [
-    {
-        "name":"crystal",
-        "description":  "A glowing crystal - a good source of light.",
-        "linkedFeature": 0
-    }
-
-  ],
+  "startingItems": [],
   "droppedItems": [],
   "features": [
     {
-      "name": "table",
-      "actionable": true,
-      "usable": false,
-      "preActionDes": "The table is dusty with age. There is a faint glow coming from below it. Perhaps you should push it...",
-      "inActionDes": ".You push the table over, exposing a glowing crystal.",
-      "postActionDes": "This is where you found the crystal.",
-      "state": 0,
-      "featureId": 0
-    },
-    {
       "name": "chef",
       "actionable": true,
-      "usable": false,
-      "preActionDes": "You hear a loud crash coming from the Green Room. One of the tiles has fallen and shattered on the floor.",
-      "inActionDes": "The tile has shattered onto the floor, but you notice a space hollowed out where it fell from.",
+      "usable": true,
+      "preActionDes": "The chef is standing with his back to you. He is holding a bloody cleaver.",
+      "inActionDes": "You call out to the chef and hold out the lock of hair. He wheels on you with the cleaver.",
       "postActionDes": "",
       "state": 0,
-      "featureId": 1
+      "featureId": 0
     }
   ],
   "roomId": 23,

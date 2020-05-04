@@ -6,7 +6,7 @@
       "startingItems": [
         {
           "name": "book",
-          "description":  "The book falls open on a page that shows a white rose splattered in red. The other shows a gravestone.",
+          "description":  "The book falls open on a page. It appears to be written in some strange runic language.\nA picture on one page shows a white rose splattered in red.\n On the next page is a gravestone.",
           "linkedFeature": 0
         }
       ],

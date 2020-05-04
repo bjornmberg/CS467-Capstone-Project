@@ -15,10 +15,10 @@
         {
           "name": "vine",
           "actionable": true,
-          "usable": false,
+          "usable": true,
           "preActionDes": "The vine attempts to claw at you. You notice something shiny hanging from one of the vine's tendrils.",
-          "inActionDes": "You clip the tendril from the vine to acquire a locket.",
-          "postActionDes": "You retrieved the locket from this vine.",
+          "inActionDes": "You clip the tendril from the vine and can see a gold locket has fallen to the ground.",
+          "postActionDes": "You locket fell from this vine.",
           "state": 0,
           "featureId": 0
         },

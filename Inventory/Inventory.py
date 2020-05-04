@@ -16,8 +16,8 @@ class Inventory:
             print('You cannot hold anymore items in your inventory.')
 
     def remove_item(self, item):
-
-        self.items.remove(item)
+        if item.name != 'prybar':
+            self.items.remove(item)
 
     # ADD COMMENTS
     def in_inventory(self, str_input):
@@ -63,3 +63,9 @@ class Inventory:
         else:
             return False, None
 
+    # Simple boolean check. If there, return true. If not, return false.
+    def checkInventory(self, str_input):
+        for x in range(0, len(self.items)):
+            if self.items[x].name == str_input:
+                return True
+        return False

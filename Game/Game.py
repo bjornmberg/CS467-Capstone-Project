@@ -104,6 +104,8 @@ class Game:
         if direction in current_room.directions:
             # change the hero's location to the new room
             self.hero.location = current_room.directions[direction]
+            # Check if a task is necessary on move into next room and get the status. Currently nothing done with the status.
+            self.tasks.perform_task_on_move(self.inventory, self.rooms_list, self.hero.location)
             # set the room being left to visited
             current_room.set_visited()
 
@@ -125,6 +127,9 @@ class Game:
         # if the Item was there put it in the Inventory
         if status == True:
             self.inventory.add_item(taken_item)
+            # Check to determine if acquisition is part of a task
+            # attempt to perform the task and get the status. Currently nothing done with the status.
+            status = self.tasks.perform_task(taken_item, None, self.rooms_list)
         else:
             self.print_output("That is not an item you can take.")
 
@@ -135,31 +140,34 @@ class Game:
         # check to see if the feature is in the room and get it
         feat_status, feat = current_room.get_feature(str_feature)
 
-        # check that the item is in the inventory and get it
-        item_status, item = self.inventory.in_inventory(str_item)
+        if feat_status and str_item is None:
+            self.tasks.perform_task(None, feat, self.rooms_list)
 
-        # if the item is in the inventory and the feature is in the room
-        if feat_status and item_status:
-
-            # attempt to perform the taks and get the status
-            status = self.tasks.perform_task(item, feat, self.rooms_list)
-
-            # True, means this is a valid Item/Feature combination
-            if status:
-                # Remove the item from the inventory
-                self.inventory.remove_item(item)
-            else:
-                # Else this is not a valid combination
-                self.print_output("You cannot do that!")
         # False Feature status - feature is not in the Room
         elif not feat_status:
-
             print('There is no {} in the room.'.format(str_feature))
 
-        # False Item status - item is not in the Inventory
-        elif not item_status:
+        else:
+            # check that the item is in the inventory and get it
+            item_status, item = self.inventory.in_inventory(str_item)
 
-            print('There is no {} in the inventory.'.format(str_item))
+            # if the item is in the inventory and the feature is in the room
+            if feat_status and item_status:
+
+                # attempt to perform the task and get the status
+                status = self.tasks.perform_task(item, feat, self.rooms_list)
+
+                # True, means this is a valid Item/Feature combination
+                if status:
+                    # Remove the item from the inventory
+                    self.inventory.remove_item(item)
+                else:
+                    # Else this is not a valid combination
+                    self.print_output('You cannot do that!')
+
+            # False Item status - item is not in the Inventory
+            elif not item_status:
+                print('There is no {} in the inventory.'.format(str_item))
 
 
 
@@ -202,6 +210,7 @@ class Game:
         # the thing is in the Room so print the description
         if thing_in_room:
             self.print_output(thing_room_des)
+            self.tasks.perform_task_on_look(thing_room_des, self.rooms_list)
         # not in the Room, but in the Inventory, print description
         elif thing_in_inven:
             'INVENTORY ITEM: '
@@ -209,7 +218,6 @@ class Game:
         # not in the Room or the Inventory
         else:
             print('You do not see a {}'.format(thing))
-
 
     # FUNCTION COMMENT PLACEHOLDER
     def get_command(self, renderCounter):
@@ -241,7 +249,12 @@ class Game:
         elif command[0] == 'action':
             self.print_output(current_room.action_feature(command[1]))
         elif command[0] == 'use':
-            self.use(command[1], command[2])
+            # If using an item on a feature
+            if len(command) > 2:
+                self.use(command[1], command[2])
+            # Else if using just a feature
+            else:
+                self.use(None, command[1])
         elif command[0] == 'map':
             inventoryMapScreen.display(self.inventory, current_room.name, self.hero.location)
 

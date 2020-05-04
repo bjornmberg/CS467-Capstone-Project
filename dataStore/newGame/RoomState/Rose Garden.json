@@ -6,7 +6,7 @@
   "startingItems": [
     {
       "name":"rose",
-      "description":  "A red rose.",
+      "description":  "A rose, red and white and very fragrant.",
       "linkedFeature": 1
     },
     {
@@ -21,8 +21,8 @@
       "name": "fountain",
       "actionable": true,
       "usable": false,
-      "preActionDes": "You look at the fountain. You can see something in the water.",
-      "inActionDes": "A spade is lying at the bottom of the fountain.",
+      "preActionDes": "You look at the fountain. You can see something in the water. Is that a spade?",
+      "inActionDes": "You see a spade at the bottom of the fountain.",
       "postActionDes": "You found the spade here. You don't see anything else remarkable.",
       "state": 0,
       "featureId": 0

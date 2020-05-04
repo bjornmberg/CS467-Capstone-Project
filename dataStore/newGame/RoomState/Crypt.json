@@ -1,7 +1,7 @@
 {
   "name": "Crypt",
-  "longDes": "You find yourself in a crypt. The light is very faint here - some comes from the rock in your hand. There is some light seeming to come from the walls and floor also though, some dots of phosphorescence in tiny drops of water. The walls appear to be old wood. The air is thick with a stench of decay here. It’s a little hard to breathe. In the center of the room is a large rectangular crate, made of dark wood plans. A chain wraps around it and a heavy padlock lies utop the box. The crate looks a bit like a coffin.",
-  "shortDes": "You are standing in the crypt below the mansion. There is a rank, foul odor on the air here. A large rectangular crate, much like a coffin, dominates the center of the room. To the West a passageway leads into blackness.",
+  "longDes": "You find yourself in a crypt. The light is very faint here - some comes from the crystal in the tunnel. There is some light seeming to come from the walls and floor also though, some dots of phosphorescence in tiny drops of water. The walls appear to be old wood. The air is thick with a stench of decay here. It’s a little hard to breathe. In the center of the room is a large rectangular crate, made of dark wood plans. A chain wraps around it and a heavy padlock lies utop the box. The crate looks a bit like a coffin. There is a door leading back to the tunnel.",
+  "shortDes": "You are standing in the crypt below the mansion. There is a rank, foul odor on the air here. A large rectangular crate, much like a coffin, dominates the center of the room. There is a door leading back to the tunnel.",
   "visited": false,
   "startingItems": [],
   "droppedItems": [],
@@ -11,8 +11,8 @@
       "actionable": false,
       "usable": false,
       "preActionDes": "This coffin is made of thick wooden planks and smells terribly of rotten wood and decayed … organic material. There is a thick chain surrounding it with a large padlock. It is locked.",
-      "inActionDes": "",
-      "postActionDes": "",
+      "inActionDes": "The coffin is now open. You can see the undead Chef Staker in there. On his pale face one eye is open, glowing green.",
+      "postActionDes": "The coffin is now open. You can see the undead Chef Staker in there. On his pale face one eye is open, glowing green.",
       "state": 0,
       "featureId": 0
     },
@@ -20,21 +20,21 @@
     {
       "name": "padlock",
       "actionable": true,
-      "usable": false,
+      "usable": true,
       "preActionDes": "The padlock is made of heavy steel. You’re not sure you can pick it. Perhaps you can get some leverage?",
-      "inActionDes": "You pry the padlock open. The steel shatters as you apply all of the force you can muster.",
+      "inActionDes": "You pry the padlock open. The steel shatters as you apply all of the force you can muster.\n\nYou push the coffin lid to the side.",
       "postActionDes": "You have broken into this lock.",
       "state": 0,
       "featureId": 1
     },
 
     {
-      "name": "undead chef",
+      "name": "eye",
       "actionable": false,
-      "usable": false,
-      "preActionDes": "Insert Description Here",
-      "inActionDes": "",
-      "postActionDes": "",
+      "usable": true,
+      "preActionDes": "The glowing green eye of the chef seems to track you, but the chef is otherwise still. The markings on the knife begin to glow.",
+      "inActionDes": "You thrust the knife at the green eye of the chef.",
+      "postActionDes": "You thrust the knife at the green eye of the chef.",
       "state": 0,
       "featureId": 2
 

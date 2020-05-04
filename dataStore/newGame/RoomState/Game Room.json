@@ -9,7 +9,7 @@
     {
       "name": "fireplace",
       "actionable": true,
-      "usable": false,
+      "usable": true,
       "preActionDes": "This fireplace looks like it hasn't been used (or cleaned) in years.",
       "inActionDes": "You throw the ashes into the fire. The ashes instantly set a fire ablaze and a poltergeist appears!",
       "postActionDes": "The dimly lit fireplace is still glowing. You're not sure how the ashes caused the fireplace to start.",
@@ -44,6 +44,17 @@
       "usable": false,
       "preActionDes": "You look out the window. All you can see is the beginning of a forest.",
       "inActionDes": "",
+      "postActionDes": "",
+      "state": 0,
+      "featureId": 3
+    },
+
+    {
+      "name": "poltergeist",
+      "actionable": true,
+      "usable": false,
+      "preActionDes": "The poltergeist hovers near the fireplace, looking at you curiously.",
+      "inActionDes": "You shoot the poltergeist with the gun. Immediately the ghost changes color and flies into a rage.",
       "postActionDes": "",
       "state": 0,
       "featureId": 3
