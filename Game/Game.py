@@ -312,11 +312,11 @@ class Game:
                        "couch", "fireplace", "table", "easel", "loom", "left gargoyle", "right gargoyle", "paint",
                        "music box", "bed", "rocking horse", "rose", "spade", "fountain", "roses", "hair",
                        "door lock", "ledge", "toilet", "sink", "mirror", "journal", "locket", "vine", "window",
-                       "statue", "tile", "hollow"]
+                       "statue", "tile", "hollow", "grave", "girl", "lock"]
 
         twLookObjects = ["window", "sill", "east", "window", "west", "south", "pry", "bar", "pad", "lock",
                          "undead", "chef", "grave", "tree", "book", "case", "north", "pocket", "watch", "left",
-                         "right", "gargoyle", "music", "box", "rocking", "horse", "door", "lock", "small", "bed"]
+                         "right", "gargoyle", "music", "box", "rocking", "horse", "door", "lock", "small", "bed", "girl", "lock", "key"]
 
         takeWords = ["grab", "pick up", "seize", "lift", "take", "pick"]
 

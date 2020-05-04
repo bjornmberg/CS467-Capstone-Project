@@ -221,7 +221,7 @@ class Task:
 
     # This is part of game winning sequence B - comfort the ghost daughter
     def locket_grave_task(self, feature, rooms):
-        feature.in_action_des = 'You place the locket at the bottom of the grave, and fill the grave in. The ghost of the girl is here, crying, at the head of the makeshift grave.'
+        feature.in_action_des = 'You place the locket at the bottom of the grave, and fill the grave in.\nThe ghost of the girl is here, crying, at the head of the makeshift grave.'
         feature.state = 1
         print(feature.get_description())
         feature.post_action_des = 'The grave is filled in now. The girl is here, crying, at the head of the grave.'
