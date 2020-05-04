@@ -69,3 +69,14 @@ class Inventory:
             if self.items[x].name == str_input:
                 return True
         return False
+
+    def save_inventory(self):
+        save_list = list()
+        for item in self.items:
+            save_dict = dict()
+            save_dict['name'] = item.name
+            save_dict['description'] = item.description
+            save_dict['linkedFeature'] = item.linked_feature
+            save_list.append(save_dict)
+
+        return save_list

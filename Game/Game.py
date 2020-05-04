@@ -219,6 +219,22 @@ class Game:
         else:
             print('You do not see a {}'.format(thing))
 
+
+    # FUNCTION COMMENT PLACEHOLDER
+    def save_game(self):
+
+        room_names = open('dataStore/savedGame/Seed.json', 'r', encoding='utf-8')
+        main_data = json.loads(room_names.read())
+        room_names.close()
+
+        output_file = open('dataStore/savedGame/load_file.json', 'w', encoding='utf-8')
+        main_data['inventory'] = self.inventory.save_inventory()
+        main_data['hero'] = self.hero.save_hero()
+
+        output_data = json.dumps(main_data, indent=2)
+
+        output_file.write(output_data)
+
     # FUNCTION COMMENT PLACEHOLDER
     def get_command(self, renderCounter):
         # If the three rooms have been rendered, clear the screen
@@ -230,8 +246,8 @@ class Game:
         current_room.get_description()
 
         # COMMENT OUT LINE 113 and UNCOMMENT LINE 115 to OVERRIDE THE PARSER
-        command = self.parseArgs()
-        # command = input('> ').split(' ')
+        # command = self.parseArgs()
+        command = input('> ').split(' ')
 
         if command[0] == 'move':
             self.move(command[1])
@@ -257,6 +273,8 @@ class Game:
                 self.use(None, command[1])
         elif command[0] == 'map':
             inventoryMapScreen.display(self.inventory, current_room.name, self.hero.location)
+        elif command[0] == 'save':
+            self.save_game()
 
 
     # This function is the main game driver function
