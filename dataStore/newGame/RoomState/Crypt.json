@@ -12,7 +12,7 @@
       "usable": false,
       "preActionDes": "This coffin is made of thick wooden planks and smells terribly of rotten wood and decayed … organic material. There is a thick chain surrounding it with a large padlock. It is locked.",
       "inActionDes": "The coffin is now open. You can see the undead Chef Staker in there. On his pale face one eye is open, glowing green.",
-      "postActionDes": "The coffin is now open. You can see the undead Chef Staker in there. On his pale face one eye is open, glowing green.",
+      "postActionDes": "postActionDes",
       "state": 0,
       "featureId": 0
     },
@@ -29,12 +29,12 @@
     },
 
     {
-      "name": "eye",
+      "name": "chef",
       "actionable": false,
       "usable": true,
-      "preActionDes": "The glowing green eye of the chef seems to track you, but the chef is otherwise still. The markings on the knife begin to glow.",
-      "inActionDes": "You thrust the knife at the green eye of the chef.",
-      "postActionDes": "You thrust the knife at the green eye of the chef.",
+      "preActionDes": "The glowing green eye of the chef seems to track you, but the chef is otherwise still. The markings on the knife are glowing.",
+      "inActionDes": "You thrust the knife at the chef, right at his glowing green eye.",
+      "postActionDes": "You thrust the knife at the chef, right at his glowing green eye.",
       "state": 0,
       "featureId": 2
 

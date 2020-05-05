@@ -140,20 +140,15 @@ class Game:
         # check to see if the feature is in the room and get it
         feat_status, feat = current_room.get_feature(str_feature)
 
-        if feat_status and str_item is None:
-            self.tasks.perform_task(None, feat, self.rooms_list)
-
         # False Feature status - feature is not in the Room
-        elif not feat_status:
+        if not feat_status:
             print('There is no {} in the room.'.format(str_feature))
-
         else:
             # check that the item is in the inventory and get it
             item_status, item = self.inventory.in_inventory(str_item)
 
             # if the item is in the inventory and the feature is in the room
             if feat_status and item_status:
-
                 # attempt to perform the task and get the status
                 status = self.tasks.perform_task(item, feat, self.rooms_list)
 
@@ -249,12 +244,7 @@ class Game:
         elif command[0] == 'action':
             self.print_output(current_room.action_feature(command[1]))
         elif command[0] == 'use':
-            # If using an item on a feature
-            if len(command) > 2:
-                self.use(command[1], command[2])
-            # Else if using just a feature
-            else:
-                self.use(None, command[1])
+            self.use(command[1], command[2])
         elif command[0] == 'map':
             inventoryMapScreen.display(self.inventory, current_room.name, self.hero.location)
 
@@ -312,11 +302,11 @@ class Game:
                        "couch", "fireplace", "table", "easel", "loom", "left gargoyle", "right gargoyle", "paint",
                        "music box", "bed", "rocking horse", "rose", "spade", "fountain", "roses", "hair",
                        "door lock", "ledge", "toilet", "sink", "mirror", "journal", "locket", "vine", "window",
-                       "statue", "tile", "hollow", "grave", "girl", "lock"]
+                       "statue", "tile", "hollow", "grave", "girl", "lock", "paintbrush"]
 
         twLookObjects = ["window", "sill", "east", "window", "west", "south", "pry", "bar", "pad", "lock",
                          "undead", "chef", "grave", "tree", "book", "case", "north", "pocket", "watch", "left",
-                         "right", "gargoyle", "music", "box", "rocking", "horse", "door", "lock", "small", "bed", "girl", "lock", "key"]
+                         "right", "gargoyle", "music", "box", "rocking", "horse", "door", "lock", "small", "bed"]
 
         takeWords = ["grab", "pick up", "seize", "lift", "take", "pick"]
 
@@ -325,7 +315,7 @@ class Game:
         dropWords = ["drop", "remove", "dump", "release"]
 
         moveDirections = ["north", "south", "east", "west", "up", "down", "southwest", "southeast",
-                          "northwest", "northeast", "down hole"]
+                          "northwest", "northeast", "down hole", "door"]
 
         moveRooms = ["solarium", "game room", "kitchen", "dining room", "bathroom", "library",
                      "foyer", "parlor", "porch", "cellar", "servant quarters", "crypt",

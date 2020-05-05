@@ -3,7 +3,13 @@
   "longDes": "You are in the pink room. The walls appear faded, almost dusty pink. There is a window to the North through which you can see the rose gardens, a fountain, and the gazebo. The floor is spattered a bit with paint. An easel and small table stand beside the window. There is a loom and some bins filled with cloth along the wall opposite the window. You feel a ringing in your ears as you stand here. A small and steep staircase leads up into the attic. A door to the West leads to the red room. Another door to the East leads to the green room.",
   "shortDes": "You are standing in the pink room, which serves as the art studio. You notice an easel and small table near the window.  A loom occupies the room along the wall opposite. A window faces to the north, overlooking the rose garden and gazebo. There is a door to the West leading to the red room, a door to the East leading to the green room, and a steep staircase heading up.",
   "visited": false,
-  "startingItems": [],
+  "startingItems": [
+    {
+    "name":"paintbrush",
+    "description":  "The paintbrush is ready to use.",
+    "linkedFeature": 0
+    }
+  ],
   "droppedItems": [],
   "features": [
     {
