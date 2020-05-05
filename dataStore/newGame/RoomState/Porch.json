@@ -29,5 +29,5 @@
     }
   ],
   "roomId": 20,
-  "directions": {"north":  0, "south": 21}
+  "directions": {"north":  1, "south": 21}
 }
