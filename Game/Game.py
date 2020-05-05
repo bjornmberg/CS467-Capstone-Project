@@ -23,8 +23,8 @@ class Game:
 
     # member variables
     rooms_list = list()         # a list of Rooms
-    inventory = Inventory()     # a Inventory object
-    hero = Hero()               # a Hero object
+    hero = None
+    inventory = None
     tasks = Task()
 
     # This function handles loop control for the menu and game
@@ -33,13 +33,13 @@ class Game:
     def start(self):
 
         while 1:
-            itemList = []
+            item_list = []
             selection = menu.display()
             if selection == 'newgame':
                 intro.display()
-                self.play_game('dataStore/newGame/load_file.json', 'dataStore/newGame/RoomState/', 0, itemList)
+                self.play_game('dataStore/newGame/load_file.json', 'dataStore/newGame/RoomState/', 0, item_list)
             elif selection == 'loadgame':
-                self.play_game('dataStore/saveGame/load_file.json', 'dataStore/newGame/RoomState/', 0, itemList)
+                self.play_game('dataStore/savedGame/load_file.json', 'dataStore/savedGame/RoomState/', 0, item_list)
             elif selection == 'credits':
                 credits.display()
             elif selection == 'exit':
@@ -74,22 +74,6 @@ class Game:
             # Room objects are placed into the rooms list() at specific
             # locations according the the room_id
             self.rooms_list.insert(new_room.room_id, new_room)
-
-
-    # This function is used to set the state of the hero
-    # Parameters:
-    #   data - a dictionary representing the hero
-    def initialize_hero(self, data):
-
-        self.hero.name = data['name']
-        self.hero.location = data['location']
-
-    # This function is used to set the state of the inventory
-    # Parameters:
-    #   data - a dictionary representing the inventory
-    def initialize_inventory(self, data):
-
-        self.inventory.items = data['items'].copy()
 
 
     # This function is used to move the hero through the rooms
@@ -243,10 +227,6 @@ class Game:
 
     # FUNCTION COMMENT PLACEHOLDER
     def get_command(self, renderCounter):
-        # If the three rooms have been rendered, clear the screen
-        # if renderCounter == 3:
-        #     os.system('clear')
-        #     renderCounter = 0
 
         current_room = self.rooms_list[self.hero.location]
         current_room.get_description()
@@ -284,7 +264,7 @@ class Game:
 
 
     # This function is the main game driver function
-    def play_game(self, input_file, file_path, roomIdx, itemList):
+    def play_game(self, input_file, file_path, roomIdx, item_list):
 
         game_file = open(input_file, 'r', encoding='utf-8')
         file_data = json.loads(game_file.read())
@@ -295,21 +275,19 @@ class Game:
 
         self.initialize_rooms(room_data, file_path)
 
-        self.initialize_hero(hero_data)
-        self.hero.location = roomIdx
+        self.hero = Hero(hero_data['name'], hero_data['location'])
+        self.inventory = Inventory(inventory_data)
 
         roomIterator = 0
         current_room = self.rooms_list[0]
 
         while roomIterator < 22:
-            for i in itemList:
+            for i in item_list:
                 status, taken_item = current_room.take_item(i)
                 if status:
                     self.inventory.add_item(taken_item)
             roomIterator += 1
             current_room = self.rooms_list[roomIterator]
-
-        # print('{}'.format(file_data['intro']))
 
         renderCounter = -1
 

@@ -32,7 +32,5 @@
       "name": "Player",
       "location": 0
   },
-  "inventory": {
-      "items": []
-  }
+  "inventory": []
 }

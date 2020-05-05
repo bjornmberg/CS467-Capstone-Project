@@ -1,7 +1,9 @@
 class Hero:
 
-    name = None
-    location = None
+    def __init__(self, name, location):
+
+        self.name = name
+        self.location = location
 
     def save_hero(self):
 
