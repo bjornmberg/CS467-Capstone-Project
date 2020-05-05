@@ -208,16 +208,16 @@ class Game:
     def save_game(self):
 
         room_names = open('dataStore/savedGame/Seed.json', 'r', encoding='utf-8')
-        main_data = json.loads(room_names.read())
+        load_data = json.loads(room_names.read())
         room_names.close()
 
-        output_file = open('dataStore/savedGame/load_file.json', 'w', encoding='utf-8')
-        main_data['inventory'] = self.inventory.save_inventory()
-        main_data['hero'] = self.hero.save_hero()
+        load_file = open('dataStore/savedGame/load_file.json', 'w', encoding='utf-8')
+        load_data['inventory'] = self.inventory.save_inventory()
+        load_data['hero'] = self.hero.save_hero()
 
-        output_data = json.dumps(main_data, indent=2)
-        output_file.write(output_data)
-        output_file.close()
+        output_data = json.dumps(load_data, indent=2)
+        load_file.write(output_data)
+        load_file.close()
 
         for room in self.rooms_list:
             room_file = open('dataStore/savedGame/RoomState/{}.json'.format(room.name), 'w', encoding='utf-8' )
