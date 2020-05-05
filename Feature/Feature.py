@@ -46,3 +46,15 @@ class Feature:
         else:
             return self.post_action_des
 
+    def save_feature(self):
+        feature_dict = {
+            'name':self.name,
+            'preActionDes': self.pre_action_des,
+            'inActionDes': self.in_action_des,
+            'postActionDes': self.post_action_des,
+            'actionable': self.actionable,
+            'usable': self.usable,
+            'state': self.state,
+            'featureId': self.feature_id
+        }
+        return feature_dict

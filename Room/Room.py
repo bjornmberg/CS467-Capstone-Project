@@ -216,3 +216,33 @@ class Room:
     # This function will need to be toggled when a player enters the Room (after calling the getDescription function)
     def set_visited(self):
         self.visited = True
+
+
+    def save_room(self):
+
+        room_dict = {
+            'name': self.name,
+            'longDes': self.long_des,
+            'shortDes': self.short_des,
+            'visited': self.visited,
+            'startingItems': [],
+            'droppedItems': [],
+            'features': [],
+            'roomId': self.room_id,
+            'directions': self.directions.copy()
+        }
+
+        for si in self.starting_items:
+            room_dict['startingItems'].append(si.save_item())
+
+        for di in self.dropped_items:
+            room_dict['droppedItems'].append(di.save_item())
+
+        for f in self.features:
+            room_dict['features'].append(f.save_feature())
+
+        return room_dict
+        # feature_list = list()
+        #
+        # for feat in self.features:
+        #     feature_list.append(feat.save_feature())

@@ -232,8 +232,14 @@ class Game:
         main_data['hero'] = self.hero.save_hero()
 
         output_data = json.dumps(main_data, indent=2)
-
         output_file.write(output_data)
+        output_file.close()
+
+        for room in self.rooms_list:
+            room_file = open('dataStore/savedGame/RoomState/{}.json'.format(room.name), 'w', encoding='utf-8' )
+            room_data = json.dumps(room.save_room(), indent=2)
+            room_file.write(room_data)
+
 
     # FUNCTION COMMENT PLACEHOLDER
     def get_command(self, renderCounter):
