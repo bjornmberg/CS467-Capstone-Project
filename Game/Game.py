@@ -247,6 +247,8 @@ class Game:
             self.use(command[1], command[2])
         elif command[0] == 'map':
             inventoryMapScreen.display(self.inventory, current_room.name, self.hero.location)
+        elif command[0] == 'help':
+            self.getHelp(command)
 
 
     # This function is the main game driver function
@@ -291,7 +293,7 @@ class Game:
         moveWords = ["go", "walk", "move", "jaunt", "run", "step", "stroll", "march", "travel", "proceed",
                      "sprint", "jog"]
         
-        lookWords = ["look", "glance", "eye", "peak", "view", "stare", "peer", "study"]
+        lookWords = ["look", "glance", "eye", "peak", "view", "stare", "peer", "study", "examine"]
 
         lookObjects = ["windowsill", "crystal", "corner", "east window", "south window", "west window", "toys",
                        "prybar", "pry bar", "ashes", "workbench", "shelves", "box", "padlock", "coffin",
@@ -308,7 +310,7 @@ class Game:
                          "undead", "chef", "grave", "tree", "book", "case", "north", "pocket", "watch", "left",
                          "right", "gargoyle", "music", "box", "rocking", "horse", "door", "lock", "small", "bed"]
 
-        takeWords = ["grab", "pick up", "seize", "lift", "take", "pick"]
+        takeWords = ["grab", "seize", "lift", "take"]
 
         useWords = ["use", "apply", "put"]
 
@@ -330,7 +332,7 @@ class Game:
                         "garden", "down", "hole", "downstairs", "bathroom", "front", "lawns",
                         "upstairs", "pink"]
 
-        otherCommands = ["map", "inventory", "action", "exit"]
+        otherCommands = ["map", "inventory", "action", "exit", "help"]
 
         # Get user input. Make it lowercase and split it.
         splitArgs = input('            > ').lower().split()
@@ -527,3 +529,97 @@ class Game:
         wrappedText = textwrap.wrap(string, width=74)
         for i in wrappedText:
             print('            ' + i)
+
+    def getHelp(self, helpList):
+        if len(helpList) == 1:
+            print()
+            self.print_output("The goal of the game is to explore the mansion. Through interacting with various objects and features, the player will learn the deep history that surrounds the haunted mansion. Not all clues are helpful! There are many ways to win and lose this game. Can you solve the mystery, or will you meet your demise?")
+            print()
+            self.print_output("For more detailed instructions regarding a specific command, enter \"help [Your_Command_Here]\"")
+            print()
+            self.print_output("Valid commands are: take, drop, map, inventory, look, move, and use.")
+            
+        else:
+            if helpList[1] == 'take':
+                self.print_output("The take command allows the player to add an item from their environment to their inventory. To call the take function, a player enters a valid take command followed by a valid object in the room.")
+                print()
+                self.print_output("Valid words that could be used for the \"take\" command are: take, grab, seize, lift, and pick.")
+                print()
+                self.print_output("For example, to grab a stone off the floor, a player could enter \"Grab stone\"")
+                print()
+                self.print_output("Or, if the player prefers a more natural language approach, they could enter \"Take the stone off the floor.\"")
+                print()
+                self.print_output("If the player cannot take the object, there will be a corresponding error message for why they can't take an object.")
+                print()
+
+            elif helpList[1] == 'drop':
+                print()
+                self.print_output("The drop command allows the player to drop an item from their inventory to the room they are currently standing in. To call the drop function, a player enters a valid drop command followed by a valid object in their inventory.")
+                print()
+                self.print_output("Valid words that could be used for the \"drop\" command are: drop remove, dump, and release.")
+                print()
+                self.print_output("For example, to drop a stone from a player's inventory, a player could enter \"Drop stone\"")
+                print()
+                self.print_output("Or, if the player prefers a more natural language approach, they could enter \"Remove the stone from my inventory.\"")
+                print()
+                self.print_output("If the player cannot drop the object, there will be a corresponding error message for why they can't drop the object.")
+                print()
+
+            elif helpList[1] == 'map':
+                print()
+                self.print_output("The map command allows a player to print the map for the current floor they're standing on.")
+                print()
+                self.print_output("To call the command, a player simply enters \"map\".")
+                print()
+                self.print_output("For example, if a player were standing on the first floor, they would enter \"Map\", and the current floor's map would print.")
+                print()
+
+            elif helpList[1] == 'inventory':
+                print()
+                self.print_output("The inventory command allows a player to display all the items in the player's inventory.")
+                print()
+                self.print_output("To call the command, a player simply enters \"inventory\".")
+                print()
+                self.print_output("For example, a player would enter \"inventory\", and the contents of the inventory would print to the console.")
+                print()
+
+            elif helpList[1] == 'look':
+                print()
+                self.print_output("The look command allows the player to examine things in their environment to get useful clues about the mansion's history. To call the look function, a player enters a valid look command followed by a valid object in the room or their inventory.")
+                print()
+                self.print_output("Valid words that could be used for the \"look\" command are: look glance, eye, peak, view, stare, peer, study, and examine.")
+                print()
+                self.print_output("For example, to look at a painting, a player could enter \"Examine Painting\"")
+                print()
+                self.print_output("Or, if the player prefers a more natural language approach, they could enter \"Look at the painting.\"")
+                print()
+                self.print_output("If the player cannot examine the object for some reason, there will be a corresponding error message.")
+                print()
+
+            elif helpList[1] == 'move':
+                print()
+                self.print_output("The move command allows the player to move from room to room. To call the move function, a player enters a valid move command followed by a valid room or direction of an adjoining room.")
+                print()
+                self.print_output("Valid words that could be used for the \"move\" command are: go, walk, move, jaunt, run, step, stroll, march, travel, proceed, sprint, and jog")
+                print()
+                self.print_output("For example, to go into the dining room from the parlor, a player could enter \"Go North\"")
+                print()
+                self.print_output("Or, if the player prefers a more natural language approach, they could enter \"Step into the Dining Room.\"")
+                print()
+                self.print_output("If the player cannot move for any reason, there will be a corresponding error message.")
+                print()
+
+            elif helpList[1] == 'use':
+                print()
+                self.print_output("The use command allows the player to use an item to interact with another item or feature. To call the use function, a player enters a valid use command followed by two valid objects or features.")
+                print()
+                self.print_output("Valid words that could be used for the \"use\" command are: use, apply, and put.")
+                print()
+                self.print_output("For example, to open a locked door, a player could enter \"use key door\"")
+                print()
+                self.print_output("Or, if the player prefers a more natural language approach, they could enter \"Put the key into the locked door.\"")
+                print()
+                self.print_output("If the player cannot use the items together for any reason, there will be a corresponding error message.")
+                print()
+            else:
+                self.print_output("Invalid command given to help function. Valid commands are: take, drop, map, inventory, look, move, and use.")
