@@ -22,7 +22,7 @@
       "name": "clock",
       "actionable": false,
       "usable": false,
-      "preActionDes": "You look at the magnificent old clock. Somehow, it's still working. The time is currently …",
+      "preActionDes": "You look at the magnificent old clock. Somehow, it's still working.",
       "inActionDes": "",
       "postActionDes": "",
       "state": 0,
