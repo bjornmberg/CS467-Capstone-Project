@@ -158,7 +158,7 @@ class Game:
                     self.inventory.remove_item(item)
                 else:
                     # Else this is not a valid combination
-                    self.print_output('You cannot do that!')
+                    self.print_output(' ...you cannot do that now.')
 
             # False Item status - item is not in the Inventory
             elif not item_status:

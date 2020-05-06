@@ -6,7 +6,7 @@
       "startingItems": [
         {
           "name":"locket",
-          "description":  "a beautiful vintage pocketwatch.",
+          "description":  "A beautiful heart-shaped locket. There is a photo inside of a young girl and a young man dressed in a black and white suit, like a butler might wear.",
           "linkedFeature": 0
       }
       ],
@@ -16,7 +16,7 @@
           "name": "vine",
           "actionable": true,
           "usable": true,
-          "preActionDes": "The vine attempts to claw at you. You notice something shiny hanging from one of the vine's tendrils.",
+          "preActionDes": "The vine attempts to claw at you. You notice something shiny hanging from one of the vine's tendrils but you can't get close to it with the vine grasping at you.",
           "inActionDes": "You clip the tendril from the vine and can see a gold locket has fallen to the ground.",
           "postActionDes": "You locket fell from this vine.",
           "state": 0,

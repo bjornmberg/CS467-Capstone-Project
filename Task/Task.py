@@ -6,7 +6,6 @@ from Feature import Feature
 
 class Task:
 
-
     # This is called from Game when a user attempts the command 'use Item Feature'
     # This takes in the Item, the Feature, and the rooms_list and calls the correct
     # task. It will return the status of the task function if there is a workable
@@ -24,6 +23,9 @@ class Task:
             # Part of game winning sequence B
             elif item.name == 'locket':
                 status =  self.locket_task(rooms)
+            # Part of game winning sequence B
+            elif item.name == 'shears':
+                status =  self.shears_task(rooms)
             # Part of game losing sequence B
             elif item.name == 'pistol':
                 status =  self.pistol_task(rooms)
@@ -197,8 +199,8 @@ class Task:
 
     # This is part of game winning sequence B - comfort the ghost daughter
     def book_task(self, rooms):
-        # Change description of the front lawns to display the 
-        rooms[21].long_des = 'You are on the front lawns of the mansion. The borders of the nearby flower gardens are of curious-looking stone.\nThere are two rows of tall trees here. Under one tree you think that you can see a girl... she appears to be crying.\nThere is a pair of shears at the base of the tree near the apparition.\nTo the North is the front porch of the house. To the South are the locked gates of the grounds.'
+        # Change description of the front lawns to display the apparition of the girl
+        rooms[21].long_des = 'You are on the front lawns of the mansion. The borders of the nearby flower gardens are of curious-looking stone.\nThere are two rows of tall trees here. Under one tree you think that you can see a girl... she appears to be crying.\nTo the North is the front porch of the house.'
         rooms[21].visited = False
 
         return True
@@ -219,7 +221,7 @@ class Task:
         # "Hear sound elsewhere"
         print('You the sound of laughter coming from somewhere upstairs.')
         # Change the long description of the kitchen to output the vision. 
-        rooms[9].long_des = 'You find yourself in a room with walls of a deep red color. A ghost of a girl is twirling in the center of the room, laughing. She is saying something about birds splashing.\n\nThe vision fades.To the Northeast is a door to the pink room. Through a door to the Southeast you can see the second floor landing.'
+        rooms[9].long_des = 'You find yourself in what seems to be a young girl\'s room. A ghost of a girl is twirling in the center of the room, laughing. She is saying something about birds splashing. She is wearing a white dress, with white spots on it.\n\nThe vision fades. There are toys about and a rocking horse. A music box stands upon a small table.\nThere is a window to the north and a window to the west. A door to the Southwest leads to the second floor landing. A door to the Northwest goes to the pink room.'
         rooms[9].visited = False
 
         return True
@@ -230,38 +232,60 @@ class Task:
         print(feature.get_description())
         feature.state = 2
 
-        rooms[21].long_des = 'You are on the front lawns of the mansion. A grave is dug at the base of a tree. There are some gardens nearby bordered in strange stone. You see the mansion to the North.'
+        rooms[21].long_des = 'You are on the front lawns of the mansion. A grave is dug at the base of a tree. There is a flower garden nearby bordered in strange stone. You see the mansion to the North.'
         rooms[21].visited = False
+
+        return True
+
+    # This is part of game winning sequence B - comfort the ghost daughter
+    def shears_task(self, rooms):
+        # Change description of the front lawns to alter the apparition of the girl
+        rooms[21].long_des = 'You are on the front lawns of the mansion. The borders of the nearby flower gardens are of curious-looking stone.\nThere are two rows of tall trees here. Under one tree you think that you can see the ghost of a girl...\nTo the North is the front porch of the house.'
+        rooms[21].visited = False
+        # Alter the girl feature
+        rooms[21].features[3].pre_action_des = 'The girl is crying, hovering near a tree. I wonder if this tree might make a good spot for a grave, a makeshift memorial of sorts.'
+        rooms[21].features[3].state = 0
+        # Alter the tree feature
+        rooms[21].features[1].pre_action_des = 'This tree seems special. You wonder if it might make a good spot for a grave.'
+        rooms[21].features[1].state = 0
 
         return True
 
     # This is part of game winning sequence B - comfort the ghost daughter
     def locket_grave_task(self, feature, rooms):
-        feature.in_action_des = 'You place the locket at the bottom of the grave, and fill the grave in.\nThe ghost of the girl is here, crying, at the head of the makeshift grave.'
-        feature.state = 1
-        print(feature.get_description())
-        feature.post_action_des = 'The grave is filled in now. The girl is here, crying, at the head of the grave.'
-        feature.state = 2
+        if feature.state != 2:
+            print('You must dig the grave first')
+            return False
+        else:
+            feature.in_action_des = 'You place the locket at the bottom of the grave, and fill the grave in.\nThe ghost of the girl is here, crying, at the head of the makeshift grave.'
+            feature.state = 1
+            print(feature.get_description())
+            feature.in_action_des = 'The grave is filled in now. The girl is here, crying, at the head of the grave.'
+            feature.state = 1
 
-        rooms[21].long_des = 'You are on the front lawns of the mansion. The freshly filled grave is here. There are some gardens nearby bordered in strange stone. You see the mansion to the North.'
-        rooms[21].visited = False
+            rooms[21].long_des = 'You are on the front lawns of the mansion. The freshly filled grave is here. There are some gardens nearby bordered in strange stone. You see the mansion to the North.'
+            rooms[21].visited = False
 
-        return True
+            return True
 
     # This is part of game winning sequence B - comfort the ghost daughter
     def stone_task(self, feature, rooms):
-        feature.in_action_des = 'You place the stone at the head of the grave. It looks right.\n\nThe girl is still here, crying. Her hand is outstretched.\nHer dress is white with red splatters.'
-        feature.state = 1
-        print(feature.get_description())
-        feature.post_action_des = 'The grave is filled in now. The girl is here, crying, hand outstretched. Her dress is white, spattered in red.'
-        feature.state = 2
-        # Revise the state of the girl to usable for final interaction
-        # Move this into a conditional that checks for stone, locket, and spade complete
-        rooms[21].features[3].usable = True
-        rooms[21].long_des = 'You are on the front lawns of the mansion. The grave grave is here, with the crying girl above, holding out her hand. There are some gardens nearby bordered in strange stone. You see the mansion to the North.'
-        rooms[21].visited = False
+        if feature.state != 1:
+            print('You must dig the grave and place a memorial object within first')
+            return False
+        else:
+            feature.in_action_des = 'You place the stone at the head of the grave. It looks right.\n\nThe girl is still here, crying. Her hand is outstretched.\nHer dress is white with red splatters.'
+            feature.state = 1
+            print(feature.get_description())
+            feature.post_action_des = 'The grave is filled in now. The girl is here, crying, hand outstretched. Her dress is white, spattered in red.'
+            feature.state = 2
+            # Revise the state of the girl to usable for final interaction
+            # Move this into a conditional that checks for stone, locket, and spade complete
+            rooms[21].features[3].usable = True
+            rooms[21].long_des = 'You are on the front lawns of the mansion. The grave grave is here, with the crying girl above, holding out her hand. There are some gardens nearby bordered in strange stone. You see the mansion to the North.'
+            rooms[21].visited = False
 
-        return True
+            return True
 
     # This is part of game winning sequence B - comfort the ghost daughter
     # When the player uses the rose on the girl, endGame is triggered:
