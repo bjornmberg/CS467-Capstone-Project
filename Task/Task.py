@@ -95,10 +95,22 @@ class Task:
         return False
 
     # Solves one-off situations where a task needs to be completed on look
-    def perform_task_on_look(self, feature_description, rooms):
-        if feature_description == 'You look closer at the dog. It\'s got three heads and glowing, red eyes!':
+    def perform_task_on_look(self, thing_description, rooms, time):
+        if thing_description == 'You look closer at the dog. It\'s got three heads and glowing, red eyes!':
             self.dog_easel_task(rooms)
             return True
+        elif thing_description == 'a beautiful vintage pocketwatch':
+            if time < 12:
+                meridiem = ' am.'
+            else:
+                meridiem = ' pm.'
+            print('You look at the pocketwatch. The time is currently {}'.format(time) + meridiem)
+        elif thing_description == 'You look at the magnificent old clock. Somehow, it\'s still working.':
+            if time < 12:
+                meridiem = ' am.'
+            else:
+                meridiem = ' pm.'
+            print('You look at the clock. The time is currently {}'.format(time) + meridiem)
         return False
 
 
