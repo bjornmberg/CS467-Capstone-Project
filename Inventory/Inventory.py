@@ -3,8 +3,15 @@ from Item import Item
 
 class Inventory:
 
-    items = list()
     capacity = 5
+
+    def __init__(self, items):
+
+        self.items = []
+
+        for i in items:
+            new_item = Item(i['name'], i['description'], i['linkedFeature'])
+            self.items.append(new_item)
 
     # ADD COMMENTS
     def add_item(self, item):
@@ -69,3 +76,12 @@ class Inventory:
             if self.items[x].name == str_input:
                 return True
         return False
+
+    def save_inventory(self):
+
+        save_list = list()
+
+        for item in self.items:
+            save_list.append(item.save_item())
+
+        return save_list

@@ -1,5 +1,5 @@
 {
-  "name": "newGame",
+  "name": "savedGame",
   "rooms": [
       "Parlor.json",
       "Foyer.json",
@@ -26,11 +26,5 @@
       "Upstairs Bathroom.json",
       "Hidden Room.json",
       "Tunnel.json"
-  ],
-  "hero":
-  {
-      "name": "Player",
-      "location": 0
-  },
-  "inventory": []
+  ]
 }
