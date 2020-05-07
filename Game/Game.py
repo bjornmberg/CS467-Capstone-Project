@@ -8,6 +8,7 @@
 import json
 import os
 import sys
+from pathlib import Path
 from Credits import credits
 from Hero import Hero
 from Intro import intro
@@ -39,7 +40,10 @@ class Game:
                 intro.display()
                 self.play_game('dataStore/newGame/load_file.json', 'dataStore/newGame/RoomState/', 0, item_list)
             elif selection == 'loadgame':
-                self.play_game('dataStore/savedGame/load_file.json', 'dataStore/savedGame/RoomState/', 0, item_list)
+                # Check if saved game exists to load
+                load_file = Path('dataStore/savedGame/load_file.json')
+                if load_file.is_file():
+                    self.play_game(load_file, 'dataStore/savedGame/RoomState/', 0, item_list)
             elif selection == 'credits':
                 credits.display()
             elif selection == 'exit':
