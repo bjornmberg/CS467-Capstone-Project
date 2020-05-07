@@ -190,13 +190,13 @@ class Game:
         if thing_in_room:
             self.print_output(thing_room_des)
             # Check to see if a task is associated with look operation
-            self.tasks.perform_task_on_look(thing_room_des, self.rooms_list, self.hero.heroTime)
+            # self.tasks.perform_task_on_look(thing_room_des, self.rooms_list, self.hero.hero_time)
         # not in the Room, but in the Inventory, print description
         elif thing_in_inven:
             'INVENTORY ITEM: '
             self.print_output(thing_inven_des)
             # Check to see if a task is associated with look operation
-            self.tasks.perform_task_on_look(thing_inven_des, self.rooms_list, self.hero.heroTime)
+            # self.tasks.perform_task_on_look(thing_inven_des, self.rooms_list, self.hero.hero_time)
         # not in the Room or the Inventory
         else:
             print('You do not see a {}'.format(thing))
@@ -230,8 +230,8 @@ class Game:
         current_room.get_description()
 
         # COMMENT OUT LINE 113 and UNCOMMENT LINE 115 to OVERRIDE THE PARSER
-        # command = self.parseArgs()
-        command = input('> ').split(' ')
+        command = self.parseArgs()
+        # command = input('> ').split(' ')
 
         if command[0] == 'move':
             self.move(command[1])
@@ -259,7 +259,7 @@ class Game:
 
 
         # Simple hero time increment operation, as well as debugging output
-        self.hero.heroTime = self.hero.setTime(self.hero.heroTime)
+        # self.hero.heroTime = self.hero.setTime(self.hero.hero_time)
 
     # This function is the main game driver function
     def play_game(self, input_file, file_path, roomIdx, item_list):
@@ -340,7 +340,7 @@ class Game:
                         "garden", "down", "hole", "downstairs", "bathroom", "front", "lawns",
                         "upstairs", "pink"]
 
-        otherCommands = ["map", "inventory", "action", "exit", "help"]
+        otherCommands = ["map", "inventory", "action", "exit", "help", "save"]
 
         # Get user input. Make it lowercase and split it.
         splitArgs = input('            > ').lower().split()
