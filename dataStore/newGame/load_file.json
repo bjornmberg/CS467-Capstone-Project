@@ -30,7 +30,8 @@
   "hero":
   {
       "name": "Player",
-      "location": 0
+      "location": 0,
+      "time": 9
   },
   "inventory": []
 }

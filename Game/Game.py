@@ -277,7 +277,7 @@ class Game:
 
         self.initialize_rooms(room_data, file_path)
 
-        self.hero = Hero(hero_data['name'], hero_data['location'])
+        self.hero = Hero(hero_data['name'], hero_data['location'], hero_data['time'])
         self.inventory = Inventory(inventory_data)
 
         roomIterator = 0
