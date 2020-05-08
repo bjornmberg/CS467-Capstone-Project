@@ -13,11 +13,11 @@
   "droppedItems": [],
   "features": [
     {
-      "name": "ledge",
+      "name": "shelf",
       "actionable": true,
       "usable": false,
-      "preActionDes": "You see something on the ledge.",
-      "inActionDes": "Upon further inspection, you notice that there's a lock of hair tied with a red ribbon.",
+      "preActionDes": "You see something on the shelf. It appears to be a lock of hair tied in a red ribbon",
+      "inActionDes": "You take the lock of hair from the shelf.",
       "postActionDes": "You took the lock of hair from this ledge.",
       "state": 0,
       "featureId": 0

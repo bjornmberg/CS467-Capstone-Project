@@ -315,7 +315,7 @@ class Game:
                        "north window", "pistol", "apparition", "sack", "pocketwatch", "pocket watch", "poltergeist",
                        "couch", "fireplace", "table", "easel", "loom", "left gargoyle", "right gargoyle", "paint",
                        "music box", "bed", "rocking horse", "rose", "spade", "fountain", "roses", "hair",
-                       "door lock", "ledge", "toilet", "sink", "mirror", "journal", "locket", "vine", "window",
+                       "door lock", "shelf", "toilet", "sink", "mirror", "journal", "locket", "vine", "window",
                        "statue", "tile", "hollow", "grave", "girl", "lock", "paintbrush"]
 
         twLookObjects = ["window", "sill", "east", "window", "west", "south", "pry", "bar", "pad", "lock",

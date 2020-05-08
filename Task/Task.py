@@ -440,7 +440,7 @@ class Task:
             print('\n\n')
             print(feature.get_description())
             time.sleep(7)
-            print('\n\n\nIn the moments before all fades to black you know you\'ve made a grave mistake.\nYou are thrown backward and hit the floor.\n\nThe last thing you see is the chef\'s enraged face, filling all you can see.')
+            print('\n\nIn the moments before all fades to black you know you\'ve made a grave mistake.\nYou are thrown backward and hit the floor.\n\nThe last thing you see is the chef\'s enraged face, filling all you can see.')
             time.sleep(7)
             os.system('clear')
             print('\nThank you for playing. You have lost.')
