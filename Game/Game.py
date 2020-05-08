@@ -263,7 +263,7 @@ class Game:
 
 
         # Simple hero time increment operation, as well as debugging output
-        # self.hero.heroTime = self.hero.setTime(self.hero.hero_time)
+        # self.hero.heroTime = self.hero.set_time(self.hero.hero_time)
 
     # This function is the main game driver function
     def play_game(self, input_file, file_path, roomIdx, item_list):
