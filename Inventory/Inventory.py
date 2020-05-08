@@ -13,26 +13,40 @@ class Inventory:
     Methods:
     _______
     add_item()
+        adds Item to the items list
     remove_item()
+        removes Item from the items list
     in_inventory()
+        checks that Item is present in inventory and returns the Item
     drop_item()
+        removes Item from the items list
     show_inventory()
+        displays the Items in the Inventory
     look_in_inventory()
+        displays the description of an Item in the Inventory
     save_inventory()
     """
-    capacity = 5
+    capacity = 5    # the maximum amount of Items that can be held
 
     def __init__(self, items):
+        """Constructor for the Inventory class
 
+        :param list items: list of dictionary's containing Item information
+        """
         self.items = []
-
+        # go through each dict and initialize and Item adding it to the items list
         for i in items:
             new_item = Item(i['name'], i['description'], i['linkedFeature'])
             self.items.append(new_item)
 
-    # ADD COMMENTS
-    def add_item(self, item):
 
+    def add_item(self, item):
+        """Places an Item into the Inventory
+
+        :param Item item: an Item object
+        :return: VOID
+        """
+        # check that the Item can fit in the Inventory, add if possible
         if len(self.items) < self.capacity:
             self.items.append(item)
             print('{} - added to your inventory.'.format(item.name))
@@ -40,12 +54,21 @@ class Inventory:
             print('You cannot hold anymore items in your inventory.')
 
     def remove_item(self, item):
+        """Removes an Item from the items list
+
+        :param Item item: an Item object to be removed
+        :return: VOID
+        """
+        # Remove any Item except the prybar which can be used multiple times
         if item.name != 'prybar':
             self.items.remove(item)
 
-    # ADD COMMENTS
     def in_inventory(self, str_input):
+        """Check that an Item is in the items list and return the Item object
 
+        :param str str_input: the item being searched for
+        :return: True if Item present and Item, False if Item not present and None
+        """
         for x in range(0, len(self.items)):
             if self.items[x].name == str_input:
                 # return True, x
@@ -53,23 +76,31 @@ class Inventory:
 
         return False, None
 
-    # ADD COMMENTS
     def drop_item(self, str_input):
+        """Pops an Item from the inventory and provides status and feedback
 
+        :param str str_input: name of an Item wishing to be dropped
+        :return: True if Item present and Item, False if Item not present and None
+        """
         success = False
+        # check that the Item is in the Inventory
         status, item = self.in_inventory(str_input)
 
+        # if Item in inventory return success and the Item
         if status:
             self.items.remove(item)
             success = True
             return success, item
+        # Else success is fals and Item is None
         else:
             print('That item is not in your inventory.')
             return success, None
 
-    # ADD COMMENTS
     def show_inventory(self):
+        """Displays the Items currently in the Inventory
 
+        :return: VOID
+        """
         if len(self.items) > 0:
             print('These are the items in the inventory: ')
             for x in self.items:
@@ -77,9 +108,12 @@ class Inventory:
         else:
             print('The inventory is empty.')
 
-    # ADD COMMENTS
     def look_in_inventory(self, str_input):
+        """Gets description of an Item if it is in the Inventory
 
+        :param str str_input: user input of Item name wishing to be displayed
+        :return: True if Item present and description, False if not present and None
+        """
         status, item = self.in_inventory(str_input)
 
         if status:
@@ -88,7 +122,10 @@ class Inventory:
             return False, None
 
     def save_inventory(self):
+        """Formats and returns list of Items in inventory for saving
 
+        :return: list : representation of the Inventory for saving
+        """
         save_list = list()
 
         for item in self.items:
