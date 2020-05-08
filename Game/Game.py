@@ -194,13 +194,13 @@ class Game:
         if thing_in_room:
             self.print_output(thing_room_des)
             # Check to see if a task is associated with look operation
-            # self.tasks.perform_task_on_look(thing_room_des, self.rooms_list, self.hero.hero_time)
+            self.tasks.perform_task_on_look(thing_room_des, self.rooms_list, self.hero.time)
         # not in the Room, but in the Inventory, print description
         elif thing_in_inven:
             'INVENTORY ITEM: '
             self.print_output(thing_inven_des)
             # Check to see if a task is associated with look operation
-            # self.tasks.perform_task_on_look(thing_inven_des, self.rooms_list, self.hero.hero_time)
+            self.tasks.perform_task_on_look(thing_inven_des, self.rooms_list, self.hero.time)
         # not in the Room or the Inventory
         else:
             print('You do not see a {}'.format(thing))
@@ -250,8 +250,6 @@ class Game:
                 self.print_output(current_room.long_des)
             else:
                 self.look_at_something(command[1])
-        elif command[0] == 'action':
-            self.print_output(current_room.action_feature(command[1]))
         elif command[0] == 'use':
             self.use(command[1], command[2])
         elif command[0] == 'map':
@@ -263,7 +261,7 @@ class Game:
 
 
         # Simple hero time increment operation, as well as debugging output
-        # self.hero.heroTime = self.hero.set_time(self.hero.hero_time)
+        self.hero.time = self.hero.set_time(self.hero.time)
 
     # This function is the main game driver function
     def play_game(self, input_file, file_path, roomIdx, item_list):
@@ -315,7 +313,7 @@ class Game:
                        "north window", "pistol", "apparition", "sack", "pocketwatch", "pocket watch", "poltergeist",
                        "couch", "fireplace", "table", "easel", "loom", "left gargoyle", "right gargoyle", "paint",
                        "music box", "bed", "rocking horse", "rose", "spade", "fountain", "roses", "hair",
-                       "door lock", "ledge", "toilet", "sink", "mirror", "journal", "locket", "vine", "window",
+                       "door lock", "shelf", "toilet", "sink", "mirror", "journal", "locket", "vine", "window",
                        "statue", "tile", "hollow", "grave", "girl", "lock", "paintbrush"]
 
         twLookObjects = ["window", "sill", "east", "window", "west", "south", "pry", "bar", "pad", "lock",
@@ -344,7 +342,7 @@ class Game:
                         "garden", "down", "hole", "downstairs", "bathroom", "front", "lawns",
                         "upstairs", "pink"]
 
-        otherCommands = ["map", "inventory", "action", "exit", "help", "save"]
+        otherCommands = ["map", "inventory", "exit", "help", "save"]
 
         # Get user input. Make it lowercase and split it.
         splitArgs = input('            > ').lower().split()
