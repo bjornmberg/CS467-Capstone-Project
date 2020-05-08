@@ -39,7 +39,6 @@ class Inventory:
             new_item = Item(i['name'], i['description'], i['linkedFeature'])
             self.items.append(new_item)
 
-
     def add_item(self, item):
         """Places an Item into the Inventory
 

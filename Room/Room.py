@@ -4,24 +4,69 @@ from Item import Item
 
 
 class Room:
+    """Class used to represent a Room within the Game
+
+    Attributes
+    ----------
+    name: str
+        the name of the Room
+    long_des: str
+        the long description of the Room
+    short_des: str
+        the short description of the Room
+    visited: bool
+        if the Room has been visited or not
+    room_id: int
+        unique identifier of the Room (also the index within Game.room_list
+    directions: dict
+        key - direction, value - index of adjacent Room ex: {'north': 1}
+    dropped_items: list (of Item objects)
+        Items the player has dropped in the Room
+    starting_items: list (of Item objects)
+        Items that are initialized in the Room
+
+    Methods
+    -------
+    generate_lists()
+        initializes Items and Room state
+    get_feature()
+        returns a Feature based on the Feature name
+    in_room()
+        checks if a Feature or Item is present and returns it
+    look_in_room()
+        returns the description of a Feature or Item
+    action_feature()
+        performs an action on a Feature and alters its state
+    get_item()
+        gets an Item from the staring_items or dropped_items lists
+    take_item()
+        removes the Item from the starting_items or dropped_items lists
+    leave_item()
+        adds an Item to the dropped_items list
+    get_description()
+        returns the description of the Feature or Item called
+    set_visited()
+        sets the visited bool to True
+    save_room()
+        formats the Room into a dict representation for saving
+    """
 
     def __repr__(self):
         return self
 
-    # Initializer for the Room class - this was a major pain-in-the-ass. Turns out that if you
-    # do not clear the list each time through it will keep appending the same list to every Room
-    # Parameters:
-    #   name - str
-    #   long_des - str, long description
-    #   short_des - str, short description
-    #   visited - bool, Room's state
-    #   room_id - int, handles placement into the Game's rooms list()
-    #   directions - dict, maps directions to connecting Rooms (ex: {'north': 1, 'south':2}
-    #       where 1 and 2 are the room_ids of other Room objects
-    #   s_items - list of dicts containing starting item information
-    #   d_items - list of dicts containing dropped item information
-    #   feats - list of dicts containing feature information
     def __init__(self, name, long_des, short_des, visited, room_id, directions, s_items, d_items, feats):
+        """Constructor for the Room class
+
+        :param str name: name of the Room
+        :param str long_des: long description of the Room
+        :param str short_des: short description of the Room
+        :param bool visited: visited status of the Room
+        :param int room_id: unique identifier of the Room
+        :param dict directions: ex {"north": 1}
+        :param list s_items: list of starting Items
+        :param list d_items: list of dropped Items
+        :param list feats: list of Room Features
+        """
         self.name = name
         self.long_des = long_des
         self.short_des = short_des
@@ -35,9 +80,14 @@ class Room:
         # call this to get the information from the passed in list to the local lists
         self.generate_lists(s_items, d_items, feats)
 
-    # This function is used by the constructor to initialize the starting_items, dropped_items,
-    # and features list()s
     def generate_lists(self, s_items, d_items, feats):
+        """Initializes the Items that are in a Room
+
+        :param list s_items: starting Items
+        :param list d_items: dropped Items
+        :param list feats: Features
+        :return: VOID
+        """
         # go through each list and initialize Objects based on the information supplied
         for s in s_items:
             new_s_item = Item(s['name'], s['description'], s['linkedFeature'])
@@ -60,23 +110,24 @@ class Room:
             )
             self.features.insert(new_feat.feature_id, new_feat)
 
-
-    # This function looks through the names of the Features and returns True
-    # if the Feature is in the Room and the index of the Feature in the feature list()
     def get_feature(self, name):
+        """Gets a Feature by its name (Feature.name)
 
+        :param str name: name of Feature
+        :return: True/Feature if Feature present, False/None if not present
+        """
         for feat in self.features:
             if feat.name == name:
                 return True, feat
 
         return False, None
 
-    # This function is used to see if an Item or Feature is in a Room
-    # If it is an Item in either dropped_items of starting_items a 1 and the
-    # Item is returned, if it is in the features list() a 2 and the Feature
-    # is returned - this is used for the 'look' functionality
     def in_room(self, str_input):
+        """Check that a Feature or Item is in a Room base on user input
 
+        :param str str_input: a user input of a Feature or Item name
+        :return: int - representing Item or Feature and the Item, False/None if no Item or Feature
+        """
         for i in self.starting_items:
             if str_input == i.name:
                 return 1, i
@@ -89,11 +140,12 @@ class Room:
 
         return False, None
 
-    # This function takes a string and calls to see if the string matches the
-    # name of a Feature or Item in the Room. If it does the appropriate description
-    # is returned
     def look_in_room(self, str_input):
+        """Gets the description of an Item or Feature if it is in a Room
 
+        :param str str_input: user input for a Feature or Item name
+        :return: True/description if Feature/Item present, False/None if not present
+        """
         status, item_or_feature = self.in_room(str_input)
 
         if status == 1:
@@ -103,11 +155,12 @@ class Room:
         else:
             return False, None
 
-    # This function takes some action against a Feature in the Room
-    # Parameters:
-    #   name - str, the name of the Room Feature
     def action_feature(self, str_input):
+        """Performs an action on a Feature and modifies its state
 
+        :param str str_input: user input of Feature wished to be acted on
+        :return: description of the modified Feature or failure message
+        """
         # make sure the Feature is in the Room and get its index
         # from the Features list
         status, feat = self.get_feature(str_input)
@@ -123,11 +176,12 @@ class Room:
         else:
             return 'You cannot do that'
 
-    # takes a string and returns an index and an integer
-    # the integer shows whether the item is in the starting items
-    # or dropped items lists (or neither)
     def get_item(self, str_input):
+        """Gets an Item from the Room based on user input of the name
 
+        :param str str_input: user input of the name of an Item in the Room
+        :return: Int representing starting/dropped Item and Item or None
+        """
         for x in self.starting_items:
             if x.name == str_input:
                 return 1, x
@@ -138,11 +192,12 @@ class Room:
 
         return 3, None
 
-    # takes a string, tests that the item is in one of the lists,
-    # sets variables on the item, gets the item, removes it from the
-    # list and returns the item for adding to the inventory
     def take_item(self, str_input):
+        """Removes an Item from starting or dropped items and returns it
 
+        :param str str_input: user input of Item wished to be taken
+        :return: True/Item if present - False/None if not present
+        """
         status, item = self.get_item(str_input)
 
         # status 1 means this was a starting item
@@ -159,14 +214,19 @@ class Room:
         else:
             return False, None
 
-    # Adds an Item object to the dropped_items list
     def leave_item(self, item):
+        """Adds an Item to the dropped_items list
 
+        :param Item item: the Item wished to be dropped
+        :return: VOID
+        """
         self.dropped_items.append(item)
 
-
-    # This function prints the description of the Room based on whether it has been visited or not
     def get_description(self):
+        """Formats and prints the current description of the Room
+
+        :return: VOID
+        """
         centerLeftRight = 100
         description = "DESCRIPTION: "
         print()
@@ -205,21 +265,23 @@ class Room:
                 print(textwrap.fill('\t{}'.format(self.dropped_items[y].name), initial_indent='                '))
         print('▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃\n\n'.center(centerLeftRight))
 
-
         # if len(self.starting_items) > 0:
         #     print(textwrap.fill('Starting Items:', initial_indent='            '))
         #     for x in range(0, len(self.starting_items)):
         #         print(textwrap.fill('\t{}'.format(self.starting_items[x].name), initial_indent='                '))
 
-
-
-    # This function will need to be toggled when a player enters the Room (after calling the getDescription function)
     def set_visited(self):
+        """Sets the state of the Room to visited
+
+        :return: VOID
+        """
         self.visited = True
 
-
     def save_room(self):
+        """Formats the Room into a dict for saving
 
+        :return: dict representation of the Room object
+        """
         room_dict = {
             'name': self.name,
             'longDes': self.long_des,
@@ -242,7 +304,3 @@ class Room:
             room_dict['features'].append(f.save_feature())
 
         return room_dict
-        # feature_list = list()
-        #
-        # for feat in self.features:
-        #     feature_list.append(feat.save_feature())
