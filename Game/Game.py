@@ -194,13 +194,13 @@ class Game:
         if thing_in_room:
             self.print_output(thing_room_des)
             # Check to see if a task is associated with look operation
-            # self.tasks.perform_task_on_look(thing_room_des, self.rooms_list, self.hero.hero_time)
+            self.tasks.perform_task_on_look(thing_room_des, self.rooms_list, self.hero.time)
         # not in the Room, but in the Inventory, print description
         elif thing_in_inven:
             'INVENTORY ITEM: '
             self.print_output(thing_inven_des)
             # Check to see if a task is associated with look operation
-            # self.tasks.perform_task_on_look(thing_inven_des, self.rooms_list, self.hero.hero_time)
+            self.tasks.perform_task_on_look(thing_inven_des, self.rooms_list, self.hero.time)
         # not in the Room or the Inventory
         else:
             print('You do not see a {}'.format(thing))
@@ -263,7 +263,7 @@ class Game:
 
 
         # Simple hero time increment operation, as well as debugging output
-        # self.hero.heroTime = self.hero.set_time(self.hero.hero_time)
+        self.hero.time = self.hero.set_time(self.hero.time)
 
     # This function is the main game driver function
     def play_game(self, input_file, file_path, roomIdx, item_list):
