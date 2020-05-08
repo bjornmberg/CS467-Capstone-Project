@@ -27,8 +27,8 @@
       "name": "sack",
       "actionable": true,
       "usable": false,
-      "preActionDes": "You feel something hard and lumpy amongst the laundry.",
-      "inActionDes": "Upon further inspection, you find a pistol among the laundry.",
+      "preActionDes": "You feel something hard and lumpy amongst the laundry. Is that a pistol?",
+      "inActionDes": "You take the pistol from the sack of laundry.",
       "postActionDes": "You took the pistol from this sack of laundry.",
       "state": 0,
       "featureId": 1

@@ -26,6 +26,9 @@ class Task:
             # Part of game winning sequence B
             elif item.name == 'shears':
                 status =  self.shears_task(rooms)
+            # Part of game losing sequence A
+            elif item.name == 'journal':
+                status =  self.journal_task(rooms)
             # Part of game losing sequence B
             elif item.name == 'pistol':
                 status =  self.pistol_task(rooms)
@@ -310,12 +313,20 @@ class Task:
 
         return True
 
+    # This is part of game losing sequence A - attempt to fight the poltergeist
+    def journal_task(self, rooms):
+        # Revise description of landing to include apparition entering the linen closet
+        rooms[11].long_des = 'You are on the second floor landing of the house. A grand piano occupies much of the floor space here. A window faces south, overlooking the lawns. There is a staircase spiraling down to the foyer below. You think you see a glowing figure going into the doorway to the Southwest, into the linen closet. A door to the Northeast leads to the greenroom. A door to the Southeast leads to a bath. There is also a door to the Northwest going to the red room.'
+        rooms[11].visited = False
+
+        return True
+
     # This is a part of game losing sequence A - attempt to fight the poltergeist
     def pistol_task(self, rooms):
         # "Hear sound elsewhere"
         print('You hear what sounds like pans banging, followed by a loud bang downstairs.')
         # Change the long description of the kitchen to output the vision. 
-        rooms[7].long_des = 'You are standing in the Kitchen. A vision washes before your eyes. You see the servant, he is standing with his back to you, shouting at Chef Staker. The Chef is swinging a pan at the servant. There is a bang.\n\nThe servant has shot the Chef in the eye, and the Chef falls to the floor.'
+        rooms[7].long_des = 'You are standing in the Kitchen. A vision washes before your eyes. You see the servant, he is standing with his back to you, shouting at Chef Staker. The Chef is swinging a pan at the servant. There is a bang.\n\nThe servant has shot the Chef in the eye, and the Chef falls to the floor.\n\nThe door to the North goes to the Rose Garden. The door to the East is the formal Dining Room. There are stairs leading down.  There is also a row of drawers along the Northern wall. One drawer has a lock.'
         rooms[7].visited = False
 
         return True
@@ -409,7 +420,7 @@ class Task:
             # If selection 1, output the appropriate losing message and exit the game
             if selection == 1:
                 os.system('clear')
-                print('\n\n\nYou shoot the poltergeist again, and again, pulling the trigger over and over until the gun is empty.\n The poltergeist laughs terribly.\n The last thing you see is the ghost rushing toward you in a blur.\n There is no pain.')
+                print('\n\n\nYou shoot the poltergeist again and again, pulling the trigger over and over until the gun is empty.\nThe poltergeist laughs terribly.\n\nThe last thing you see is the ghost rushing toward you in a blur.\n\nThere is no pain.')
                 time.sleep(7)
                 os.system('clear')
                 print('\nThank you for playing. You have lost.')
@@ -417,7 +428,7 @@ class Task:
             # Elif selection 1, output the appropriate losing message and exit the game
             elif selection == 2:
                 os.system('clear')
-                print('\n\n\nThe fireplace explodes in a violent burst of flames, casting you across the room. \n You are lying the floor, and vaguely you see the flames are... everywhere now.\n You hear the poltergeist shrieking. The mansion is engulfed in the subsequent inferno.\n You are no more, but neither is the horror of the mansion.')
+                print('\n\n\nThe fireplace explodes in a violent burst of flames, casting you across the room.\n\nYou are lying the floor, and vaguely you see the flames are... everywhere now.\nYou hear the poltergeist shrieking. The mansion is engulfed in the subsequent inferno.\n\nYou are no more, but neither is the horror of the mansion.')
                 time.sleep(7)
                 os.system('clear')
                 print('\nThank you for playing. You have lost.')
