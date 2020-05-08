@@ -1,8 +1,25 @@
 from Item import Item
 
-
 class Inventory:
+    """ Class used to represent the Game Inventory
 
+    Attributes:
+    _________
+    capacity: int
+        the maximum items the Inventory can hold
+    items: list (of Item objects)
+        holds the current Items in the Inventory
+
+    Methods:
+    _______
+    add_item()
+    remove_item()
+    in_inventory()
+    drop_item()
+    show_inventory()
+    look_in_inventory()
+    save_inventory()
+    """
     capacity = 5
 
     def __init__(self, items):
@@ -69,13 +86,6 @@ class Inventory:
             return True, item.description
         else:
             return False, None
-
-    # Simple boolean check. If there, return true. If not, return false.
-    def checkInventory(self, str_input):
-        for x in range(0, len(self.items)):
-            if self.items[x].name == str_input:
-                return True
-        return False
 
     def save_inventory(self):
 

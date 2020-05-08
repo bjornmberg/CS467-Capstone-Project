@@ -89,7 +89,8 @@ class Task:
 
     # Solves one-off situations where a task needs to be completed on move
     def perform_task_on_move(self, inventory, rooms_list, next_room_index):
-        if next_room_index == 12 and (inventory.checkInventory('journal') == True):
+        status, item = inventory.in_inventory('journal')
+        if next_room_index == 12 and status:
             self.journal_greenroom_task(rooms_list, next_room_index)
             return True
         return False
