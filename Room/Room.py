@@ -103,26 +103,6 @@ class Room:
         else:
             return False, None
 
-    # This function takes some action against a Feature in the Room
-    # Parameters:
-    #   name - str, the name of the Room Feature
-    def action_feature(self, str_input):
-
-        # make sure the Feature is in the Room and get its index
-        # from the Features list
-        status, feat = self.get_feature(str_input)
-
-        # if the item is present modify its state to in_action
-        # and return the in_action description
-        if status:
-            if feat.actionable:
-                feat.state = 1
-                return feat.get_description()
-            else:
-                return 'You cannot do that to the {}.'.format(feat.name)
-        else:
-            return 'You cannot do that'
-
     # takes a string and returns an index and an integer
     # the integer shows whether the item is in the starting items
     # or dropped items lists (or neither)

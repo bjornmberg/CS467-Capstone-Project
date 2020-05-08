@@ -250,8 +250,6 @@ class Game:
                 self.print_output(current_room.long_des)
             else:
                 self.look_at_something(command[1])
-        elif command[0] == 'action':
-            self.print_output(current_room.action_feature(command[1]))
         elif command[0] == 'use':
             self.use(command[1], command[2])
         elif command[0] == 'map':
@@ -344,7 +342,7 @@ class Game:
                         "garden", "down", "hole", "downstairs", "bathroom", "front", "lawns",
                         "upstairs", "pink"]
 
-        otherCommands = ["map", "inventory", "action", "exit", "help", "save"]
+        otherCommands = ["map", "inventory", "exit", "help", "save"]
 
         # Get user input. Make it lowercase and split it.
         splitArgs = input('            > ').lower().split()
