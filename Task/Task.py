@@ -5,13 +5,30 @@ from Room import Room
 from Feature import Feature
 
 class Task:
+    """Class used to represent an action within the Game
 
-    # This is called from Game when a user attempts the command 'use Item Feature'
-    # This takes in the Item, the Feature, and the rooms_list and calls the correct
-    # task. It will return the status of the task function if there is a workable
-    # combination, or return False if there is no workable combination.
+    Attributes
+    ----------
+    none
+
+    Methods
+    -------
+    perform_task()
+        calls the appropriate Task based on Item/Feature combinations
+    perform_task_on_move()
+        specific Task linked to a move operation
+    perform_task_on_look()
+        specific Task linked to a look operation
+    Multiple Item/Feature Combination Tasks
+    """
     def perform_task(self, item, feature, rooms):
+        """Class a function to perform an action based on Item/Feature combination
 
+        :param Item item: the Item being used in the Task
+        :param Feature feature: the Feature (if any) being used in the Task
+        :param list rooms: the room_list from Game to modify the Game state
+        :return: bool - True for successful action, False for unsuccessful
+        """
         # Perform check to determine if this is task driven by taking an item alone
         if feature is None:
             # Part of game winning sequence B
@@ -90,16 +107,28 @@ class Task:
         # Feature is not usable
         return status
 
-    # Solves one-off situations where a task needs to be completed on move
     def perform_task_on_move(self, inventory, rooms_list, next_room_index):
+        """Solves specific action associated with moving within the Game
+
+        :param Inventoty inventory: the Game inventory
+        :param list rooms_list: the Game.room_list
+        :param int next_room_index: the room_id of the Room being moved to
+        :return: bool True/Successful, False/Unsuccessful
+        """
         status, item = inventory.in_inventory('journal')
         if next_room_index == 12 and status:
             self.journal_greenroom_task(rooms_list, next_room_index)
             return True
         return False
 
-    # Solves one-off situations where a task needs to be completed on look
     def perform_task_on_look(self, thing_description, rooms, time):
+        """Solves specific action associated with a look action
+
+        :param str thing_description: a description of an Feature being looked at
+        :param list rooms: the Game.rooms_list
+        :param int time: the in-game time
+        :return: bool True/Successful, False/Unsuccessful
+        """
         if thing_description == 'You look closer at the dog. It\'s got three heads and glowing, red eyes!':
             self.dog_easel_task(rooms)
             return True
@@ -117,11 +146,9 @@ class Task:
             print('You look at the clock. The time is currently {}'.format(time) + meridiem)
         return False
 
-
-    # Do whatever you want in here. You can change the description to describe features
-    # that were previously hidden, add directions to the directions Dictionary for the Room
-    # you can do this for the Room you are in or any other Room based on the Room index. Just
-    # make sure that you seed those things in the JSON
+    # THE BELOW TASKS ARE ALL ASSOCIATED WITH ACTIONS WITHIN THE GAME
+    # DUE TO THE NUMBER OF THEM AND THE FACT THAT THEY ARE ALL SIMILIAR
+    # DOCSTRINGS ARE NOT PROVIDED
 
     # This is part of game winning sequence A - dispatch undead chef staker
     def dog_easel_task(self, rooms):
