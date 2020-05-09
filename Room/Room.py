@@ -229,7 +229,7 @@ class Room:
         """
         center_left_right = 125
         print()
-        print((('▃' * 85) + '\n').center(center_left_right))
+        print((' ' * 20) + ('▃' * 85) + '\n')
         print('CURRENT LOCATION: {}\n'.format(self.name).center(center_left_right))
 
         # If not visited, check for newlines and output long description
@@ -258,7 +258,7 @@ class Room:
             print(textwrap.fill('You seem to have left these items on the floor: ', initial_indent=(' ' * 20)))
             for y in range(0, len(self.dropped_items)):
                 print(textwrap.fill('\t{}'.format(self.dropped_items[y].name), initial_indent=(' ' * 18)))
-        print((('▃' * 85) + '\n\n').center(center_left_right))
+        print((' ' * 20) + ('▃' * 85) + '\n\n')
 
     def set_visited(self):
         """Sets the state of the Room to visited

@@ -345,7 +345,7 @@ class Game:
         otherCommands = ["map", "inventory", "exit", "help", "save"]
 
         # Get user input. Make it lowercase and split it.
-        splitArgs = input((' ' * 19) + '> ').lower().split()
+        splitArgs = input((' ' * 20) + '> ').lower().split()
 
         command = [] # holds the parsed commands
         dir_name = [] # holds valid directions and the corresponding room names
