@@ -253,7 +253,7 @@ class Game:
         elif command[0] == 'use':
             self.use(command[1], command[2])
         elif command[0] == 'map':
-            inventoryMapScreen.display(self.inventory, current_room.name, self.hero.location)
+            inventoryMapScreen.display(self.inventory, current_room.name, self.hero.location, self.rooms_list)
         elif command[0] == 'help':
             self.getHelp(command)
         elif command[0] == 'save':
