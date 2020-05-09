@@ -536,9 +536,9 @@ class Game:
         return command
 
     def print_output(self, string):
-        wrappedText = textwrap.wrap(string, width=74)
+        wrappedText = textwrap.wrap(string, width=83)
         for i in wrappedText:
-            print('            ' + i)
+            print((' ' * 20) + i)
 
     def getHelp(self, helpList):
         if len(helpList) == 1:
