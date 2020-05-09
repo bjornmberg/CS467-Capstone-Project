@@ -536,6 +536,7 @@ class Game:
         return command
 
     def print_output(self, string):
+        print()
         wrappedText = textwrap.wrap(string, width=83)
         for i in wrappedText:
             print((' ' * 20) + i)
