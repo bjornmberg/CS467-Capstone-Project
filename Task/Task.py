@@ -391,60 +391,60 @@ class Task:
         # endGame sequence for Game Winning Sequence A
         if feature.name == 'chef' and sequence == 'A':
             os.system('clear')
-            print('\n')
-            print(feature.get_description())
+            self.print_output('\n')
+            self.print_output(feature.get_description())
             time.sleep(7)
-            print('\n\n\nThe chef immediately begins to vaporize into green smoke.\nYou hear the poltergeist\'s voice as the chef disappears.\n\n"Thank you"\n\nYou know things will be OK.')
+            self.print_output('\n\n\nThe chef immediately begins to vaporize into green smoke.\nYou hear the poltergeist\'s voice as the chef disappears.\n\n"Thank you"\n\nYou know things will be OK.')
             time.sleep(7)
             os.system('clear')
-            print('\nThank you for playing. You have won the game.')
+            print('\nThank you for playing. You have won the game.\n')
             exit()
 
         # endGame sequence for Game Winning Sequence B
         if feature.name == 'girl' and sequence == 'B':
             os.system('clear')
-            print('\n')
-            print(feature.get_description())
+            self.print_output('\n')
+            self.print_output(feature.get_description())
             time.sleep(7)
-            print('\n\n\nThe girl fades away.\nYou stand there for a minute, staring into the distance at the mansion. You\'re not sure how but you know things will be OK.')
+            self.print_output('\n\n\nThe girl fades away.\nYou stand there for a minute, staring into the distance at the mansion. You\'re not sure how but you know things will be OK.')
             time.sleep(7)
             os.system('clear')
-            print('\nThank you for playing. You have won the game.')
+            print('\nThank you for playing. You have won the game.\n')
             exit()
 
         # endGame sequence for Game Losing Sequence A
         if feature.name == 'fireplace' and sequence == 'A':
             selection = -1
             while selection not in (1, 2):
-                print('\nYou have a choice to make... \n "1" You attempt to fight the enraged poltergeist, shooting the pistol again. \n "2" In a panic you throw the rest of the ashes into the fire.\n\n')
+                self.print_output('\nYou have a choice to make... \n "1" You attempt to fight the enraged poltergeist, shooting the pistol again. \n "2" In a panic you throw the rest of the ashes into the fire.\n\n')
                 selection = int(input('What will it be? '))
             # If selection 1, output the appropriate losing message and exit the game
             if selection == 1:
                 os.system('clear')
-                print('\n\nYou shoot the poltergeist again and again, pulling the trigger over and over until the gun is empty.\nThe poltergeist laughs terribly.\n\nThe last thing you see is the ghost rushing toward you in a blur.\n\nThere is no pain.')
+                self.print_output('\n\nYou shoot the poltergeist again and again, pulling the trigger over and over until the gun is empty.\nThe poltergeist laughs terribly.\n\nThe last thing you see is the ghost rushing toward you in a blur.\n\nThere is no pain.')
                 time.sleep(7)
                 os.system('clear')
-                print('\nThank you for playing. You have lost.')
+                print('\nThank you for playing. You have lost.\n')
                 exit()
             # Elif selection 1, output the appropriate losing message and exit the game
             elif selection == 2:
                 os.system('clear')
-                print('\n\nThe fireplace explodes in a violent burst of flames, casting you across the room.\n\nYou are lying the floor, and vaguely you see the flames are... everywhere now.\nYou hear the poltergeist shrieking. The mansion is engulfed in the subsequent inferno.\n\nYou are no more, but neither is the horror of the mansion.')
+                self.print_output('\n\nThe fireplace explodes in a violent burst of flames, casting you across the room.\n\nYou are lying the floor, and vaguely you see the flames are... everywhere now.\nYou hear the poltergeist shrieking. The mansion is engulfed in the subsequent inferno.\n\nYou are no more, but neither is the horror of the mansion.')
                 time.sleep(7)
                 os.system('clear')
-                print('\nThank you for playing. You have lost.')
+                print('\nThank you for playing. You have lost.\n')
                 exit()
 
         # endGame sequence for Game Losing Sequence B
         if feature.name == 'chef' and sequence == 'B':
             os.system('clear')
-            print('\n')
-            print(feature.get_description())
+            self.print_output('\n')
+            self.print_output(feature.get_description())
             time.sleep(7)
-            print('\n\nIn the moments before all fades to black you know you\'ve made a grave mistake.\nYou are thrown backward and hit the floor.\n\nThe last thing you see is the chef\'s enraged face, filling all you can see.')
+            self.print_output('\n\nIn the moments before all fades to black you know you\'ve made a grave mistake.\nYou are thrown backward and hit the floor.\n\nThe last thing you see is the chef\'s enraged face, filling all you can see.')
             time.sleep(7)
             os.system('clear')
-            print('\nThank you for playing. You have lost.')
+            print('\nThank you for playing. You have lost.\n')
             exit()
 
     # Add a print_output function, similar to game.py. Includes newline handling
