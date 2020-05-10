@@ -48,7 +48,7 @@ class Inventory:
         # check that the Item can fit in the Inventory, add if possible
         if len(self.items) < self.capacity:
             self.items.append(item)
-            print('{} - added to your inventory.'.format(item.name))
+            print('\n' + (' ' * 20) + '{} - added to your inventory.\n'.format(item.name), end=' ')
         else:
             print('You cannot hold anymore items in your inventory.')
 
@@ -101,11 +101,32 @@ class Inventory:
         :return: VOID
         """
         if len(self.items) > 0:
-            print('These are the items in the inventory: ')
+            print('These are the items in your inventory: ')
             for x in self.items:
                 print(x.name)
         else:
-            print('The inventory is empty.')
+            print('Your inventory is empty.')
+
+    def show_inventory_map_screen(self):
+        """Displays the Items currently in the Inventory to map screen
+
+        :return: VOID
+        """
+        if len(self.items) > 0:
+            print('These are the items in your inventory:', end=' ')
+            if len(self.items) == 1:
+                print(self.items[0].name)
+            elif len(self.items) == 2:
+                print(self.items[0].name, end=' and a ')
+                print(self.items[1].name)
+            else:
+                for x in range(0, len(self.items)):
+                    if x < (len(self.items) - 1):
+                        print(self.items[x].name, end=', ')
+                    else:
+                        print('and a ' + self.items[x].name)
+        else:
+            print('Your inventory is empty.')
 
     def look_in_inventory(self, str_input):
         """Gets description of an Item if it is in the Inventory

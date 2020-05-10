@@ -253,7 +253,7 @@ class Game:
         elif command[0] == 'use':
             self.use(command[1], command[2])
         elif command[0] == 'map':
-            inventoryMapScreen.display(self.inventory, current_room.name, self.hero.location)
+            inventoryMapScreen.display(self.inventory, current_room.name, self.hero.location, self.rooms_list)
         elif command[0] == 'help':
             self.getHelp(command)
         elif command[0] == 'save':
@@ -345,7 +345,7 @@ class Game:
         otherCommands = ["map", "inventory", "exit", "help", "save"]
 
         # Get user input. Make it lowercase and split it.
-        splitArgs = input('            > ').lower().split()
+        splitArgs = input((' ' * 20) + '> ').lower().split()
 
         command = [] # holds the parsed commands
         dir_name = [] # holds valid directions and the corresponding room names
@@ -536,9 +536,10 @@ class Game:
         return command
 
     def print_output(self, string):
-        wrappedText = textwrap.wrap(string, width=74)
+        print()
+        wrappedText = textwrap.wrap(string, width=83)
         for i in wrappedText:
-            print('            ' + i)
+            print((' ' * 20) + i)
 
     def getHelp(self, helpList):
         if len(helpList) == 1:

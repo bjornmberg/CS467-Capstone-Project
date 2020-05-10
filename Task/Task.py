@@ -3,6 +3,7 @@ import time
 from Item import Item
 from Room import Room
 from Feature import Feature
+import textwrap
 
 class Task:
     """Class used to represent an action within the Game
@@ -137,13 +138,13 @@ class Task:
                 meridiem = ' am.'
             else:
                 meridiem = ' pm.'
-            print('You look at the pocketwatch. The time is currently {}'.format(time) + meridiem)
+            self.print_output('You look at the pocketwatch. The time is currently {}'.format(time) + meridiem)
         elif thing_description == 'You look at the magnificent old clock. Somehow, it\'s still working.':
             if time < 12:
                 meridiem = ' am.'
             else:
                 meridiem = ' pm.'
-            print('You look at the clock. The time is currently {}'.format(time) + meridiem)
+            self.print_output('You look at the clock. The time is currently {}'.format(time) + meridiem)
         return False
 
     # THE BELOW TASKS ARE ALL ASSOCIATED WITH ACTIONS WITHIN THE GAME
@@ -163,10 +164,10 @@ class Task:
     # This is part of game winning sequence A - dispatch undead chef staker
     def easel_task(self, feature, rooms):
         feature.state = 1
-        print(feature.get_description())
+        self.print_output(feature.get_description())
         feature.state = 2
         # "Hear sound elsewhere output"
-        print('You hear piano music playing from somewhere to the South.')
+        self.print_output('You hear piano music playing from somewhere to the South.')
         # Change the landing description to reflect the playing piano
         rooms[11].long_des = 'You are on the second floor landing of the house. A grand piano is here, playing music on it\'s own. A window faces south, overlooking the lawns. There is a staircase spiraling down to the foyer below. A door to the Northeast leads to the greenroom. A door to the Southeast leads to a bath. There is also a door to the Southwest heading to a linen closet, and a door to the Northwest going to the red room'
         rooms[11].visited = False
@@ -178,7 +179,7 @@ class Task:
     # This is part of game winning sequence A - dispatch undead chef staker
     def key_drawer_task(self, feature, rooms):
         feature.state = 1
-        print(feature.get_description())
+        self.print_output(feature.get_description())
         # Change the room short description and reprint the room description
         rooms[7].short_des = 'You are in the Mansion\'s kitchen. The door to the North goes to the Rose Garden. The door to the East is the formal Dining Room. There are stairs leading down.  There is also a row of drawers along the Northern wall. One drawer unlocked and now open.'
         rooms[7].visited = True
@@ -198,7 +199,7 @@ class Task:
     # This is part of game winning sequence A - dispatch undead chef staker
     def prybar_plank_task(self, feature, rooms):
         feature.state = 1
-        print(feature.get_description())
+        self.print_output(feature.get_description())
         feature.state = 2
 
         rooms[18].long_des = 'You have uncovered a tunnel under the gazebo....'
@@ -210,7 +211,7 @@ class Task:
     # This is part of game winning sequence A - dispatch undead chef staker
     def crystal_statue_task(self, feature, rooms):
         feature.state = 1
-        print(feature.get_description())
+        self.print_output(feature.get_description())
         feature.state = 2
 
         rooms[24].long_des = 'The tunnel is now illuminated by the crystal. You see that the tunnel contines downward.'
@@ -222,7 +223,7 @@ class Task:
     # This is part of game winning sequence A - dispatch undead chef staker
     def prybar_padlock_task(self, feature, rooms):
         feature.state = 1
-        print(feature.get_description())
+        self.print_output(feature.get_description())
         feature.state = 2
 
         rooms[17].features[0].state = 1
@@ -235,7 +236,7 @@ class Task:
     # This is part of game winning sequence A - dispatch undead chef staker
     def knife_chef_task(self, feature, rooms):
         feature.state = 1
-        print(feature.get_description())
+        self.print_output(feature.get_description())
         feature.state = 2
         # Pass feature and sequence letter
         self.endGame(feature, "A")
@@ -251,7 +252,7 @@ class Task:
     # This is part of game winning sequence B - comfort the ghost daughter
     def shears_vine_task(self, feature, rooms):
         feature.state = 1
-        print(feature.get_description())
+        self.print_output(feature.get_description())
         feature.state = 2
 
         rooms[3].long_des = 'You are standing in the Solarium. The air is stiflingly hot and humid. An exit leads to the South.'
@@ -262,7 +263,7 @@ class Task:
     # This is part of game winning sequence B - comfort the ghost daughter
     def locket_task(self, rooms):
         # "Hear sound elsewhere"
-        print('You the sound of laughter coming from somewhere upstairs.')
+        self.print_output('You the sound of laughter coming from somewhere upstairs.')
         # Change the long description of the kitchen to output the vision. 
         rooms[9].long_des = 'You find yourself in what seems to be a young girl\'s room. A ghost of a girl is twirling in the center of the room, laughing. She is saying something about birds splashing. She is wearing a white dress, with white spots on it.\n\nThe vision fades. There are toys about and a rocking horse. A music box stands upon a small table.\nThere is a window to the north and a window to the west. A door to the Southwest leads to the second floor landing. A door to the Northwest goes to the pink room.'
         rooms[9].visited = False
@@ -272,7 +273,7 @@ class Task:
     # This is part of game winning sequence B - comfort the ghost daughter
     def spade_task(self, feature, rooms):
         feature.state = 1
-        print(feature.get_description())
+        self.print_output(feature.get_description())
         feature.state = 2
 
         rooms[21].long_des = 'You are on the front lawns of the mansion. A grave is dug at the base of a tree. There is a flower garden nearby bordered in strange stone. You see the mansion to the North.'
@@ -297,12 +298,12 @@ class Task:
     # This is part of game winning sequence B - comfort the ghost daughter
     def locket_grave_task(self, feature, rooms):
         if feature.state != 2:
-            print('You must dig the grave first')
+            self.print_output('You must dig the grave first')
             return False
         else:
             feature.in_action_des = 'You place the locket at the bottom of the grave, and fill the grave in.\nThe ghost of the girl is here, crying, at the head of the makeshift grave.'
             feature.state = 1
-            print(feature.get_description())
+            self.print_output(feature.get_description())
             feature.in_action_des = 'The grave is filled in now. The girl is here, crying, at the head of the grave.'
             feature.state = 1
 
@@ -314,12 +315,12 @@ class Task:
     # This is part of game winning sequence B - comfort the ghost daughter
     def stone_task(self, feature, rooms):
         if feature.state != 1:
-            print('You must dig the grave and place a memorial object within first')
+            self.print_output('You must dig the grave and place a memorial object within first')
             return False
         else:
             feature.in_action_des = 'You place the stone at the head of the grave. It looks right.\n\nThe girl is still here, crying. Her hand is outstretched.\nHer dress is white with red splatters.'
             feature.state = 1
-            print(feature.get_description())
+            self.print_output(feature.get_description())
             feature.post_action_des = 'The grave is filled in now. The girl is here, crying, hand outstretched. Her dress is white, spattered in red.'
             feature.state = 2
             # Revise the state of the girl to usable for final interaction
@@ -351,7 +352,7 @@ class Task:
     # This is a part of game losing sequence A - attempt to fight the poltergeist
     def pistol_task(self, rooms):
         # "Hear sound elsewhere"
-        print('You hear what sounds like pans banging, followed by a loud bang downstairs.')
+        self.print_output('You hear what sounds like pans banging, followed by a loud bang downstairs.')
         # Change the long description of the kitchen to output the vision. 
         rooms[7].long_des = 'You are standing in the Kitchen. A vision washes before your eyes. You see the servant, he is standing with his back to you, shouting at Chef Staker. The Chef is swinging a pan at the servant. There is a bang.\n\nThe servant has shot the Chef in the eye, and the Chef falls to the floor.\n\nThe door to the North goes to the Rose Garden. The door to the East is the formal Dining Room. There are stairs leading down.  There is also a row of drawers along the Northern wall. One drawer has a lock.'
         rooms[7].visited = False
@@ -363,7 +364,7 @@ class Task:
     def ashes_fireplace_task(self, feature, rooms):
         os.system('clear')
         feature.state = 1
-        print(feature.get_description())
+        self.print_output(feature.get_description())
         feature.state = 2
 
         self.endGame(feature, "A")
@@ -383,7 +384,7 @@ class Task:
     def key_task(self, feature, rooms):
         # Unlock the door
         feature.state = 1
-        print(feature.get_description())
+        self.print_output(feature.get_description())
         feature.state = 2
         # Change the description of the servant's quarters to reflect the open door and open East as a direction the player can travel
         rooms[15].long_des = 'You are in the servant’s dwelling. There is a small table and chairs in a nearby corner. A stack of books sits on top of the table. To the North is the cellar. To the East is a bathroom door which now stands open.'
@@ -395,7 +396,7 @@ class Task:
     # This is part of game losing sequence B - attempt to comfort undead chef staker
     def axe_armor_task(self, feature, rooms):
         feature.state = 1
-        print(feature.get_description())
+        self.print_output(feature.get_description())
         feature.state = 2
 
         rooms[13].long_des = 'You are standing in the Attic. Everything remains as it was with one exception: the boards around the walled in area have fallen exposing the entrance to a hidden room to the southeast.'
@@ -409,7 +410,7 @@ class Task:
     def hair_task(self, feature, rooms):
         os.system('clear')
         feature.state = 1
-        print(feature.get_description())
+        self.print_output(feature.get_description())
         self.endGame(feature, "B")
 
     # Method handler for endGame choices and interactions. Could be a different class
@@ -417,58 +418,71 @@ class Task:
         # endGame sequence for Game Winning Sequence A
         if feature.name == 'chef' and sequence == 'A':
             os.system('clear')
-            print('\n\n')
-            print(feature.get_description())
+            self.print_output('\n')
+            self.print_output(feature.get_description())
             time.sleep(7)
-            print('\n\n\nThe chef immediately begins to vaporize into green smoke.\nYou hear the poltergeist\'s voice as the chef disappears.\n\n"Thank you"\n\nYou know things will be OK.')
+            self.print_output('\n\n\nThe chef immediately begins to vaporize into green smoke.\nYou hear the poltergeist\'s voice as the chef disappears.\n\n"Thank you"\n\nYou know things will be OK.')
             time.sleep(7)
             os.system('clear')
-            print('\nThank you for playing. You have won the game.')
+            print('\nThank you for playing. You have won the game.\n')
             exit()
 
         # endGame sequence for Game Winning Sequence B
         if feature.name == 'girl' and sequence == 'B':
             os.system('clear')
-            print('\n\n')
-            print(feature.get_description())
+            self.print_output('\n')
+            self.print_output(feature.get_description())
             time.sleep(7)
-            print('\n\n\nThe girl fades away.\nYou stand there for a minute, staring into the distance at the mansion. You\'re not sure how but you know things will be OK.')
+            self.print_output('\n\n\nThe girl fades away.\nYou stand there for a minute, staring into the distance at the mansion. You\'re not sure how but you know things will be OK.')
             time.sleep(7)
             os.system('clear')
-            print('\nThank you for playing. You have won the game.')
+            print('\nThank you for playing. You have won the game.\n')
             exit()
 
         # endGame sequence for Game Losing Sequence A
         if feature.name == 'fireplace' and sequence == 'A':
             selection = -1
             while selection not in (1, 2):
-                print('\n\nYou have a choice to make... \n "1" You attempt to fight the enraged poltergeist, shooting the pistol again. \n "2" In a panic you throw the rest of the ashes into the fire.\n\n')
+                self.print_output('\nYou have a choice to make... \n "1" You attempt to fight the enraged poltergeist, shooting the pistol again. \n "2" In a panic you throw the rest of the ashes into the fire.\n\n')
                 selection = int(input('What will it be? '))
             # If selection 1, output the appropriate losing message and exit the game
             if selection == 1:
                 os.system('clear')
-                print('\n\n\nYou shoot the poltergeist again and again, pulling the trigger over and over until the gun is empty.\nThe poltergeist laughs terribly.\n\nThe last thing you see is the ghost rushing toward you in a blur.\n\nThere is no pain.')
+                self.print_output('\n\nYou shoot the poltergeist again and again, pulling the trigger over and over until the gun is empty.\nThe poltergeist laughs terribly.\n\nThe last thing you see is the ghost rushing toward you in a blur.\n\nThere is no pain.')
                 time.sleep(7)
                 os.system('clear')
-                print('\nThank you for playing. You have lost.')
+                print('\nThank you for playing. You have lost.\n')
                 exit()
             # Elif selection 1, output the appropriate losing message and exit the game
             elif selection == 2:
                 os.system('clear')
-                print('\n\n\nThe fireplace explodes in a violent burst of flames, casting you across the room.\n\nYou are lying the floor, and vaguely you see the flames are... everywhere now.\nYou hear the poltergeist shrieking. The mansion is engulfed in the subsequent inferno.\n\nYou are no more, but neither is the horror of the mansion.')
+                self.print_output('\n\nThe fireplace explodes in a violent burst of flames, casting you across the room.\n\nYou are lying the floor, and vaguely you see the flames are... everywhere now.\nYou hear the poltergeist shrieking. The mansion is engulfed in the subsequent inferno.\n\nYou are no more, but neither is the horror of the mansion.')
                 time.sleep(7)
                 os.system('clear')
-                print('\nThank you for playing. You have lost.')
+                print('\nThank you for playing. You have lost.\n')
                 exit()
 
         # endGame sequence for Game Losing Sequence B
         if feature.name == 'chef' and sequence == 'B':
             os.system('clear')
-            print('\n\n')
-            print(feature.get_description())
+            self.print_output('\n')
+            self.print_output(feature.get_description())
             time.sleep(7)
-            print('\n\nIn the moments before all fades to black you know you\'ve made a grave mistake.\nYou are thrown backward and hit the floor.\n\nThe last thing you see is the chef\'s enraged face, filling all you can see.')
+            self.print_output('\n\nIn the moments before all fades to black you know you\'ve made a grave mistake.\nYou are thrown backward and hit the floor.\n\nThe last thing you see is the chef\'s enraged face, filling all you can see.')
             time.sleep(7)
             os.system('clear')
-            print('\nThank you for playing. You have lost.')
+            print('\nThank you for playing. You have lost.\n')
             exit()
+
+    # Add a print_output function, similar to game.py. Includes newline handling
+    def print_output(self, string):
+        print()
+
+        if '\n' in string:
+            list_lines = string.splitlines()
+            for x in list_lines:
+                # was 100
+                print(textwrap.fill('{}'.format(x), 100, initial_indent=(' ' * 20), subsequent_indent=(' ' * 20)))
+        # Else player has visited before, output short description
+        else:
+            print(textwrap.fill('{}'.format(string), 100, initial_indent=(' ' * 20), subsequent_indent=(' ' * 20)))
