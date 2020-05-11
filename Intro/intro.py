@@ -32,7 +32,7 @@ def display():
         print('you are struck from behind. You fall forward and all goes black.\n\n'.center(centerLeftRight))
         print(('▒' * len(longestString)).center(centerLeftRight))
 
-        print('\n' * (lastLine - 13))
+        print('\n' * (lastLine - 10))
         selection = input('press \'enter\' to continue... ')
         selection = ' ' + selection
     # Having reached this point, selection matches. Clear screen to begin game.

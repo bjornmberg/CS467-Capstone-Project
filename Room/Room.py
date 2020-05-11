@@ -227,10 +227,9 @@ class Room:
 
         :return: VOID
         """
-        center_left_right = 100
-        description = "DESCRIPTION: "
+        center_left_right = 125
         print()
-        print('▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃\n'.center(center_left_right))
+        print((' ' * 20) + ('▃' * 85) + '\n')
         print('CURRENT LOCATION: {}\n'.format(self.name).center(center_left_right))
 
         # If not visited, check for newlines and output long description
@@ -238,29 +237,28 @@ class Room:
             # description += self.long_des
             if '\n' in self.long_des:
                 list_lines = self.long_des.splitlines()
-                print('            DESCRIPTION:')
+                print()
                 for x in list_lines:
-                    print(textwrap.fill('{}'.format(x), 85, initial_indent='            ', subsequent_indent='            '))
+                    print(textwrap.fill('{}'.format(x), 100, initial_indent=(' ' * 20), subsequent_indent=(' ' * 20)))
             # Else player has visited before, output short description
             else:
-                print(textwrap.fill('DESCRIPTION: {}'.format(self.long_des), 85, initial_indent='            ', subsequent_indent='            '))
+                print(textwrap.fill('{}'.format(self.long_des), 100, initial_indent=(' ' * 20), subsequent_indent=(' ' * 20)))
         else:
-            description += self.short_des
-            wrapped_text = textwrap.wrap(description, width=74)
+            wrapped_text = textwrap.wrap(self.short_des, width=83)
             for i in wrapped_text:
-                print('            ' + i)
+                print((' ' * 20) + i)
 
         print()
-        print(textwrap.fill('YOU CAN \'move\': ', initial_indent='            '))
+        print(textwrap.fill('YOU CAN \'move\': ', initial_indent=(' ' * 20)))
         for key in self.directions:
-            print(textwrap.fill(key, initial_indent='                        '))
+            print(textwrap.fill(key, initial_indent=(' ' * 26)))
         print()
         print()
         if len(self.dropped_items) > 0:
-            print(textwrap.fill('You Seem to have left these items on the floor: ', initial_indent='            '))
+            print(textwrap.fill('You seem to have left these items on the floor: ', initial_indent=(' ' * 20)))
             for y in range(0, len(self.dropped_items)):
-                print(textwrap.fill('\t{}'.format(self.dropped_items[y].name), initial_indent='                '))
-        print('▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃\n\n'.center(center_left_right))
+                print(textwrap.fill('\t{}'.format(self.dropped_items[y].name), initial_indent=(' ' * 18)))
+        print((' ' * 20) + ('▃' * 85) + '\n\n')
 
     def set_visited(self):
         """Sets the state of the Room to visited
