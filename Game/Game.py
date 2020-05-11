@@ -1,10 +1,3 @@
-'''
-    Implementation of the Game class. The Game class is the base class of the game.
-    The Game is responsible for initializing the state of the game and allowing the
-    user to interact with the Rooms, Features, Items, and Inventory. The Game has a
-    list() of Rooms, a Hero, and an Inventory.
-'''
-
 import json
 import os
 import sys
@@ -21,18 +14,53 @@ import textwrap
 
 
 class Game:
+    """Class used to represent the Game
 
-    # member variables
-    rooms_list = list()         # a list of Rooms
+    Attributes
+    ----------
+    rooms_list: list
+        list of Room objects representing the structure of the Mansion
+    hero: Hero
+        the Game character/iterator of the rooms_list
+    inventory: Inventory
+        the Game Inventory that provides carrying/dropping abilities
+    tasks: Task
+        the interactions within the Game that can/must be completed
+
+    Methods
+    -------
+    start()
+        displays menu allows user to start the Game
+    initializes_rooms()
+        loads file data and initializes the Room objects
+    move()
+        manages Hero movement within the Game
+    take()
+        removes an Item from a Room and adds it to Inventory
+    use()
+        performs and action, with an Item
+    drop()
+        removes an Item from Inventory and adds it to a Room
+    look_at_something()
+        gets the description of an Item or a Feature
+    save_game()
+        saves the game data to load files for continuation
+    get_command()
+        retrieves user input for actions to be carried out
+    play_game()
+        main Game driver function
+
+    """
+    rooms_list = list()
     hero = None
     inventory = None
     tasks = Task()
 
-    # This function handles loop control for the menu and game
-    # Parameters:
-    #   NONE
     def start(self):
+        """Displays the menu in a loop and allows user to start the Game
 
+        :return: VOID
+        """
         while 1:
             item_list = []
             selection = menu.display()
@@ -49,12 +77,13 @@ class Game:
             elif selection == 'exit':
                 break
 
-    # This function is used to initialize the Room objects.
-    # Parameters:
-    #   data - a list of the room files
-    #   file_path - a string that shows the full path to these room files
     def initialize_rooms(self, data, file_path):
+        """Creates Room objects based on the data passed to the function
 
+        :param dict data: a list of the Room files
+        :param str file_path: the path to the newGame or savedGame directory
+        :return: VOID
+        """
         # for each item in data append it to the file path to get a full path
         # example dataStore/newGame/RoomState/Parlor.json
         # use the information in the extracted JSON to initialize Room objects
@@ -79,12 +108,12 @@ class Game:
             # locations according the the room_id
             self.rooms_list.insert(new_room.room_id, new_room)
 
-
-    # This function is used to move the hero through the rooms
-    # Parameters:
-    #   direction - a string representing the direction to move
     def move(self, direction):
+        """Manages movement of the Hero within the Game
 
+        :param str direction: user input direction to move
+        :return: VOID
+        """
         # set the current room to where the hero is located
         current_room = self.rooms_list[self.hero.location]
 
@@ -97,13 +126,12 @@ class Game:
             # set the room being left to visited
             current_room.set_visited()
 
-
-    # This function is used to take an item from the Room and
-    # place it in the inventory
-    # Parameters:
-    #   item_name - a string that is passed in from user input
     def take(self, str_input):
+        """Removes an Item from a Room and places it in the Inventory
 
+        :param str str_input: user input of Item to be taken
+        :return: VOID
+        """
         # set the current room to where the hero is located
         current_room = self.rooms_list[self.hero.location]
 
@@ -122,7 +150,12 @@ class Game:
             self.print_output("That is not an item you can take.")
 
     def use(self, str_item, str_feature):
+        """Attempts to perform an action with an Item and/or a Feature
 
+        :param str str_item: user input of Item wished to be used
+        :param str str_feature: user input of Feature to be used
+        :return: VOID
+        """
         current_room = self.rooms_list[self.hero.location]
 
         # check to see if the feature is in the room and get it
@@ -152,13 +185,12 @@ class Game:
             elif not item_status:
                 print('There is no {} in the inventory.'.format(str_item))
 
-
-
-    # This function is used to drop an Item out of Inventory and
-    # leave it on the floor of a Room
-    # Parameters:
-    #   item_name - a string that is passed in from user input
     def drop(self, item_name):
+        """Removes an Item from the Inventory and leaves it in a Room
+
+        :param str item_name: user input of Item to be dropped
+        :return: VOID
+        """
 
         # set the current room to where the hero is located
         current_room = self.rooms_list[self.hero.location]
@@ -174,13 +206,12 @@ class Game:
         else:
             self.print_output("That item is not in your inventory.")
 
-
-    # This function is used to look at either an Item or a Feature that
-    # is either in the current Room or the Inventory
-    # Parameters:
-    #   thing - a str passed in from the user
     def look_at_something(self, thing):
+        """Gets the description of an Item or Feature in a Room or Inventory
 
+        :param str thing: user input of Item/Feature to be looked at
+        :return: VOID
+        """
         # set the current room to where the hero is located
         current_room = self.rooms_list[self.hero.location]
 
@@ -205,37 +236,42 @@ class Game:
         else:
             print('You do not see a {}'.format(thing))
 
-
-    # FUNCTION COMMENT PLACEHOLDER
     def save_game(self):
+        """Saves the state of the Game to save files
 
+        :return: VOID
+        """
+        # Get the names of the Rooms from the Seed file copy to load_data
         room_names = open('dataStore/savedGame/Seed.json', 'r', encoding='utf-8')
         load_data = json.loads(room_names.read())
         room_names.close()
 
+        # add the Hero state and Inventory state to the load_data
         load_file = open('dataStore/savedGame/load_file.json', 'w', encoding='utf-8')
         load_data['inventory'] = self.inventory.save_inventory()
         load_data['hero'] = self.hero.save_hero()
 
+        # write the load_data to the save file
         output_data = json.dumps(load_data, indent=2)
         load_file.write(output_data)
         load_file.close()
 
+        # Go through the rooms_list and save each of the rooms to a separate save file
         for room in self.rooms_list:
             room_file = open('dataStore/savedGame/RoomState/{}.json'.format(room.name), 'w', encoding='utf-8' )
             room_data = json.dumps(room.save_room(), indent=2)
             room_file.write(room_data)
 
-
-    # FUNCTION COMMENT PLACEHOLDER
-    def get_command(self, renderCounter):
-
+    def get_command(self, render_counter):
+        """Get user input for interactions within the Game
+        
+        :param int render_counter:
+        :return: VOID
+        """
         current_room = self.rooms_list[self.hero.location]
         current_room.get_description()
 
-        # COMMENT OUT LINE 113 and UNCOMMENT LINE 115 to OVERRIDE THE PARSER
         command = self.parseArgs()
-        # command = input('> ').split(' ')
 
         if command[0] == 'move':
             self.move(command[1])
@@ -263,9 +299,15 @@ class Game:
         # Simple hero time increment operation, as well as debugging output
         self.hero.time = self.hero.set_time(self.hero.time)
 
-    # This function is the main game driver function
     def play_game(self, input_file, file_path, roomIdx, item_list):
+        """
 
+        :param str input_file: main load file
+        :param str file_path: path to the appropriate Rooms directory
+        :param int roomIdx: starting Room index
+        :param list item_list: list of starting Items
+        :return: Void
+        """
         game_file = open(input_file, 'r', encoding='utf-8')
         file_data = json.loads(game_file.read())
 
