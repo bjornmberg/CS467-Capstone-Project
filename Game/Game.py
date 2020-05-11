@@ -121,7 +121,7 @@ class Game:
             # attempt to perform the task and get the status. Currently nothing done with the status.
             status = self.tasks.perform_task(taken_item, None, self.rooms_list)
         else:
-            self.print_output("That is not an item you can take.")
+            parser.print_output("That is not an item you can take.")
 
     def use(self, str_item, str_feature):
 
@@ -148,7 +148,7 @@ class Game:
                     self.inventory.remove_item(item)
                 else:
                     # Else this is not a valid combination
-                    self.print_output(' ...you cannot do that now.')
+                    parser.print_output(' ...you cannot do that now.')
 
             # False Item status - item is not in the Inventory
             elif not item_status:
@@ -174,7 +174,7 @@ class Game:
         if status:
             current_room.leave_item(dropped_item)
         else:
-            self.print_output("That item is not in your inventory.")
+            parser.print_output("That item is not in your inventory.")
 
 
     # This function is used to look at either an Item or a Feature that
@@ -194,13 +194,13 @@ class Game:
 
         # the thing is in the Room so print the description
         if thing_in_room:
-            self.print_output(thing_room_des)
+            parser.print_output(thing_room_des)
             # Check to see if a task is associated with look operation
             self.tasks.perform_task_on_look(thing_room_des, self.rooms_list, self.hero.time)
         # not in the Room, but in the Inventory, print description
         elif thing_in_inven:
             'INVENTORY ITEM: '
-            self.print_output(thing_inven_des)
+            parser.print_output(thing_inven_des)
             # Check to see if a task is associated with look operation
             self.tasks.perform_task_on_look(thing_inven_des, self.rooms_list, self.hero.time)
         # not in the Room or the Inventory
@@ -247,7 +247,7 @@ class Game:
             self.drop(command[1])
         elif command[0] == 'look':
             if len(command) == 1:
-                self.print_output(current_room.long_des)
+                parser.print_output(current_room.long_des)
             else:
                 self.look_at_something(command[1])
         elif command[0] == 'use':
