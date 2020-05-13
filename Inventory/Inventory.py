@@ -101,11 +101,21 @@ class Inventory:
         :return: VOID
         """
         if len(self.items) > 0:
-            print('These are the items in your inventory: ')
-            for x in self.items:
-                print(x.name)
+            print('\n' + (' ' * 20) + 'These are the items in your inventory:\n')
+            if len(self.items) == 1:
+                print((' ' * 20) + self.items[0].name)
+            elif len(self.items) == 2:
+                print((' ' * 20) + self.items[0].name, end=' and a ')
+                print(self.items[1].name)
+            else:
+                print((' ' * 19), end=' ')
+                for x in range(0, len(self.items)):
+                    if x < (len(self.items) - 1):
+                        print(self.items[x].name, end=', ')
+                    else:
+                        print('and a ' + self.items[x].name)
         else:
-            print('Your inventory is empty.')
+            print('\n' + (' ' * 20) + 'Your inventory is empty.')
 
     def show_inventory_map_screen(self):
         """Displays the Items currently in the Inventory to map screen
