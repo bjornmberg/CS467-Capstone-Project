@@ -135,16 +135,26 @@ class Task:
             return True
         elif thing_description == 'a beautiful vintage pocketwatch':
             if time < 12:
-                meridiem = ' am.'
+                if time == 0:
+                    self.print_output('You look at the pocketwatch. The time is currently midnight.')
+                else:
+                    meridiem = ' am.'
+                    self.print_output('You look at the pocketwatch. The time is currently {}'.format(time) + meridiem)
             else:
                 meridiem = ' pm.'
-            self.print_output('You look at the pocketwatch. The time is currently {}'.format(time) + meridiem)
+                time = time - 12
+                self.print_output('You look at the pocketwatch. The time is currently {}'.format(time) + meridiem)
         elif thing_description == 'You look at the magnificent old clock. Somehow, it\'s still working.':
             if time < 12:
-                meridiem = ' am.'
+                if time == 0:
+                    self.print_output('You look at the clock. The time is currently midnight.')
+                else:
+                    meridiem = ' am.'
+                    self.print_output('You look at the clock. The time is currently {}'.format(time) + meridiem)
             else:
                 meridiem = ' pm.'
-            self.print_output('You look at the clock. The time is currently {}'.format(time) + meridiem)
+                time = time - 12
+                self.print_output('You look at the clock. The time is currently {}'.format(time) + meridiem)
         return False
 
     # THE BELOW TASKS ARE ALL ASSOCIATED WITH ACTIONS WITHIN THE GAME

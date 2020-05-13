@@ -125,6 +125,8 @@ class Game:
             self.tasks.perform_task_on_move(self.inventory, self.rooms_list, self.hero.location)
             # set the room being left to visited
             current_room.set_visited()
+            # Hero time increment operation
+            self.hero.time = self.hero.set_time()
 
     def take(self, str_input):
         """Removes an Item from a Room and places it in the Inventory
@@ -175,6 +177,8 @@ class Game:
 
                 # True, means this is a valid Item/Feature combination
                 if status:
+                    # Hero time increment operation
+                    self.hero.time = self.hero.set_time()
                     # Remove the item from the inventory
                     self.inventory.remove_item(item)
                 else:
@@ -226,12 +230,16 @@ class Game:
             self.print_output(thing_room_des)
             # Check to see if a task is associated with look operation
             self.tasks.perform_task_on_look(thing_room_des, self.rooms_list, self.hero.time)
+            # Hero time increment operation
+            self.hero.time = self.hero.set_time()
         # not in the Room, but in the Inventory, print description
         elif thing_in_inven:
             'INVENTORY ITEM: '
             self.print_output(thing_inven_des)
             # Check to see if a task is associated with look operation
             self.tasks.perform_task_on_look(thing_inven_des, self.rooms_list, self.hero.time)
+            # Hero time increment operation
+            self.hero.time = self.hero.set_time()
         # not in the Room or the Inventory
         else:
             print('You do not see a {}'.format(thing))
@@ -284,6 +292,8 @@ class Game:
         elif command[0] == 'look':
             if len(command) == 1:
                 self.print_output(current_room.long_des)
+                # Hero time increment operation
+                self.hero.time = self.hero.set_time()
             else:
                 self.look_at_something(command[1])
         elif command[0] == 'use':
@@ -294,10 +304,6 @@ class Game:
             self.getHelp(command)
         elif command[0] == 'save':
             self.save_game()
-
-
-        # Simple hero time increment operation, as well as debugging output
-        self.hero.time = self.hero.set_time()
 
     def play_game(self, input_file, file_path, roomIdx, item_list):
         """
