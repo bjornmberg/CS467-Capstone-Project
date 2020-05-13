@@ -20,7 +20,7 @@ class Hero:
 
 
 
-    def __init__(self, name, location, time):
+    def __init__(self, name, location, time, day):
         """Constructor for the Hero class
 
         :param str name: the name of the Hero
@@ -30,6 +30,7 @@ class Hero:
         self.name = name
         self.location = location
         self.time = time
+        self.day = day
 
     def set_time(self):
         """Increases and returns the in-game time
@@ -40,6 +41,7 @@ class Hero:
         self.time = self.time + 1
         if self.time == 24:
             self.time = 0
+            self.day += 1
         return self.time
 
     def save_hero(self):
@@ -51,5 +53,6 @@ class Hero:
         hero_dict['name'] = self.name
         hero_dict['location'] = self.location
         hero_dict['time'] = self.time
+        hero_dict['day'] = self.day
 
         return hero_dict
