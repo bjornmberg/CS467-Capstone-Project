@@ -18,6 +18,8 @@ class Hero:
         returns a dict representation of the Hero for saving
     """
 
+
+
     def __init__(self, name, location, time):
         """Constructor for the Hero class
 
@@ -29,16 +31,16 @@ class Hero:
         self.location = location
         self.time = time
 
-    def set_time(self, time):
+    def set_time(self):
         """Increases and returns the in-game time
 
         :param int time: the in-game time of the Hero
         :return: int: the increased time of the Hero
         """
-        time = time + 1
-        if time == 24:
-            time = 0
-        return time
+        self.time = self.time + 1
+        if self.time == 24:
+            self.time = 0
+        return self.time
 
     def save_hero(self):
         """Formats and returns a dict of the Hero for saving

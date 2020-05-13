@@ -297,7 +297,7 @@ class Game:
 
 
         # Simple hero time increment operation, as well as debugging output
-        self.hero.time = self.hero.set_time(self.hero.time)
+        self.hero.time = self.hero.set_time()
 
     def play_game(self, input_file, file_path, roomIdx, item_list):
         """
