@@ -200,6 +200,8 @@ class Room:
         """
         status, item = self.get_item(str_input)
 
+        status, item = self.verify_takable_on_game_progress(status, item)
+
         # status 1 means this was a starting item
         if status == 1:
             self.features[item.linked_feature].state = 3
@@ -294,3 +296,20 @@ class Room:
             room_dict['features'].append(f.save_feature())
 
         return room_dict
+
+    def verify_takable_on_game_progress(self, status, item):
+        """Checks if an item has a special check on task-progression
+
+        :param status item: True/False status based on precense of item
+        :return: True/Item if present & feature status OK's progression - False/None if not present
+        pre-existing bool / Item (or None), if item does not have special check
+        """
+        if item.name == 'locket':
+            if self.features[0].state == 2:
+                return status, item
+            else:
+                status = False
+                item = None
+                return status, item
+        else:
+            return status, item
