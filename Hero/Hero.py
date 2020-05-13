@@ -38,7 +38,7 @@ class Hero:
         :param int time: the in-game time of the Hero
         :return: int: the increased time of the Hero
         """
-        self.time = self.time + 1
+        self.time = self.time + 0.5
         if self.time == 24:
             self.time = 0
             self.day += 1

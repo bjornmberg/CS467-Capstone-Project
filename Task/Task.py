@@ -1,4 +1,5 @@
 import os
+import math
 import time
 from Item import Item
 from Room import Room
@@ -136,25 +137,59 @@ class Task:
         elif thing_description == 'a beautiful vintage pocketwatch':
             if time < 12:
                 if time == 0:
-                    self.print_output('You look at the pocketwatch. The time is currently midnight.')
+                    self.print_output('The time is currently midnight.')
+                elif time < 1.0:
+                    self.print_output('The time is half past midnight.')
                 else:
                     meridiem = ' am.'
-                    self.print_output('You look at the pocketwatch. The time is currently {}'.format(time) + meridiem)
+                    # Calculate if half hour
+                    if ((time * 10) % 10 != 0):
+                        time = math.floor(time)
+                        self.print_output('The time is currently {}'.format(time) + ':30' +meridiem)
+                    # Else on the hour
+                    else:
+                        time = math.floor(time)
+                        self.print_output('The time is currently {}'.format(time) + ':00' + meridiem)
             else:
                 meridiem = ' pm.'
-                time = time - 12
-                self.print_output('You look at the pocketwatch. The time is currently {}'.format(time) + meridiem)
+                if time >= 13.0:
+                    time = time - 12.0
+                # Calculate if half hour
+                if ((time * 10) % 10 != 0):
+                    time = math.floor(time)
+                    self.print_output('The time is currently {}'.format(time) + ':30' +meridiem)
+                # Else on the hour
+                else:
+                    time = math.floor(time)
+                    self.print_output('The time is currently {}'.format(time) + ':00' + meridiem)
         elif thing_description == 'You look at the magnificent old clock. Somehow, it\'s still working.':
             if time < 12:
                 if time == 0:
-                    self.print_output('You look at the clock. The time is currently midnight.')
+                    self.print_output('The time is currently midnight.')
+                elif time < 1.0:
+                    self.print_output('The time is half past midnight.')
                 else:
                     meridiem = ' am.'
-                    self.print_output('You look at the clock. The time is currently {}'.format(time) + meridiem)
+                    # Calculate if half hour
+                    if ((time * 10) % 10 != 0):
+                        time = math.floor(time)
+                        self.print_output('The time is currently {}'.format(time) + ':30' +meridiem)
+                    # Else on the hour
+                    else:
+                        time = math.floor(time)
+                        self.print_output('The time is currently {}'.format(time) + ':00' + meridiem)
             else:
                 meridiem = ' pm.'
-                time = time - 12
-                self.print_output('You look at the clock. The time is currently {}'.format(time) + meridiem)
+                if time >= 13.0:
+                    time = time - 12.0
+                # Calculate if half hour
+                if ((time * 10) % 10 != 0):
+                    time = math.floor(time)
+                    self.print_output('The time is currently {}'.format(time) + ':30' +meridiem)
+                # Else on the hour
+                else:
+                    time = math.floor(time)
+                    self.print_output('The time is currently {}'.format(time) + ':00' + meridiem)
         return False
 
     # THE BELOW TASKS ARE ALL ASSOCIATED WITH ACTIONS WITHIN THE GAME

@@ -6,7 +6,7 @@
     "startingItems":[
         {
             "name":"pocketwatch",
-            "description":  "a beautiful vintage pocketwatch",
+            "description":  "You look at the pocketwatch. It is a beautiful vintage clock.",
             "linkedFeature": 4
         }
     ],
