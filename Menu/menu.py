@@ -9,14 +9,14 @@ def print_menu(stdscr, selected_row_index):
     stdscr.clear()
 
     # screen.border(0)
-    box1 = stdscr.subwin(14, 35, 11, 33)
+    box1 = stdscr.subwin(16, 38, 16, 43)
     box1.border(20)
     box1.border(curses.ACS_CKBOARD, curses.ACS_CKBOARD, curses.ACS_CKBOARD, curses.ACS_CKBOARD, curses.ACS_CKBOARD, curses.ACS_CKBOARD, curses.ACS_CKBOARD, curses.ACS_CKBOARD)
 
     stdscr.attron(curses.color_pair(2))
     stdscr.attron(curses.A_BLINK)
     stdscr.attron(curses.A_BOLD)
-    stdscr.addstr(13,38, "The Spooky Mansion Mystery")
+    stdscr.addstr(19,50, "The Spooky Mansion Mystery")
     stdscr.attroff(curses.color_pair(2))
     stdscr.attroff(curses.A_BLINK)
     stdscr.attroff(curses.A_BOLD)

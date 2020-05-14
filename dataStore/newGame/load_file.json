@@ -31,7 +31,8 @@
   {
       "name": "Player",
       "location": 0,
-      "time": 9
+      "time": 9,
+      "day": 0
   },
   "inventory": []
 }
