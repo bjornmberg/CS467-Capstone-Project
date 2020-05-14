@@ -306,7 +306,7 @@ class Game:
             self.save_game()
 
     def play_game(self, input_file, file_path, roomIdx, item_list):
-        """
+        """Initializes the Game variables and starts the game-play
 
         :param str input_file: main load file
         :param str file_path: path to the appropriate Rooms directory

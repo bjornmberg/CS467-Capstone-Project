@@ -10,6 +10,10 @@ centerTopBottom = (lastLine) // 3
 halfWidth = cols // 2
 
 def display():
+    """Formats and displays the Game introduction
+
+    :return: VOID
+    """
     selection = -1
     while selection != ' ':
         os.system('clear')

@@ -6,6 +6,12 @@ import curses
 menu = ['New Game', 'Load Game', 'Credits ', 'Exit    ']
 
 def print_menu(stdscr, selected_row_index):
+    """
+
+    :param stdscr:
+    :param selected_row_index:
+    :return:
+    """
     stdscr.clear()
 
     # screen.border(0)

@@ -200,7 +200,8 @@ class Room:
         """
         status, item = self.get_item(str_input)
 
-        status, item = self.verify_takable_on_game_progress(status, item)
+        if item:
+            status, item = self.verify_takable_on_game_progress(status, item)
 
         # status 1 means this was a starting item
         if status == 1:
