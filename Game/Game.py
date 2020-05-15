@@ -335,7 +335,9 @@ class Game:
             room_iterator += 1
             current_room = self.rooms_list[room_iterator]
 
-        self.rooms_list[self.hero.location].get_description()
+        # Get the description of the starting Room and print it
+        starting_room = self.rooms_list[self.hero.location]
+        starting_room.get_description()
 
         while 1:
             self.get_command()
