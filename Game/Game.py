@@ -66,12 +66,12 @@ class Game:
             selection = menu.display()
             if selection == 'newgame':
                 intro.display()
-                self.play_game('dataStore/newGame/load_file.json', 'dataStore/newGame/RoomState/', 0, item_list)
+                self.play_game('dataStore/newGame/load_file.json', 'dataStore/newGame/RoomState/', item_list)
             elif selection == 'loadgame':
                 # Check if saved game exists to load
                 load_file = Path('dataStore/savedGame/load_file.json')
                 if load_file.is_file():
-                    self.play_game(load_file, 'dataStore/savedGame/RoomState/', 0, item_list)
+                    self.play_game(load_file, 'dataStore/savedGame/RoomState/', item_list)
             elif selection == 'credits':
                 credits.display()
             elif selection == 'exit':
@@ -123,10 +123,11 @@ class Game:
             self.hero.location = current_room.directions[direction]
             # Check if a task is necessary on move into next room and get the status. Currently nothing done with the status.
             self.tasks.perform_task_on_move(self.inventory, self.rooms_list, self.hero.location)
-            # set the room being left to visited
-            current_room.set_visited()
             # Hero time increment operation
             self.hero.time = self.hero.set_time()
+            self.rooms_list[self.hero.location].get_description()
+
+
 
     def take(self, str_input):
         """Removes an Item from a Room and places it in the Inventory
@@ -270,14 +271,13 @@ class Game:
             room_data = json.dumps(room.save_room(), indent=2)
             room_file.write(room_data)
 
-    def get_command(self, render_counter):
+    def get_command(self):
         """Get user input for interactions within the Game
-        
-        :param int render_counter:
+
         :return: VOID
         """
         current_room = self.rooms_list[self.hero.location]
-        current_room.get_description()
+        current_room.set_visited()
 
         command = self.parseArgs()
 
@@ -305,12 +305,11 @@ class Game:
         elif command[0] == 'save':
             self.save_game()
 
-    def play_game(self, input_file, file_path, roomIdx, item_list):
+    def play_game(self, input_file, file_path, item_list):
         """Initializes the Game variables and starts the game-play
 
         :param str input_file: main load file
         :param str file_path: path to the appropriate Rooms directory
-        :param int roomIdx: starting Room index
         :param list item_list: list of starting Items
         :return: Void
         """
@@ -322,28 +321,24 @@ class Game:
         inventory_data = file_data['inventory']
 
         self.initialize_rooms(room_data, file_path)
-
         self.hero = Hero(hero_data['name'], hero_data['location'], hero_data['time'], hero_data['day'])
         self.inventory = Inventory(inventory_data)
 
-        roomIterator = 0
+        room_iterator = 0
         current_room = self.rooms_list[0]
 
-        while roomIterator < 22:
+        while room_iterator < 22:
             for i in item_list:
                 status, taken_item = current_room.take_item(i)
                 if status:
                     self.inventory.add_item(taken_item)
-            roomIterator += 1
-            current_room = self.rooms_list[roomIterator]
+            room_iterator += 1
+            current_room = self.rooms_list[room_iterator]
 
-        renderCounter = -1
+        self.rooms_list[self.hero.location].get_description()
 
         while 1:
-            renderCounter += 1
-            if renderCounter == 4:
-                renderCounter = 1
-            self.get_command(renderCounter)
+            self.get_command()
 
     # Parses the arguments passed
     def parseArgs(self):
