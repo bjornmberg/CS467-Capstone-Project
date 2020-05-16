@@ -1,7 +1,7 @@
 {
   "name": "Upstairs Bathroom",
-  "longDes": "You are standing in a bathroom. White and black tile shines around you, and a clawfoot tub stands against the wall opposite the door. A door to the West exits to the landing.",
-  "shortDes": "You are in a bathroom on the second floor. Tiles adorn the walls and a clawfoot tub stands opposite. A door to the West returns to the second floor landing.",
+  "longDes": "You are standing in a bathroom. White and black tile shines around you, and a clawfoot ^tub# stands against the wall opposite the door. A door to the $West# exits to the landing.",
+  "shortDes": "You are in a bathroom on the second floor. Tiles adorn the walls and a clawfoot ^tub# stands opposite. A door to the $West# returns to the second floor landing.",
   "visited": false,
   "startingItems": [
     {
@@ -16,7 +16,7 @@
       "name": "hollow",
       "actionable": true,
       "usable": false,
-      "preActionDes": "You notice something barely sticking out of the hollow. Is that a key?",
+      "preActionDes": "You notice something barely sticking out of the hollow. Is that a @key#?",
       "inActionDes": "You reach into the hollow and feel something small and metallic. It's a key!",
       "postActionDes": "You have taken the key from the hollow.",
       "state": 0,

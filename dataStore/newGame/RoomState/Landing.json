@@ -1,7 +1,7 @@
 {
   "name": "Landing",
-  "longDes": "You are at the top of the grand staircase, at a landing on the second floor.\n\nA grand piano stands in front of a large picture window to the South. Through the window you can see the expansive front lawns beyond. To the Northeast is a door to the green room. To the Southeast is a bathroom. There is a door to the Southwest, through which you can see linens. A door to the Northwest leads to the red room.",
-  "shortDes": "You are on the second floor landing of the house. A grand piano occupies much of the floor space here. A window faces south, overlooking the lawns. There is a staircase spiraling down to the foyer below. A door to the Northeast leads to the greenroom. A door to the Southeast leads to a bath. There is also a door to the Southwest heading to a linen closet, and a door to the Northwest going to the red room.",
+  "longDes": "You are at the top of the grand staircase, at a landing on the second floor.\n\nA grand ^piano# stands in front of a large picture ^window# to the South. To the $Northeast# is a door to a bedroom. To the $Southeast# is a bathroom. There is a door to the $Southwest#, through which you can see linens. A door to the $Northwest# leads to a room with red walls. The spiral staircase goes $down# to the foyer below.",
+  "shortDes": "You are on the second floor landing of the house. A grand ^piano# occupies much of the floor space here. A ^window# faces south. There is a staircase spiraling $down# to the foyer below. A door to the $Northeast# leads to the green room. A door to the $Southeast# leads to a bath. There is also a door to the $Southwest# heading to a linen closet, and a door to the $Northwest# going to the red room.",
   "visited": false,
   "startingItems": [
     {
@@ -17,7 +17,7 @@
       "actionable": true,
       "usable": false,
       "preActionDes": "This is an old grand piano. Good thing your mother made you take lessons when you were a kid!",
-      "inActionDes": "The piano is playing a classical tune. You recognize it, but can't quite place it. One of the notes is out of tune. You open the lid and see a key tied to one of the hammers.",
+      "inActionDes": "The piano is playing a classical tune. You recognize it, but can't quite place it. One of the notes is out of tune. You open the lid and see a @key# tied to one of the hammers.",
       "postActionDes": "This is where you found the key.",
       "state": 0,
       "featureId": 0
@@ -26,7 +26,7 @@
       "name": "window",
       "actionable": false,
       "usable": false,
-      "preActionDes": "You can see the front porch from here.",
+      "preActionDes": "You can see the front porch from here, and the expansive front lawns beyond.",
       "inActionDes": "",
       "postActionDes": "",
       "state": 0,
