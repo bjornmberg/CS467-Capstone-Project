@@ -32,6 +32,26 @@
       "postActionDes": "",
       "state": 0,
       "featureId": 1
+    },
+    {
+      "name": "north window",
+      "actionable": false,
+      "usable": false,
+      "preActionDes": "You can see a gazebo through the window.",
+      "inActionDes": "",
+      "postActionDes": "",
+      "state": 0,
+      "featureId": 2
+    },
+    {
+      "name": "east window",
+      "actionable": false,
+      "usable": false,
+      "preActionDes": "Nothing but a dense forest as far as the eye can see.",
+      "inActionDes": "",
+      "postActionDes": "",
+      "state": 0,
+      "featureId": 3
     }
   ],
   "roomId": 12,

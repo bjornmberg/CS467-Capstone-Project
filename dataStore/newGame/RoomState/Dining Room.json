@@ -26,7 +26,6 @@
       "state": 0,
       "featureId": 1
     },
-
     {
       "name": "table",
       "actionable": false,
@@ -37,7 +36,6 @@
       "state": 0,
       "featureId": 2
     },
-
     {
       "name": "north window",
       "actionable": false,
@@ -48,7 +46,6 @@
       "state": 0,
       "featureId": 3
     },
-
     {
       "name": "east window",
       "actionable": false,

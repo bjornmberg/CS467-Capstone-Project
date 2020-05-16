@@ -16,7 +16,6 @@
       "state": 0,
       "featureId": 0
     },
-
     {
       "name": "mirror",
       "actionable": false,
@@ -26,6 +25,16 @@
       "postActionDes": "",
       "state": 0,
       "featureId": 1
+    },
+    {
+      "name": "sink",
+      "actionable": false,
+      "usable": false,
+      "preActionDes": "The sink is dry with a ring of dirt around it. It obviously hasn't been used in years.",
+      "inActionDes": "",
+      "postActionDes": "",
+      "state": 0,
+      "featureId": 2
     }
   ],
   "roomId": 5,
