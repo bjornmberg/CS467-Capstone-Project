@@ -1,7 +1,7 @@
 {
   "name": "Front Lawns",
-  "longDes": "You are on the front lawns of the mansion. There is a large expanse of greenery before you. There is a flower garden near the front of the house, full of vibrant purple flowers. The borders of the flower gardes is of curious-looking stone. There are two rows of tall trees here. To the North is the front porch of the house.",
-  "shortDes": "You are standing on the front lawns. There is a garden of purple flowers here adjacent to the front of the house. Trees line the drive and you see locked gates beyond. To the North is the front porch leading to the house entry.",
+  "longDes": "You are on the front lawns of the mansion. There is a large expanse of greenery before you. There is a flower ^garden# near the front of the house, full of vibrant purple flowers. The borders of the flower garden is of curious-looking stone. There are two rows of tall trees here. To the $North# is the front porch of the house.",
+  "shortDes": "You are standing on the front lawns. There is a ^garden# of purple flowers here adjacent to the front of the house. Trees line the drive and you see locked gates beyond. To the $North# is the front porch leading to the house entry.",
   "visited": false,
   "startingItems": [
     {
@@ -21,7 +21,7 @@
       "name": "garden",
       "actionable": true,
       "usable": false,
-      "preActionDes": "You look at the purple flower garden. There is a stone that seems to be out of place on it.",
+      "preActionDes": "You look at the purple flower garden. There is a @stone# that seems to be out of place on it.",
       "inActionDes": "You take the stone. Upon closer inspection, it's got a carved image of a rose on it.",
       "postActionDes": "This is where you took the stone with the rose on it.",
       "state": 0,
@@ -32,7 +32,7 @@
       "name": "tree",
       "actionable": true,
       "usable": false,
-      "preActionDes": "An apparition of a young girl hovers near one of the largest trees. The girl points to a pair of shears leaned up against the base of the tree",
+      "preActionDes": "An apparition of a young girl hovers near one of the largest trees. The girl points to a pair of @shears# leaned up against the base of the tree",
       "inActionDes": "You see the pair of shears leaned up against the base of the tree.",
       "postActionDes": "This is where you found the set of shears.",
       "state": 0,
@@ -54,7 +54,7 @@
       "name": "girl",
       "actionable": true,
       "usable": false,
-      "preActionDes": "The girl is crying, hovering near a tree. At the base of the tree you see a pair of shears.",
+      "preActionDes": "The girl is crying, hovering near a tree. At the base of the tree you see a pair of @shears#.",
       "inActionDes": "The girl is crying. The vision is hazy, she begins to fade.",
       "postActionDes": "The girl was hear a moment ago...",
       "state": 0,
