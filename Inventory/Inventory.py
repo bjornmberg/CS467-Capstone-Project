@@ -48,7 +48,7 @@ class Inventory:
         # check that the Item can fit in the Inventory, add if possible
         if len(self.items) < self.capacity:
             self.items.append(item)
-            print('\n' + (' ' * 20) + '{} - added to your inventory.\n'.format(item.name), end=' ')
+            print('\n' + (' ' * 20) + '{} - added to your inventory.\n'.format(item.name), end='')
         else:
             print('You cannot hold anymore items in your inventory.')
 
