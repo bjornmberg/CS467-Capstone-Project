@@ -11,6 +11,7 @@ from Menu import menu
 from Room import Room
 from Task import Task
 import textwrap
+from languageParser import languageParser
 
 
 class Game:
@@ -55,6 +56,7 @@ class Game:
     hero = None
     inventory = None
     tasks = Task()
+    parser = languageParser.LanguageParser()
 
     def start(self):
         """Displays the menu in a loop and allows user to start the Game
@@ -279,7 +281,7 @@ class Game:
         current_room = self.rooms_list[self.hero.location]
         current_room.set_visited()
 
-        command = self.parseArgs()
+        command = self.parser.parse_args(self.rooms_list, self.hero)
 
         if command[0] == 'move':
             self.move(command[1])
@@ -300,8 +302,6 @@ class Game:
             self.use(command[1], command[2])
         elif command[0] == 'map':
             inventoryMapScreen.display(self.inventory, current_room.name, self.hero.location, self.rooms_list)
-        elif command[0] == 'help':
-            self.getHelp(command)
         elif command[0] == 'save':
             self.save_game()
 
@@ -342,340 +342,8 @@ class Game:
         while 1:
             self.get_command()
 
-    # Parses the arguments passed
-    def parseArgs(self):
-        # Dictionaries for each of the possible directions and rooms to move to.
-        moveWords = ["go", "walk", "move", "jaunt", "run", "step", "stroll", "march", "travel", "proceed",
-                     "sprint", "jog"]
-        
-        lookWords = ["look", "glance", "eye", "peak", "view", "stare", "peer", "study", "examine"]
-
-        lookObjects = ["windowsill", "crystal", "corner", "east window", "south window", "west window", "toys",
-                       "prybar", "pry bar", "ashes", "workbench", "shelves", "box", "padlock", "coffin",
-                       "undead chef", "painting", "dog", "table", "mirror", "armor", "clock", "stone", "shears",
-                       "garden", "tree", "grave tree", "fireplace", "pool", "window", "plank", "axe", "vision",
-                       "bed", "glint", "chef", "knife", "drawer", "sink", "key", "piano", "book", "bookcase",
-                       "north window", "pistol", "apparition", "sack", "pocketwatch", "pocket watch", "poltergeist",
-                       "couch", "fireplace", "table", "easel", "loom", "left gargoyle", "right gargoyle", "paint",
-                       "music box", "bed", "rocking horse", "rose", "spade", "fountain", "roses", "hair",
-                       "door lock", "shelf", "toilet", "sink", "mirror", "journal", "locket", "vine", "window",
-                       "statue", "tile", "hollow", "grave", "girl", "lock", "paintbrush"]
-
-        twLookObjects = ["window", "sill", "east", "window", "west", "south", "pry", "bar", "pad", "lock",
-                         "undead", "chef", "grave", "tree", "book", "case", "north", "pocket", "watch", "left",
-                         "right", "gargoyle", "music", "box", "rocking", "horse", "door", "lock", "small", "bed"]
-
-        takeWords = ["grab", "seize", "lift", "take"]
-
-        useWords = ["use", "apply", "put"]
-
-        dropWords = ["drop", "remove", "dump", "release"]
-
-        moveDirections = ["north", "south", "east", "west", "up", "down", "southwest", "southeast",
-                          "northwest", "northeast", "down hole", "door"]
-
-        moveRooms = ["solarium", "game room", "kitchen", "dining room", "bathroom", "library",
-                     "foyer", "parlor", "porch", "cellar", "servant quarters", "crypt",
-                     "servant's bathroom", "dark tunnel", "red room", "child's room", "pink room",
-                     "art studio", "green room", "master's quarters", "landing", "linen closet",
-                     "upstairs", "downstairs", "attic", "hidden room", "gardens", "gazebo",
-                     "rose garden", "downstairs bathroom", "landing", "front lawns",
-                     "upstairs bathroom"]
-
-        twoWordRooms = ["game", "room", "dining", "servant", "quarters", "bathroom", "dark",
-                        "tunnel", "red", "green", "master's", "linen", "closet", "hidden", "rose",
-                        "garden", "down", "hole", "downstairs", "bathroom", "front", "lawns",
-                        "upstairs", "pink"]
-
-        otherCommands = ["map", "inventory", "exit", "help", "save"]
-
-        # Get user input. Make it lowercase and split it.
-        splitArgs = input((' ' * 20) + '> ').lower().split()
-
-        command = [] # holds the parsed commands
-        dir_name = [] # holds valid directions and the corresponding room names
-
-        # Pick out only the valid words
-        for i in splitArgs:
-            if i in moveDirections or i in moveRooms or i in twoWordRooms or\
-                    i in moveWords or i in lookWords or i in twLookObjects or\
-                    i in takeWords or i in lookObjects or i in dropWords or\
-                    i in otherCommands or i in useWords:
-
-                command.append(i)
-
-        # Print an error if no words were valid.
-        if len(command) == 0:
-            self.print_output("Error. Invalid command passed.")
-            return "badcommand"
-
-        # Set the command to 'move' if it's in movewords.
-        elif command[0] in moveWords:
-            command[0] = "move"
-
-            # Get the room list for matching strings
-            current_room = self.rooms_list[self.hero.location]
-
-            # Add the direction and room name to the direction_name list
-            for i in moveDirections:
-                if i in current_room.directions:
-                    dir_name.append(i)
-                    dir_name.append(self.rooms_list[current_room.directions[i]].name.lower())
-
-            # Print an error if no room was provided.
-            if len(command) <= 1:
-                self.print_output("Error. Invalid room name or direction given.")
-                return "badcommand"
-
-            else:
-                # Check to see if it's a one-word named room
-                if command[1] in dir_name:
-                    # Get the index of the correct room
-                    idx = dir_name.index(command[1])
-
-                    # If the index is even, it's already a direction
-                    if idx % 2 != 0:
-                        # Otherwise get the index of the direction.
-                        command[1] = dir_name[idx-1]
-
-                # Check to see if it's a two-word room
-                # and both are in the two-word room dictionary
-                elif len(command) == 3 and command[1] in twoWordRooms and command[2] in twoWordRooms:
-
-                    # Concatenate the strings for further parsing
-                    twoWords = command[1] + ' ' + command[2]
-
-                    # Set the command if the concatenated words are valid.
-                    if twoWords in dir_name:
-                        command[1] = twoWords
-
-                        # Get the index of the valid room or direction.
-                        idx = dir_name.index(twoWords)
-
-                        # If it's even, it's already a direction.
-                        if idx % 2 != 0:
-                            # Otherwise grab the index of the correct direction.
-                            command[1] = dir_name[idx-1]
-
-                # Print an error if an invalid room name was passed.
-                else:
-                    self.print_output("Invalid room name or direction given.")
-                    return "badcommand"
-
-        # TODO: I Need to find a better solution for bad objects
-        elif command[0] in lookWords:
-            if len(command) == 1:
-                command[0] = "look"
-
-                if len(splitArgs) > 1:
-                    self.print_output("Error. Cannot look at invalid object.")
-                    return "badcommand"
-
-            elif len(command) == 2:
-                if command[1] not in lookObjects:
-                    self.print_output("Error. Cannot look at invalid object.")
-                    return "badcommand"
-
-            elif len(command) >= 3:
-                tempWord = command[1] + " " + command[2]
-                if tempWord not in lookObjects:
-                    self.print_output("Error. Cannot look at invalid object.")
-                else:
-                    command[1] = tempWord
-                    while len(command) > 2:
-                        command.pop()
-
-        elif command[0] in useWords:
-            command[0] = "use"
-
-            if len(command) < 3:
-                self.print_output("Error. Invalid objects passed.")
-                return "badcommand"
-
-            elif len(command) == 3:
-                if command[1] not in lookObjects or command[2] not in lookObjects:
-                    self.print_output("Error. Invalid objects passed.")
-                    return "badcommand"
-
-            elif len(command) ==  4:
-                if command[1] + " " + command[2] in lookObjects:
-                    command[1] = command[1] + " " + command[2]
-                elif command[2] + " " + command[3] in lookObjects:
-                    command[2] = command[2] + " " + command[3]
-                else:
-                    self.print_output("Invalid object passed with use command")
-                    return "badcommand"
-                while command > 3:
-                    command.pop()
-
-            elif len(command) == 5:
-                if command[1] + " " + command[2] not in lookObjects:
-                    self.print_output("Invalid object passed with use command")
-                    return "badcommand"
-                else:
-                    command[1] += " " + command[2]
-
-                if command[3] + " " + command[4] not in lookObjects:
-                    self.print_output("Invalid object passed with use command")
-                    return "badcommand"
-                else:
-                    command[2] = command[3] + " " + command[4]
-
-            else:
-                self.print_output("Error. Too many arguments with use command.")
-                return "badcommand"
-
-
-        elif command[0] in dropWords:
-            command[0] = "drop"
-
-            if len(command) == 1:
-                self.print_output("Error. Invalid or no item to drop.")
-                return "badcommand"
-
-            if len(command) == 2:
-                if command[1] not in lookObjects:
-                    self.print_output("Error. Cannot drop " + command[1])
-                    return "badcommand"
-
-            elif len(command) > 2:
-                tempWord = command[1] + " " + command[2]
-                if tempWord not in lookObjects:
-                    self.print_output("Error. Invalid item cannot be dropped.")
-                    return "badcommand"
-                else:
-                    command[1] = tempWord
-                    while len(command) > 2:
-                        command.pop()
-
-        elif command[0] in takeWords:
-            command[0] = "take"
-
-            if len(command) < 2:
-                print("Invalid item name.")
-                return "badcommand"
-
-            elif len(command) == 2:
-                if command[1] not in lookObjects:
-                    self.print_output("Invalid object cannot be taken.")
-                    return "badcommand"
-
-            elif len(command) == 3:
-                if command[1] + " " + command[2] not in lookObjects:
-                    self.print_output("Invalid object cannot be taken.")
-                    return "badcommand"
-                else:
-                    command[1] += " " + command[2]
-
-            if len(command) > 3:
-                self.print_output("Error. Too many arguments passed.")
-
-        elif command[0] == "exit":
-            sys.exit(0)
-
-        elif command[0] not in otherCommands:
-            self.print_output("Bad command passed.")
-            return "badcommand"
-
-        # Return the parsed command.
-        return command
-
     def print_output(self, string):
         print()
         wrappedText = textwrap.wrap(string, width=83)
         for i in wrappedText:
             print((' ' * 20) + i)
-
-    def getHelp(self, helpList):
-        if len(helpList) == 1:
-            print()
-            self.print_output("The goal of the game is to explore the mansion. Through interacting with various objects and features, the player will learn the deep history that surrounds the haunted mansion. Not all clues are helpful! There are many ways to win and lose this game. Can you solve the mystery, or will you meet your demise?")
-            print()
-            self.print_output("For more detailed instructions regarding a specific command, enter \"help [Your_Command_Here]\"")
-            print()
-            self.print_output("Valid commands are: take, drop, map, inventory, look, move, and use.")
-            
-        else:
-            if helpList[1] == 'take':
-                self.print_output("The take command allows the player to add an item from their environment to their inventory. To call the take function, a player enters a valid take command followed by a valid object in the room.")
-                print()
-                self.print_output("Valid words that could be used for the \"take\" command are: take, grab, seize, lift, and pick.")
-                print()
-                self.print_output("For example, to grab a stone off the floor, a player could enter \"Grab stone\"")
-                print()
-                self.print_output("Or, if the player prefers a more natural language approach, they could enter \"Take the stone off the floor.\"")
-                print()
-                self.print_output("If the player cannot take the object, there will be a corresponding error message for why they can't take an object.")
-                print()
-
-            elif helpList[1] == 'drop':
-                print()
-                self.print_output("The drop command allows the player to drop an item from their inventory to the room they are currently standing in. To call the drop function, a player enters a valid drop command followed by a valid object in their inventory.")
-                print()
-                self.print_output("Valid words that could be used for the \"drop\" command are: drop remove, dump, and release.")
-                print()
-                self.print_output("For example, to drop a stone from a player's inventory, a player could enter \"Drop stone\"")
-                print()
-                self.print_output("Or, if the player prefers a more natural language approach, they could enter \"Remove the stone from my inventory.\"")
-                print()
-                self.print_output("If the player cannot drop the object, there will be a corresponding error message for why they can't drop the object.")
-                print()
-
-            elif helpList[1] == 'map':
-                print()
-                self.print_output("The map command allows a player to print the map for the current floor they're standing on.")
-                print()
-                self.print_output("To call the command, a player simply enters \"map\".")
-                print()
-                self.print_output("For example, if a player were standing on the first floor, they would enter \"Map\", and the current floor's map would print.")
-                print()
-
-            elif helpList[1] == 'inventory':
-                print()
-                self.print_output("The inventory command allows a player to display all the items in the player's inventory.")
-                print()
-                self.print_output("To call the command, a player simply enters \"inventory\".")
-                print()
-                self.print_output("For example, a player would enter \"inventory\", and the contents of the inventory would print to the console.")
-                print()
-
-            elif helpList[1] == 'look':
-                print()
-                self.print_output("The look command allows the player to examine things in their environment to get useful clues about the mansion's history. To call the look function, a player enters a valid look command followed by a valid object in the room or their inventory.")
-                print()
-                self.print_output("Valid words that could be used for the \"look\" command are: look glance, eye, peak, view, stare, peer, study, and examine.")
-                print()
-                self.print_output("For example, to look at a painting, a player could enter \"Examine Painting\"")
-                print()
-                self.print_output("Or, if the player prefers a more natural language approach, they could enter \"Look at the painting.\"")
-                print()
-                self.print_output("If the player cannot examine the object for some reason, there will be a corresponding error message.")
-                print()
-
-            elif helpList[1] == 'move':
-                print()
-                self.print_output("The move command allows the player to move from room to room. To call the move function, a player enters a valid move command followed by a valid room or direction of an adjoining room.")
-                print()
-                self.print_output("Valid words that could be used for the \"move\" command are: go, walk, move, jaunt, run, step, stroll, march, travel, proceed, sprint, and jog")
-                print()
-                self.print_output("For example, to go into the dining room from the parlor, a player could enter \"Go North\"")
-                print()
-                self.print_output("Or, if the player prefers a more natural language approach, they could enter \"Step into the Dining Room.\"")
-                print()
-                self.print_output("If the player cannot move for any reason, there will be a corresponding error message.")
-                print()
-
-            elif helpList[1] == 'use':
-                print()
-                self.print_output("The use command allows the player to use an item to interact with another item or feature. To call the use function, a player enters a valid use command followed by two valid objects or features.")
-                print()
-                self.print_output("Valid words that could be used for the \"use\" command are: use, apply, and put.")
-                print()
-                self.print_output("For example, to open a locked door, a player could enter \"use key door\"")
-                print()
-                self.print_output("Or, if the player prefers a more natural language approach, they could enter \"Put the key into the locked door.\"")
-                print()
-                self.print_output("If the player cannot use the items together for any reason, there will be a corresponding error message.")
-                print()
-            else:
-                self.print_output("Invalid command given to help function. Valid commands are: take, drop, map, inventory, look, move, and use.")
