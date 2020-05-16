@@ -260,8 +260,12 @@ class Room:
 
         print()
         print(textwrap.fill('YOU CAN \'move\': ', initial_indent=(' ' * 20)))
-        for key in self.directions:
-            print(textwrap.fill(key, initial_indent=(' ' * 26)))
+        # for key in self.directions:
+        #     print(textwrap.fill(key, initial_indent=(' ' * 26)))
+        processed = self.directional_wrap_processor(self.directions)
+        for direction in processed:
+            print(direction)
+
         print()
         print()
         if len(self.dropped_items) > 0:
@@ -327,7 +331,7 @@ class Room:
         """Processes input string and outputs wrapped as TextWrapper does, without stripping special chars
 
         :param string: String for wrapping
-        :return: Wrapped string
+        :return: Array containing wrapped strings
         """
         # Establish variables for use in processing
         wrapped = ''
@@ -390,8 +394,8 @@ class Room:
                     # Bold Red Text
                     new_char = '\033[1;31m'
                 elif z == '^':
-                    # Bold Green Text
-                    new_char = '\033[1;32m'
+                    # Bold Purple Text
+                    new_char = '\033[1;35m'
                 elif z == '#':
                     # End terminal command, reset to normal
                     new_char = '\033[0m'
@@ -402,3 +406,19 @@ class Room:
             final_string = ''
 
         return final_list
+
+    def directional_wrap_processor(self, directional_dictionary):
+        """Processes input dictionary outputs wrapped strings in an array in a manner similar to TextWrapper,
+        without stripping special chars
+        :param dictionary: containing strings for wrapping
+        :return: Array containing wrapped strings
+        """
+        # Set up variables for processing the dictionary
+        final_array = []
+        new_string = ''
+
+        for direction in directional_dictionary:
+            new_string = (' ' * 26) + '\033[1;36m' + direction + '\033[0m'
+            final_array.append(new_string)
+            new_string = ''
+        return final_array
