@@ -238,7 +238,7 @@ class Room:
         if not self.visited:
 
             # Check for newlines & bold or character signifiers
-            if ('\n' in self.long_des) or ('@' in self.long_des) or ('^' in self.long_des) or ('#' in self.long_des):
+            if ('\n' in self.long_des) or ('@' in self.long_des) or ('^' in self.long_des) or ('$' in self.long_des) or ('#' in self.long_des):
                 processed = self.wrap_processor(self.long_des)
                 for i in processed:
                     print(i)
@@ -249,7 +249,7 @@ class Room:
         # Else player has visited before, output short description
         else:
             # Check for newlines & bold or character signifiers
-            if ('\n' in self.short_des) or ('@' in self.short_des) or ('^' in self.short_des) or ('#' in self.short_des):
+            if ('\n' in self.short_des) or ('@' in self.short_des) or ('^' in self.short_des) or ('$' in self.short_des) or ('#' in self.short_des):
                 processed = self.wrap_processor(self.short_des)
                 for i in processed:
                     print(i)
@@ -391,11 +391,14 @@ class Room:
         for x in mid_processing_list:
             for z in x:
                 if z == '@':
-                    # Bold Red Text
+                    # Bold Red Text for Items
                     new_char = '\033[1;31m'
                 elif z == '^':
-                    # Bold Purple Text
+                    # Bold Purple Text for Features
                     new_char = '\033[1;35m'
+                elif z == '$':
+                    # Bold Cyan Text for Directions
+                    new_char = '\033[1;36m'
                 elif z == '#':
                     # End terminal command, reset to normal
                     new_char = '\033[0m'

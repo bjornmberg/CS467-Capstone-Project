@@ -1,7 +1,7 @@
 {
       "name": "Library",
-      "longDes": "You have entered a library. Some chairs and small tables face windows on the South and West walls. Bookcases line the walls. The books appear mostly unremarkable, but there is one that looks odd - it has no markings but appears to be handbound. To the North is a door to a game room. The East door leads back to the foyer.",
-      "shortDes": "You are in the mansion library. There are windows to the south and west. A door to the North leads to the game room. There is also a doorway to the East that leads back to the foyer.",
+      "longDes": "You have entered a library. Some chairs and small tables face windows. There is a ^south window# and a ^west window#. There is a large bookcase lining one wall. To the $North# is a door to a game room. The $East# door leads back to the foyer.",
+      "shortDes": "You are in the mansion library. There is windows facing out, one ^south window# and a ^west window#. There is a massive ^bookcase# along one wall. A door to the $North# leads to the game room. There is also a doorway to the $East# that leads back to the foyer.",
       "visited": false,
       "startingItems": [
         {
@@ -16,7 +16,7 @@
           "name": "bookcase",
           "actionable": true,
           "usable": false,
-          "preActionDes": "You see an oddly bound book on the shelf. It's upside down and has a strange binding.",
+          "preActionDes": "You see an oddly bound @book# on the shelf. It's upside down and has a strange binding.",
           "inActionDes": "You see an oddly bound book on the shelf. It's upside down and has a strange binding.",
           "postActionDes": "This is where you found the oddly bound book.",
           "state": 0,
@@ -26,7 +26,7 @@
           "name": "south window",
           "actionable": false,
           "usable": false,
-          "preActionDes": "You can see the porch from here.",
+          "preActionDes": "You can see the porch from here, and front lawns beyond.",
           "inActionDes": "",
           "postActionDes": "",
           "state": 0,

@@ -11,7 +11,7 @@ def display(inventory, heroLocationName, heroLocationId, rooms):
         print()
         print('       You are currently in the {}'.format(heroLocationName))
 
-        if heroLocationId < 8:
+        if heroLocationId < 8 or heroLocationId == 20:
             printMap(1, rooms)
         elif heroLocationId >= 8 and heroLocationId < 13 or heroLocationId == 22:
             printMap(2, rooms)
