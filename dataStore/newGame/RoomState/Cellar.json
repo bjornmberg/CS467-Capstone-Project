@@ -1,7 +1,7 @@
 {
   "name": "Cellar",
-  "longDes": "You find yourself in the cellar of the mansion. The air is cool and dry down here. Light filters in through a small window to the West, and to the East, and motes of dust hang in the air. There is a workbench along the West wall, under one of the windows. You see tools scattered upon it. To the East are some shelves, appearing to be filled with jars, cans, and boxes. There is a door to the South leading to what appear to be servant’s quarters. A staircase leads up to the kitchen. ",
-  "shortDes": "You are in the cellar of the mansion. There is a workbench along the west wall, and goods on shelves to the east. There is a window to the east, and another to the west. A door leads South to the servant’s quarters. A staircase leads up to the house kitchen.",
+  "longDes": "You find yourself in the cellar of the mansion. The air is cool and dry down here. Light filters in through a pair of small windows along the east and west all,and motes of dust hang in the air. There is a ^workbench# along the West wall, under one of the windows. You see tools scattered upon it. To the east are some shelves, appearing to be filled with jars, cans, and boxes. There is a door to the $South# leading to what appear to be servant’s quarters. A staircase leads $up# to the kitchen.",
+  "shortDes": "You are in the cellar of the mansion. There is a ^workbench# along the west wall, and goods on ^shelves# to the east. A door leads $South# to the servant’s quarters. A staircase leads $up# to the house kitchen.",
   "visited": false,
   "startingItems": [
     {
@@ -21,7 +21,7 @@
       "name": "workbench",
       "actionable": true,
       "usable": false,
-      "preActionDes": "The workbench is dusty and cluttered. Amongst the rusty tools, you see a prybar. That might be useful.",
+      "preActionDes": "The workbench is dusty and cluttered. Amongst the rusty tools, you see a @prybar#. That might be useful.",
       "inActionDes": "You pick up the prybar.",
       "postActionDes": "You don’t find anything else remarkable.",
       "state": 0,
@@ -32,7 +32,7 @@
       "name": "shelves",
       "actionable": false,
       "usable": false,
-      "preActionDes": "You look at the shelves. They are half-stocked with (presumably) spoiled preserves. You cannot tell what any of them are. You see a wooden box that appears to be out of place here.",
+      "preActionDes": "You look at the shelves. They are half-stocked with (presumably) spoiled preserves. You cannot tell what any of them are. You see a wooden ^box# that appears to be out of place here.",
       "inActionDes": "",
       "postActionDes": "",
       "state": 0,
@@ -42,8 +42,8 @@
       "name": "box",
       "actionable": true,
       "usable": false,
-      "preActionDes": "You see a small wooden box amongst the shelves of goods. Someone took great care in the craftsmanship of this box.\n\nYou open the box and find... ashes.\n\nAmongst the ashes are some small white bits.",
-      "inActionDes": "You open the box and find… Ashes. Amongst the ashes are some small white bits.",
+      "preActionDes": "You see a small wooden box amongst the shelves of goods. Someone took great care in the craftsmanship of this box.\n\nYou open the box and find... @ashes#.\n\nAmongst the ashes are some small white bits.",
+      "inActionDes": "You open the box and find… @ashes#. Amongst the ashes are some small white bits.",
       "postActionDes": "This box has ashes in it.",
       "state": 0,
       "featureId": 2
