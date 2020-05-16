@@ -65,6 +65,16 @@
       "featureId": 4
     },
     {
+      "name": "north window",
+      "actionable": false,
+      "usable": false,
+      "preActionDes": "You look out the window. You can see the gazebo from here",
+      "inActionDes": "",
+      "postActionDes": "",
+      "state": 0,
+      "featureId": 5
+    },
+    {
       "name": "toys",
       "actionable": false,
       "usable": false,
@@ -72,7 +82,7 @@
       "inActionDes": "",
       "postActionDes": "",
       "state": 0,
-      "featureId": 5
+      "featureId": 6
     }
   ],
   "roomId": 13,

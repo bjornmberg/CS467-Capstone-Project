@@ -25,3 +25,4 @@ __pycache__/
 /dataStore/savedGame/RoomState/Solarium.json
 /dataStore/savedGame/RoomState/Tunnel.json
 /dataStore/savedGame/RoomState/Upstairs Bathroom.json
+.idea/*

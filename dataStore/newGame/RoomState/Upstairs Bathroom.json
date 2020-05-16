@@ -21,6 +21,16 @@
       "postActionDes": "You have taken the key from the hollow.",
       "state": 0,
       "featureId": 0
+    },
+    {
+      "name": "tub",
+      "actionable": false,
+      "usable": false,
+      "preActionDes": "Disgusting! This tub looks like it hasn't been cleaned in years!",
+      "inActionDes": "",
+      "postActionDes": "",
+      "state": 0,
+      "featureId": 1
     }
   ],
   "roomId": 22,
