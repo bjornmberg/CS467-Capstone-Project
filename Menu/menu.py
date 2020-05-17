@@ -44,10 +44,11 @@ def print_menu(stdscr, selected_row_index):
     stdscr.refresh()
 
 def main(stdscr):
+    curses.use_default_colors()
     # Remove blinking cursor
     curses.curs_set(0)
     curses.init_pair(1, curses.COLOR_BLACK, curses.COLOR_WHITE)
-    curses.init_pair(2, curses.COLOR_RED, curses.COLOR_BLACK)
+    curses.init_pair(2, curses.COLOR_RED, -1)
 
 
     current_row_index = 0
