@@ -192,6 +192,14 @@ class Task:
                     self.print_output('The time is currently {}'.format(time) + ':00' + meridiem)
         return False
 
+    def perform_task_on_day(self, day):
+        # One day has passed. output warning to the user.
+        if day == 1:
+            self.print_output('You hear a voice in your head. It sounds like the poltergeist.\n\n"...one day has now passed. What have you accomplished?\n\nYou have one day left. After that... you will be here forever."')
+        # Two days have passed. Commence endgame based on expiration of time limit
+        if day == 2:
+            self.endGame(None, None)
+
     # THE BELOW TASKS ARE ALL ASSOCIATED WITH ACTIONS WITHIN THE GAME
     # DUE TO THE NUMBER OF THEM AND THE FACT THAT THEY ARE ALL SIMILIAR
     # DOCSTRINGS ARE NOT PROVIDED
@@ -460,6 +468,20 @@ class Task:
 
     # Method handler for endGame choices and interactions. Could be a different class
     def endGame(self, feature, sequence):
+        # Check for expiration of time losing sequence
+        if feature is None and sequence is None:
+            os.system('clear')
+            self.print_output('\n')
+            self.print_output('\n\n\nThe room before you vanishes in a haze and the poltergeist appears before you.\n\nI told you that you had two days to resolve matters here. You have failed.\n\nIt is time...\n\n')
+            time.sleep(7)
+            self.print_output('You find yourself in the servant\'s quarters. You look down at yourself, and see you are wearing a tattered servant\'s suit.\n\nYou can\'t see your feet or your hands clearly, they are hazy, and you can see through them.\n\nYou feel cold, very cold.')
+            time.sleep(7)
+            self.print_output('\n\nThe hear laughter of the poltergeist, first strongly, then fading away.\n\nYou are horrified to realize this is your new home.')
+            time.sleep(7)
+            os.system('clear')
+            print('\nThank you for playing. You have lost.\n')
+            exit()
+
         # endGame sequence for Game Winning Sequence A
         if feature.name == 'chef' and sequence == 'A':
             os.system('clear')
