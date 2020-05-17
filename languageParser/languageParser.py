@@ -102,7 +102,7 @@ class LanguageParser:
         """
 
         # Get user input. Make it lowercase and split it.
-        split_args = input('            > ').lower().split()
+        split_args = input('                    > ').lower().split()
 
         command = []  # holds the parsed commands
 
