@@ -102,6 +102,7 @@ class LanguageParser:
         """
 
         # Get user input. Make it lowercase and split it.
+        print()
         split_args = input('                    > ').lower().split()
 
         command = []  # holds the parsed commands
@@ -352,7 +353,7 @@ class LanguageParser:
         command[0] = "take"
 
         if len(command) < 2:
-            print("Invalid item name.")
+            self.print_output("Invalid item name.")
             return "badcommand"
 
         elif len(command) == 2:
@@ -509,6 +510,6 @@ class LanguageParser:
                 self.print_output("Invalid command given to help function. Valid commands are: take, drop, map, inventory, look, move, and use.")
 
     def print_output(self, string):
-        wrappedText = textwrap.wrap(string, width=74)
+        wrappedText = textwrap.wrap(string, width=83)
         for i in wrappedText:
             print("                    " + i)
