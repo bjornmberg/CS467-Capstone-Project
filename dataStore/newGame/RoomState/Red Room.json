@@ -7,11 +7,11 @@
   "droppedItems": [],
   "features": [
     {
-      "name": "apparition",
+      "name": "ghost",
       "actionable": true,
       "usable": false,
       "preActionDes": "",
-      "inActionDes": "You see a vision of a girl laughing in this room.",
+      "inActionDes": "You saw a vision of a girl laughing and twirling a moment ago. She seems to be gone now. Did she say something about a fountain?",
       "postActionDes": "You saw the vision of the girl laughing in this room.",
       "state": 0,
       "featureId": 0

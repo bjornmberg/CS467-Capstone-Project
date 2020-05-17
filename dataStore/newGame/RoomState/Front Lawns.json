@@ -44,8 +44,8 @@
       "actionable": true,
       "usable": true,
       "preActionDes": "There is a spot at the base of a tree, below where the apparition was, that looks special. Perhaps it could be used for a makeshift grave?",
-      "inActionDes": "You dig a hole at the bottom of the tree, making a makeshift grave.\n\nThe locket you took from the Solarium glows in your hand now. Should you place it in the grave?",
-      "postActionDes": "This is where you dug the grave. Maybe you should place the locket there?",
+      "inActionDes": "You dig a hole at the bottom of the tree, making a makeshift ^grave#.\n\nThe ~locket# you took from the Solarium glows in your hand now. Should you place it in the grave?",
+      "postActionDes": "This is where you dug the ^grave#. Maybe you should place the ~locket# there?",
       "state": 0,
       "featureId": 2
     },

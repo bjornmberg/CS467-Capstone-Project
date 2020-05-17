@@ -11,8 +11,8 @@
       "actionable": false,
       "usable": true,
       "preActionDes": "Looking closer, the gazebo has a plank that looks off-color towards the center.",
-      "inActionDes": "You pry up the plank, revealing a dark hole!",
-      "postActionDes": "You took the plank from this spot revealing a dark hole! I wonder what's down there.",
+      "inActionDes": "You pry up the plank, revealing a dark hole! It heads $down# into a tunnel.",
+      "postActionDes": "You took the plank from this spot revealing a dark hole! I wonder what's $down# there.",
       "state": 0,
       "featureId": 0
     }

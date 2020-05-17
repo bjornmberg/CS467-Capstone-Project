@@ -12,7 +12,7 @@
       "actionable": false,
       "usable": true,
       "preActionDes": "This suit of armor very rusted. It's holding a sword in one hand and the other hand is outstretched and open, as if waiting for something.",
-      "inActionDes": "You place the axe in the open hand of the suit of armor. You hear something moving far upstairs.",
+      "inActionDes": "You place the axe in the open hand of the suit of ^armor#. You hear something moving far upstairs.",
       "postActionDes": "The armor stand proudly, holding the missing axe that you returned.",
       "state": 0,
       "featureId": 0

@@ -70,6 +70,9 @@ def wrap_processor(string):
             elif z == '$':
                 # Bold Cyan Text for Directions
                 new_char = '\033[1;36m'
+            elif z == '~':
+                # Bold Yellow Text for End Game Hints
+                new_char = '\033[1;33m'
             elif z == '#':
                 # End terminal command, reset to normal
                 new_char = '\033[0m'

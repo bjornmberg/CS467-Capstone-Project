@@ -1,6 +1,6 @@
 {
   "name": "Hidden Room",
-  "longDes": "You enter what appears to have been a hidden bedroom.\n\nThe scene is a horror. You see ^Chef# Staker standing with his back to you, holding a bloody cleaver.\n\nBeyond is a bed, and red, everywhere red. You are thankful you can't make out the details.\n\nThe lock of hair seems to vibrate in your hand. Your only exit is back to the $west#.",
+  "longDes": "You enter what appears to have been a hidden bedroom.\n\nThe scene is a horror. You see ^Chef# Staker standing with his back to you, holding a bloody cleaver.\n\nBeyond is a bed, and red, everywhere red. You are thankful you can't make out the details.\n\nThe lock of ~hair# seems to vibrate in your hand. Your only exit is back to the $west#.",
   "shortDes": "You re-enter the hidden room. The ^chef# is standing with his back to you. He is holding a bloody cleaver. There is an exit back to the attic to the $west#.",
   "visited": false,
   "startingItems": [],
