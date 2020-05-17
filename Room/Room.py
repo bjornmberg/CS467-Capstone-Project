@@ -259,14 +259,6 @@ class Room:
                 print(textwrap.fill('{}'.format(self.short_des), 100, initial_indent=(' ' * 20), subsequent_indent=(' ' * 20)))
 
         print()
-        print(textwrap.fill('YOU CAN \'move\': ', initial_indent=(' ' * 20)))
-        # for key in self.directions:
-        #     print(textwrap.fill(key, initial_indent=(' ' * 26)))
-        processed = self.directional_wrap_processor(self.directions)
-        for direction in processed:
-            print(direction)
-
-        print()
         print()
         if len(self.dropped_items) > 0:
             print(textwrap.fill('You seem to have left these items on the floor: ', initial_indent=(' ' * 20)))
@@ -409,19 +401,3 @@ class Room:
             final_string = ''
 
         return final_list
-
-    def directional_wrap_processor(self, directional_dictionary):
-        """Processes input dictionary outputs wrapped strings in an array in a manner similar to TextWrapper,
-        without stripping special chars
-        :param dictionary: containing strings for wrapping
-        :return: Array containing wrapped strings
-        """
-        # Set up variables for processing the dictionary
-        final_array = []
-        new_string = ''
-
-        for direction in directional_dictionary:
-            new_string = (' ' * 26) + '\033[1;36m' + direction + '\033[0m'
-            final_array.append(new_string)
-            new_string = ''
-        return final_array
