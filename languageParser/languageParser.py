@@ -511,4 +511,4 @@ class LanguageParser:
     def print_output(self, string):
         wrappedText = textwrap.wrap(string, width=74)
         for i in wrappedText:
-            print((' ' * 20) + i)
+            print("                    " + i)
