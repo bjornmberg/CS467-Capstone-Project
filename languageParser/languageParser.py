@@ -3,7 +3,41 @@ import sys
 
 
 class LanguageParser:
+    """ Class that takes and parses the natural language input by the user
 
+    Attributes
+    ----------
+        move_words - Holds all the valid commands to move the player throughout the house
+        look_words - Holds all the valid commands to look at objects in the house
+        look_objects - Holds all the valid items a player could look at
+        tw_look_objects - Holds all the two word items a player can interact with (used for building strings)
+        take_words - Holds all the valid commands to take objects in the game
+        use_words - Holds all the valid commands to use objects n the game
+        drop_words - Holds all the valid commands to drop items in the game
+        move_directions - Holds all the valid directions a player could move in the game
+        move_rooms - Holds all the valid rooms a player can walk to in the game
+        tw_rooms - Holds all the valid two word rooms a player can move in the game (used for building strings)
+        other_commands - Holds any one-word commands that don't require items or directions
+
+    Methods
+    -------
+    __init__():
+        establishes the string dictionaries for the language parser
+    parse_args():
+        checks player's input for valid commands and handles the input command
+    parse_move():
+        handles the movement logic and language processing for the move command
+    parse_look():
+        handles the arguments for the look command
+    parse_use():
+        handles the arguments for the use command
+    parse_drop():
+        handles the arguments for the drop command
+    parse_take():
+        handles the arguments for the take command
+    get_help():
+        displays a help guide for the user
+    """
     def __init__(self):
         # Dictionaries for each of the possible directions and rooms to move to.
         self.move_words = ["go", "walk", "move", "jaunt", "run", "step", "stroll", "march", "travel", "proceed",
@@ -52,6 +86,21 @@ class LanguageParser:
         self.other_commands = ["map", "inventory", "exit", "help", "save"]
 
     def parse_args(self, rooms_list, hero):
+        """
+        This function takes and parses the user's input. The first valid word is the command, which is used to
+        call the appropriate parse_command function.
+
+        Parameters
+        ----------
+        rooms_list - A copy of each room in the house
+        hero - a copy of the hero
+
+        Returns
+        -------
+        : command, which is a dictionary with all the valid words the player typed, parsed by the appropriate
+        parse_command function.
+        """
+
         # Get user input. Make it lowercase and split it.
         split_args = input('            > ').lower().split()
 
@@ -70,7 +119,6 @@ class LanguageParser:
             self.print_output("Error. Invalid command passed.")
             return "badcommand"
 
-        # Set the command to 'move' if it's in move_words.
         elif command[0] in self.move_words:
             command = self.parse_move(command, hero, rooms_list)
 
@@ -90,7 +138,7 @@ class LanguageParser:
             sys.exit(0)
 
         elif command[0] == "help":
-            self.getHelp(command)
+            self.get_help(command)
 
         elif command[0] not in self.other_commands:
             self.print_output("Bad command passed.")
@@ -100,6 +148,17 @@ class LanguageParser:
         return command
 
     def parse_move(self, command, hero, rooms_list):
+        """
+        This function handles the movement logic based on the input string parameters
+        ----------
+        command - the valid words the user entered
+        hero - a copy of the hero (for getting the room location)
+        rooms_list - a copy of each room in the game (for getting the valid rooms a player can move to)
+
+        Returns
+        -------
+        command - the parsed argument with either a valid direction or a bad command, which throws an error.
+        """
         command[0] = "move"
         dir_name = []  # holds valid directions and the corresponding room names
 
@@ -155,6 +214,18 @@ class LanguageParser:
         return command
 
     def parse_look(self, command, split_args):
+        """
+        This function handles the logic for the look command
+        ----------
+        command - the valid words the user entered
+        split_args - all the words the player entered. Used for checking the number of items the player entered.
+
+        Returns
+        -------
+        command - the parsed argument with the item or feature the player will look at. Returns badcommand if the item
+        is invalid or cannot be looked at.
+        """
+
         if len(command) == 1:
             command[0] = "look"
 
@@ -179,6 +250,18 @@ class LanguageParser:
         return command
 
     def parse_use(self, command):
+        """
+        This function parses the valid words for the use command.
+
+        Parameters
+        ----------
+        command - The valid words that the player entered.
+
+        Returns
+        -------
+        command - the parsed, valid arguments for the use command. Returns a badcommand if invalid items are passed with
+        the use command.
+        """
         command[0] = "use"
 
         if len(command) < 3:
@@ -221,6 +304,17 @@ class LanguageParser:
         return command
 
     def parse_drop(self, command):
+        """
+        This function parses the items for the drop command.
+        Parameters
+        ----------
+        command - All the valid words the player entered.
+
+        Returns
+        -------
+        command - the parsed result of the items for the drop command. badcommand is returned if the item cannot be
+        dropped.
+        """
         command[0] = "drop"
 
         if len(command) == 1:
@@ -245,6 +339,16 @@ class LanguageParser:
         return command
 
     def parse_take(self, command):
+        """
+        This function parses the arguments for the take command.
+        Parameters
+        ----------
+        command - All the valid words the player entered.
+
+        Returns
+        -------
+        command - the parsed, valid items the player can take. Returns badcommand if the item cannot be taken.
+        """
         command[0] = "take"
 
         if len(command) < 2:
@@ -268,7 +372,19 @@ class LanguageParser:
 
         return command
 
-    def getHelp(self, helpList):
+    def get_help(self, helpList):
+        """
+        This function prints help for the player on the screen. Displays general help instructions or detailed
+        instructions for each action a player can take based on their input.
+
+        Parameters
+        ----------
+        helpList - Modifiers that will determine which help screen is shown
+
+        Returns
+        -------
+        Nothing
+        """
         if len(helpList) == 1:
             print()
             self.print_output("The goal of the game is to explore the mansion. Through interacting with various objects and features, the player will learn the deep history that surrounds the haunted mansion. Not all clues are helpful! There are many ways to win and lose this game. Can you solve the mystery, or will you meet your demise?")
@@ -395,4 +511,4 @@ class LanguageParser:
     def print_output(self, string):
         wrappedText = textwrap.wrap(string, width=74)
         for i in wrappedText:
-            print('            ' + i)
+            print((' ' * 20) + i)
