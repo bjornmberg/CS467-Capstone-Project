@@ -44,6 +44,18 @@ class Hero:
             self.day += 1
         return self.time
 
+    def check_time(self):
+        """Checks the day.
+
+        :return: int: the integer of the day, or else none if not on a 
+        """
+        # If the time is midnight, return the integer day
+        if self.time == 0.0:
+            return self.day
+        # Else return null
+        else:
+            return None
+
     def save_hero(self):
         """Formats and returns a dict of the Hero for saving
 

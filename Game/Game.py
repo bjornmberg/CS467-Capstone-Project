@@ -304,6 +304,8 @@ class Game:
             inventoryMapScreen.display(self.inventory, current_room.name, self.hero.location, self.rooms_list)
         elif command[0] == 'save':
             self.save_game()
+        # Check day status on each iteration of the game loop
+        self.check_day()
 
     def play_game(self, input_file, file_path, item_list):
         """Initializes the Game variables and starts the game-play
@@ -347,3 +349,9 @@ class Game:
         wrappedText = textwrap.wrap(string, width=83)
         for i in wrappedText:
             print((' ' * 20) + i)
+
+    def check_day(self):
+        # Check to see if new day. If not, a Null is returned. Else an integer corresponding to the day
+        day = self.hero.check_time()
+        if day:
+            self.tasks.perform_task_on_day(day)
