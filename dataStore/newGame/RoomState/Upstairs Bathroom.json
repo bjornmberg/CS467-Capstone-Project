@@ -6,7 +6,7 @@
   "startingItems": [
     {
       "name":"key",
-      "description":  "a simple key.",
+      "description":  "A simple key.",
       "linkedFeature": 0
     }
   ],

@@ -66,7 +66,7 @@ class Task:
             elif item.name == 'prybar' and feature.name == 'plank':
                 status = self.prybar_plank_task(feature, rooms)
             # Part of game winning sequence A
-            elif item.name == 'key' and feature.name == 'drawer':
+            elif item.description == 'A small ornate key.' and feature.name == 'drawer':
                 status = self.key_drawer_task(feature, rooms)
             # Part of game winning sequence A
             elif item.name == 'prybar' and feature.name == 'padlock':
@@ -99,7 +99,7 @@ class Task:
             elif item.name == 'axe' and feature.name == 'armor':
                 status =  self.axe_armor_task(feature, rooms)
             # Part of game losing sequence B
-            elif item.name == 'key' and feature.name == 'lock':
+            elif item.description == 'A simple key.' and feature.name == 'lock':
                 status = self.key_task(feature, rooms)
             # Part of game losing sequence B
             elif item.name == 'hair' and feature.name == 'chef':
@@ -256,7 +256,8 @@ class Task:
         self.print_output(feature.get_description())
         feature.state = 2
 
-        rooms[18].long_des = 'You have uncovered a tunnel under the gazebo....'
+        rooms[18].long_des = 'You are standing in the gazebo. You have uncovered a tunnel under the gazebo... it heads $down# into darkness. There is a sweet and sour smell on the air here, like something good has turned. A ^grill# stands in the corner. To the $West# are the rose gardens.'
+        rooms[18].short_des = 'You are standing in the gazebo. There is a sweet and sour smell on the air here, like something good has turned. A ^grill# stands in the corner. To the $West# are the rose gardens. A tunnel heads $down# into darkness below the gazebo.'
         rooms[18].visited = False
         rooms[18].directions['down'] = 24
 
