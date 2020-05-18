@@ -120,6 +120,10 @@ class LanguageParser:
             self.print_output("Error. Invalid command passed.")
             return "badcommand"
 
+        elif len(command) == 1 and command[0] in self.move_directions:
+            command.append(command[0])
+            self.parse_move(command, hero, rooms_list)
+
         elif command[0] in self.move_words:
             command = self.parse_move(command, hero, rooms_list)
 
