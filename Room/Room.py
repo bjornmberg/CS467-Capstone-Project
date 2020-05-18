@@ -1,7 +1,7 @@
 import textwrap
 from Feature import Feature
 from Item import Item
-
+from Wrapper import wrapper
 
 class Room:
     """Class used to represent a Room within the Game
@@ -237,24 +237,28 @@ class Room:
 
         # If not visited, check for newlines and output long description
         if not self.visited:
-            # description += self.long_des
-            if '\n' in self.long_des:
-                list_lines = self.long_des.splitlines()
-                print()
-                for x in list_lines:
-                    print(textwrap.fill('{}'.format(x), 100, initial_indent=(' ' * 20), subsequent_indent=(' ' * 20)))
-            # Else player has visited before, output short description
+
+            # Check for newlines & bold or character signifiers
+            if ('\n' in self.long_des) or ('@' in self.long_des) or ('^' in self.long_des) or ('$' in self.long_des) or ('~' in self.long_des) or ('#' in self.long_des):
+                processed = wrapper.wrap_processor(self.long_des)
+                for i in processed:
+                    print(i)
+
+            # Else no newlines or bold color signifiers. Simple processing.
             else:
                 print(textwrap.fill('{}'.format(self.long_des), 100, initial_indent=(' ' * 20), subsequent_indent=(' ' * 20)))
+        # Else player has visited before, output short description
         else:
-            wrapped_text = textwrap.wrap(self.short_des, width=83)
-            for i in wrapped_text:
-                print((' ' * 20) + i)
+            # Check for newlines & bold or character signifiers
+            if ('\n' in self.short_des) or ('@' in self.short_des) or ('^' in self.short_des) or ('$' in self.short_des) or ('~' in self.long_des) or ('#' in self.short_des):
+                processed = wrapper.wrap_processor(self.short_des)
+                for i in processed:
+                    print(i)
 
-        print()
-        print(textwrap.fill('YOU CAN \'move\': ', initial_indent=(' ' * 20)))
-        for key in self.directions:
-            print(textwrap.fill(key, initial_indent=(' ' * 26)))
+            # Else no newlines or bold color signifiers. Simple processing.
+            else:
+                print(textwrap.fill('{}'.format(self.short_des), 100, initial_indent=(' ' * 20), subsequent_indent=(' ' * 20)))
+
         print()
         print()
         if len(self.dropped_items) > 0:

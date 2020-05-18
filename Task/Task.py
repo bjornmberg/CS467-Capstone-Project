@@ -5,6 +5,7 @@ from Item import Item
 from Room import Room
 from Feature import Feature
 import textwrap
+from Wrapper import wrapper
 
 class Task:
     """Class used to represent an action within the Game
@@ -131,10 +132,10 @@ class Task:
         :param int time: the in-game time
         :return: bool True/Successful, False/Unsuccessful
         """
-        if thing_description == 'You look closer at the dog. It\'s got three heads and glowing, red eyes!':
+        if thing_description == 'You look closer at the dog. It\'s got three heads and glowing, red eyes! You feel a shiver and sense of revulsion, which thankfully passes quickly.':
             self.dog_easel_task(rooms)
             return True
-        elif thing_description == 'a beautiful vintage pocketwatch':
+        elif thing_description == 'A beautiful vintage pocketwatch.':
             if time < 12:
                 if time == 0:
                     self.print_output('The time is currently midnight.')
@@ -209,9 +210,9 @@ class Task:
         # Set the easel to usable and actionable
         rooms[10].features[0].actionable = True
         rooms[10].features[0].usable = True
-        rooms[10].features[0].pre_action_des = 'This easel holds a blank canvas. There are also oil paints and brushes next to it. You feel compelled to paint.'
+        rooms[10].features[0].pre_action_des = 'This easel holds a blank canvas. There are also oil paints and a @paintbrush# next to it. You feel compelled to paint.'
         # Change the pink room description to reflect the easel and paint ready to use
-        rooms[10].long_des = 'You are in the pink room. The easel is near the window, and a paintbrush now stands ready nearby. You feel compelled to paint something. A small and steep staircase leads up into the attic. A door to the West leads to the red room. Another door to the East leads to the green room.'
+        rooms[10].long_des = 'You are in the pink room. The easel is near the window, and a @paintbrush# now stands ready nearby. You feel compelled to paint something. A small and steep staircase leads $up# into the attic. A door to the $West# leads to the red room. Another door to the $East# leads to the green room.'
         rooms[10].visited = False
 
     # This is part of game winning sequence A - dispatch undead chef staker
@@ -222,7 +223,7 @@ class Task:
         # "Hear sound elsewhere output"
         self.print_output('You hear piano music playing from somewhere to the South.')
         # Change the landing description to reflect the playing piano
-        rooms[11].long_des = 'You are on the second floor landing of the house. A grand piano is here, playing music on it\'s own. A window faces south, overlooking the lawns. There is a staircase spiraling down to the foyer below. A door to the Northeast leads to the greenroom. A door to the Southeast leads to a bath. There is also a door to the Southwest heading to a linen closet, and a door to the Northwest going to the red room'
+        rooms[11].long_des = 'You are on the second floor landing of the house. A grand ^piano# is here, playing music on it\'s own. A ^window# faces south, overlooking the lawns. There is a staircase spiraling $down# to the foyer below. A door to the $Northeast# leads to the green room. A door to the $Southeast# leads to a bath. There is also a door to the $Southwest# heading to a linen closet, and a door to the $Northwest# going to the red room.'
         rooms[11].visited = False
         # Change the state of the piano to reflect the playing tune
         rooms[11].features[0].state = 1
@@ -243,10 +244,10 @@ class Task:
         # Knife taken. Set new state of drawer
         rooms[7].features[1].state = 2
         # Set descriptions of crypt to include the shining knife
-        rooms[17].long_des = 'You find yourself in a crypt. The light is very faint here - some comes from the crystal in the tunnel. There is some light seeming to come from the walls and floor also though, some dots of phosphorescence in tiny drops of water. The walls appear to be old wood. The air is thick with a stench of decay here. It’s a little hard to breathe. In the center of the room is a large rectangular crate, made of dark wood plans. A chain wraps around it and a heavy padlock lies utop the box. The crate looks a bit like a coffin. The markings on your knife are shining lightly. There is a door leading back to the tunnel.'
-        rooms[17].short_des = 'You are standing in the crypt below the mansion. There is a rank, foul odor on the air here. A large rectangular crate, much like a coffin, dominates the center of the room. Your knife is shining lightly in the darkness. There is a door leading back to the tunnel.'
+        rooms[17].long_des = 'You find yourself in a crypt. The light is very faint here - some comes from the crystal in the tunnel. There is some light seeming to come from the walls and floor also though, some dots of phosphorescence in tiny drops of water. The walls appear to be old wood. The air is thick with a stench of decay here. It’s a little hard to breathe. In the center of the room is a large rectangular crate, made of dark wood plans. A chain wraps around it and a heavy ^padlock# lies utop the box. The crate looks a bit like a ^coffin#. The markings on your ~knife# are shining lightly. There is a $door# leading back to the tunnel.'
+        rooms[17].short_des = 'You are standing in the crypt below the mansion. There is a rank, foul odor on the air here. A large rectangular crate, much like a ^coffin#, dominates the center of the room. Your ~knife# is shining lightly in the darkness. There is a $door# leading back to the tunnel.'
         # Set the feature description of the chef to include shining knife
-        rooms[17].features[2].pre_action_des = 'The glowing green eye of the chef seems to track you, but the chef is otherwise still. The markings on your knife are glowing.'
+        rooms[17].features[2].pre_action_des = 'The glowing green eye of the ^chef# seems to track you, but the chef is otherwise still. The markings on your ~knife# are glowing.'
         return True
 
     # This is part of game winning sequence A - dispatch undead chef staker
@@ -267,7 +268,7 @@ class Task:
         self.print_output(feature.get_description())
         feature.state = 2
 
-        rooms[24].long_des = 'The tunnel is now illuminated by the crystal. You see that the tunnel contines downward.'
+        rooms[24].long_des = 'The tunnel is now illuminated by the crystal. You see that the tunnel continues further $down# into the darkness.'
         rooms[24].visited = False
         rooms[24].directions['down'] = 17
 
@@ -281,7 +282,7 @@ class Task:
 
         rooms[17].features[0].state = 1
 
-        rooms[17].long_des = 'You are standing in the crypt below the mansion. Having pried the padlock loose, the coffin now stands open. The undead chef is within, pale and tracking you with one green glowing eye. Your knife is shining in the dark. There is a door back to the tunnel.'
+        rooms[17].long_des = 'You are standing in the crypt below the mansion. Having pried the ^padlock# loose, the ^coffin# now stands open. The undead ^chef# is within, pale and tracking you with one green glowing eye. Your ~knife# is shining in the dark. There is a $door# back to the tunnel.'
         rooms[17].visited = False
 
         return True
@@ -297,7 +298,7 @@ class Task:
     # This is part of game winning sequence B - comfort the ghost daughter
     def book_task(self, rooms):
         # Change description of the front lawns to display the apparition of the girl
-        rooms[21].long_des = 'You are on the front lawns of the mansion. The borders of the nearby flower gardens are of curious-looking stone.\nThere are two rows of tall trees here. Under one tree you think that you can see a girl... she appears to be crying.\nTo the North is the front porch of the house.'
+        rooms[21].long_des = 'You are on the front lawns of the mansion. The borders of the nearby flower ^garden# are of curious-looking stone.\nThere are two rows of tall trees here. Under one ^tree# you think that you can see a ^girl#... she appears to be crying.\nTo the $North# is the front porch of the house.'
         rooms[21].visited = False
 
         return True
@@ -308,7 +309,7 @@ class Task:
         self.print_output(feature.get_description())
         feature.state = 2
 
-        rooms[3].long_des = 'You are standing in the Solarium. The air is stiflingly hot and humid. An exit leads to the South.'
+        rooms[3].long_des = 'You are standing in the Solarium. The air is stiflingly hot and humid. An exit leads to the $South#.'
         rooms[3].visited = False
 
         return True
@@ -318,7 +319,7 @@ class Task:
         # "Hear sound elsewhere"
         self.print_output('You the sound of laughter coming from somewhere upstairs.')
         # Change the long description of the kitchen to output the vision. 
-        rooms[9].long_des = 'You find yourself in what seems to be a young girl\'s room. A ghost of a girl is twirling in the center of the room, laughing. She is saying something about birds splashing. She is wearing a white dress, with white spots on it.\n\nThe vision fades. There are toys about and a rocking horse. A music box stands upon a small table.\nThere is a window to the north and a window to the west. A door to the Southwest leads to the second floor landing. A door to the Northwest goes to the pink room.'
+        rooms[9].long_des = 'You find yourself in what seems to be a young girl\'s room. A ^ghost# of a girl is twirling in the center of the room, laughing. She is saying something about birds splashing at a fountain. She is wearing a white dress, with white spots on it.\n\nThe vision fades. There are ^toys# about and a ^rocking horse#. A ^music box# stands upon a small ^table#.\nA door to the $Southwest# leads to the second floor landing. A door to the $Northwest# goes to the pink room.'
         rooms[9].visited = False
 
         return True
@@ -329,7 +330,7 @@ class Task:
         self.print_output(feature.get_description())
         feature.state = 2
 
-        rooms[21].long_des = 'You are on the front lawns of the mansion. A grave is dug at the base of a tree. There is a flower garden nearby bordered in strange stone. You see the mansion to the North.'
+        rooms[21].long_des = 'You are on the front lawns of the mansion. A ^grave# is dug at the base of a ^tree#. There is a flower ^garden# nearby bordered in strange stone. You see the mansion to the $North#.'
         rooms[21].visited = False
 
         return True
@@ -337,13 +338,13 @@ class Task:
     # This is part of game winning sequence B - comfort the ghost daughter
     def shears_task(self, rooms):
         # Change description of the front lawns to alter the apparition of the girl
-        rooms[21].long_des = 'You are on the front lawns of the mansion. The borders of the nearby flower gardens are of curious-looking stone.\nThere are two rows of tall trees here. Under one tree you think that you can see the ghost of a girl...\nTo the North is the front porch of the house.'
+        rooms[21].long_des = 'You are on the front lawns of the mansion. The borders of the nearby flower ^garden# are of curious-looking stone.\nThere are two rows of tall trees here. Under one ^tree# you think that you can see the ghost of a girl...\nTo the $North# is the front porch of the house.'
         rooms[21].visited = False
         # Alter the girl feature
-        rooms[21].features[3].pre_action_des = 'The girl is crying, hovering near a tree. I wonder if this tree might make a good spot for a grave, a makeshift memorial of sorts.'
+        rooms[21].features[3].pre_action_des = 'The ^girl# is crying, hovering near a tree. I wonder if this ^tree# might make a good spot for a ^grave#, a makeshift memorial of sorts.'
         rooms[21].features[3].state = 0
         # Alter the tree feature
-        rooms[21].features[1].pre_action_des = 'This tree seems special. You wonder if it might make a good spot for a grave.'
+        rooms[21].features[1].pre_action_des = 'This ^tree# seems special. You wonder if it might make a good spot for a ^grave#.'
         rooms[21].features[1].state = 0
 
         return True
@@ -354,13 +355,13 @@ class Task:
             self.print_output('You must dig the grave first')
             return False
         else:
-            feature.in_action_des = 'You place the locket at the bottom of the grave, and fill the grave in.\nThe ghost of the girl is here, crying, at the head of the makeshift grave.'
+            feature.in_action_des = 'You place the locket at the bottom of the grave, and fill the ^grave# in.\nThe ghost of the ^girl# is here, crying, at the head of the makeshift ^grave#.'
             feature.state = 1
             self.print_output(feature.get_description())
-            feature.in_action_des = 'The grave is filled in now. The girl is here, crying, at the head of the grave.'
+            feature.in_action_des = 'The ^grave# is filled in now. The ^girl# is here, crying, at the head of the grave.'
             feature.state = 1
 
-            rooms[21].long_des = 'You are on the front lawns of the mansion. The freshly filled grave is here. There are some gardens nearby bordered in strange stone. You see the mansion to the North.'
+            rooms[21].long_des = 'You are on the front lawns of the mansion. The freshly filled ^grave# is here. There is a flower ^garden# nearby. You see the mansion to the $North#.'
             rooms[21].visited = False
 
             return True
@@ -371,15 +372,15 @@ class Task:
             self.print_output('You must dig the grave and place a memorial object within first')
             return False
         else:
-            feature.in_action_des = 'You place the stone at the head of the grave. It looks right.\n\nThe girl is still here, crying. Her hand is outstretched.\nHer dress is white with red splatters.'
+            feature.in_action_des = 'You place the stone at the head of the grave. It looks right.\n\nThe ^girl# is still here, crying. Her hand is outstretched.\nHer dress is white with red splatters.'
             feature.state = 1
             self.print_output(feature.get_description())
-            feature.post_action_des = 'The grave is filled in now. The girl is here, crying, hand outstretched. Her dress is white, spattered in red.'
+            feature.post_action_des = 'The ^grave# is filled in now. The ^girl# is here, crying, hand outstretched. Her dress is white, spattered in red.'
             feature.state = 2
             # Revise the state of the girl to usable for final interaction
             # Move this into a conditional that checks for stone, locket, and spade complete
             rooms[21].features[3].usable = True
-            rooms[21].long_des = 'You are on the front lawns of the mansion. The grave grave is here, with the crying girl above, holding out her hand. There are some gardens nearby bordered in strange stone. You see the mansion to the North.'
+            rooms[21].long_des = 'You are on the front lawns of the mansion. The ^grave# is here, with the crying ^girl# above, holding out her hand. There is a flower ^garden# nearby. You see the mansion to the $North#.'
             rooms[21].visited = False
 
             return True
@@ -397,7 +398,7 @@ class Task:
     # This is part of game losing sequence A - attempt to fight the poltergeist
     def journal_task(self, rooms):
         # Revise description of landing to include apparition entering the linen closet
-        rooms[11].long_des = 'You are on the second floor landing of the house. A grand piano occupies much of the floor space here. A window faces south, overlooking the lawns. There is a staircase spiraling down to the foyer below. You think you see a glowing figure going into the doorway to the Southwest, into the linen closet. A door to the Northeast leads to the greenroom. A door to the Southeast leads to a bath. There is also a door to the Northwest going to the red room.'
+        rooms[11].long_des = 'You are on the second floor landing of the house. A grand ^piano# occupies much of the floor space here. A ^window# faces south, overlooking the lawns. There is a staircase spiraling $down# to the foyer below. You think you see a glowing figure going into the doorway to the $Southwest#, into the linen closet. A door to the $Northeast# leads to the greenroom. A door to the $Southeast# leads to a bath. There is also a door to the $Northwest# going to the red room.'
         rooms[11].visited = False
 
         return True
@@ -407,7 +408,7 @@ class Task:
         # "Hear sound elsewhere"
         self.print_output('You hear what sounds like pans banging, followed by a loud bang downstairs.')
         # Change the long description of the kitchen to output the vision. 
-        rooms[7].long_des = 'You are standing in the Kitchen. A vision washes before your eyes. You see the servant, he is standing with his back to you, shouting at Chef Staker. The Chef is swinging a pan at the servant. There is a bang.\n\nThe servant has shot the Chef in the eye, and the Chef falls to the floor.\n\nThe door to the North goes to the Rose Garden. The door to the East is the formal Dining Room. There are stairs leading down.  There is also a row of drawers along the Northern wall. One drawer has a lock.'
+        rooms[7].long_des = 'You are standing in the kitchen. A vision washes before your eyes. You see the servant, he is standing with his back to you, shouting at Chef Staker. The ^Chef# is swinging a pan at the servant. There is a bang.\n\nThe servant has shot the Chef in the eye, and the Chef falls to the floor.\n\nThe door to the $North# goes to the Rose Garden. The door to the $East# is the formal Dining Room. There are stairs leading $down#.  There is also a row of drawers along the Northern wall. One ^drawer# has a lock.'
         rooms[7].visited = False
 
         return True
@@ -425,10 +426,10 @@ class Task:
     # This is part of game losing sequence B - attempt to comfort undead chef staker
     def journal_greenroom_task(self, rooms, green_room_index):
         # Change the long description of the green room to output the vision.
-        rooms[green_room_index].long_des = 'As you walk into master\'s bedroom your vision blurs and sound washes over you. You see the Chef, yelling something, waving an axe and chasing a woman and a man about the room. The Chef is swinging an axe. The woman and man are running, screaming. Your head swims, and the scene fades.\n\nAs you regain your senses you see a glint of light reflected on the ceiling above the bed. You hear a crashing sound to the South. There is a door to the Southwest that leads back to the second floor landing. There are windows to the North and to the East. A door to the Northwest leads to the pink room.'
+        rooms[green_room_index].long_des = 'As you walk into master\'s bedroom your vision blurs and sound washes over you. You see the Chef, yelling something, waving an axe and chasing a woman and a man about the room. The woman and man are running, screaming. Your head swims, and the scene fades.\n\nAs you regain your senses you see a ^glint# of light reflected on the ceiling above the ^bed#. You hear a crashing sound to the South, from the direction of the bath. There is a door to the $Southwest# that leads back to the second floor landing. A door to the $Northwest# leads to the pink room.'
         rooms[green_room_index].visited = False
         # Change the long description of the second floor bathroom so floor tile is on the floor now
-        rooms[22].long_des = 'You are standing in a bathroom. One of the tiles has fallen to the floor. You see a hollow in the wall where the tile was previously.  A door to the West exits to the landing.'
+        rooms[22].long_des = 'You are standing in a bathroom. One of the tiles has fallen to the floor. You see a ^hollow# in the wall where the tile was previously, near the ^tub#.  A door to the $West# exits to the landing.'
         rooms[22].visited = False
 
         return True
@@ -440,7 +441,7 @@ class Task:
         self.print_output(feature.get_description())
         feature.state = 2
         # Change the description of the servant's quarters to reflect the open door and open East as a direction the player can travel
-        rooms[15].long_des = 'You are in the servant’s dwelling. There is a small table and chairs in a nearby corner. A stack of books sits on top of the table. To the North is the cellar. To the East is a bathroom door which now stands open.'
+        rooms[15].long_des = 'You are in the servant’s dwelling. There is a small ^table# and chairs in a nearby corner. A stack of books sits on top of the table. To the $North# is the cellar. To the $East# is a bathroom door which now stands open.'
         rooms[15].visited = False
         rooms[15].directions['east'] = 16
 
@@ -452,7 +453,7 @@ class Task:
         self.print_output(feature.get_description())
         feature.state = 2
 
-        rooms[13].long_des = 'You are standing in the Attic. Everything remains as it was with one exception: the boards around the walled in area have fallen exposing the entrance to a hidden room to the southeast.'
+        rooms[13].long_des = 'You are standing in the attic. Everything remains as it was with one exception: the boards around the walled in area have fallen exposing the entrance to a hidden room to the $southeast#.'
         rooms[13].visited = False
         rooms[13].directions['southeast'] = 23
 
@@ -545,11 +546,13 @@ class Task:
     def print_output(self, string):
         print()
 
-        if '\n' in string:
-            list_lines = string.splitlines()
-            for x in list_lines:
-                # was 100
-                print(textwrap.fill('{}'.format(x), 100, initial_indent=(' ' * 20), subsequent_indent=(' ' * 20)))
-        # Else player has visited before, output short description
+        # Check for newlines & bold or character signifiers
+        if ('\n' in string) or ('@' in string) or ('^' in string) or ('$' in string) or ('#' in string):
+            processed = wrapper.wrap_processor(string)
+            # Output the string
+            for i in processed:
+                print(i)
+
+        # Else no newlines or bold color signifiers. Simple processing.
         else:
             print(textwrap.fill('{}'.format(string), 100, initial_indent=(' ' * 20), subsequent_indent=(' ' * 20)))

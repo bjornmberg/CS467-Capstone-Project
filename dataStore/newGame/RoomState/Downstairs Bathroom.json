@@ -1,7 +1,7 @@
 {
   "name": "Downstairs Bathroom",
-  "longDes": "You have entered the Downstairs Bathroom. There are no windows (this is a bathroom, after all). As you glance around the room, you notice there is a painting of a young girl. The painting seems to be moving. Above the sink, there is a silver mirror that is just starting to tarnish around the edges. This bathroom is strikingly ordinary for this house. To the North is a blue door leading to the game room. To the South is a door leading to the foyer. ",
-  "shortDes": "You are in the small downstairs bathroom. A small painting of a young girl adorns the wall. There is a blue door to the North leading to the game room. To the South is a door leading to the mansion foyer.",
+  "longDes": "You have entered the downstairs bathroom. There are no windows (this is a bathroom, after all). As you glance around the room, you notice there is a ^painting# of a young girl. The painting seems to be moving. Above the sink, there is a silver ^mirror# that is just starting to tarnish around the edges. This bathroom is strikingly ordinary otherwise. To the $West# is a blue door leading to the game room. To the $South# is a door leading to the foyer. ",
+  "shortDes": "You are in the small downstairs bathroom. A small ^painting# of a young girl adorns the wall. There is a door to the $West# leading to the game room. To the $South# is a door leading to the mansion foyer.",
   "visited": false,
   "startingItems": [],
   "droppedItems": [],

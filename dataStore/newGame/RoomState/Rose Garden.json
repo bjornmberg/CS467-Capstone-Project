@@ -1,7 +1,7 @@
 {
   "name": "Rose Garden",
-  "longDes": "You are in the flower gardens of the mansion grounds. The air seems heavy with the fragrance of roses. At a glance, the roses appear to all be red. A small fountain can be seen near the roses. Some birds are wheeling about in the air above the water. To the East is a gazebo standing over the gardens. To the South is the rear entrance of the mansion.",
-  "shortDes": "You are standing in the rose gardens behind the mansion. The scent of the red roses is almost overpowering. To the East is a white gazebo. To the South is the rear entrance of the house. ",
+  "longDes": "You are in the flower gardens of the mansion grounds. The air seems heavy with the fragrance of roses. At a glance, the ^roses# appear to all be red. A small ^fountain# can be seen near the roses. Some birds are wheeling about in the air above the water. To the $East# is a gazebo standing over the gardens. To the $South# is the rear entrance of the mansion.",
+  "shortDes": "You are standing in the rose gardens behind the mansion. The scent of the red ^roses# is almost overpowering. There is a ^fountain# nearby. To the $East# is a white gazebo. To the $South# is the rear entrance of the house.",
   "visited": false,
   "startingItems": [
     {
@@ -21,8 +21,8 @@
       "name": "fountain",
       "actionable": true,
       "usable": false,
-      "preActionDes": "You look at the fountain. You can see something in the water. Is that a spade?",
-      "inActionDes": "You see a spade at the bottom of the fountain.",
+      "preActionDes": "You look at the fountain. You can see something in the water. Is that a @spade#?",
+      "inActionDes": "You see a @spade# at the bottom of the fountain.",
       "postActionDes": "You found the spade here. You don't see anything else remarkable.",
       "state": 0,
       "featureId": 0
@@ -32,8 +32,8 @@
       "name": "roses",
       "actionable": true,
       "usable": false,
-      "preActionDes": "You look at the roses. In a sea of red, you notice one is white with red spattered on it.",
-      "inActionDes": "These roses are so lovely, perhaps you should take one.",
+      "preActionDes": "You look at the roses. In a sea of red, you notice one @rose# is white with red spattered on it.",
+      "inActionDes": "These roses are so lovely, perhaps you should take one. One @rose# bloom catches your eye, colored white and red. ",
       "postActionDes": "You see a lot of red roses.",
       "state": 0,
       "featureId": 1

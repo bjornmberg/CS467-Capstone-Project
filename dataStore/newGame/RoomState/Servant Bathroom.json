@@ -1,7 +1,7 @@
 {
   "name": "Servant Bathroom",
-  "longDes": "You are standing in a tiny, spartan bathroom. There isn’t much here besides a toilet, sink, and faded mirror. There is a smell in the air here, not of the bathroom but something else that you can’t quite place. There is a small shelf below the bathroom mirror that holds a few of the servant’s things. To the West is the door back to the servant’s quarters.",
-  "shortDes": "You find yourself in the servant’s bathroom. There is not much here of note besides a small shelf below the mirror. A door to the West leads back to the servant’s quarters.",
+  "longDes": "You are standing in a tiny, spartan bathroom. There isn’t much here besides a ^toilet#, ^sink#, and faded ^mirror#. There is a smell in the air here, not of the bathroom but something else that you can’t quite place. There is a small ^shelf# below the bathroom mirror that holds a few of the servant’s things. To the $West# is the door back to the servant’s quarters.",
+  "shortDes": "You find yourself in the servant’s bathroom. There is a ^toilet#, ^sink#, and faded ^mirror#. Really not much of note besides a small ^shelf# below the mirror. A door to the $West# leads back to the servant’s quarters.",
   "visited": false,
   "startingItems": [
     {
@@ -16,7 +16,7 @@
       "name": "shelf",
       "actionable": true,
       "usable": false,
-      "preActionDes": "You see something on the shelf. It appears to be a lock of hair tied in a red ribbon",
+      "preActionDes": "You see something on the shelf. It appears to be a lock of @hair# tied in a red ribbon",
       "inActionDes": "You take the lock of hair from the shelf.",
       "postActionDes": "You took the lock of hair from this ledge.",
       "state": 0,

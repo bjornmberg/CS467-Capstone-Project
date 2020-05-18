@@ -1,7 +1,7 @@
 {
       "name": "Solarium",
-      "longDes": "You have entered the Solarium. The air is warm and amazingly humid, almost to the point of oppressiveness. Plants of all varieties crowd the space. You recognize a few, but most appear exotic and unknown to you. There is an overgrown vine growing against the West wall. The large glass windows look out on the rose garden. The only exit is back to the South. ",
-      "shortDes": "You are in the solarium. The air is warm and humid here. You see the overgrown vine. Glass windows to the north look out onto the rose garden. There is an exit to the South that leads back to the game room.",
+      "longDes": "You have entered the solarium. The air is warm and amazingly humid, almost to the point of oppressiveness. Plants of all varieties crowd the space. You recognize a few, but most appear exotic and unknown to you. There is an overgrown ^vine# growing against the West wall. Large glass ^windows# look out on the rose garden. The only exit is back to the $South#.",
+      "shortDes": "You are in the solarium. The air is warm and humid here. You see the overgrown ^vine#. Glass ^windows# to the north look out onto the rose garden. There is an exit to the $South# that leads back to the game room.",
       "visited": false,
       "startingItems": [
         {
@@ -17,7 +17,7 @@
           "actionable": true,
           "usable": true,
           "preActionDes": "The vine attempts to claw at you. You notice something shiny hanging from one of the vine's tendrils but you can't get close to it with the vine grasping at you.",
-          "inActionDes": "You clip the tendril from the vine and can see a gold locket has fallen to the ground.",
+          "inActionDes": "You clip the tendril from the vine and can see a gold @locket# has fallen to the ground.",
           "postActionDes": "You locket fell from this vine.",
           "state": 0,
           "featureId": 0

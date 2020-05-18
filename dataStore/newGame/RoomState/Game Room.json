@@ -1,7 +1,7 @@
 {
   "name": "Game Room",
-  "longDes": "You have entered the Game Room, this looks like fun. In the center of the room is a dusty pool table. To the West is a large picture window. Is that a picture of dogs playing poker on the wall? A fireplace stands on the east wall, and looks as if it hasn't been used in ages. There is a door with fogged glass to the North; You wonder where it leads. To the South is a door leading back to the library. To the southeast is a blue door that appears to lead to a small bathroom.",
-  "shortDes": "You are in the mansion game room. A pool table occupies the center of the room, and a fireplace stands cold and dark. A window to the west looks out to woods adjacent to the house. There is a door to the north that leads to the solarium. A small blue door to the southwest goes to a small bathroom. To the South is a door to the library.",
+  "longDes": "You have entered the Game Room, this looks like fun. In the center of the room is a dusty ^pool# table. To the West is a large picture ^window#. There is a ^painting# along one wall. A ^fireplace# stands on the east wall, and looks as if it hasn't been used in ages. There is a door with fogged glass to the $North#; You wonder where it leads. To the $South# is a door leading back to the library. To the $East# is a door that appears to lead to a small bathroom.",
+  "shortDes": "You are in the mansion game room. A ^pool# table occupies the center of the room, and a ^fireplace# stands cold and dark. A ^window# to the west looks out to woods adjacent to the house. There is a door to the $North# that leads to the solarium. A small blue door to the $East# goes to a small bathroom. To the $South# is a door to the library.",
   "visited": false,
   "startingItems": [],
   "droppedItems": [],
@@ -42,7 +42,7 @@
       "name": "window",
       "actionable": false,
       "usable": false,
-      "preActionDes": "You look out the window. All you can see is the beginning of a forest.",
+      "preActionDes": "You look out the window. All you can see is the beginning of a dense forest.",
       "inActionDes": "",
       "postActionDes": "",
       "state": 0,
@@ -57,7 +57,7 @@
       "inActionDes": "You shoot the poltergeist with the gun. Immediately the ghost changes color and flies into a rage.",
       "postActionDes": "",
       "state": 0,
-      "featureId": 3
+      "featureId": 4
     }
   ],
   "roomId": 4,

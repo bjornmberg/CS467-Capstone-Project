@@ -1,7 +1,7 @@
 {
   "name": "Green Room",
-  "longDes": "You find yourself in the master’s bedroom. The walls are a deep green, and there are windows to the North and to the East. You see a glint of light on the ceiling above the bed. There is a door to the Southwest that leads back to the second floor landing. A door to the Northwest leads to the pink room.",
-  "shortDes": "You are in the green room, which was the master’s quarters. There is a window to the north and another facing east. A door to the Southwest leads to the second floor landing. A door to the Northwest goes to the pink room.",
+  "longDes": "You find yourself in the master’s bedroom. The walls are a deep green. You see a ^glint# of light on the ceiling above the bed. There is a door to the $Southwest# that leads back to the second floor landing. A door to the $Northwest# leads to the pink room.",
+  "shortDes": "You are in the green room, which was the master’s quarters. A door to the $Southwest# leads to the second floor landing. A door to the $Northwest# goes to the pink room.",
   "visited": false,
   "startingItems": [
     {
@@ -16,8 +16,8 @@
       "name": "bed",
       "actionable": true,
       "usable": false,
-      "preActionDes": "You follow the glint of light to the bed. You see what appears to be an axe sticking out from under the bed.",
-      "inActionDes": "You take the axe from  beneath the bed.",
+      "preActionDes": "You follow the glint of light to the bed. You see what appears to be an @axe# sticking out from under the bed.",
+      "inActionDes": "You take the axe from beneath the bed.",
       "postActionDes": "You found the axe under this bed.",
       "state": 0,
       "featureId": 0
@@ -27,7 +27,7 @@
       "name": "glint",
       "actionable": false,
       "usable": false,
-      "preActionDes": "There is a glint on the ceiling. Tracing it, you notice something coming from the bed.",
+      "preActionDes": "There is a glint on the ceiling. Tracing it, you notice something coming from the ^bed#.",
       "inActionDes": "",
       "postActionDes": "",
       "state": 0,

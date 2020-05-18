@@ -1,7 +1,7 @@
 {
   "name": "Tunnel",
-  "longDes": "The tunnel is dark. You cannot continue without a source of light. The only way is back up through the hole. You notice a small statue with out stretched hands. It appears this once held a valuable object.",
-  "shortDes": "The tunnel is too dark to continue down. The only way is back up through the hole.",
+  "longDes": "The tunnel is dark. You cannot continue without a source of light. The only way is back $up# through the hole. You notice a small ^statue# with out stretched hands. It appears this once held a valuable object.",
+  "shortDes": "The tunnel is too dark to continue down. The only way is back $up# through the hole. There is a small ^statue# here, with outstretched open hands.",
   "visited": false,
   "startingItems": [],
   "droppedItems": [],

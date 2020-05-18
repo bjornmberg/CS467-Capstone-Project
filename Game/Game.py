@@ -12,6 +12,7 @@ from Room import Room
 from Task import Task
 import textwrap
 from languageParser import languageParser
+from Wrapper import wrapper
 
 
 class Game:
@@ -230,7 +231,11 @@ class Game:
 
         # the thing is in the Room so print the description
         if thing_in_room:
-            self.print_output(thing_room_des)
+            print()
+            # Print the feature description via the wrap processor to preserve colors
+            processed = wrapper.wrap_processor(thing_room_des)
+            for i in processed:
+                print(i)
             # Check to see if a task is associated with look operation
             self.tasks.perform_task_on_look(thing_room_des, self.rooms_list, self.hero.time)
             # Hero time increment operation

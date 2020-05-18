@@ -1,7 +1,7 @@
 {
   "name": "Linen Closet",
-  "longDes": "You enter a small linen closet. It is quite dark, making it difficult for you to see everything in this room. You notice that there is only one door in this room to the East (where you entered). Luckily, you left it open a crack to let some light through.. After fumbling around the dark linen room for a few moments, you find a lumpy sack directly in the center of the room.",
-  "shortDes": "You enter a small linen closet. It is quite dark, making it difficult for you to see everything in this room. You notice that there is only one door in this room to the East (where you entered). Luckily, you left it open a crack to let some light through.. After fumbling around the dark linen room for a few moments, you find a lumpy sack directly in the center of the room.",
+  "longDes": "You enter a small linen closet. It is quite dark, making it difficult for you to see everything in this room. You notice that there is only one door in this room to the $East# (where you entered). Luckily, you left it open a crack to let some light through. After fumbling around the dark linen room for a few moments, you find a lumpy ^sack# directly in the center of the room.",
+  "shortDes": "You enter a small linen closet. It is quite dark. There is one door exiting to the $East#. A ^sack# sits in the center of the room.",
   "visited": false,
   "startingItems": [
     {
@@ -16,7 +16,7 @@
       "name": "apparition",
       "actionable": true,
       "usable": false,
-      "preActionDes": "You see an apparition of a servant entering the linen closet.",
+      "preActionDes": "You see an apparition of a servant entering the linen closet. He places something that looks like a @pistol# in the sack.",
       "inActionDes": "He's put something in the small sack in the closet.",
       "postActionDes": "You witnessed an apparition placing something in the sack.",
       "state": 0,
@@ -27,7 +27,7 @@
       "name": "sack",
       "actionable": true,
       "usable": false,
-      "preActionDes": "You feel something hard and lumpy amongst the laundry. Is that a pistol?",
+      "preActionDes": "You look at the ^sack#, and see an ^apparition# appear.",
       "inActionDes": "You take the pistol from the sack of laundry.",
       "postActionDes": "You took the pistol from this sack of laundry.",
       "state": 0,
