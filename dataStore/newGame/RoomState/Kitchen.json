@@ -1,7 +1,7 @@
 {
   "name": "Kitchen",
   "longDes": "You enter what seems to be a kitchen. You can faintly smell the aroma of freshly-baked bread. There is a door to the $North# exiting onto gardens. A door to the $East# leads back to the dining room. Along the North wall, there is a large ^sink# with a ^window# above it. Stairs lead $down# into darkness. There is also a row of drawers along the Northern wall. One ^drawer# has a lock. Just as you finish a quick survey of the room, you notice something (or someone) move in the corner of your eye.\n\nYou turn and see a ghost of a ^chef#. He looks angry, but before you can react the apparition fades.",
-  "shortDes": "You are in the Mansion's kitchen. The door to the North goes to the Rose Garden. The door to the East is the formal Dining Room. There are stairs leading down.  There is also a row of drawers along the Northern wall. One drawer has a lock.",
+  "shortDes": "You are in the Mansion's kitchen. The door to the $North# goes to the Rose Garden. The door to the $East# is the formal Dining Room. There are stairs leading $down#.  There is also a row of drawers along the Northern wall. One ^drawer# has a lock. You see a ^window# above a ^sink# along the north wall.",
   "visited": false,
   "startingItems": [
     {
