@@ -212,6 +212,7 @@ class Game:
         # if the Item was in the Inventory, add it to the dropped_items
         if status:
             current_room.leave_item(dropped_item)
+            self.print_output('You have dropped the {}'.format(item_name))
         else:
             self.print_output('That item is not in your inventory.')
 
