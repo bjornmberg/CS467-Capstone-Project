@@ -32,7 +32,7 @@
       "name": "tree",
       "actionable": true,
       "usable": false,
-      "preActionDes": "An apparition of a young girl hovers near one of the largest trees. The girl points to a pair of @shears# leaned up against the base of the tree",
+      "preActionDes": "An apparition of a young girl hovers near one of the largest trees. The girl points to a pair of @shears# leaned up against the base of the tree.",
       "inActionDes": "You see the pair of shears leaned up against the base of the tree.",
       "postActionDes": "This is where you found the set of shears.",
       "state": 0,

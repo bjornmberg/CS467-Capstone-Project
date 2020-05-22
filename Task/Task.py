@@ -346,6 +346,7 @@ class Task:
     def shears_task(self, rooms):
         # Change description of the front lawns to alter the apparition of the girl
         rooms[21].long_des = 'You are on the front lawns of the mansion. The borders of the nearby flower ^garden# are of curious-looking stone.\nThere are two rows of tall trees here. Under one ^tree# you think that you can see the ghost of a girl...\nTo the $North# is the front porch of the house.'
+        rooms[21].short_des = 'You are on the front lawns of the mansion. The borders of the nearby flower ^garden# are of curious-looking stone.\nThere are two rows of tall trees here. Under one ^tree# you think that you can see the ghost of a girl...\nTo the $North# is the front porch of the house.'
         rooms[21].visited = False
         # Alter the girl feature
         rooms[21].features[3].pre_action_des = 'The ^girl# is crying, hovering near a tree. I wonder if this ^tree# might make a good spot for a ^grave#, a makeshift memorial of sorts.'
@@ -362,11 +363,19 @@ class Task:
             self.print_output('You must dig the grave first')
             return False
         else:
-            feature.in_action_des = 'You place the locket at the bottom of the grave, and fill the ^grave# in.\nThe ghost of the ^girl# is here, crying, at the head of the makeshift ^grave#.'
-            feature.state = 1
-            self.print_output(feature.get_description())
-            feature.in_action_des = 'The ^grave# is filled in now. The ^girl# is here, crying, at the head of the grave.'
-            feature.state = 1
+            # Alter the description based on whether or not the player is in posession of the stone
+            if rooms[21].features[0].state == 3:
+                feature.in_action_des = 'You place the locket at the bottom of the grave, and fill the ^grave# in.\nThe ghost of the ^girl# is here, crying, at the head of the makeshift ^grave#. The ~stone# begins to vibrate.'
+                feature.state = 1
+                self.print_output(feature.get_description())
+                feature.in_action_des = 'The ^grave# is filled in now. The ^girl# is here, crying, at the head of the grave. The ~stone# is vibrating.'
+                feature.state = 1
+            else:
+                feature.in_action_des = 'You place the locket at the bottom of the grave, and fill the ^grave# in.\nThe ghost of the ^girl# is here, crying, at the head of the makeshift ^grave#.'
+                feature.state = 1
+                self.print_output(feature.get_description())
+                feature.in_action_des = 'The ^grave# is filled in now. The ^girl# is here, crying, at the head of the grave.'
+                feature.state = 1
 
             rooms[21].long_des = 'You are on the front lawns of the mansion. The freshly filled ^grave# is here. There is a flower ^garden# nearby. You see the mansion to the $North#.'
             rooms[21].visited = False
