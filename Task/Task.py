@@ -200,6 +200,9 @@ class Task:
         elif thing_description == 'You look at the ^sack#, and see an ^apparition# appear.':
             self.sack_apparition_task(rooms)
             return True
+        elif thing_description == 'You notice something barely sticking out of the hollow.':
+            self.hollow_task(rooms)
+            return True
         return False
 
     def perform_task_on_day(self, day):
@@ -489,6 +492,11 @@ class Task:
         rooms[12].long_des = 'You find yourself in the master’s bedroom. The walls are a deep green. There is a door to the $Southwest# that leads back to the second floor landing. A door to the $Northwest# leads to the pink room. There is a large ^bed# dominating the room.'
         rooms[12].short_des = 'You are in the green room, which was the master’s quarters. A door to the $Southwest# leads to the second floor landing. A door to the $Northwest# goes to the pink room. There is a large ^bed# dominating the room.'
         return True
+
+    # This is part of game winning sequence A - dispatch undead chef staker
+    def hollow_task(self, rooms):
+        rooms[22].features[0].state = 1
+        self.print_output(rooms[22].features[0].in_action_des)
 
     # This is part of game losing sequence B - attempt to comfort undead chef staker
     def key_task(self, feature, rooms):

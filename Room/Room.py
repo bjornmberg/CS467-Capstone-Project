@@ -323,5 +323,19 @@ class Room:
                 status = False
                 item = None
                 return status, item
+        elif item.name == 'key':
+            if self.features[0].state == 1:
+                return status, item
+            else:
+                status = False
+                item = None
+                return status, item
+        elif item.name == 'key':
+            if self.features[0].state == 1:
+                return status, item
+            else:
+                status = False
+                item = None
+                return status, item
         else:
             return status, item

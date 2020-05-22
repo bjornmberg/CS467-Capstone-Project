@@ -16,8 +16,8 @@
       "name": "hollow",
       "actionable": true,
       "usable": false,
-      "preActionDes": "You notice something barely sticking out of the hollow. Is that a @key#?",
-      "inActionDes": "You reach into the hollow and feel something small and metallic. It's a key!",
+      "preActionDes": "You notice something barely sticking out of the hollow.",
+      "inActionDes": "You reach into the hollow and feel something small and metallic. It's a @key#!",
       "postActionDes": "You have taken the key from the hollow.",
       "state": 0,
       "featureId": 0
