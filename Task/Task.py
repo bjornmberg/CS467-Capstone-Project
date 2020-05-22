@@ -34,8 +34,11 @@ class Task:
         """
         # Perform check to determine if this is task driven by taking an item alone
         if feature is None:
+            # Part of game winning sequence A
+            if item.name == 'paintbrush':
+                status =  self.paintbrush_task(rooms)
             # Part of game winning sequence B
-            if item.name == 'knife':
+            elif item.name == 'knife':
                 status =  self.knife_task(rooms)
             # Part of game winning sequence B
             elif item.name == 'book':
@@ -220,8 +223,15 @@ class Task:
         rooms[10].features[0].usable = True
         rooms[10].features[0].pre_action_des = 'This easel holds a blank canvas. There are also oil paints and a @paintbrush# next to it. You feel compelled to paint.'
         # Change the pink room description to reflect the easel and paint ready to use
-        rooms[10].long_des = 'You are in the pink room. The easel is near the window, and a @paintbrush# stands ready nearby. You feel compelled to paint something on the easel. A small and steep staircase leads $up# into the attic. A door to the $West# leads to the red room. Another door to the $East# leads to the green room.'
+        rooms[10].long_des = 'You are in the pink room. The easel is near the window, and a @paintbrush# stands ready nearby on the ^table#. You feel compelled to paint something on the easel. A small and steep staircase leads $up# into the attic. A door to the $West# leads to the red room. Another door to the $East# leads to the green room.'
+        rooms[10].features[2].state = 1
         rooms[10].visited = False
+
+    # This is part of game winning sequence A - dispatch undead chef staker
+    def paintbrush_task(self, rooms):
+        # Paintbrush taken. Set new state of table
+        rooms[10].features[2].state = 2
+        return True
 
     # This is part of game winning sequence A - dispatch undead chef staker
     def easel_task(self, feature, rooms):
