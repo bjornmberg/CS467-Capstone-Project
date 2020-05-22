@@ -326,7 +326,7 @@ class Task:
         # "Hear sound elsewhere"
         self.print_output('You the sound of laughter coming from somewhere upstairs.')
         # Change the long description of the kitchen to output the vision. 
-        rooms[9].long_des = 'You find yourself in what seems to be a young girl\'s room. A ^ghost# of a girl is twirling in the center of the room, laughing. She is saying something about birds splashing at a fountain. She is wearing a white dress, with white spots on it.\n\nThe vision fades. There are ^toys# about and a ^rocking horse#. A ^music box# stands upon a small ^table#.\nA door to the $Southwest# leads to the second floor landing. A door to the $Northwest# goes to the pink room.'
+        rooms[9].long_des = 'You find yourself in what seems to be a young girl\'s room. A ^ghost# of a girl is twirling in the center of the room, laughing. She is saying something about birds splashing at a fountain. She is wearing a white dress, with white spots on it.\n\nThe vision fades. There are ^toys# about and a ^rocking horse#. A ^music box# stands upon a small ^table#.\n\nA door to the $Southwest# leads to the second floor landing. A door to the $Northwest# goes to the pink room.'
         rooms[9].visited = False
 
         return True
