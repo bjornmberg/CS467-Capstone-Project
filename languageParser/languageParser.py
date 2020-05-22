@@ -43,7 +43,7 @@ class LanguageParser:
         self.move_words = ["go", "walk", "move", "jaunt", "run", "step", "stroll", "march", "travel", "proceed",
                            "sprint", "jog"]
 
-        self.look_words = ["look", "glance", "eye", "peak", "view", "stare", "peer", "study", "examine"]
+        self.look_words = ["look", "glance", "eye", "peak", "view", "stare", "peer", "study", "examine", "read"]
 
         self.look_objects = ["windowsill", "crystal", "corner", "east window", "south window", "west window", "toys",
                              "prybar", "pry bar", "ashes", "workbench", "shelves", "box", "padlock", "coffin",
@@ -64,7 +64,7 @@ class LanguageParser:
 
         self.take_words = ["grab", "seize", "lift", "take"]
 
-        self.use_words = ["use", "apply", "put"]
+        self.use_words = ["use", "apply", "put", "pry", "unlock"]
 
         self.drop_words = ["drop", "remove", "dump", "release"]
 
@@ -84,7 +84,7 @@ class LanguageParser:
                          "garden", "down", "hole", "downstairs", "bathroom", "front", "lawns",
                          "upstairs", "pink"]
 
-        self.other_commands = ["map", "inventory", "exit", "help", "save"]
+        self.other_commands = ["map", "inventory", "exit", "help", "save", "time"]
 
     def parse_args(self, rooms_list, hero):
         """
@@ -149,6 +149,11 @@ class LanguageParser:
 
         elif command[0] == "help":
             self.get_help(command)
+
+        elif command[0] == "time":
+            command[0] = "look"
+            command.append("pocketwatch")
+            self.parse_look(command, split_args)
 
         elif command[0] not in self.other_commands:
             self.print_output("Bad command passed.")
@@ -275,7 +280,7 @@ class LanguageParser:
         command[0] = "use"
 
         if len(command) < 3:
-            self.print_output("Error. Invalid objects passed.")
+            self.print_output("Too few arguments passed with use command.")
             return "badcommand"
 
         elif len(command) == 3:
