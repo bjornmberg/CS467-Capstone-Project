@@ -495,9 +495,13 @@ class Task:
         feature.state = 1
         self.print_output(feature.get_description())
         feature.state = 2
-
-        rooms[13].long_des = 'You are standing in the attic. Everything remains as it was with one exception: the boards around the walled in area have fallen exposing the entrance to a hidden room to the $southeast#. There are stairs leading $down# to the pink room. One ^windowsill# among the others catches your eye.'
-        rooms[13].short_des = 'You are in the attic of the mansion. One ^windowsill# in particular catches your eye. A steep staircase leads back $down# to the pink room below. A newly opened entrance to a hidden room is to the $southeast#.'
+        # If the attic has been visited, or not, revise accordingly to describe new room in appropriate manner
+        if rooms[13].visited == True:
+            rooms[13].long_des = 'You are standing in the attic. Everything remains as it was with one exception: the boards around the walled in area have fallen exposing the entrance to a hidden room to the $southeast#. There are stairs leading $down# to the pink room. One ^windowsill# among the others catches your eye.'
+            rooms[13].short_des = 'You are in the attic of the mansion. One ^windowsill# in particular catches your eye. A steep staircase leads back $down# to the pink room below. A newly opened entrance to a hidden room is to the $southeast#.'
+        else:
+            rooms[13].long_des = 'You are standing in the attic. You notice in one corner of the attic some boards have fallen, revealing what seems to be a new path to a small room to the $Southeast#. There are stairs leading $down# to the pink room. One ^windowsill# among the others catches your eye.'
+            rooms[13].short_des = 'You are in the attic of the mansion. One ^windowsill# in particular catches your eye. A steep staircase leads back $down# to the pink room below. To the $Southeast# is an entrance to a small room, wood boards fallen around it seeming to indicate this is a new path.'
         rooms[13].visited = False
         rooms[13].directions['southeast'] = 23
 
