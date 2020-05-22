@@ -313,6 +313,7 @@ class Game:
             self.use(command[1], command[2])
         elif command[0] == 'map':
             inventoryMapScreen.display(self.inventory, current_room.name, self.hero.location, self.rooms_list)
+            current_room.get_description()
         elif command[0] == 'save':
             self.save_game()
         # Check day status on each iteration of the game loop
