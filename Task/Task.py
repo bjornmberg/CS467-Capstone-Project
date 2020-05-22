@@ -269,7 +269,8 @@ class Task:
         self.print_output(feature.get_description())
         feature.state = 2
 
-        rooms[24].long_des = 'The tunnel is now illuminated by the crystal. You see that the tunnel continues further $down# into the darkness.'
+        rooms[24].long_des = 'The tunnel is now illuminated by the crystal. You see that the tunnel continues further $down# into the darkness. You can also go back $up# to the gazebo. The ^statue# is now holding the crystal.'
+        rooms[24].long_des = 'The tunnel is now illuminated by the crystal. You see that the tunnel continues further $down#. You can also go back $up# to the gazebo.'
         rooms[24].visited = False
         rooms[24].directions['down'] = 17
 

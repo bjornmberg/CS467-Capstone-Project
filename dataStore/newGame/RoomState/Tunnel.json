@@ -11,7 +11,7 @@
       "actionable": false,
       "usable": true,
       "preActionDes": "The statue with outstretched hands appears to have once held a valuable object.",
-      "inActionDes": "You place the crystal into the hands of the statue.",
+      "inActionDes": "You place the crystal into the hands of the statue. You notice that the tunnel continues $down#.",
       "postActionDes": "The tunnel is now illuminated by the glowing crystal.",
       "state": 0,
       "featureId": 0
