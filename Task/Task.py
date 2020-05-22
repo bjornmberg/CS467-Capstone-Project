@@ -527,11 +527,13 @@ class Task:
             selection = -1
             while selection not in (1, 2):
                 self.print_output('\nYou have a choice to make... \n "1" You attempt to fight the enraged poltergeist, shooting the pistol again. \n "2" In a panic you throw the rest of the ashes into the fire.\n\n')
-                selection = int(input('What will it be? '))
+                selection = int(input((' ' * 20) + 'What will it be? '))
             # If selection 1, output the appropriate losing message and exit the game
             if selection == 1:
                 os.system('clear')
-                self.print_output('\n\nYou shoot the poltergeist again and again, pulling the trigger over and over until the gun is empty.\nThe poltergeist laughs terribly.\n\nThe last thing you see is the ghost rushing toward you in a blur.\n\nThere is no pain.')
+                self.print_output('\n\nYou shoot the poltergeist again and again, pulling the trigger over and over until the gun is empty.\nThe poltergeist laughs terribly.\n\n')
+                time.sleep(7)
+                self.print_output('The last thing you see is the ghost rushing toward you in a blur.\n\nThere is no pain.')
                 time.sleep(7)
                 os.system('clear')
                 print('\nThank you for playing. You have lost.\n')
@@ -539,7 +541,9 @@ class Task:
             # Elif selection 1, output the appropriate losing message and exit the game
             elif selection == 2:
                 os.system('clear')
-                self.print_output('\n\nThe fireplace explodes in a violent burst of flames, casting you across the room.\n\nYou are lying the floor, and vaguely you see the flames are... everywhere now.\nYou hear the poltergeist shrieking. The mansion is engulfed in the subsequent inferno.\n\nYou are no more, but neither is the horror of the mansion.')
+                self.print_output('\n\nThe fireplace explodes in a violent burst of flames, casting you across the room.\n\nYou are lying the floor, and vaguely you see the flames are... everywhere now.\nYou hear the poltergeist shrieking. The mansion is engulfed in the subsequent inferno.\n\n')
+                time.sleep(7)
+                self.print_output('You are no more, but neither is the horror of the mansion.')
                 time.sleep(7)
                 os.system('clear')
                 print('\nThank you for playing. You have lost.\n')
