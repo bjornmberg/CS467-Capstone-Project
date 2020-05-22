@@ -191,6 +191,9 @@ class Task:
                 else:
                     time = math.floor(time)
                     self.print_output('The time is currently {}'.format(time) + ':00' + meridiem)
+        elif thing_description == 'You look at the ^sack#, and see an ^apparition# appear.':
+            self.sack_apparition_task(rooms)
+            return True
         return False
 
     def perform_task_on_day(self, day):
@@ -406,6 +409,11 @@ class Task:
         rooms[11].visited = False
 
         return True
+
+    # This is part of game winning sequence A - dispatch undead chef staker
+    def sack_apparition_task(self, rooms):
+        # Change the pre_action_des of the sack to indicate the updated description on witnessing the apparition
+        rooms[8].features[1].pre_action_des = 'You look at the ^sack# again. You think that you see an ^apparition#...'
 
     # This is a part of game losing sequence A - attempt to fight the poltergeist
     def pistol_task(self, rooms):
