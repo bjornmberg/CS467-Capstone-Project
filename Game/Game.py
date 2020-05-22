@@ -298,7 +298,13 @@ class Game:
             self.drop(command[1])
         elif command[0] == 'look':
             if len(command) == 1:
-                self.print_output(current_room.long_des)
+                # If room has not been visited, output long description. Else, short.
+                if current_room.visited == False:
+                    processed = wrapper.wrap_processor(current_room.long_des)
+                else:
+                    processed = wrapper.wrap_processor(current_room.short_des)
+                for i in processed:
+                    print(i)
                 # Hero time increment operation
                 self.hero.time = self.hero.set_time()
             else:
