@@ -49,9 +49,12 @@ class Task:
             # Part of game losing sequence A
             elif item.name == 'journal':
                 status =  self.journal_task(rooms)
-            # Part of game losing sequence B
+            # Part of game losing sequence A
             elif item.name == 'pistol':
                 status =  self.pistol_task(rooms)
+            # Part of game losing sequence B
+            elif item.name == 'axe':
+                status =  self.axe_task(rooms)
             return False
         status = False
 
@@ -462,6 +465,15 @@ class Task:
         rooms[22].long_des = 'You are standing in a bathroom. One of the tiles has fallen to the floor. You see a ^hollow# in the wall where the tile was previously, near the ^tub#.  A door to the $West# exits to the landing.'
         rooms[22].visited = False
 
+        return True
+
+    # This is part of game losing sequence B - attempt to comfort undead chef staker
+    def axe_task(self, rooms):
+        # Axe taken. Set new state of glint
+        rooms[12].features[1].state = 3
+        # Set descriptions of green room to remove the glint
+        rooms[12].long_des = 'You find yourself in the master’s bedroom. The walls are a deep green. There is a door to the $Southwest# that leads back to the second floor landing. A door to the $Northwest# leads to the pink room. There is a large ^bed# dominating the room.'
+        rooms[12].short_des = 'You are in the green room, which was the master’s quarters. A door to the $Southwest# leads to the second floor landing. A door to the $Northwest# goes to the pink room. There is a large ^bed# dominating the room.'
         return True
 
     # This is part of game losing sequence B - attempt to comfort undead chef staker

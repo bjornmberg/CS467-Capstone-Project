@@ -29,7 +29,7 @@
       "usable": false,
       "preActionDes": "There is a glint on the ceiling. Tracing it, you notice something coming from the ^bed#.",
       "inActionDes": "",
-      "postActionDes": "",
+      "postActionDes": "The glint is there no longer. You had traced that to the axe.",
       "state": 0,
       "featureId": 1
     },
