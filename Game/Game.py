@@ -119,6 +119,7 @@ class Game:
         """
         # set the current room to where the hero is located
         current_room = self.rooms_list[self.hero.location]
+        current_room.set_visited()
 
         # check to see if the direction to move possible within that room
         if direction in current_room.directions:
@@ -284,7 +285,6 @@ class Game:
         :return: VOID
         """
         current_room = self.rooms_list[self.hero.location]
-        current_room.set_visited()
 
         command = self.parser.parse_args(self.rooms_list, self.hero)
 
