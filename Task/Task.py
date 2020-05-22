@@ -202,11 +202,13 @@ class Task:
     def perform_task_on_day(self, day):
         # One day has passed. output warning to the user.
         if day == 1:
-            self.print_output('You hear a voice in your head. It sounds like the poltergeist.\n\n"...one day has now passed. What have you accomplished?\n\nYou have one day left. After that... you will be here forever."')
-        # Two days have passed. Commence end_game based on expiration of time limit
+            self.print_output('You hear a voice in your head. It sounds like the poltergeist.\n\n"...one day has now passed. What have you accomplished?\n\nYou have two days left. After that... you will be here forever.\n"')
+        # Two days have passed. Output last warning to user
         if day == 2:
+            self.print_output('You hear a voice in your head. It\'s the poltergeist again...\n\n"...two days have now come and gone.\n\nYou have one day left.\nHurry... I will not warn you again.\n"')
+        # Three days have passed. Commence end_game based on expiration of time limit
+        if day == 3:
             self.end_game(None, None)
-
     # THE BELOW TASKS ARE ALL ASSOCIATED WITH ACTIONS WITHIN THE GAME
     # DUE TO THE NUMBER OF THEM AND THE FACT THAT THEY ARE ALL SIMILIAR
     # DOCSTRINGS ARE NOT PROVIDED
@@ -521,7 +523,7 @@ class Task:
         if feature is None and sequence is None:
             os.system('clear')
             self.print_output('\n')
-            self.print_output('\n\n\nThe room before you vanishes in a haze and the poltergeist appears before you.\n\nI told you that you had two days to resolve matters here. You have failed.\n\nIt is time...\n\n')
+            self.print_output('\n\n\nThe scene before you vanishes in a haze and the poltergeist appears before you.\n\nI told you that you had two days to resolve matters here. You have failed.\n\nIt is time...\n\n')
             time.sleep(7)
             self.print_output('You find yourself in the servant\'s quarters. You look down at yourself, and see you are wearing a tattered servant\'s suit.\n\nYou can\'t see your feet or your hands clearly, they are hazy, and you can see through them.\n\nYou feel cold, very cold.')
             time.sleep(7)

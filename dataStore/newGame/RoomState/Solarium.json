@@ -23,10 +23,10 @@
           "featureId": 0
         },
         {
-          "name": "window",
+          "name": "windows",
           "actionable": false,
           "usable": false,
-          "preActionDes": "You look out the window and see a beautiful, but overgrown, rose garden.",
+          "preActionDes": "You look out the windows and see a beautiful, but overgrown, rose garden.",
           "inActionDes": "",
           "postActionDes": "",
           "state": 0,
