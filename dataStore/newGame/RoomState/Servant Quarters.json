@@ -43,6 +43,16 @@
       "postActionDes": "You have unlocked this door.",
       "state": 0,
       "featureId": 2
+    },
+    {
+      "name": "books",
+      "actionable": false,
+      "usable": false,
+      "preActionDes": "The books are heavily dogeared. They appear to by mystery novels.",
+      "inActionDes": "",
+      "postActionDes": "",
+      "state": 0,
+      "featureId":3
     }
   ],
   "roomId": 15,
