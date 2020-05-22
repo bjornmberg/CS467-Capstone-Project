@@ -248,6 +248,8 @@ class Task:
         rooms[17].short_des = 'You are standing in the crypt below the mansion. There is a rank, foul odor on the air here. A large rectangular crate, much like a ^coffin#, dominates the center of the room. Your ~knife# is shining lightly in the darkness. There is a $door# leading back to the tunnel.'
         # Set the feature description of the chef to include shining knife
         rooms[17].features[2].pre_action_des = 'The glowing green eye of the ^chef# seems to track you, but the chef is otherwise still. The markings on your ~knife# are glowing.'
+        # Set the feature description of the padlock to include shining knife
+        rooms[17].features[1].in_action_des = 'You pry the ^padlock# open. The steel shatters as you apply all of the force you can muster.\n\nYou push the ^coffin# lid to the side. The markings on your ~knife# glow more strongly now.'
         return True
 
     # This is part of game winning sequence A - dispatch undead chef staker
