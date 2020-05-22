@@ -385,6 +385,9 @@ class LanguageParser:
         if len(command) > 3:
             self.print_output("Error. Too many arguments passed.")
 
+        if command[1] == "box":
+            command[1] = "ashes"
+
         return command
 
     def get_help(self, helpList):
