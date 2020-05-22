@@ -1,5 +1,6 @@
 import os
 import shutil
+# I get an import error here in pylint in VS Code. However, the import is working fine. Tested colors as well and functions.
 from Wrapper import wrapper
 
 # Initialize some variables for use in displaying the credits screen
@@ -16,7 +17,7 @@ def display():
     :return: VOID
     """
 
-    intro_string = 'It is a ^crisp# fall day. You\'re walking along a dirt trail about a half hour out from your new hometown in Pembroke Falls, Maine. Your feet crunch on fallen leaves. The sun is starting to go down and you really should get back, you think to yourself. You haven\'t explored this trail before and you would not want to get lost.\n\n\nYou think you hear a stick cracking, but it was not due to you.\n\n\n What was that?            ...            Maybe there is someone else here?\n\n\nYou look around but see nothing. Or you think you saw nothing. There was a blur by a tree behind you, but that must just be a bird... right?\n\nYou hear a sound like a woosh. You  see a flash of light as you are struck from behind. You fall forward and all goes black.\n\n'
+    intro_string = 'It is a crisp fall day. You\'re walking along a dirt trail about a half hour out from your new hometown in Pembroke Falls, Maine. Your feet crunch on fallen leaves. The sun is starting to go down and you really should get back, you think to yourself. You haven\'t explored this trail before and you would not want to get lost.\n\n\nYou think you hear a stick cracking, but it was not due to you.\n\n\n What was that?            ...            Maybe there is someone else here?\n\n\nYou look around but see nothing. Or you think you saw nothing. There was a blur by a tree behind you, but that must just be a bird... right?\n\nYou hear a sound like a woosh. You  see a flash of light as you are struck from behind. You fall forward and all goes black.\n\n'
 
     selection = -1
     while selection != ' ':
