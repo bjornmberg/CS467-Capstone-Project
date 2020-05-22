@@ -45,6 +45,6 @@ def display():
         print(('▒' + (' ' * buffer) + thirdName + (' ' * buffer) + '▒').center(centerLeftRight))
         print(('▒' + (' ' * halfWidthLessBorder) + '▒').center(centerLeftRight))
         print(('▒' * halfWidth).center(centerLeftRight))
-        print('\n' * (lastLine - 2))
+        print('\n' * (lastLine + 1))
         selection = input('press \'enter\' to return to main menu  ')
         selection = ' ' + selection
