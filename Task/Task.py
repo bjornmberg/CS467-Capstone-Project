@@ -343,7 +343,9 @@ class Task:
         # Change the long description of the kitchen to output the vision. 
         rooms[9].long_des = 'You find yourself in what seems to be a young girl\'s room. A ^ghost# of a girl is twirling in the center of the room, laughing. She is saying something about birds splashing at a fountain. She is wearing a white dress, with white spots on it.\n\nThe vision fades. There are ^toys# about and a ^rocking horse#. A ^music box# stands upon a small ^table#.\n\nA door to the $Southeast# leads to the second floor landing. A door to the $Northwest# goes to the pink room.'
         rooms[9].visited = False
-
+        # Change the in_action and post_action descriptions of the grave to take into account posession of the locket
+        rooms[21].features[2].in_action_des = 'You dig a hole at the bottom of the tree, making a makeshift ^grave#.\n\nThe ~locket# you took from the Solarium glows in your hand now. Should you place it in the grave?'
+        rooms[21].features[2].post_action_des = 'This is where you dug the ^grave#. Maybe you should place the ~locket# there?'
         return True
 
     # This is part of game winning sequence B - comfort the ghost daughter
