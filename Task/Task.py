@@ -505,8 +505,8 @@ class Task:
         self.print_output(feature.get_description())
         feature.state = 2
         # Change the description of the servant's quarters to reflect the open door and open East as a direction the player can travel
-        rooms[15].long_des = 'You are in the servant’s dwelling. There is a small ^table# and chairs in a nearby corner. A stack of books sits on top of the table. To the $North# is the cellar. To the $East# is a bathroom door which now stands open.'
-        rooms[15].short_des = 'You are in the servant’s quarters. A ^table# stands nearby with books stacked upon it. A ^small bed# occupies the space opposite. A door to the $North# returns to the cellar proper. To the $East# a door to a bathroom stands open.'
+        rooms[15].long_des = 'You are in the servant’s dwelling. There is a small ^table# and chairs in a nearby corner. A stack of ^books# sits on top of the table. To the $North# is the cellar. To the $East# is a bathroom door which now stands open.'
+        rooms[15].short_des = 'You are in the servant’s quarters. A ^table# stands nearby with ^books# stacked upon it. A ^small bed# occupies the space opposite. A door to the $North# returns to the cellar proper. To the $East# a door to a bathroom stands open.'
         rooms[15].visited = False
         rooms[15].directions['east'] = 16
 
