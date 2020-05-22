@@ -42,6 +42,28 @@
           "postActionDes": "",
           "state": 0,
           "featureId": 2
+        },
+        {
+
+          "name": "chairs",
+          "actionable": false,
+          "usable": false,
+          "preActionDes": "The chairs are old and worn looking.",
+          "inActionDes": "",
+          "postActionDes": "",
+          "state": 0,
+          "featureId": 3
+        },
+        {
+
+          "name": "tables",
+          "actionable": false,
+          "usable": false,
+          "preActionDes": "The tables are bare.",
+          "inActionDes": "",
+          "postActionDes": "",
+          "state": 0,
+          "featureId": 4
         }
       ],
       "roomId": 2,
