@@ -1,6 +1,6 @@
 {
       "name": "Library",
-      "longDes": "You have entered a library. Some chairs and small tables face windows. There is a ^south window# and a ^west window#. There is a large bookcase lining one wall. To the $North# is a door to a game room. The $East# door leads back to the foyer.",
+      "longDes": "You have entered a library. Some chairs and small tables face windows. There is a ^south window# and a ^west window#. There is a large ^bookcase# lining one wall. To the $North# is a door to a game room. The $East# door leads back to the foyer.",
       "shortDes": "You are in the mansion library. There is windows facing out, one ^south window# and a ^west window#. There is a massive ^bookcase# along one wall. A door to the $North# leads to the game room. There is also a doorway to the $East# that leads back to the foyer.",
       "visited": false,
       "startingItems": [
