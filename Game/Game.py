@@ -250,7 +250,7 @@ class Game:
             self.hero.time = self.hero.set_time()
         # not in the Room or the Inventory
         else:
-            print('You do not see a {}'.format(thing))
+            print((' ' * 20) + 'You do not see a {}.'.format(thing))
 
     def save_game(self):
         """Saves the state of the Game to save files
