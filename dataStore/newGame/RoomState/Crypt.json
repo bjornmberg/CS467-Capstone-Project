@@ -32,7 +32,7 @@
       "name": "chef",
       "actionable": false,
       "usable": true,
-      "preActionDes": "The glowing green eye of the chef seems to track you, but the chef is otherwise still. The markings on the knife are glowing.",
+      "preActionDes": "The glowing green eye of the chef seems to track you, but the chef is otherwise still.",
       "inActionDes": "You thrust the knife at the chef, right at his glowing green eye.",
       "postActionDes": "You thrust the knife at the chef, right at his glowing green eye.",
       "state": 0,
