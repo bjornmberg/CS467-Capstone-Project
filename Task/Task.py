@@ -203,9 +203,9 @@ class Task:
         # One day has passed. output warning to the user.
         if day == 1:
             self.print_output('You hear a voice in your head. It sounds like the poltergeist.\n\n"...one day has now passed. What have you accomplished?\n\nYou have one day left. After that... you will be here forever."')
-        # Two days have passed. Commence endgame based on expiration of time limit
+        # Two days have passed. Commence end_game based on expiration of time limit
         if day == 2:
-            self.endGame(None, None)
+            self.end_game(None, None)
 
     # THE BELOW TASKS ARE ALL ASSOCIATED WITH ACTIONS WITHIN THE GAME
     # DUE TO THE NUMBER OF THEM AND THE FACT THAT THEY ARE ALL SIMILIAR
@@ -303,7 +303,7 @@ class Task:
         self.print_output(feature.get_description())
         feature.state = 2
         # Pass feature and sequence letter
-        self.endGame(feature, "A")
+        self.end_game(feature, "A")
 
     # This is part of game winning sequence B - comfort the ghost daughter
     def book_task(self, rooms):
@@ -413,12 +413,12 @@ class Task:
             return True
 
     # This is part of game winning sequence B - comfort the ghost daughter
-    # When the player uses the rose on the girl, endGame is triggered:
+    # When the player uses the rose on the girl, end_game is triggered:
     def rose_task(self, feature, rooms):
         feature.in_action_des = 'You place the rose in the hand of the girl.\n\nThe girl stops crying, and looks up at you.\n\nShe says... "thank you".'
         feature.state = 1
 
-        self.endGame(feature, "B")
+        self.end_game(feature, "B")
 
         return True
 
@@ -447,14 +447,14 @@ class Task:
         return True
 
     # This is a part of game losing sequence A - attempt to fight the poltergeist
-    # When the player uses ashes on the fireplace, endGame is triggered:
+    # When the player uses ashes on the fireplace, end_game is triggered:
     def ashes_fireplace_task(self, feature, rooms):
         os.system('clear')
         feature.state = 1
         self.print_output(feature.get_description())
         feature.state = 2
 
-        self.endGame(feature, "A")
+        self.end_game(feature, "A")
 
     # This is part of game losing sequence B - attempt to comfort undead chef staker
     def journal_greenroom_task(self, rooms, green_room_index):
@@ -504,15 +504,15 @@ class Task:
         return True
 
     # This is a part of game losing sequence B - attempt to comfort undead chef staker
-    # When the player uses lock of hair on the chef, endGame is triggered:
+    # When the player uses lock of hair on the chef, end_game is triggered:
     def hair_task(self, feature, rooms):
         os.system('clear')
         feature.state = 1
         self.print_output(feature.get_description())
-        self.endGame(feature, "B")
+        self.end_game(feature, "B")
 
-    # Method handler for endGame choices and interactions. Could be a different class
-    def endGame(self, feature, sequence):
+    # Method handler for end_game choices and interactions. Could be a different class
+    def end_game(self, feature, sequence):
         # Check for expiration of time losing sequence
         if feature is None and sequence is None:
             os.system('clear')
@@ -527,7 +527,7 @@ class Task:
             print('\nThank you for playing. You have lost.\n')
             exit()
 
-        # endGame sequence for Game Winning Sequence A
+        # end_game sequence for Game Winning Sequence A
         if feature.name == 'chef' and sequence == 'A':
             os.system('clear')
             self.print_output('\n')
@@ -539,7 +539,7 @@ class Task:
             print('\nThank you for playing. You have won the game.\n')
             exit()
 
-        # endGame sequence for Game Winning Sequence B
+        # end_game sequence for Game Winning Sequence B
         if feature.name == 'girl' and sequence == 'B':
             os.system('clear')
             self.print_output('\n')
@@ -551,7 +551,7 @@ class Task:
             print('\nThank you for playing. You have won the game.\n')
             exit()
 
-        # endGame sequence for Game Losing Sequence A
+        # end_game sequence for Game Losing Sequence A
         if feature.name == 'fireplace' and sequence == 'A':
             selection = -1
             while selection not in (1, 2):
@@ -578,7 +578,7 @@ class Task:
                 print('\nThank you for playing. You have lost.\n')
                 exit()
 
-        # endGame sequence for Game Losing Sequence B
+        # end_game sequence for Game Losing Sequence B
         if feature.name == 'chef' and sequence == 'B':
             os.system('clear')
             self.print_output('\n')
