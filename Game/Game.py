@@ -13,6 +13,7 @@ from Task import Task
 import textwrap
 from languageParser import languageParser
 from Wrapper import wrapper
+import random
 
 
 class Game:
@@ -317,6 +318,13 @@ class Game:
             current_room.get_description()
         elif command[0] == 'save':
             self.save_game()
+
+        elif command[0] == 'play' and command[1] == 'pool':
+            if current_room.name == 'Game Room':
+                self.play_pool()
+            else:
+                print(' ' * 20 + "You can't do that here.")
+
         # Check day status on each iteration of the game loop
         self.check_day()
 
@@ -368,3 +376,16 @@ class Game:
         day = self.hero.check_time()
         if day:
             self.tasks.perform_task_on_day(day)
+
+    def play_pool(self):
+        rand_number = random.randint(0, 100) % 2
+        if rand_number == 0:
+            print(' ' * 20 + "You size up the Poltergeist. You know you can take down this clown.\n")
+            print(' ' * 20 + "In a flurry of quick strikes, he promptly and decidedly beats you.\n")
+            print(' ' * 20 + "I don't lose. Better luck next try.")
+        else:
+            print(' ' * 20 + "You're not sure if you can beat the Poltergeist at his own game.\n")
+            print(' ' * 20 + "Taking careful aim, you sink all of your balls without giving him a turn.")
+            print(' ' * 20 + "You sink the 8-ball! You've won!\n")
+            print(' ' * 20 + "The Polgergist is very unhappy. He breaks his cue against the pool table.")
+            print(' ' * 20 + "Perhaps you should consider leaving this room and let him cool off for a bit.")
