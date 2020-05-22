@@ -51,12 +51,11 @@ class LanguageParser:
                              "garden", "tree", "grave tree", "fireplace", "pool", "window", "plank", "axe", "vision",
                              "bed", "glint", "chef", "knife", "drawer", "sink", "key", "piano", "book", "bookcase",
                              "north window", "pistol", "apparition", "sack", "pocketwatch", "pocket watch",
-                             "poltergeist",
-                             "couch", "fireplace", "table", "easel", "loom", "left gargoyle", "right gargoyle", "paint",
-                             "music box", "bed", "rocking horse", "rose", "spade", "fountain", "roses", "hair",
-                             "door lock", "shelf", "toilet", "sink", "mirror", "journal", "locket", "vine", "window",
-                             "statue", "tile", "hollow", "grave", "girl", "lock", "paintbrush", "grill", "tub", "windows",
-                             "chairs", "tables", "small bed"]
+                             "poltergeist", "couch", "fireplace", "table", "easel", "loom", "left gargoyle", 
+                             "right gargoyle", "paint", "music box", "bed", "rocking horse", "rose", "spade", 
+                             "fountain", "roses", "hair", "door lock", "shelf", "toilet", "sink", "mirror", "journal", 
+                             "locket", "vine", "window", "statue", "tile", "hollow", "grave", "girl", "lock", 
+                             "paintbrush", "grill", "tub", "windows", "chairs", "tables", "small bed", "drawers"]
 
         self.tw_look_objects = ["window", "sill", "east", "window", "west", "south", "pry", "bar", "pad", "lock",
                                 "undead", "chef", "grave", "tree", "book", "case", "north", "pocket", "watch", "left",
@@ -261,6 +260,9 @@ class LanguageParser:
                 command[1] = temp_word
                 while len(command) > 2:
                     command.pop()
+
+        if command[1] == "drawers":
+            command[1] = "drawer"
 
         return command
 
