@@ -104,15 +104,22 @@ class Inventory:
             if len(self.items) == 1:
                 print((' ' * 20) + self.items[0].name)
             elif len(self.items) == 2:
-                print((' ' * 20) + self.items[0].name, end=' and a ')
-                print(self.items[1].name)
+                if self.items[1].name == 'shears' or self.items[1].name == 'ashes':
+                    print((' ' * 20) + self.items[0].name, end=' and ')
+                    print(self.items[1].name)
+                else:
+                    print((' ' * 20) + self.items[0].name, end=' and a ')
+                    print(self.items[1].name)
             else:
                 print((' ' * 19), end=' ')
                 for x in range(0, len(self.items)):
                     if x < (len(self.items) - 1):
                         print(self.items[x].name, end=', ')
                     else:
-                        print('and a ' + self.items[x].name)
+                        if self.items[x].name == 'shears' or self.items[x].name == 'ashes':
+                            print('and ' + self.items[x].name)
+                        else:
+                            print('and a ' + self.items[x].name)
         else:
             print('\n' + (' ' * 20) + 'Your inventory is empty.')
 
@@ -126,14 +133,21 @@ class Inventory:
             if len(self.items) == 1:
                 print(self.items[0].name)
             elif len(self.items) == 2:
-                print(self.items[0].name, end=' and a ')
-                print(self.items[1].name)
+                if self.items[1].name == 'shears' or self.items[1].name == 'ashes':
+                    print(self.items[0].name, end=' and ')
+                    print(self.items[1].name)
+                else:
+                    print(self.items[0].name, end=' and a ')
+                    print(self.items[1].name)
             else:
                 for x in range(0, len(self.items)):
                     if x < (len(self.items) - 1):
                         print(self.items[x].name, end=', ')
                     else:
-                        print('and a ' + self.items[x].name)
+                        if self.items[x].name == 'shears' or self.items[x].name == 'ashes':
+                            print('and ' + self.items[x].name)
+                        else:
+                            print('and a ' + self.items[x].name)
         else:
             print('Your inventory is empty.')
 
