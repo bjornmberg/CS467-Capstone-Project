@@ -388,11 +388,19 @@ class Task:
             self.print_output('You must dig the grave and place a memorial object within first')
             return False
         else:
-            feature.in_action_des = 'You place the stone at the head of the grave. It looks right.\n\nThe ^girl# is still here, crying. Her hand is outstretched.\nHer dress is white with red splatters.'
-            feature.state = 1
-            self.print_output(feature.get_description())
-            feature.post_action_des = 'The ^grave# is filled in now. The ^girl# is here, crying, hand outstretched. Her dress is white, spattered in red.'
-            feature.state = 2
+            # Alter the description based on whether or not the player is in posession of the rose
+            if rooms[19].features[1].state == 3:
+                feature.in_action_des = 'You place the stone at the head of the grave. It looks right.\n\nThe ^girl# is still here, crying. Her hand is outstretched.\nHer dress is white with red splatters. The colors of the ~rose# seem to get more vibrant, almost blindingly so.'
+                feature.state = 1
+                self.print_output(feature.get_description())
+                feature.post_action_des = 'The ^grave# is filled in now. The ^girl# is here, crying, hand outstretched. Her dress is white, spattered in red. The ~rose# is very bright now.'
+                feature.state = 2
+            else:
+                feature.in_action_des = 'You place the stone at the head of the grave. It looks right.\n\nThe ^girl# is still here, crying. Her hand is outstretched.\nHer dress is white with red splatters.'
+                feature.state = 1
+                self.print_output(feature.get_description())
+                feature.post_action_des = 'The ^grave# is filled in now. The ^girl# is here, crying, hand outstretched. Her dress is white, spattered in red.'
+                feature.state = 2
             # Revise the state of the girl to usable for final interaction
             # Move this into a conditional that checks for stone, locket, and spade complete
             rooms[21].features[3].usable = True
