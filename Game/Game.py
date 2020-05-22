@@ -191,7 +191,7 @@ class Game:
 
             # False Item status - item is not in the Inventory
             elif not item_status:
-                print('There is no {} in the inventory.'.format(str_item))
+                print((' ' * 20) + 'There is no {} in the inventory.'.format(str_item))
 
     def drop(self, item_name):
         """Removes an Item from the Inventory and leaves it in a Room
