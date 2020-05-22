@@ -242,7 +242,7 @@ class Task:
         self.print_output(feature.get_description())
         feature.state = 2
         # "Hear sound elsewhere output"
-        self.print_output('You hear piano music playing from somewhere to the South.')
+        self.print_output('You hear piano music playing from somewhere to the south.')
         # Change the landing description to reflect the playing piano
         rooms[11].long_des = 'You are on the second floor landing of the house. A grand ^piano# is here, playing music on it\'s own. A ^window# faces south, overlooking the lawns. There is a staircase spiraling $down# to the foyer below. A door to the $Northeast# leads to the green room. A door to the $Southeast# leads to a bath. There is also a door to the $Southwest# heading to a linen closet, and a door to the $Northwest# going to the red room.'
         rooms[11].visited = False
@@ -256,7 +256,7 @@ class Task:
         feature.state = 1
         self.print_output(feature.get_description())
         # Change the room short description and reprint the room description
-        rooms[7].short_des = 'You are in the Mansion\'s kitchen. The door to the North goes to the Rose Garden. The door to the East is the formal Dining Room. There are stairs leading down.  There is also a row of drawers along the Northern wall. One drawer unlocked and now open.'
+        rooms[7].short_des = 'You are in the Mansion\'s kitchen. The door to the $North# goes to the Rose Garden. The door to the east is the formal Dining Room. There are stairs leading down.  There is also a row of drawers along the northern wall. One ^drawer# unlocked and now open.'
         rooms[7].visited = True
         return True
 
@@ -457,7 +457,7 @@ class Task:
         # "Hear sound elsewhere"
         self.print_output('You hear what sounds like pans banging, followed by a loud bang downstairs.')
         # Change the long description of the kitchen to output the vision.
-        rooms[7].long_des = 'You are standing in the kitchen. A vision washes before your eyes. You see the servant, he is standing with his back to you, shouting at Chef Staker. The ^Chef# is swinging a pan at the servant. There is a bang.\n\nThe servant has shot the Chef in the eye, and the Chef falls to the floor.\n\nThe door to the $North# goes to the Rose Garden. The door to the $East# is the formal Dining Room. There are stairs leading $down#.  There is also a row of drawers along the Northern wall. One ^drawer# has a lock.'
+        rooms[7].long_des = 'You are standing in the kitchen. A vision washes before your eyes. You see the servant, he is standing with his back to you, shouting at Chef Staker. The ^Chef# is swinging a pan at the servant. There is a bang.\n\nThe servant has shot the Chef in the eye, and the Chef falls to the floor.\n\nThe door to the $North# goes to the Rose Garden. The door to the $East# is the formal Dining Room. There are stairs leading $down#.  There is also a row of drawers along the northern wall. One ^drawer# has a lock.'
         rooms[7].visited = False
         # Change the state of the apparition to indicate pistol taken
         rooms[8].features[0].state = 2
@@ -476,7 +476,7 @@ class Task:
     # This is part of game losing sequence B - attempt to comfort undead chef staker
     def journal_greenroom_task(self, rooms, green_room_index):
         # Change the long description of the green room to output the vision.
-        rooms[green_room_index].long_des = 'As you walk into master\'s bedroom your vision blurs and sound washes over you. You see the Chef, yelling something, waving an axe and chasing a woman and a man about the room. The woman and man are running, screaming. Your head swims, and the scene fades.\n\nAs you regain your senses you see a ^glint# of light reflected on the ceiling above the ^bed#. You hear a crashing sound to the South, from the direction of the bath. There is a door to the $Southwest# that leads back to the second floor landing. A door to the $Northwest# leads to the pink room.'
+        rooms[green_room_index].long_des = 'As you walk into master\'s bedroom your vision blurs and sound washes over you. You see the Chef, yelling something, waving an axe and chasing a woman and a man about the room. The woman and man are running, screaming. Your head swims, and the scene fades.\n\nAs you regain your senses you see a ^glint# of light reflected on the ceiling above the ^bed#. You hear a crashing sound to the south, from the direction of the bath. There is a door to the $Southwest# that leads back to the second floor landing. A door to the $Northwest# leads to the pink room.'
         rooms[green_room_index].visited = False
         # Change the long description of the second floor bathroom so floor tile is on the floor now
         rooms[22].long_des = 'You are standing in a bathroom. One of the tiles has fallen to the floor. You see a ^hollow# in the wall where the tile was previously, near the ^tub#.  A door to the $West# exits to the landing.'
@@ -519,8 +519,8 @@ class Task:
         feature.state = 2
         # If the attic has been visited, or not, revise accordingly to describe new room in appropriate manner
         if rooms[13].visited == True:
-            rooms[13].long_des = 'You are standing in the attic. Everything remains as it was with one exception: the boards around the walled in area have fallen exposing the entrance to a hidden room to the $southeast#. There are stairs leading $down# to the pink room. One ^windowsill# among the others catches your eye.'
-            rooms[13].short_des = 'You are in the attic of the mansion. One ^windowsill# in particular catches your eye. A steep staircase leads back $down# to the pink room below. A newly opened entrance to a hidden room is to the $southeast#.'
+            rooms[13].long_des = 'You are standing in the attic. Everything remains as it was with one exception: the boards around the walled in area have fallen exposing the entrance to a hidden room to the $Southeast#. There are stairs leading $down# to the pink room. One ^windowsill# among the others catches your eye.'
+            rooms[13].short_des = 'You are in the attic of the mansion. One ^windowsill# in particular catches your eye. A steep staircase leads back $down# to the pink room below. A newly opened entrance to a hidden room is to the $Southeast#.'
         else:
             rooms[13].long_des = 'You are standing in the attic. You notice in one corner of the attic some boards have fallen, revealing what seems to be a new path to a small room to the $Southeast#. There are stairs leading $down# to the pink room. One ^windowsill# among the others catches your eye.'
             rooms[13].short_des = 'You are in the attic of the mansion. One ^windowsill# in particular catches your eye. A steep staircase leads back $down# to the pink room below. To the $Southeast# is an entrance to a small room, wood boards fallen around it seeming to indicate this is a new path.'

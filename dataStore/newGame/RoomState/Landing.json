@@ -1,6 +1,6 @@
 {
   "name": "Landing",
-  "longDes": "You are at the top of the grand staircase, at a landing on the second floor.\n\nA grand ^piano# stands in front of a large picture ^window# to the South. To the $Northeast# is a door to a bedroom. To the $Southeast# is a bathroom. There is a door to the $Southwest#, through which you can see linens. A door to the $Northwest# leads to a room with red walls. The spiral staircase goes $down# to the foyer below.",
+  "longDes": "You are at the top of the grand staircase, at a landing on the second floor.\n\nA grand ^piano# stands in front of a large picture ^window# to the south. To the $Northeast# is a door to a bedroom. To the $Southeast# is a bathroom. There is a door to the $Southwest#, through which you can see linens. A door to the $Northwest# leads to a room with red walls. The spiral staircase goes $down# to the foyer below.",
   "shortDes": "You are on the second floor landing of the house. A grand ^piano# occupies much of the floor space here. A ^window# faces south. There is a staircase spiraling $down# to the foyer below. A door to the $Northeast# leads to the green room. A door to the $Southeast# leads to a bath. There is also a door to the $Southwest# heading to a linen closet, and a door to the $Northwest# going to the red room.",
   "visited": false,
   "startingItems": [

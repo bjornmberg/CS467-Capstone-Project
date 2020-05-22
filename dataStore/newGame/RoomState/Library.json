@@ -37,7 +37,7 @@
           "name": "west window",
           "actionable": false,
           "usable": false,
-          "preActionDes": "You look at the forest West of the house. It goes for miles.",
+          "preActionDes": "You look at the forest west of the house. It seems to go on for miles.",
           "inActionDes": "",
           "postActionDes": "",
           "state": 0,
