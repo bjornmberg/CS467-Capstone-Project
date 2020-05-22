@@ -316,5 +316,12 @@ class Room:
                 status = False
                 item = None
                 return status, item
+        elif item.name == 'knife':
+            if self.features[1].state == 1:
+                return status, item
+            else:
+                status = False
+                item = None
+                return status, item
         else:
             return status, item
