@@ -411,10 +411,11 @@ class Task:
     def pistol_task(self, rooms):
         # "Hear sound elsewhere"
         self.print_output('You hear what sounds like pans banging, followed by a loud bang downstairs.')
-        # Change the long description of the kitchen to output the vision. 
+        # Change the long description of the kitchen to output the vision.
         rooms[7].long_des = 'You are standing in the kitchen. A vision washes before your eyes. You see the servant, he is standing with his back to you, shouting at Chef Staker. The ^Chef# is swinging a pan at the servant. There is a bang.\n\nThe servant has shot the Chef in the eye, and the Chef falls to the floor.\n\nThe door to the $North# goes to the Rose Garden. The door to the $East# is the formal Dining Room. There are stairs leading $down#.  There is also a row of drawers along the Northern wall. One ^drawer# has a lock.'
         rooms[7].visited = False
-
+        # Change the state of the apparition to indicate pistol taken
+        rooms[8].features[0].state = 2
         return True
 
     # This is a part of game losing sequence A - attempt to fight the poltergeist

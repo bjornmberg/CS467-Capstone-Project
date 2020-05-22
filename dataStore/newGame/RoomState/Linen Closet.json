@@ -18,7 +18,7 @@
       "usable": false,
       "preActionDes": "You see an apparition of a servant entering the linen closet. He places something that looks like a @pistol# in the sack.",
       "inActionDes": "He's put something in the small sack in the closet.",
-      "postActionDes": "You witnessed an apparition placing something in the sack.",
+      "postActionDes": "You witnessed an apparition placing something in the sack. The apparition is now gone.",
       "state": 0,
       "featureId": 0
     },
