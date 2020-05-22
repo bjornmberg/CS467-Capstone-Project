@@ -50,7 +50,7 @@ class Inventory:
             self.items.append(item)
             print('\n' + (' ' * 20) + '{} - added to your inventory.\n'.format(item.name), end='')
         else:
-            print('You cannot hold anymore items in your inventory.')
+            print('\n' + (' ' * 20) + 'You cannot hold anymore items in your inventory.')
 
     def remove_item(self, item):
         """Removes an Item from the items list
@@ -92,7 +92,6 @@ class Inventory:
             return success, item
         # Else success is fals and Item is None
         else:
-            print('That item is not in your inventory.')
             return success, None
 
     def show_inventory(self):

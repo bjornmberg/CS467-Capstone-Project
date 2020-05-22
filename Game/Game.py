@@ -212,7 +212,7 @@ class Game:
         if status:
             current_room.leave_item(dropped_item)
         else:
-            self.print_output("That item is not in your inventory.")
+            self.print_output('That item is not in your inventory.')
 
     def look_at_something(self, thing):
         """Gets the description of an Item or Feature in a Room or Inventory
