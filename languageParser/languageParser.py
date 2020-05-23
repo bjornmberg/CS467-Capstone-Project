@@ -56,7 +56,7 @@ class LanguageParser:
                              "fountain", "roses", "hair", "door lock", "shelf", "toilet", "sink", "mirror", "journal", 
                              "locket", "vine", "window", "statue", "tile", "hollow", "grave", "girl", "lock", 
                              "paintbrush", "grill", "tub", "windows", "chairs", "tables", "small bed", "drawers", 
-                             "pool", "books"]
+                             "pool", "books", "ghost"]
 
         self.tw_look_objects = ["window", "sill", "east", "window", "west", "south", "pry", "bar", "pad", "lock",
                                 "undead", "chef", "grave", "tree", "book", "case", "north", "pocket", "watch", "left",
