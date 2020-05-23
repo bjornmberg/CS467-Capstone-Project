@@ -226,7 +226,7 @@ class Task:
         rooms[10].features[0].usable = True
         rooms[10].features[0].pre_action_des = 'This easel holds a blank canvas. There are also oil paints and a @paintbrush# next to it. You feel compelled to paint.'
         # Change the pink room description to reflect the easel and paint ready to use
-        rooms[10].long_des = 'You are in the pink room. The easel is near the window, and a @paintbrush# stands ready nearby on the ^table#. You feel compelled to paint something on the easel. A small and steep staircase leads $up# into the attic. A door to the $West# leads to the red room. Another door to the $East# leads to the green room.'
+        rooms[10].long_des = 'You are in the pink room. The easel is near the window, and a @paintbrush# stands ready nearby on the ^table#. You feel compelled to paint something on the ^easel#. A small and steep staircase leads $up# into the attic. A door to the $West# leads to the red room. Another door to the $East# leads to the green room.'
         rooms[10].features[2].state = 1
         rooms[10].visited = False
 

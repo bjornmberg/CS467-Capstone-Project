@@ -75,6 +75,19 @@ class Inventory:
 
         return False, None
 
+    def key_in_inventory(self, str_input):
+        """Check that a specific key Item is in the items list and return the key Item object
+
+        :param str str_input: the item being searched for, by description
+        :return: True if Item present and Item, False if Item not present and None
+        """
+        for x in range(0, len(self.items)):
+            if self.items[x].description == str_input:
+                # return True, x
+                return True, self.items[x]
+
+        return False, None
+
     def drop_item(self, str_input):
         """Pops an Item from the inventory and provides status and feedback
 

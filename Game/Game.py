@@ -173,8 +173,23 @@ class Game:
         if not feat_status:
             print('There is no {} in the room.'.format(str_feature))
         else:
-            # check that the item is in the inventory and get it
-            item_status, item = self.inventory.in_inventory(str_item)
+            # Key counter variable to check if user has both keys in posession
+            key_counter = 0
+            for x in self.inventory.items:
+                if x.name == 'key':
+                    key_counter += 1
+            # If user has both keys, get the appropriate one for the room (kitchen or servant's quarters)
+            if key_counter == 2:
+                if current_room.room_id == 7:
+                    str_item = 'A small ornate key.'
+                    item_status, item = self.inventory.key_in_inventory(str_item)
+                elif current_room.room_id == 15:
+                    str_item = 'A simple key.'
+                    item_status, item = self.inventory.key_in_inventory(str_item)
+
+            if key_counter != 2:
+                # check that the item is in the inventory and get it
+                item_status, item = self.inventory.in_inventory(str_item)
 
             # if the item is in the inventory and the feature is in the room
             if feat_status and item_status:
