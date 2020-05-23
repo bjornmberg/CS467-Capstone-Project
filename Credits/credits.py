@@ -11,13 +11,22 @@ halfWidth = cols // 2
 halfWidthLessBorder = halfWidth - 2
 
 # Function calculates the border buffer on each side for lines with text
-def borderCalculator(strToCalc):
+def borderCalculator(str_to_calc):
+    """Calculates values for use in outputing border
+
+    :param string str_to_calc: string output on current line
+    :return: integer value for spacing on either side of string for proper formatting
+    """
     # If not even value, division will result in botched borders. Add a space to end of string as workaround
-    if len(strToCalc) % 2 != 0:
-        strToCalc = strToCalc + ' '
-    return (halfWidthLessBorder - len(strToCalc)) // 2, strToCalc
+    if len(str_to_calc) % 2 != 0:
+        str_to_calc = str_to_calc + ' '
+    return (halfWidthLessBorder - len(str_to_calc)) // 2, str_to_calc
 
 def display():
+    """Displays the credits to the screen
+    :param:
+    :return:
+    """
     selection = -1
     while selection != ' ':
         os.system('clear')
