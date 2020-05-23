@@ -289,6 +289,11 @@ class LanguageParser:
             return "badcommand"
 
         elif len(command) == 3:
+            # Check for pry plank command. If so, reverse the order behind-the-scenes for proper operation
+            if command[1] == 'plank':
+                temp = 'plank'
+                command[1] = command[2]
+                command[2] = temp
             if command[1] not in self.look_objects or command[2] not in self.look_objects:
                 self.print_output("Error. Invalid objects passed.")
                 return "badcommand"
