@@ -1,6 +1,10 @@
 import os
 
 def display(inventory, heroLocationName, heroLocationId, rooms):
+    """Displays the current inventory to screen and calls helper function printMap to display map
+    :param: Inventory inventory, string heroLocationName, intenger heroLocationId, list rooms
+    :return:
+    """
     selection = -1
 
     while selection != ' ':
@@ -33,6 +37,10 @@ def display(inventory, heroLocationName, heroLocationId, rooms):
     os.system('clear')
 
 def printMap(mapChoice, rooms):
+    """Displays the map to the screen
+    :param: integer mapChoice, list rooms
+    :return:
+    """
     first_floor = """
        ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
        ▒                                                                                                             ▒
