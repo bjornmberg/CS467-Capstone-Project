@@ -206,6 +206,11 @@ class Task:
         return False
 
     def perform_task_on_day(self, day):
+        """Checks day to determine what task should be run
+
+        :param integer day
+        :return:
+        """
         # One day has passed. output warning to the user.
         if day == 1:
             self.print_output('You hear a voice in your head. It sounds like the poltergeist.\n\n"...one day has now passed. What have you accomplished?\n\nYou have two days left. After that... you will be here forever.\n"')
@@ -221,6 +226,11 @@ class Task:
 
     # This is part of game winning sequence A - dispatch undead chef staker
     def dog_easel_task(self, rooms):
+        """ Changes feature status, feature description, and room description of pink room
+
+        :param: list rooms
+        :return:
+        """
         # Set the easel to usable and actionable
         rooms[10].features[0].actionable = True
         rooms[10].features[0].usable = True
@@ -232,12 +242,22 @@ class Task:
 
     # This is part of game winning sequence A - dispatch undead chef staker
     def paintbrush_task(self, rooms):
+        """ Changes feature state of table in pink room
+
+        :param: list rooms
+        :return: bool True
+        """
         # Paintbrush taken. Set new state of table
         rooms[10].features[2].state = 2
         return True
 
     # This is part of game winning sequence A - dispatch undead chef staker
     def easel_task(self, feature, rooms):
+        """ Changes feature state of easel, prints to screen, changes feature state and description in landing
+
+        :param: Feature feature, list rooms
+        :return: bool True
+        """
         feature.state = 1
         self.print_output(feature.get_description())
         feature.state = 2
@@ -253,6 +273,11 @@ class Task:
 
     # This is part of game winning sequence A - dispatch undead chef staker
     def key_drawer_task(self, feature, rooms):
+        """ Changes feature state of drawer, prints to screen, changes description of kitchen
+
+        :param: Feature feature, list rooms
+        :return: bool True
+        """
         feature.state = 1
         self.print_output(feature.get_description())
         # Change the room short description and reprint the room description
@@ -262,6 +287,11 @@ class Task:
 
     # This is part of game winning sequence A - dispatch undead chef staker
     def knife_task(self, rooms):
+        """ Changes feature state of drawer, changes descriptions and features in crypt based on acquisition of knife
+
+        :param: list rooms
+        :return: bool True
+        """
         # Knife taken. Set new state of drawer
         rooms[7].features[1].state = 2
         # Set descriptions of crypt to include the shining knife
@@ -274,33 +304,12 @@ class Task:
         return True
 
     # This is part of game winning sequence A - dispatch undead chef staker
-    def prybar_plank_task(self, feature, rooms):
-        feature.state = 1
-        self.print_output(feature.get_description())
-        feature.state = 2
-
-        rooms[18].long_des = 'You are standing in the gazebo. You have uncovered a tunnel under the gazebo... it heads $down# into darkness. There is a sweet and sour smell on the air here, like something good has turned. A ^grill# stands in the corner. To the $West# are the rose gardens.'
-        rooms[18].short_des = 'You are standing in the gazebo. There is a sweet and sour smell on the air here, like something good has turned. A ^grill# stands in the corner. To the $West# are the rose gardens. A tunnel heads $down# into darkness below the gazebo.'
-        rooms[18].visited = False
-        rooms[18].directions['down'] = 24
-
-        return True
-
-    # This is part of game winning sequence A - dispatch undead chef staker
-    def crystal_statue_task(self, feature, rooms):
-        feature.state = 1
-        self.print_output(feature.get_description())
-        feature.state = 2
-
-        rooms[24].long_des = 'The tunnel is now illuminated by the crystal. You see that the tunnel continues further $down# into the darkness. You can also go back $up# to the gazebo. The ^statue# is now holding the crystal.'
-        rooms[24].short_des = 'The tunnel is now illuminated by the crystal. You see that the tunnel continues further $down#. You can also go back $up# to the gazebo.'
-        rooms[24].visited = False
-        rooms[24].directions['down'] = 17
-
-        return True
-
-    # This is part of game winning sequence A - dispatch undead chef staker
     def prybar_padlock_task(self, feature, rooms):
+        """ Changes feature state of padlock, changes descriptions and features in crypt based on opening of padlock
+
+        :param: list rooms
+        :return: bool True
+        """
         feature.state = 1
         self.print_output(feature.get_description())
         feature.state = 2
@@ -314,6 +323,11 @@ class Task:
 
     # This is part of game winning sequence A - dispatch undead chef staker
     def knife_chef_task(self, feature, rooms):
+        """ Changes feature state of chef, outputs to screen, calls end_game method to begin end-of-game sequence on use of knife on chef
+
+        :param: list rooms
+        :return: bool True
+        """
         feature.state = 1
         self.print_output(feature.get_description())
         feature.state = 2
@@ -322,14 +336,60 @@ class Task:
 
     # This is part of game winning sequence B - comfort the ghost daughter
     def book_task(self, rooms):
+        """ Changes feature description of front lawns based on acquisition of book
+
+        :param: list rooms
+        :return: bool True
+        """
         # Change description of the front lawns to display the apparition of the girl
         rooms[21].long_des = 'You are on the front lawns of the mansion. The borders of the nearby flower ^garden# are of curious-looking stone.\nThere are two rows of tall trees here. Under one ^tree# you think that you can see a ^girl#... she appears to be crying.\nTo the $North# is the front porch of the house.'
         rooms[21].visited = False
 
         return True
 
+    # This is part of game winning sequence A - dispatch undead chef staker
+    def prybar_plank_task(self, feature, rooms):
+        """ Changes feature state of plank, prints to screen, changes description of gazebo and adds new direction option - down
+
+        :param: Feature feature, list rooms
+        :return: bool True
+        """
+        feature.state = 1
+        self.print_output(feature.get_description())
+        feature.state = 2
+
+        rooms[18].long_des = 'You are standing in the gazebo. You have uncovered a tunnel under the gazebo... it heads $down# into darkness. There is a sweet and sour smell on the air here, like something good has turned. A ^grill# stands in the corner. To the $West# are the rose gardens.'
+        rooms[18].short_des = 'You are standing in the gazebo. There is a sweet and sour smell on the air here, like something good has turned. A ^grill# stands in the corner. To the $West# are the rose gardens. A tunnel heads $down# into darkness below the gazebo.'
+        rooms[18].visited = False
+        rooms[18].directions['down'] = 24
+
+        return True
+
+    # This is part of game winning sequence A - dispatch undead chef staker
+    def crystal_statue_task(self, feature, rooms):
+        """ Changes feature state of statue, prints to screen, changes description of tunnel and adds new direction option - down
+
+        :param: Feature feature, list rooms
+        :return: bool True
+        """
+        feature.state = 1
+        self.print_output(feature.get_description())
+        feature.state = 2
+
+        rooms[24].long_des = 'The tunnel is now illuminated by the crystal. You see that the tunnel continues further $down# into the darkness. You can also go back $up# to the gazebo. The ^statue# is now holding the crystal.'
+        rooms[24].short_des = 'The tunnel is now illuminated by the crystal. You see that the tunnel continues further $down#. You can also go back $up# to the gazebo.'
+        rooms[24].visited = False
+        rooms[24].directions['down'] = 17
+
+        return True
+
     # This is part of game winning sequence B - comfort the ghost daughter
     def shears_vine_task(self, feature, rooms):
+        """ Changes feature state of vine, prints to screen, changes description of solarium based on use of shears on vine
+
+        :param: Feature feature, list rooms
+        :return: bool True
+        """
         feature.state = 1
         self.print_output(feature.get_description())
         feature.state = 2
@@ -341,6 +401,11 @@ class Task:
 
     # This is part of game winning sequence B - comfort the ghost daughter
     def locket_task(self, rooms):
+        """ Prints to screen, changes room description of red room, & changes later feature states of grave feature based on acquisition of locket
+
+        :param: list rooms
+        :return: bool True
+        """
         # "Hear sound elsewhere"
         self.print_output('You the sound of laughter coming from somewhere upstairs.')
         # Change the long description of the kitchen to output the vision. 
@@ -353,6 +418,11 @@ class Task:
 
     # This is part of game winning sequence B - comfort the ghost daughter
     def spade_task(self, feature, rooms):
+        """ Changes feature state of grave, prints to screen, changes description of front lawns based on digging of grave
+
+        :param: Feature feature, list rooms
+        :return: bool True
+        """
         feature.state = 1
         self.print_output(feature.get_description())
         feature.state = 2
@@ -364,6 +434,11 @@ class Task:
 
     # This is part of game winning sequence B - comfort the ghost daughter
     def shears_task(self, rooms):
+        """ Changes descriptions of front lawn, girl, and tree in front lawn based on acquisition of shears
+
+        :param: list rooms
+        :return: bool True
+        """
         # Change description of the front lawns to alter the apparition of the girl
         rooms[21].long_des = 'You are on the front lawns of the mansion. The borders of the nearby flower ^garden# are of curious-looking stone.\nThere are two rows of tall trees here. Under one ^tree# you think that you can see the ghost of a girl...\nTo the $North# is the front porch of the house.'
         rooms[21].short_des = 'You are on the front lawns of the mansion. The borders of the nearby flower ^garden# are of curious-looking stone.\nThere are two rows of tall trees here. Under one ^tree# you think that you can see the ghost of a girl...\nTo the $North# is the front porch of the house.'
@@ -379,6 +454,11 @@ class Task:
 
     # This is part of game winning sequence B - comfort the ghost daughter
     def locket_grave_task(self, feature, rooms):
+        """ Checks if grave is dug, and based on if so (or not), changes state of grave, prints to screen, and changes room description on use of locket on grave
+
+        :param: Feature feature, list rooms
+        :return: bool True
+        """
         if feature.state != 2:
             self.print_output('You must dig the grave first')
             return False
@@ -404,6 +484,11 @@ class Task:
 
     # This is part of game winning sequence B - comfort the ghost daughter
     def stone_task(self, feature, rooms):
+        """ Checks if grave is dug and locket placed, and based on if so (or not), changes state of grave, prints to screen, and changes room description on use of stone on grave
+
+        :param: Feature feature, list rooms
+        :return: bool True
+        """
         if feature.state != 1:
             self.print_output('You must dig the grave and place a memorial object within first')
             return False
@@ -432,6 +517,11 @@ class Task:
     # This is part of game winning sequence B - comfort the ghost daughter
     # When the player uses the rose on the girl, end_game is triggered:
     def rose_task(self, feature, rooms):
+        """ Changes in_action_des of girl and changes state of girl, then calls end_game method to commence end-of-game sequence
+
+        :param: Feature feature, list rooms
+        :return: bool True
+        """
         feature.in_action_des = 'You place the rose in the hand of the girl.\n\nThe girl stops crying, and looks up at you.\n\nShe says... "thank you".'
         feature.state = 1
 
@@ -441,6 +531,11 @@ class Task:
 
     # This is part of game losing sequence A - attempt to fight the poltergeist
     def journal_task(self, rooms):
+        """ Changes description of landing based on acquisition of journal
+
+        :param: list rooms
+        :return: bool True
+        """
         # Revise description of landing to include apparition entering the linen closet
         rooms[11].long_des = 'You are on the second floor landing of the house. A grand ^piano# occupies much of the floor space here. A ^window# faces south, overlooking the lawns. There is a staircase spiraling $down# to the foyer below. You think you see a glowing figure going into the doorway to the $Southwest#, into the linen closet. A door to the $Northeast# leads to the greenroom. A door to the $Southeast# leads to a bath. There is also a door to the $Northwest# going to the red room.'
         rooms[11].visited = False
@@ -449,11 +544,21 @@ class Task:
 
     # This is part of game winning sequence A - dispatch undead chef staker
     def sack_apparition_task(self, rooms):
+        """ Changes sack feature description based action of looking at sack 1x
+
+        :param: list rooms
+        :return: bool True
+        """
         # Change the pre_action_des of the sack to indicate the updated description on witnessing the apparition
         rooms[8].features[1].pre_action_des = 'You look at the ^sack# again. You think that you see an ^apparition#...'
 
     # This is a part of game losing sequence A - attempt to fight the poltergeist
     def pistol_task(self, rooms):
+        """ Prints to screen, changes kitchen description and state of apparition based on acquisition of pistol
+
+        :param: list rooms
+        :return: bool True
+        """
         # "Hear sound elsewhere"
         self.print_output('You hear what sounds like pans banging, followed by a loud bang downstairs.')
         # Change the long description of the kitchen to output the vision.
@@ -466,6 +571,11 @@ class Task:
     # This is a part of game losing sequence A - attempt to fight the poltergeist
     # When the player uses ashes on the fireplace, end_game is triggered:
     def ashes_fireplace_task(self, feature, rooms):
+        """ Changes state of fireplace, prints to screen, and calls end_game method to commence end-of-game sequence
+
+        :param: Feature feature, list rooms
+        :return: bool True
+        """
         os.system('clear')
         feature.state = 1
         self.print_output(feature.get_description())
@@ -475,6 +585,11 @@ class Task:
 
     # This is part of game losing sequence B - attempt to comfort undead chef staker
     def journal_greenroom_task(self, rooms, green_room_index):
+        """ Changes description of green room & of upstairs bathroom based on acquisition of journal and entry to green room
+
+        :param: list rooms, integer green_room_index
+        :return: bool True
+        """
         # Change the long description of the green room to output the vision.
         rooms[green_room_index].long_des = 'As you walk into master\'s bedroom your vision blurs and sound washes over you. You see the Chef, yelling something, waving an axe and chasing a woman and a man about the room. The woman and man are running, screaming. Your head swims, and the scene fades.\n\nAs you regain your senses you see a ^glint# of light reflected on the ceiling above the ^bed#. You hear a crashing sound to the south, from the direction of the bath. There is a door to the $Southwest# that leads back to the second floor landing. A door to the $Northwest# leads to the pink room.'
         rooms[green_room_index].visited = False
@@ -486,6 +601,11 @@ class Task:
 
     # This is part of game losing sequence B - attempt to comfort undead chef staker
     def axe_task(self, rooms):
+        """ Changes state of glint and description of green room based on acquisition of axe
+
+        :param: list rooms
+        :return: bool True
+        """
         # Axe taken. Set new state of glint
         rooms[12].features[1].state = 3
         # Set descriptions of green room to remove the glint
@@ -495,11 +615,21 @@ class Task:
 
     # This is part of game winning sequence A - dispatch undead chef staker
     def hollow_task(self, rooms):
+        """ Changes state of hollow based on looking at the hollow 1x and prints to screen
+
+        :param: list rooms
+        :return: bool True
+        """
         rooms[22].features[0].state = 1
         self.print_output(rooms[22].features[0].in_action_des)
 
     # This is part of game losing sequence B - attempt to comfort undead chef staker
     def key_task(self, feature, rooms):
+        """ Changes state of lock, prints to screen, change description of servant's quarters, and opens new direction option - East, on use of key with lock
+
+        :param: Feature feature, list rooms
+        :return: bool True
+        """
         # Unlock the door
         feature.state = 1
         self.print_output(feature.get_description())
@@ -514,6 +644,11 @@ class Task:
 
     # This is part of game losing sequence B - attempt to comfort undead chef staker
     def axe_armor_task(self, feature, rooms):
+        """ Changes state of armor, description of attic (based on if visted or not previously), with use of axe on armor
+
+        :param: Feature feature, list rooms
+        :return: bool True
+        """
         feature.state = 1
         self.print_output(feature.get_description())
         feature.state = 2
@@ -532,6 +667,11 @@ class Task:
     # This is a part of game losing sequence B - attempt to comfort undead chef staker
     # When the player uses lock of hair on the chef, end_game is triggered:
     def hair_task(self, feature, rooms):
+        """ Changes state of chef based on use of lock of hair on chef, prints to screen, and calls end_game method to commence end-of-game sequence
+
+        :param: Feature feature, list rooms
+        :return: bool True
+        """
         os.system('clear')
         feature.state = 1
         self.print_output(feature.get_description())
@@ -539,6 +679,11 @@ class Task:
 
     # Method handler for end_game choices and interactions. Could be a different class
     def end_game(self, feature, sequence):
+        """ Checks to determine what feature and sequence ID string (if any), are passed. Based on input, clears screen and outputs end-game sequence to user
+
+        :param: Feature feature, string sequence
+        :return: bool True
+        """
         # Check for expiration of time losing sequence
         if feature is None and sequence is None:
             os.system('clear')
