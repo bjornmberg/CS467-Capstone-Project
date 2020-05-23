@@ -262,8 +262,10 @@ class LanguageParser:
                 while len(command) > 2:
                     command.pop()
 
-        if command[1] == "drawers":
-            command[1] = "drawer"
+
+        if len(command) > 1:
+            if command[1] == "drawers":
+                command[1] = "drawer"
 
         return command
 
