@@ -186,10 +186,18 @@ class Game:
                 elif current_room.room_id == 15:
                     str_item = 'A simple key.'
                     item_status, item = self.inventory.key_in_inventory(str_item)
-
-            if key_counter != 2:
-                # check that the item is in the inventory and get it
-                item_status, item = self.inventory.in_inventory(str_item)
+                else:
+                    item_status = False
+            # If the key_counter is 2 but item_status is False it means that user was not in the kitchen or servant's quarters
+            # when attempting to use the key. Get the first key item and move on
+            if key_counter == 2:
+                if item_status == False:
+                    # check that the item is in the inventory and get it
+                    item_status, item = self.inventory.in_inventory(str_item)
+            # Else user doesn't have 2 keys - attempt to get the item
+            elif key_counter != 2:
+                    # check that the item is in the inventory and get it
+                    item_status, item = self.inventory.in_inventory(str_item)
 
             # if the item is in the inventory and the feature is in the room
             if feat_status and item_status:
