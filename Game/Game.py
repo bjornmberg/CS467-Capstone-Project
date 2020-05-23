@@ -397,7 +397,7 @@ class Game:
 
     def check_day(self):
         # Check to see if new day. If not, a Null is returned. Else an integer corresponding to the day
-        day = self.hero.check_time()
+        day = self.hero.check_day()
         if day:
             self.tasks.perform_task_on_day(day)
 

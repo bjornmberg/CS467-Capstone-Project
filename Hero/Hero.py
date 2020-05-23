@@ -44,7 +44,7 @@ class Hero:
             self.day += 1
         return self.time
 
-    def check_time(self):
+    def check_day(self):
         """Checks the day.
 
         :return: int: the integer of the day, or else none if not on a 

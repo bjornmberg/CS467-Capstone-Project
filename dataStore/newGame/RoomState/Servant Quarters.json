@@ -48,8 +48,8 @@
       "name": "books",
       "actionable": false,
       "usable": false,
-      "preActionDes": "The books are heavily dogeared. They appear to by mystery novels.",
-      "inActionDes": "",
+      "preActionDes": "The books are heavily dogeared. They appear to be primarily mystery novels. There is one @journal# on top.",
+      "inActionDes": "It's a stack of mystery novels. How appropriate.",
       "postActionDes": "",
       "state": 0,
       "featureId":3

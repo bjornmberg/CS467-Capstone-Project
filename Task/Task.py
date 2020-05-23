@@ -24,6 +24,7 @@ class Task:
         specific Task linked to a look operation
     Multiple Item/Feature Combination Tasks
     """
+
     def perform_task(self, item, feature, rooms):
         """Class a function to perform an action based on Item/Feature combination
 
@@ -205,6 +206,10 @@ class Task:
             return True
         return False
 
+    # variables needed for output of warnings to user in the following method, perform_task_on_day
+    warning_flipper_one = 0
+    warning_flipper_two = 0
+
     def perform_task_on_day(self, day):
         """Checks day to determine what task should be run
 
@@ -212,11 +217,13 @@ class Task:
         :return:
         """
         # One day has passed. output warning to the user.
-        if day == 1:
-            self.print_output('You hear a voice in your head. It sounds like the poltergeist.\n\n"...one day has now passed. What have you accomplished?\n\nYou have two days left. After that... you will be here forever.\n"')
+        if day == 1 and self.warning_flipper_one == 0:
+            self.print_output('You hear a voice in your head. It sounds like the poltergeist.\n\n"...one day has now passed. What have you accomplished?\n\nYou have two days left. After that... you will be here forever."')
+            self.warning_flipper_one = 1
         # Two days have passed. Output last warning to user
-        if day == 2:
+        if day == 2 and self.warning_flipper_two == 0:
             self.print_output('You hear a voice in your head. It\'s the poltergeist again...\n\n"...two days have now come and gone.\n\nYou have one day left.\nHurry... I will not warn you again.\n"')
+            self.warning_flipper_two = 1
         # Three days have passed. Commence end_game based on expiration of time limit
         if day == 3:
             self.end_game(None, None)
@@ -541,6 +548,8 @@ class Task:
         # Revise description of landing to include apparition entering the linen closet
         rooms[11].long_des = 'You are on the second floor landing of the house. A grand ^piano# occupies much of the floor space here. A ^window# faces south, overlooking the lawns. There is a staircase spiraling $down# to the foyer below. You think you see a glowing figure going into the doorway to the $Southwest#, into the linen closet. A door to the $Northeast# leads to the greenroom. A door to the $Southeast# leads to a bath. There is also a door to the $Northwest# going to the red room.'
         rooms[11].visited = False
+        # Change state of the stack of books to reflect that the journal is gone
+        rooms[15].features[3].state = 1
 
         return True
 

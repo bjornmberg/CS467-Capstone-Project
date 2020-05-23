@@ -265,7 +265,7 @@ class Room:
             print(textwrap.fill('You seem to have left these items on the floor: ', initial_indent=(' ' * 20)))
             for y in range(0, len(self.dropped_items)):
                 print(textwrap.fill('\t{}'.format(self.dropped_items[y].name), initial_indent=(' ' * 18)))
-        print((' ' * 20) + ('▃' * 85) + '\n\n')
+        print((' ' * 20) + ('▃' * 85) + '\n')
 
     def set_visited(self):
         """Sets the state of the Room to visited
