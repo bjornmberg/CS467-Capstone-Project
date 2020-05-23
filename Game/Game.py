@@ -171,7 +171,7 @@ class Game:
 
         # False Feature status - feature is not in the Room
         if not feat_status:
-            print('There is no {} in the room.'.format(str_feature))
+            print((' ' * 20) + 'There is no {} in the room.'.format(str_feature))
         else:
             # Key counter variable to check if user has both keys in posession
             key_counter = 0
