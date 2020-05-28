@@ -222,7 +222,7 @@ class Task:
             self.warning_flipper_one = 1
         # Two days have passed. Output last warning to user
         if day == 2 and self.warning_flipper_two == 0:
-            self.print_output('You hear a voice in your head. It\'s the poltergeist again...\n\n"...two days have now come and gone.\n\nYou have one day left.\nHurry... I will not warn you again.\n"')
+            self.print_output('You hear a voice in your head. It\'s the poltergeist again...\n\n"...two days have now come and gone.\n\nYou have one day left.\nHurry... I will not warn you again."')
             self.warning_flipper_two = 1
         # Three days have passed. Commence end_game based on expiration of time limit
         if day == 3:
