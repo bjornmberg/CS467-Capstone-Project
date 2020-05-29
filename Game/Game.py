@@ -146,10 +146,12 @@ class Game:
         # this will return True and the Item object if the
         # object is in the Room or False and None if it is not
         # it will also remove that object from the Room
-        if len(self.inventory.items) < 5:
+        if self.inventory.space_available():
             status, taken_item = current_room.take_item(str_input)
         else:
-            status = False
+            self.print_output("You cannot fit anymore items in your inventory.")
+            return
+
         # if the Item was there put it in the Inventory
         if status == True:
             self.inventory.add_item(taken_item)

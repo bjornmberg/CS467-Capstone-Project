@@ -39,6 +39,12 @@ class Inventory:
             new_item = Item(i['name'], i['description'], i['linkedFeature'])
             self.items.append(new_item)
 
+    def space_available(self):
+        if len(self.items) < self.capacity:
+            return True
+        else:
+            return False
+
     def add_item(self, item):
         """Places an Item into the Inventory
 
@@ -46,11 +52,9 @@ class Inventory:
         :return: VOID
         """
         # check that the Item can fit in the Inventory, add if possible
-        if len(self.items) < self.capacity:
-            self.items.append(item)
-            print('\n' + (' ' * 20) + '{} - added to your inventory.\n'.format(item.name), end='')
-        else:
-            print('\n' + (' ' * 20) + 'You cannot hold anymore items in your inventory.')
+        self.items.append(item)
+        print('\n' + (' ' * 20) + '{} - added to your inventory.\n'.format(item.name), end='')
+
 
     def remove_item(self, item):
         """Removes an Item from the items list
