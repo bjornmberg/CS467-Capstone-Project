@@ -1,6 +1,6 @@
 {
       "name": "Solarium",
-      "longDes": "You have entered the solarium. The air is warm and amazingly humid, almost to the point of oppressiveness. Plants of all varieties crowd the space. You recognize a few, but most appear exotic and unknown to you. There is an overgrown ^vine# growing against the West wall. Large glass ^windows# look out on the rose garden. The only exit is back to the $South#.",
+      "longDes": "You have entered the solarium. The air is warm and amazingly humid, almost to the point of oppressiveness. Plants of all varieties crowd the space. You recognize a few, but most appear exotic and unknown to you. There is an overgrown ^vine# growing against the west wall. Large glass ^windows# look out on the rose garden. The only exit is back to the $South#.",
       "shortDes": "You are in the solarium. The air is warm and humid here. You see the overgrown ^vine#. Glass ^windows# to the north look out onto the rose garden. There is an exit to the $South# that leads back to the game room.",
       "visited": false,
       "startingItems": [

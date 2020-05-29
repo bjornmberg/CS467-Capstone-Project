@@ -146,8 +146,10 @@ class Game:
         # this will return True and the Item object if the
         # object is in the Room or False and None if it is not
         # it will also remove that object from the Room
-        status, taken_item = current_room.take_item(str_input)
-
+        if len(self.inventory.items) < 5:
+            status, taken_item = current_room.take_item(str_input)
+        else:
+            status = False
         # if the Item was there put it in the Inventory
         if status == True:
             self.inventory.add_item(taken_item)
