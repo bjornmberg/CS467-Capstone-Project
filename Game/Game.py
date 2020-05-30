@@ -328,11 +328,7 @@ class Game:
         elif command[0] == 'look':
             if len(command) == 1:
                 print()
-                # If room has not been visited, output long description. Else, short.
-                if current_room.visited == False:
-                    processed = wrapper.wrap_processor(current_room.long_des)
-                else:
-                    processed = wrapper.wrap_processor(current_room.short_des)
+                processed = wrapper.wrap_processor(current_room.long_des)
                 for i in processed:
                     print(i)
                 # Hero time increment operation
