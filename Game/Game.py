@@ -315,6 +315,9 @@ class Game:
         """
         current_room = self.rooms_list[self.hero.location]
 
+        # Check to determine if change needed to long_description for next game loop
+        self.tasks.perform_task_on_description(self.rooms_list, self.hero.location)
+
         command = self.parser.parse_args(self.rooms_list, self.hero)
 
         if command[0] == 'move':

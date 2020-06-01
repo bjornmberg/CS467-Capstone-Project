@@ -227,6 +227,13 @@ class Task:
         # Three days have passed. Commence end_game based on expiration of time limit
         if day == 3:
             self.end_game(None, None)
+
+    def perform_task_on_description(self, rooms_list, rooms_location_id):
+        if (rooms_list[rooms_location_id].room_id == 0) and (rooms_list[0].long_des == "You awaken…\nYour head swims and you hear laughter. As your vision clears, you find yourself sitting in a grand looking parlor. The walls are a rich dark wood. There is a ^couch# opposite and a ^fireplace# crackles along a wall to the east. Through a leaded glass ^window# to the south you can see large trees swaying in the breeze. You are seated in a large leather armchair. You feel very heavy and your head throbs. As you sit for what feels like a long time you regain your senses. You’re about to stand when you hear laughter again. It seems to be moving rapidly in circles above and then behind you. Suddenly the fire blows outward and extinguishes with a gust of cold air.  The air above the couch opposite seems to get hazy, a glow green-yellow, and then before you a figure sits. It’s hard to make out his features but he looks like he was once handsome. Now gaunt, he is clothed in a tattered suit and tails. You hear a voice, it seems to fade in and out, coming from within your own head.\n \n'...sorry about that, I felt you were near and I could not miss this chance.' '...too long. I hear them, all the time. My torment must stop.' '...took my loves away. He must be stopped.' '...you have four days. If you fail...' '...you will be here in my stead. Forever.' The ^poltergeist# looks at you for a moment, then seems to fade. When the figure is gone, you notice a small ^table# near the couch. To the $North# a doorway leads to a formal dining room. A door to the $West# leads to what appears to be a large foyer."):
+            rooms_list[0].long_des = "You are seated in a grand looking parlor. The walls are a rich dark wood. There is a ^couch# opposite and a ^fireplace# crackles along a wall to the east. Through a leaded glass ^window# to the south you can see large trees swaying in the breeze. You are seated in a large leather armchair. Your head throbs. The ^poltergeist# was here... but is now gone. You feel almost as if you can still hear his voice. There is a small ^table# near the couch. To the $North# a doorway leads to a formal dining room. A door to the $West# leads to what appears to be a large foyer."
+
+
+
     # THE BELOW TASKS ARE ALL ASSOCIATED WITH ACTIONS WITHIN THE GAME
     # DUE TO THE NUMBER OF THEM AND THE FACT THAT THEY ARE ALL SIMILIAR
     # DOCSTRINGS ARE NOT PROVIDED
