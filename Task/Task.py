@@ -227,6 +227,26 @@ class Task:
         # Three days have passed. Commence end_game based on expiration of time limit
         if day == 3:
             self.end_game(None, None)
+
+    def perform_task_on_description(self, rooms_list, current_location_id):
+        """ Changes long room descriptions for rooms in which 1x events occur.
+
+        :param: list rooms_list, integer current_location_id
+        :return:
+        """
+        if (rooms_list[current_location_id].room_id == 0) and (rooms_list[0].long_des == "You awaken…\nYour head swims and you hear laughter. As your vision clears, you find yourself sitting in a grand looking parlor. The walls are a rich dark wood. There is a ^couch# opposite and a ^fireplace# crackles along a wall to the east. Through a leaded glass ^window# to the south you can see large trees swaying in the breeze. You are seated in a large leather armchair. You feel very heavy and your head throbs. As you sit for what feels like a long time you regain your senses. You’re about to stand when you hear laughter again. It seems to be moving rapidly in circles above and then behind you. Suddenly the fire blows outward and extinguishes with a gust of cold air.  The air above the couch opposite seems to get hazy, a glow green-yellow, and then before you a figure sits. It’s hard to make out his features but he looks like he was once handsome. Now gaunt, he is clothed in a tattered suit and tails. You hear a voice, it seems to fade in and out, coming from within your own head.\n \n'...sorry about that, I felt you were near and I could not miss this chance.' '...too long. I hear them, all the time. My torment must stop.' '...took my loves away. He must be stopped.' '...you have four days. If you fail...' '...you will be here in my stead. Forever.' The ^poltergeist# looks at you for a moment, then seems to fade. When the figure is gone, you notice a small ^table# near the couch. To the $North# a doorway leads to a formal dining room. A door to the $West# leads to what appears to be a large foyer."):
+            rooms_list[0].long_des = "You are seated in a grand looking parlor. The walls are a rich dark wood. There is a ^couch# opposite and a ^fireplace# crackles along a wall to the east. Through a leaded glass ^window# to the south you can see large trees swaying in the breeze. You are seated in a large leather armchair. Your head throbs. The ^poltergeist# was here... but is now gone. You feel almost as if you can still hear his voice. There is a small ^table# near the couch. To the $North# a doorway leads to a formal dining room. A door to the $West# leads to what appears to be a large foyer."
+        elif (rooms_list[current_location_id].room_id == 7) and ((rooms_list[7]).long_des == "You enter what seems to be a kitchen. You can faintly smell the aroma of freshly-baked bread. There is a door to the $North# exiting onto gardens. A door to the $East# leads back to the dining room. Along the north wall, there is a large ^sink# with a ^window# above it. Stairs lead $down# into darkness. There is also a row of drawers along the northern wall. One ^drawer# has a lock. Just as you finish a quick survey of the room, you notice something (or someone) move in the corner of your eye.\n\nYou turn and see a ghost of a ^chef#. He looks angry, but before you can react the apparition fades."):
+            rooms_list[7].long_des = "You are in a large kitchen. You can faintly smell the aroma of freshly-baked bread. There is a door to the $North# exiting onto gardens. A door to the $East# leads back to the dining room. Along the north wall, there is a large ^sink# with a ^window# above it. Stairs lead $down# into darkness. There is also a row of drawers along the northern wall. One ^drawer# has a lock.\n\nThe ghost of a ^chef# was just here, you are sure of it. You are still shaken."
+        elif (rooms_list[current_location_id].room_id == 12) and (rooms_list[12].long_des == "As you walk into master\'s bedroom your vision blurs and sound washes over you. You see the Chef, yelling something, waving an axe and chasing a woman and a man about the room. The woman and man are running, screaming. Your head swims, and the scene fades.\n\nAs you regain your senses you see a ^glint# of light reflected on the ceiling above the ^bed#. You hear a crashing sound to the south, from the direction of the bath. There is a door to the $Southwest# that leads back to the second floor landing. A door to the $Northwest# leads to the pink room."):
+            rooms_list[12].long_des = "You are in the green room, the master\'s bedroom. The sickening image you witnessed here is still painted in the back of your mind...\n\nAs you regain your senses you see a ^glint# of light reflected on the ceiling above the ^bed#. You hear a crashing sound to the south, from the direction of the bath. There is a door to the $Southwest# that leads back to the second floor landing. A door to the $Northwest# leads to the pink room."
+        elif (rooms_list[current_location_id].room_id == 9) and (rooms_list[9].long_des == "You find yourself in what seems to be a young girl\'s room. A ^ghost# of a girl is twirling in the center of the room, laughing. She is saying something about birds splashing at a fountain. She is wearing a white dress, with white spots on it.\n\nThe vision fades. There are ^toys# about and a ^rocking horse#. A ^music box# stands upon a small ^table#.\n\nA door to the $Southeast# leads to the second floor landing. A door to the $Northwest# goes to the pink room."):
+            rooms_list[9].long_des = "You are in a room, you believe of the girl whose apparition you saw here...\n\nThere is a canopied ^bed# along the far wall. There are dolls and ^toys# scattered about the rug. A ^rocking horse# stands near a window to the north. You see a small table along the near wall upon which are some brushes and a ^music box#. To the $Northeast# is a door to the pink room. Through a door to the $Southeast# you can see the second floor landing."
+        elif (rooms_list[current_location_id].room_id == 11) and (rooms_list[11].long_des == "You are on the second floor landing of the house. A grand ^piano# occupies much of the floor space here. A ^window# faces south, overlooking the lawns. There is a staircase spiraling $down# to the foyer below. You think you see a glowing figure going into the doorway to the $Southwest#, into the linen closet. A door to the $Northeast# leads to the green room. A door to the $Southeast# leads to a bath. There is also a door to the $Northwest# going to the red room."):
+            rooms_list[11].long_des = "You are on the second floor landing of the house. A grand ^piano# occupies much of the floor space here. A ^window# faces south, overlooking the lawns. There is a staircase spiraling $down# to the foyer below. There is a doorway to the $Southwest#, heading into the linen closet. A door to the $Northeast# leads to the green room. A door to the $Southeast# leads to a bath. There is also a door to the $Northwest# going to the red room."
+        elif (rooms_list[current_location_id].room_id == 7) and ((rooms_list[7]).long_des == "You are standing in the kitchen. A vision washes before your eyes. You see the servant, he is standing with his back to you, shouting at Chef Staker. The ^Chef# is swinging a pan at the servant. There is a bang.\n\nThe servant has shot the Chef in the eye, and the Chef falls to the floor.\n\nThe door to the $North# goes to the Rose Garden. The door to the $East# is the formal Dining Room. There are stairs leading $down#.  There is also a row of drawers along the northern wall. One ^drawer# has a lock."):
+            rooms_list[7].long_des = "You are in the mansion's large kitchen. You can faintly smell the aroma of freshly-baked bread. There is a door to the $North# exiting onto gardens. A door to the $East# leads back to the dining room. Along the north wall, there is a large ^sink# with a ^window# above it. Stairs lead $down# into darkness. There is also a row of drawers along the northern wall. One ^drawer# has a lock.\n\nYou shiver a bit, thinking of the strange things you've witnessed in this room."
+
     # THE BELOW TASKS ARE ALL ASSOCIATED WITH ACTIONS WITHIN THE GAME
     # DUE TO THE NUMBER OF THEM AND THE FACT THAT THEY ARE ALL SIMILIAR
     # DOCSTRINGS ARE NOT PROVIDED
@@ -415,14 +435,15 @@ class Task:
         """
         # "Hear sound elsewhere"
         self.print_output('You the sound of laughter coming from somewhere upstairs.')
-        # Change the long description of the kitchen to output the vision. 
-        rooms[9].long_des = 'You find yourself in what seems to be a young girl\'s room. A ^ghost# of a girl is twirling in the center of the room, laughing. She is saying something about birds splashing at a fountain. She is wearing a white dress, with white spots on it.\n\nThe vision fades. There are ^toys# about and a ^rocking horse#. A ^music box# stands upon a small ^table#.\n\nA door to the $Southeast# leads to the second floor landing. A door to the $Northwest# goes to the pink room.'
-        rooms[9].visited = False
-        # Change the state of the ghost feature in the red room
-        rooms[9].features[0].state = 1
-        # Change the in_action and post_action descriptions of the grave to take into account posession of the locket
-        rooms[21].features[2].in_action_des = 'You dig a hole at the bottom of the tree, making a makeshift ^grave#.\n\nThe ~locket# you took from the Solarium glows in your hand now. Should you place it in the grave?'
-        rooms[21].features[2].post_action_des = 'This is where you dug the ^grave#. Maybe you should place the ~locket# there?'
+        if rooms[9].long_des != "You are in a room, you believe of the girl whose apparition you saw here...\n\nThere is a canopied ^bed# along the far wall. There are dolls and ^toys# scattered about the rug. A ^rocking horse# stands near a window to the north. You see a small table along the near wall upon which are some brushes and a ^music box#. To the $Northeast# is a door to the pink room. Through a door to the $Southeast# you can see the second floor landing.":
+            # Change the long description of the kitchen to output the vision. 
+            rooms[9].long_des = 'You find yourself in what seems to be a young girl\'s room. A ^ghost# of a girl is twirling in the center of the room, laughing. She is saying something about birds splashing at a fountain. She is wearing a white dress, with white spots on it.\n\nThe vision fades. There are ^toys# about and a ^rocking horse#. A ^music box# stands upon a small ^table#.\n\nA door to the $Southeast# leads to the second floor landing. A door to the $Northwest# goes to the pink room.'
+            rooms[9].visited = False
+            # Change the state of the ghost feature in the red room
+            rooms[9].features[0].state = 1
+            # Change the in_action and post_action descriptions of the grave to take into account posession of the locket
+            rooms[21].features[2].in_action_des = 'You dig a hole at the bottom of the tree, making a makeshift ^grave#.\n\nThe ~locket# you took from the Solarium glows in your hand now. Should you place it in the grave?'
+            rooms[21].features[2].post_action_des = 'This is where you dug the ^grave#. Maybe you should place the ~locket# there?'
         return True
 
     # This is part of game winning sequence B - comfort the ghost daughter
@@ -546,7 +567,7 @@ class Task:
         :return: bool True
         """
         # Revise description of landing to include apparition entering the linen closet
-        rooms[11].long_des = 'You are on the second floor landing of the house. A grand ^piano# occupies much of the floor space here. A ^window# faces south, overlooking the lawns. There is a staircase spiraling $down# to the foyer below. You think you see a glowing figure going into the doorway to the $Southwest#, into the linen closet. A door to the $Northeast# leads to the greenroom. A door to the $Southeast# leads to a bath. There is also a door to the $Northwest# going to the red room.'
+        rooms[11].long_des = 'You are on the second floor landing of the house. A grand ^piano# occupies much of the floor space here. A ^window# faces south, overlooking the lawns. There is a staircase spiraling $down# to the foyer below. You think you see a glowing figure going into the doorway to the $Southwest#, into the linen closet. A door to the $Northeast# leads to the green room. A door to the $Southeast# leads to a bath. There is also a door to the $Northwest# going to the red room.'
         rooms[11].visited = False
         # Change state of the stack of books to reflect that the journal is gone
         rooms[15].features[3].state = 1
@@ -602,11 +623,12 @@ class Task:
         :return: bool True
         """
         # Change the long description of the green room to output the vision.
-        rooms[green_room_index].long_des = 'As you walk into master\'s bedroom your vision blurs and sound washes over you. You see the Chef, yelling something, waving an axe and chasing a woman and a man about the room. The woman and man are running, screaming. Your head swims, and the scene fades.\n\nAs you regain your senses you see a ^glint# of light reflected on the ceiling above the ^bed#. You hear a crashing sound to the south, from the direction of the bath. There is a door to the $Southwest# that leads back to the second floor landing. A door to the $Northwest# leads to the pink room.'
-        rooms[green_room_index].visited = False
-        # Change the long description of the second floor bathroom so floor tile is on the floor now
-        rooms[22].long_des = 'You are standing in a bathroom. One of the tiles has fallen to the floor. You see a ^hollow# in the wall where the tile was previously, near the ^tub#.  A door to the $West# exits to the landing.'
-        rooms[22].visited = False
+        if rooms[green_room_index].long_des != 'You are in the green room, the master\'s bedroom. The sickening image you witnessed here is still painted in the back of your mind...\n\nAs you regain your senses you see a ^glint# of light reflected on the ceiling above the ^bed#. You hear a crashing sound to the south, from the direction of the bath. There is a door to the $Southwest# that leads back to the second floor landing. A door to the $Northwest# leads to the pink room.':
+            rooms[green_room_index].long_des = 'As you walk into master\'s bedroom your vision blurs and sound washes over you. You see the Chef, yelling something, waving an axe and chasing a woman and a man about the room. The woman and man are running, screaming. Your head swims, and the scene fades.\n\nAs you regain your senses you see a ^glint# of light reflected on the ceiling above the ^bed#. You hear a crashing sound to the south, from the direction of the bath. There is a door to the $Southwest# that leads back to the second floor landing. A door to the $Northwest# leads to the pink room.'
+            rooms[green_room_index].visited = False
+            # Change the long description of the second floor bathroom so floor tile is on the floor now
+            rooms[22].long_des = 'You are standing in a bathroom. One of the tiles has fallen to the floor. You see a ^hollow# in the wall where the tile was previously, near the ^tub#.  A door to the $West# exits to the landing.'
+            rooms[22].visited = False
 
         return True
 

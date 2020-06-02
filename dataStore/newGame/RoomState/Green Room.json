@@ -1,7 +1,7 @@
 {
   "name": "Green Room",
   "longDes": "You find yourself in the master’s bedroom. The walls are a deep green. You see a ^glint# of light on the ceiling above the bed. There is a door to the $Southwest# that leads back to the second floor landing. A door to the $Northwest# leads to the pink room.",
-  "shortDes": "You are in the green room, which was the master’s quarters. A door to the $Southwest# leads to the second floor landing. A door to the $Northwest# goes to the pink room.",
+  "shortDes": "You are in the green room, which was the master’s quarters. A large ^bed# dominates the space here. A door to the $Southwest# leads to the second floor landing. A door to the $Northwest# goes to the pink room.",
   "visited": false,
   "startingItems": [
     {
